@@ -324,7 +324,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           }
         }
         setAiResult(finalResult);
-        setIsPaused(true); // Pause timer while reviewing
+        // Cronômetro continua correndo durante a visualização da tela de finalização
       }
     } catch (error) {
       console.error('Failed to structure ticket:', error);
@@ -455,19 +455,25 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       {aiResult && (
         <div 
           className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-[100] p-4 animate-in fade-in duration-200"
-          onClick={() => { setAiResult(null); setIsPaused(false); }}
+          onClick={() => setAiResult(null)}
         >
           <div 
             className="bg-white rounded-2xl border border-slate-200 shadow-2xl max-w-5xl w-full h-[85vh] max-h-[750px] flex flex-col p-6 animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-blue-600" />
-                Revisão da IA
-              </h3>
+              <div className="flex items-center gap-3 flex-wrap">
+                <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 text-blue-600" />
+                  Revisão e Finalização do Chamado
+                </h3>
+                <div className="flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-200">
+                  <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+                  <span>Tempo em andamento: {formatTime(ticket.durationSeconds)}</span>
+                </div>
+              </div>
               <button 
-                onClick={() => { setAiResult(null); setIsPaused(false); }}
+                onClick={() => setAiResult(null)}
                 className="p-2 hover:bg-slate-100 rounded-full text-slate-500 transition-colors cursor-pointer"
               >
                 <X className="h-5 w-5" />
@@ -865,6 +871,48 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       </div>
 
       <div className="space-y-6">
+        {/* Caixa de Título do Chamado com Gerador de Título IA */}
+        <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 shadow-2xs">
+          <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span className="flex items-center gap-1.5">
+              <Edit3 className="h-4 w-4 text-blue-600" />
+              Título / Assunto do Chamado
+            </span>
+            {ticket.title && (
+              <span className="text-[11px] font-normal text-slate-400 font-sans normal-case">
+                {ticket.title.length} caracteres
+              </span>
+            )}
+          </label>
+          <div className="flex flex-col sm:flex-row gap-2.5">
+            <input 
+              type="text" 
+              value={ticket.title || ''}
+              onChange={(e) => handleChange('title', e.target.value)}
+              placeholder="Digite o título do chamado ou clique em 'Gerar Título (IA)' para aprimorá-lo..."
+              className="flex-1 p-2.5 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium text-slate-800 placeholder:text-slate-400 shadow-2xs" 
+            />
+            <button
+              type="button"
+              onClick={handleGenerateTitle}
+              disabled={isGeneratingTitle || (!ticket.title?.trim() && !ticket.description?.trim())}
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-sm font-bold shadow-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed shrink-0 cursor-pointer active:scale-95"
+              title="Aperte para transformar e aperfeiçoar o título em linguagem técnica e profissional usando IA"
+            >
+              {isGeneratingTitle ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Sparkles className="h-4 w-4 text-amber-300" />
+              )}
+              <span>{isGeneratingTitle ? 'Gerando Título...' : 'Gerar Título (IA)'}</span>
+            </button>
+          </div>
+          <p className="text-[11px] text-slate-500 mt-2 flex items-center gap-1">
+            <Info className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+            Digite um título rascunho ou clique em <strong>Gerar Título (IA)</strong> para transformá-lo em uma versão técnica e formal.
+          </p>
+        </div>
+
         <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Login de rede</label>
@@ -1277,48 +1325,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               </div>
             </div>
           )}
-        </div>
-
-        {/* Caixa de Título do Chamado com Gerador de Título IA */}
-        <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-4">
-          <label className="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span className="flex items-center gap-1.5">
-              <Edit3 className="h-4 w-4 text-blue-600" />
-              Título / Assunto do Chamado
-            </span>
-            {ticket.title && (
-              <span className="text-[11px] font-normal text-slate-400 font-sans normal-case">
-                {ticket.title.length} caracteres
-              </span>
-            )}
-          </label>
-          <div className="flex flex-col sm:flex-row gap-2.5">
-            <input 
-              type="text" 
-              value={ticket.title || ''}
-              onChange={(e) => handleChange('title', e.target.value)}
-              placeholder="Digite o título do chamado ou clique em 'Gerar Título (IA)' para aprimorá-lo..."
-              className="flex-1 p-2.5 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium text-slate-800 placeholder:text-slate-400 shadow-2xs" 
-            />
-            <button
-              type="button"
-              onClick={handleGenerateTitle}
-              disabled={isGeneratingTitle || (!ticket.title?.trim() && !ticket.description?.trim())}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-sm font-bold shadow-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed shrink-0 cursor-pointer active:scale-95"
-              title="Aperte para transformar e aperfeiçoar o título em linguagem técnica e profissional usando IA"
-            >
-              {isGeneratingTitle ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <Sparkles className="h-4 w-4 text-amber-300" />
-              )}
-              <span>{isGeneratingTitle ? 'Gerando Título...' : 'Gerar Título (IA)'}</span>
-            </button>
-          </div>
-          <p className="text-[11px] text-slate-500 mt-2 flex items-center gap-1">
-            <Info className="h-3.5 w-3.5 text-slate-400 shrink-0" />
-            Digite um título rascunho ou clique em <strong>Gerar Título (IA)</strong> para transformá-lo em uma versão técnica e formal.
-          </p>
         </div>
 
         <div>
