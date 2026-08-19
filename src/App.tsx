@@ -181,6 +181,7 @@ O texto é:
     const interval = setInterval(() => {
       activeTabsRef.current.forEach(async (tab) => {
         try {
+          if (!tab.id || !tab.id.trim()) return;
           const { isDraft, ...ticketData } = tab;
           await setDoc(doc(db, 'tickets', tab.id), {
              ...ticketData,
@@ -547,8 +548,9 @@ O texto é:
                 currentActiveTicket && (
                   <>
                     <TicketForm 
+                      key={currentActiveTicket.tabId || currentActiveTicket.id}
                       ticket={currentActiveTicket} 
-                      isActive={currentTabId === currentActiveTicket.id}
+                      isActive={currentTabId === (currentActiveTicket.tabId || currentActiveTicket.id)}
                       onUpdate={handleUpdateActiveTicket}
                       onFinish={handleFinishTicket}
                       onDuplicate={handleDuplicateTicket}

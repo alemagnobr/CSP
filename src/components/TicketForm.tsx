@@ -148,7 +148,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     setIsAddingCategory(false);
     setNewCategory('');
     setAiViewMode('preview');
-  }, [ticket.id]);
+  }, [ticket.tabId || ticket.id]);
 
   useEffect(() => {
     ticketRef.current = ticket;
