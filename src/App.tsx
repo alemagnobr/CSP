@@ -13,7 +13,7 @@ import { Ticket, ActiveTicket, AppSettings } from '@/types';
 import { cn } from '@/lib/utils';
 
 // Firebase imports
-import { auth, db, collection, doc, setDoc, getDocs, onSnapshot, signOut, handleFirestoreError, OperationType } from '@/lib/firebase';
+import { auth, db, collection, doc, setDoc, getDocs, deleteDoc, onSnapshot, signOut, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { LoginScreen } from '@/components/LoginScreen';
 
@@ -138,10 +138,35 @@ O texto é:
 
     // Listen to Tickets
     const unsubTickets = onSnapshot(collection(db, 'tickets'), (snapshot) => {
-      const loadedTickets: Ticket[] = [];
-      snapshot.forEach((doc) => {
-        loadedTickets.push(doc.data() as Ticket);
+      const ticketsMap = new Map<string, Ticket>();
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data() as Ticket;
+        const ticketId = (data.id || docSnap.id || '').trim();
+        if (!ticketId) return;
+
+        const ticketItem: Ticket = {
+          ...data,
+          id: ticketId,
+        };
+
+        if (ticketsMap.has(ticketId)) {
+          const existing = ticketsMap.get(ticketId)!;
+          // Priority 1: Keep FINALIZADO over EM_ANDAMENTO
+          if (existing.status !== 'FINALIZADO' && ticketItem.status === 'FINALIZADO') {
+            ticketsMap.set(ticketId, ticketItem);
+          } else if (existing.status === ticketItem.status) {
+            // Priority 2: Keep the most recently updated/finished
+            const existingTime = new Date(existing.finishedAt || existing.createdAt || 0).getTime();
+            const newTime = new Date(ticketItem.finishedAt || ticketItem.createdAt || 0).getTime();
+            if (newTime >= existingTime) {
+              ticketsMap.set(ticketId, ticketItem);
+            }
+          }
+        } else {
+          ticketsMap.set(ticketId, ticketItem);
+        }
       });
+      const loadedTickets = Array.from(ticketsMap.values());
       setTickets(loadedTickets.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
       setDbLoading(false);
     }, (error) => handleFirestoreError(error, OperationType.LIST, 'tickets'));
@@ -163,37 +188,11 @@ O texto é:
     }
   };
 
-  // Keep a ref of active tabs for the interval
-  const activeTabsRef = useRef(activeTabs);
-  useEffect(() => {
-    activeTabsRef.current = activeTabs;
-  }, [activeTabs]);
-
-  // Auto-save local tabs and sync to Firestore
+  // Auto-save local tabs to localStorage
   useEffect(() => {
     localStorage.setItem('@helpdesk:activeTabs', JSON.stringify(activeTabs));
     localStorage.setItem('@helpdesk:currentTabId', currentTabId);
   }, [activeTabs, currentTabId]);
-
-  // Sync draft tickets to Firestore every 5 seconds
-  useEffect(() => {
-    if (!user) return;
-    const interval = setInterval(() => {
-      activeTabsRef.current.forEach(async (tab) => {
-        try {
-          if (!tab.id || !tab.id.trim()) return;
-          const { isDraft, ...ticketData } = tab;
-          await setDoc(doc(db, 'tickets', tab.id), {
-             ...ticketData,
-             status: tab.status === 'FINALIZADO' ? 'FINALIZADO' : 'EM_ANDAMENTO'
-          }, { merge: true });
-        } catch (error) {
-          console.error("Auto-save to Firestore failed", error);
-        }
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [user]);
 
   const handleArchiveTicket = async (id: string) => {
     if (!user) return;
@@ -210,6 +209,15 @@ O texto é:
       await setDoc(doc(db, 'tickets', id), { archived: false }, { merge: true }); 
     } catch (error) {
       handleFirestoreError(error, OperationType.UPDATE, `tickets/${id}`);
+    }
+  };
+
+  const handleDeleteTicket = async (id: string) => {
+    if (!user) return;
+    try {
+      await deleteDoc(doc(db, 'tickets', id));
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, `tickets/${id}`);
     }
   };
   
@@ -318,6 +326,11 @@ O texto é:
     if (user) {
       try {
         await setDoc(doc(db, 'tickets', finished.id), finished);
+        if (ticketToFinish.tabId && ticketToFinish.tabId !== finished.id) {
+          try {
+            await deleteDoc(doc(db, 'tickets', ticketToFinish.tabId));
+          } catch (e) {}
+        }
       } catch (error) {
         handleFirestoreError(error, OperationType.WRITE, `tickets/${finished.id}`);
       }
@@ -541,7 +554,15 @@ O texto é:
                       </div>
                     )}
                     
-                    <TicketList tickets={tickets} appSettings={appSettings} onArchive={handleArchiveTicket} onRestore={handleRestoreTicket} onEdit={handleEditTicket} onUpdate={handleUpdateTicket} />
+                    <TicketList 
+                      tickets={tickets} 
+                      appSettings={appSettings} 
+                      onArchive={handleArchiveTicket} 
+                      onRestore={handleRestoreTicket} 
+                      onDelete={handleDeleteTicket}
+                      onEdit={handleEditTicket} 
+                      onUpdate={handleUpdateTicket} 
+                    />
                   </>
                 )
               ) : (
@@ -562,7 +583,15 @@ O texto é:
                     <div className="mt-12 pt-12 border-t border-slate-200">
                       <h3 className="text-xl font-bold text-slate-800 mb-8">Dashboard e Histórico</h3>
                       <div className="space-y-8">
-                        <TicketList tickets={tickets} appSettings={appSettings} onArchive={handleArchiveTicket} onRestore={handleRestoreTicket} onEdit={handleEditTicket} onUpdate={handleUpdateTicket} />
+                        <TicketList 
+                          tickets={tickets} 
+                          appSettings={appSettings} 
+                          onArchive={handleArchiveTicket} 
+                          onRestore={handleRestoreTicket} 
+                          onDelete={handleDeleteTicket}
+                          onEdit={handleEditTicket} 
+                          onUpdate={handleUpdateTicket} 
+                        />
                       </div>
                     </div>
                   </>

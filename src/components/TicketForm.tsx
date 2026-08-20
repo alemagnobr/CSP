@@ -17,6 +17,7 @@ import { generateTicketStructure, searchSolutions, generateProfessionalTitle, fo
 import { SmartSuggestions } from './SmartSuggestions';
 
 interface TicketFormProps {
+  key?: React.Key;
   ticket: ActiveTicket;
   onUpdate: (ticket: ActiveTicket) => void;
   onFinish: (ticket: ActiveTicket) => void;

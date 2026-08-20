@@ -12,6 +12,7 @@ interface TicketListProps {
   appSettings: AppSettings;
   onArchive?: (id: string) => void;
   onRestore?: (id: string) => void;
+  onDelete?: (id: string) => void;
   onEdit?: (id: string) => void;
   onUpdate?: (ticket: Ticket) => void;
 }
@@ -30,7 +31,7 @@ function formatDateStr(dateString: string) {
   });
 }
 
-export function TicketList({ tickets, appSettings, onArchive, onRestore, onEdit, onUpdate }: TicketListProps) {
+export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelete, onEdit, onUpdate }: TicketListProps) {
   const defaultMap: Record<string, string> = {
     'day': 'Dia',
     'week': 'Semana',
@@ -674,6 +675,19 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onEdit,
                       ARQUIVAR
                     </button>
                   )
+                )}
+                {onDelete && (
+                  <button 
+                    onClick={() => {
+                      if (window.confirm(`Tem certeza que deseja excluir o chamado ${ticket.id}?`)) {
+                        onDelete(ticket.id);
+                      }
+                    }} 
+                    className="text-rose-600 text-xs font-bold hover:text-rose-800 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors"
+                    title="Excluir chamado"
+                  >
+                    EXCLUIR
+                  </button>
                 )}
               </div>
             </div>
