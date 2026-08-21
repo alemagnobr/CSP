@@ -817,35 +817,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
-        <div className="flex items-center gap-2">
-          <label htmlFor="ticket-id-field" className="text-lg font-bold text-slate-800 shrink-0">
-            Chamado
-          </label>
-          <div className="relative">
-            <input 
-              id="ticket-id-field"
-              ref={ticketIdInputRef}
-              type="text" 
-              value={ticket.id || ''}
-              onChange={(e) => {
-                handleChange('id', e.target.value);
-                if (validationError && e.target.value.trim()) {
-                  setValidationError(null);
-                }
-              }}
-              placeholder="Digite o nº do chamado..."
-              className={cn(
-                "px-3 py-1.5 text-lg font-bold text-slate-900 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-2xs transition-all w-56 placeholder:font-normal placeholder:text-slate-400 placeholder:text-xs",
-                validationError && !ticket.id?.trim() 
-                  ? "border-red-500 ring-2 ring-red-200 bg-red-50/50" 
-                  : "border-slate-300 hover:border-slate-400"
-              )}
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4 text-sm text-slate-600 flex-wrap">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-end gap-4 mb-6 pb-4 border-b border-slate-100">
+        <div className="flex items-center gap-4 text-sm text-slate-600 flex-wrap w-full justify-between sm:justify-end">
           <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-md font-bold text-slate-700">
             {formatTime(ticket.durationSeconds)}
           </div>
@@ -912,6 +885,34 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             <Info className="h-3.5 w-3.5 text-slate-400 shrink-0" />
             Digite um título rascunho ou clique em <strong>Gerar Título (IA)</strong> para transformá-lo em uma versão técnica e formal.
           </p>
+        </div>
+
+        {/* Campo Chamado (Número do Chamado) posicionado abaixo de Título / Assunto */}
+        <div>
+          <label htmlFor="ticket-id-field" className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">
+            Chamado
+          </label>
+          <div className="relative">
+            <input 
+              id="ticket-id-field"
+              ref={ticketIdInputRef}
+              type="text" 
+              value={ticket.id || ''}
+              onChange={(e) => {
+                handleChange('id', e.target.value);
+                if (validationError && e.target.value.trim()) {
+                  setValidationError(null);
+                }
+              }}
+              placeholder="Digite o nº do chamado..."
+              className={cn(
+                "w-full sm:w-80 p-2.5 rounded-lg border text-sm font-bold text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-2xs transition-all placeholder:font-normal placeholder:text-slate-400",
+                validationError && !ticket.id?.trim() 
+                  ? "border-red-500 ring-2 ring-red-200 bg-red-50/50" 
+                  : "border-slate-200 hover:border-slate-300"
+              )}
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-4 gap-4">
