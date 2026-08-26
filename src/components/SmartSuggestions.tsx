@@ -15,7 +15,7 @@ import {
   Search,
   Pin
 } from 'lucide-react';
-import { FAQ, Procedure, Orientation, Information, Ticket, ActiveTicket, AppSettings } from '@/types';
+import { FAQ, Procedure, Orientation, Information, Ticket, ActiveTicket, AppSettings, TechnicalDoubt } from '@/types';
 import { cn } from '@/lib/utils';
 
 interface SmartSuggestionsProps {
@@ -42,7 +42,7 @@ const STOPWORDS = new Set([
 
 interface SuggestionItem {
   id: string;
-  type: 'faq' | 'procedure' | 'orientation' | 'information' | 'ticket';
+  type: 'faq' | 'procedure' | 'orientation' | 'information' | 'doubt' | 'ticket';
   title: string;
   subtitle: string;
   content: string;
@@ -51,7 +51,7 @@ interface SuggestionItem {
   original: any;
 }
 
-type TabType = 'all' | 'faqs' | 'procedures' | 'orientations' | 'informations' | 'tickets';
+type TabType = 'all' | 'faqs' | 'procedures' | 'orientations' | 'informations' | 'doubts' | 'tickets';
 
 export function SmartSuggestions({ description, appSettings, finishedTickets, ticket, onUpdate }: SmartSuggestionsProps) {
   const [activeTab, setActiveTab] = useState<TabType>('faqs');
@@ -268,7 +268,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
               id,
               type: 'information',
               title: info.title,
-              subtitle: 'Dúvida Técnica / Informações',
+              subtitle: 'Informações',
               content: info.content,
               score: 1,
               original: info
@@ -293,7 +293,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
             id,
             type: 'information',
             title: info.title,
-            subtitle: 'Dúvida Técnica / Informações',
+            subtitle: 'Informações',
             content: info.content,
             score,
             original: info
@@ -302,7 +302,67 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
       });
     }
 
-    // 5. Process Finished Tickets
+    // 5. Process Technical Doubts
+    if (appSettings.technicalDoubts) {
+      appSettings.technicalDoubts.forEach(doubt => {
+        const id = `doubt-${doubt.id}`;
+        const isPinned = pinnedIds.includes(id);
+        const isResolved = doubt.status === 'ESCLARECIDA';
+
+        if (showPinnedOnly) {
+          if (isPinned) {
+            list.push({
+              id,
+              type: 'doubt',
+              title: doubt.title,
+              subtitle: isResolved ? `Dúvida Esclarecida • ${doubt.supervisorName || 'Supervisão'}` : 'Dúvida com Supervisão',
+              content: doubt.problemDescription,
+              extraContent: doubt.supervisorSolution || undefined,
+              score: 1,
+              original: doubt
+            });
+          }
+          return;
+        }
+
+        let score = 0;
+        const titleClean = (doubt.title || '').toLowerCase();
+        const descClean = (doubt.problemDescription || '').toLowerCase();
+        const solClean = (doubt.supervisorSolution || '').toLowerCase();
+        const catClean = (doubt.category || '').toLowerCase();
+        const sysClean = (doubt.system || '').toLowerCase();
+
+        if (titleClean.includes(activeQuery)) score += 180;
+        if (solClean.includes(activeQuery)) score += 140;
+
+        keywords.forEach(kw => {
+          if (titleClean.includes(kw)) score += 50;
+          if (solClean.includes(kw)) score += 35;
+          if (descClean.includes(kw)) score += 15;
+          if (catClean.includes(kw)) score += 10;
+          if (sysClean.includes(kw)) score += 10;
+        });
+
+        if (isResolved && score > 0) {
+          score += 20; // boost doubts that have verified supervisor solutions
+        }
+
+        if (score > 0) {
+          list.push({
+            id,
+            type: 'doubt',
+            title: doubt.title,
+            subtitle: isResolved ? `Dúvida Esclarecida • ${doubt.supervisorName || 'Supervisão'}` : 'Dúvida com Supervisão',
+            content: doubt.problemDescription,
+            extraContent: doubt.supervisorSolution || undefined,
+            score,
+            original: doubt
+          });
+        }
+      });
+    }
+
+    // 6. Process Finished Tickets
     if (finishedTickets) {
       finishedTickets.forEach(t => {
         const id = `ticket-${t.id}`;
@@ -370,6 +430,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
     if (activeTab === 'faqs') return suggestions.filter(s => s.type === 'faq');
     if (activeTab === 'procedures') return suggestions.filter(s => s.type === 'procedure');
     if (activeTab === 'orientations') return suggestions.filter(s => s.type === 'orientation');
+    if (activeTab === 'doubts') return suggestions.filter(s => s.type === 'doubt');
     if (activeTab === 'informations') return suggestions.filter(s => s.type === 'information');
     if (activeTab === 'tickets') return suggestions.filter(s => s.type === 'ticket');
     return suggestions;
@@ -480,13 +541,14 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
 
       {/* Tabs - horizontal scrolling with ultra-thin styled scrollbar */}
       <div className="flex gap-1 overflow-x-auto pb-2 shrink-0 scrollbar-thin [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-track]:bg-slate-100 [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400">
-        {(['faqs', 'procedures', 'orientations', 'informations', 'tickets', 'all'] as TabType[]).map((tab) => {
+        {(['faqs', 'procedures', 'orientations', 'doubts', 'informations', 'tickets', 'all'] as TabType[]).map((tab) => {
           const count = tab === 'all' 
             ? suggestions.length 
             : suggestions.filter(s => {
                 if (tab === 'faqs') return s.type === 'faq';
                 if (tab === 'procedures') return s.type === 'procedure';
                 if (tab === 'orientations') return s.type === 'orientation';
+                if (tab === 'doubts') return s.type === 'doubt';
                 if (tab === 'informations') return s.type === 'information';
                 if (tab === 'tickets') return s.type === 'ticket';
                 return false;
@@ -497,6 +559,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
             faqs: 'FAQs',
             procedures: 'Proceds',
             orientations: 'Orients',
+            doubts: 'Dúvidas',
             informations: 'Infos',
             tickets: 'Histórico'
           }[tab];
@@ -555,6 +618,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
               procedure: FileText,
               orientation: BookOpen,
               information: Info,
+              doubt: HelpCircle,
               ticket: History
             }[item.type];
 
@@ -564,6 +628,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
               procedure: 'border-blue-200 bg-blue-50 text-blue-700',
               orientation: 'border-amber-200 bg-amber-50 text-amber-700',
               information: 'border-cyan-200 bg-cyan-50 text-cyan-700',
+              doubt: item.original.status === 'ESCLARECIDA' ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-700',
               ticket: 'border-slate-200 bg-slate-50 text-slate-700'
             }[item.type];
 
@@ -654,6 +719,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
                     procedure: 'border-blue-200 bg-blue-50 text-blue-700',
                     orientation: 'border-amber-200 bg-amber-50 text-amber-700',
                     information: 'border-cyan-200 bg-cyan-50 text-cyan-700',
+                    doubt: previewItem.original?.status === 'ESCLARECIDA' ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-amber-200 bg-amber-50 text-amber-700',
                     ticket: 'border-slate-200 bg-slate-50 text-slate-700'
                   }[previewItem.type]
                 )}>
@@ -662,6 +728,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
                     procedure: <FileText className="h-5 w-5" />,
                     orientation: <BookOpen className="h-5 w-5" />,
                     information: <Info className="h-5 w-5" />,
+                    doubt: <HelpCircle className="h-5 w-5" />,
                     ticket: <History className="h-5 w-5" />
                   }[previewItem.type]}
                 </span>
@@ -702,7 +769,11 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
             <div className="flex-1 overflow-y-auto p-6 space-y-4">
               <div className="bg-slate-50 rounded-xl p-5 border border-slate-100 min-h-[150px]">
                 <h5 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">
-                  {previewItem.type === 'ticket' ? 'Relato do Chamado' : 'Conteúdo / Solução Técnica'}
+                  {previewItem.type === 'ticket' 
+                    ? 'Relato do Chamado' 
+                    : previewItem.type === 'doubt' 
+                    ? 'Problema / Incerteza Relatada' 
+                    : 'Conteúdo / Solução Técnica'}
                 </h5>
                 <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">
                   {previewItem.content.includes('<') && previewItem.content.includes('>') ? (
@@ -716,7 +787,11 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
               {previewItem.extraContent && (
                 <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
                   <h5 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">
-                    {previewItem.type === 'ticket' ? 'Solução Estruturada' : 'Passos & Orientações Adicionais'}
+                    {previewItem.type === 'ticket' 
+                      ? 'Solução Estruturada' 
+                      : previewItem.type === 'doubt' 
+                      ? 'Orientação / Solução da Supervisão' 
+                      : 'Passos & Orientações Adicionais'}
                   </h5>
                   <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">
                     {previewItem.extraContent.includes('<') && previewItem.extraContent.includes('>') ? (

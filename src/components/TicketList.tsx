@@ -1,7 +1,7 @@
 import { Eye, Edit, Trash2, Search as SearchIcon, Copy, Check } from 'lucide-react';
 import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 import { Ticket, AppSettings } from '@/types';
 import { cn } from '@/lib/utils';
 import { SearchableFaqSelect } from './SearchableFaqSelect';
@@ -48,7 +48,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
   const [editMinutes, setEditMinutes] = useState('0');
   const [editSeconds, setEditSeconds] = useState('0');
   const [copiedResult, setCopiedResult] = useState(false);
-  const [slaFilter, setSlaFilter] = useState<'10' | '15' | '20' | null>(null);
+  const [slaFilter, setSlaFilter] = useState<'10' | '15' | '20' | '30' | null>(null);
   const [chartTab, setChartTab] = useState<'sla' | 'distribution'>('sla');
   const [selectedMonth, setSelectedMonth] = useState<string>(format(new Date(), 'yyyy-MM'));
   const [showArchived, setShowArchived] = useState(false);
@@ -136,9 +136,11 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       if (slaFilter === '10') {
         return duration <= 10 * 60;
       } else if (slaFilter === '15') {
-        return duration > 10 * 60 && duration <= 15 * 60;
+        return duration <= 15 * 60;
       } else if (slaFilter === '20') {
-        return duration > 15 * 60 && duration <= 20 * 60;
+        return duration <= 20 * 60;
+      } else if (slaFilter === '30') {
+        return duration <= 30 * 60;
       }
       return true;
     });
@@ -173,38 +175,53 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
     const count10 = finishedFilteredTickets.filter(t => t.durationSeconds <= 10 * 60).length;
     const count15 = finishedFilteredTickets.filter(t => t.durationSeconds <= 15 * 60).length;
     const count20 = finishedFilteredTickets.filter(t => t.durationSeconds <= 20 * 60).length;
+    const count30 = finishedFilteredTickets.filter(t => t.durationSeconds <= 30 * 60).length;
 
     const pct10 = total > 0 ? Math.round((count10 / total) * 100) : 0;
     const pct15 = total > 0 ? Math.round((count15 / total) * 100) : 0;
     const pct20 = total > 0 ? Math.round((count20 / total) * 100) : 0;
+    const pct30 = total > 0 ? Math.round((count30 / total) * 100) : 0;
 
     return [
       {
-        name: 'Até 10 min',
-        key: '10',
+        name: '0 a 10 min',
+        key: '10' as const,
         'Meta SLA': 70,
         'Realizado': pct10,
         count: count10,
         total: total,
-        intervalText: `${pct10}% fechados em até 10 min`,
+        intervalText: `${pct10}% fechados em 0 a 10 min`,
+        isCritical: false,
       },
       {
-        name: 'Até 15 min',
-        key: '15',
+        name: '0 a 15 min',
+        key: '15' as const,
         'Meta SLA': 85,
         'Realizado': pct15,
         count: count15,
         total: total,
-        intervalText: `De 10 a 15 min: ${pct15 - pct10}% fechados nesse tempo`,
+        intervalText: `${pct15}% fechados em 0 a 15 min`,
+        isCritical: false,
       },
       {
-        name: 'Até 20 min',
-        key: '20',
+        name: '0 a 20 min',
+        key: '20' as const,
         'Meta SLA': 95,
         'Realizado': pct20,
         count: count20,
         total: total,
-        intervalText: `De 15 a 20 min: ${pct20 - pct15}% fechados nesse tempo`,
+        intervalText: `${pct20}% fechados em 0 a 20 min`,
+        isCritical: false,
+      },
+      {
+        name: '0 a 30 min',
+        key: '30' as const,
+        'Meta SLA': 99,
+        'Realizado': pct30,
+        count: count30,
+        total: total,
+        intervalText: `${pct30}% fechados em 0 a 30 min (Meta: 99%)`,
+        isCritical: true,
       }
     ];
   }, [finishedFilteredTickets]);
@@ -325,7 +342,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
               )}
             >
-              Metas de SLA (10, 15, 20 min)
+              Metas de SLA (0 a 10, 15, 20 e 30 min)
             </button>
             <button
               onClick={() => setChartTab('distribution')}
@@ -359,8 +376,19 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                       formatter={(value: any, name: string) => [`${value}%`, name]}
                     />
                     <Legend iconType="circle" wrapperStyle={{ fontSize: '11px', marginTop: '10px' }} />
-                    <Bar dataKey="Meta SLA" fill="#94a3b8" radius={[4, 4, 0, 0]} barSize={40} />
-                    <Bar dataKey="Realizado" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={40} />
+                    <Bar dataKey="Meta SLA" fill="#94a3b8" radius={[4, 4, 0, 0]} barSize={36} />
+                    <Bar dataKey="Realizado" radius={[4, 4, 0, 0]} barSize={36}>
+                      {slaChartData.map((entry, index) => {
+                        const isMet = entry.Realizado >= entry['Meta SLA'];
+                        let barFill = '#3b82f6';
+                        if (entry.isCritical) {
+                          barFill = isMet ? '#10b981' : '#ef4444';
+                        } else {
+                          barFill = isMet ? '#10b981' : '#f59e0b';
+                        }
+                        return <Cell key={`cell-${index}`} fill={barFill} />;
+                      })}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -391,10 +419,12 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
         {finishedFilteredTickets.length > 0 && (
           <div className="p-6 border-t border-slate-100 bg-slate-50/40">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Parâmetros SLA & Filtros Rápidos (Clique para filtrar)</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {slaChartData.map(item => {
                 const isActive = slaFilter === item.key;
                 const isMeetingTarget = item.Realizado >= item['Meta SLA'];
+                const isCriticalNonCompliant = item.isCritical && !isMeetingTarget;
+
                 return (
                   <button
                     key={item.key}
@@ -402,43 +432,67 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                     className={cn(
                       "p-4 rounded-xl border text-left transition-all duration-200 relative overflow-hidden group cursor-pointer",
                       isActive 
-                        ? "border-blue-500 bg-blue-50 ring-2 ring-blue-100 shadow-sm" 
-                        : "border-slate-200 bg-white hover:border-blue-300 hover:shadow-sm"
+                        ? (isCriticalNonCompliant ? "border-rose-500 bg-rose-50 ring-2 ring-rose-200 shadow-sm" : "border-blue-500 bg-blue-50 ring-2 ring-blue-100 shadow-sm")
+                        : (isCriticalNonCompliant 
+                            ? "border-rose-200 bg-rose-50/30 hover:border-rose-300 hover:shadow-sm" 
+                            : "border-slate-200 bg-white hover:border-blue-300 hover:shadow-sm")
                     )}
                   >
-                    <div className="flex justify-between items-start">
-                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">{item.name}</span>
+                    <div className="flex justify-between items-start gap-1">
                       <span className={cn(
-                        "text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider",
-                        isMeetingTarget ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"
+                        "text-[11px] font-bold uppercase tracking-wider",
+                        isCriticalNonCompliant ? "text-rose-700" : "text-slate-500"
                       )}>
-                        {isMeetingTarget ? 'Meta Atingida' : 'Abaixo da Meta'}
+                        {item.name}
+                      </span>
+                      <span className={cn(
+                        "text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap",
+                        isMeetingTarget 
+                          ? "bg-emerald-100 text-emerald-700" 
+                          : (item.isCritical ? "bg-rose-100 text-rose-700 border border-rose-200" : "bg-amber-100 text-amber-700")
+                      )}>
+                        {isMeetingTarget ? 'Meta Atingida' : (item.isCritical ? 'Crítico' : 'Abaixo da Meta')}
                       </span>
                     </div>
                     <div className="mt-2 flex items-baseline gap-1.5">
-                      <span className="text-2xl font-black text-slate-800">{item.Realizado}%</span>
+                      <span className={cn(
+                        "text-2xl font-black",
+                        isCriticalNonCompliant ? "text-rose-700" : "text-slate-800"
+                      )}>
+                        {item.Realizado}%
+                      </span>
                       <span className="text-[11px] text-slate-500">de real (Meta: {item['Meta SLA']}%)</span>
                     </div>
                     <div className="mt-2.5">
-                      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div className={cn("h-1.5 w-full rounded-full overflow-hidden", isCriticalNonCompliant ? "bg-rose-100" : "bg-slate-100")}>
                         <div 
-                          className={cn("h-full rounded-full transition-all duration-500", isMeetingTarget ? "bg-emerald-500" : "bg-amber-500")}
+                          className={cn(
+                            "h-full rounded-full transition-all duration-500", 
+                            isMeetingTarget ? "bg-emerald-500" : (item.isCritical ? "bg-rose-500" : "bg-amber-500")
+                          )}
                           style={{ width: `${Math.min(item.Realizado, 100)}%` }}
                         ></div>
                       </div>
                     </div>
                     {item.intervalText && (
-                      <div className="mt-2 text-[10.5px] font-medium text-slate-500 text-center bg-slate-50 border border-slate-100 py-1 rounded-md">
+                      <div className={cn(
+                        "mt-2 text-[10.5px] font-medium text-center py-1 px-1 rounded-md border",
+                        isCriticalNonCompliant 
+                          ? "bg-rose-50 border-rose-100 text-rose-700 font-bold" 
+                          : "bg-slate-50 border-slate-100 text-slate-500"
+                      )}>
                         {item.intervalText}
                       </div>
                     )}
                     <div className="mt-3 flex items-center justify-between text-[11px]">
-                      <span className="text-slate-400">{item.count} de {item.total} chamados</span>
+                      <span className={cn(isCriticalNonCompliant ? "text-rose-600 font-medium" : "text-slate-400")}>
+                        {item.count} de {item.total} chamados
+                      </span>
                       <span className={cn(
                         "font-bold transition-colors",
                         isActive 
-                          ? "text-blue-700" 
-                          : "text-blue-600 group-hover:text-blue-800"
+                          ? (isCriticalNonCompliant ? "text-rose-700" : "text-blue-700")
+                          : (isCriticalNonCompliant ? "text-rose-600 group-hover:text-rose-800" : "text-blue-600 group-hover:text-blue-800")
                       )}>
                         {isActive ? "✓ Ativo" : "Filtrar"}
                       </span>
@@ -589,8 +643,16 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                   )}
                   {ticket.status === 'FINALIZADO' ? (
                     <div className="flex items-center gap-2 group">
-                      <span className="text-sm font-bold text-slate-600 flex items-center gap-1">
+                      <span className={cn(
+                        "text-sm font-bold flex items-center gap-1.5",
+                        ticket.durationSeconds > 30 * 60 ? "text-rose-600 font-extrabold" : "text-slate-600"
+                      )}>
                         {formatDuration(ticket.durationSeconds)}
+                        {ticket.durationSeconds > 30 * 60 && (
+                          <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-200 uppercase tracking-tight">
+                            Crítico (&gt;30m)
+                          </span>
+                        )}
                       </span>
                       {onUpdate && (
                         <button
@@ -609,8 +671,16 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                       )}
                     </div>
                   ) : (
-                    <span className="text-sm font-bold text-slate-600 flex items-center gap-1">
+                    <span className={cn(
+                      "text-sm font-bold flex items-center gap-1.5",
+                      ticket.durationSeconds > 30 * 60 ? "text-rose-600 font-extrabold" : "text-slate-600"
+                    )}>
                       {formatDuration(ticket.durationSeconds)}
+                      {ticket.durationSeconds > 30 * 60 && (
+                        <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-200 uppercase tracking-tight">
+                          Crítico (&gt;30m)
+                        </span>
+                      )}
                     </span>
                   )}
                 </div>

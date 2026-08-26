@@ -108,6 +108,21 @@ export interface Information {
   content: string;
 }
 
+export interface TechnicalDoubt {
+  id: string;
+  title: string;
+  problemDescription: string;
+  category?: string;
+  system?: string;
+  ticketNumber?: string;
+  status: 'PENDENTE' | 'ESCLARECIDA';
+  supervisorSolution?: string;
+  supervisorName?: string;
+  createdAt: string;
+  resolvedAt?: string;
+  analystName?: string;
+}
+
 export interface Shortcut {
   id: string;
   title: string;
@@ -135,6 +150,7 @@ export interface AppSettings {
   faqs?: FAQ[];
   systems?: string[];
   orientations?: Orientation[];
+  technicalDoubts?: TechnicalDoubt[];
   aiProvider?: 'gemini' | 'openrouter';
   openRouterModel?: string;
   geminiApiKey?: string;

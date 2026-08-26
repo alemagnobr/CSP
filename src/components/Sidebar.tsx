@@ -26,6 +26,7 @@ export function Sidebar({ activeItem = 'Atendimento', onNavigate, appSettings, o
   ];
 
   const shortcuts = appSettings?.shortcuts || [];
+  const pendingDoubtsCount = appSettings?.technicalDoubts?.filter(d => d.status === 'PENDENTE').length || 0;
 
   const handleSaveShortcut = () => {
     if (!shortcutTitle || !shortcutUrl || !appSettings || !onUpdateSettings) return;
@@ -115,14 +116,21 @@ export function Sidebar({ activeItem = 'Atendimento', onNavigate, appSettings, o
               key={item.name}
               onClick={() => onNavigate?.(item.name)}
               className={cn(
-                "w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors",
+                "w-full flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors",
                 activeItem === item.name 
                   ? "bg-blue-600/20 text-blue-400 border-r-4 border-blue-500 rounded-sm" 
                   : "text-slate-400 hover:bg-slate-800 hover:text-white rounded-sm"
               )}
             >
-              <item.icon className="h-4 w-4" />
-              {item.name}
+              <div className="flex items-center gap-3">
+                <item.icon className="h-4 w-4 shrink-0" />
+                <span>{item.name}</span>
+              </div>
+              {item.name === 'Dúvidas Técnicas' && pendingDoubtsCount > 0 && (
+                <span className="px-1.5 py-0.5 text-[10px] font-black rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40">
+                  {pendingDoubtsCount}
+                </span>
+              )}
             </button>
           ))}
         </nav>

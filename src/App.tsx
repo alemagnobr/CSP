@@ -9,6 +9,7 @@ import { ProcedurePanel } from '@/components/ProcedurePanel';
 import { InformationPanel } from '@/components/InformationPanel';
 import { ToolsPanel } from '@/components/ToolsPanel';
 import { SLADashboard } from '@/components/SLADashboard';
+import { TechnicalDoubtsPanel } from '@/components/TechnicalDoubtsPanel';
 import { Ticket, ActiveTicket, AppSettings } from '@/types';
 import { cn } from '@/lib/utils';
 
@@ -98,6 +99,7 @@ O texto é:
     categories: defaultCategories,
     procedures: defaultProcedures,
     orientations: [],
+    technicalDoubts: [],
     predefinedSolutions: [],
     aiGuidelines: [],
     aiPromptStandard: defaultAiPromptStandard,
@@ -597,10 +599,14 @@ O texto é:
                   </>
                 )
               )
+            ) : activeSidebarItem === 'SLA' ? (
+              <SLADashboard tickets={tickets} appSettings={appSettings} />
             ) : activeSidebarItem === 'FAQs' ? (
               <FaqPanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} tickets={tickets} />
             ) : activeSidebarItem === 'Orientações' ? (
               <ProcedurePanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} />
+            ) : activeSidebarItem === 'Dúvidas Técnicas' ? (
+              <TechnicalDoubtsPanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} currentUser={user} />
             ) : activeSidebarItem === 'Informações' ? (
               <InformationPanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} />
             ) : activeSidebarItem === 'Configurações' ? (
