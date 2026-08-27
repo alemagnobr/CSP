@@ -177,6 +177,15 @@ export function FaqPanel({ appSettings, onUpdateSettings, tickets = [] }: FaqPan
         appSettings.openRouterModel
       );
 
+      if (parsedData.faqNumber) {
+        const existingFaq = appSettings.faqs?.find(f => f.faqNumber === parsedData.faqNumber);
+        if (existingFaq) {
+          alert(`Esta FAQ já existe na base de dados!\n\nNúmero: ${existingFaq.faqNumber}\nTítulo: ${existingFaq.name}\n\nA importação foi abortada para evitar duplicidade.`);
+          setIsParsingOtrs(false);
+          return;
+        }
+      }
+
       setFormData(prev => ({
         ...prev,
         faqNumber: parsedData.faqNumber || prev.faqNumber,
