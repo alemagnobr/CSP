@@ -406,38 +406,39 @@ export const parseOtrsFaq = async (
   rawText: string,
   openRouterModel?: string
 ) => {
-  const prompt = `Você é um assistente técnico especializado. Eu vou te passar o conteúdo bruto de uma FAQ copiada de um sistema OTRS.
+  const prompt = `Você é um assistente técnico especializado. Eu vou te passar o conteúdo bruto de uma FAQ ou um trecho de instrução copiado de um sistema OTRS.
 Sua tarefa é estruturar as informações em formato JSON rigoroso.
 
-Extraia as seguintes informações (se disponíveis, preencha da melhor forma. Senão, deixe como string vazia ""):
-- "faqNumber": O número da FAQ (ex: 123). Extraia apenas os dígitos numéricos.
-- "name": O título ou nome principal da FAQ (sem o número).
-- "originalLink": Tente encontrar o link direto da FAQ no texto, ou um link padrão que faça sentido, ou deixe vazio.
-- "category": A categoria (ex: "Hardware", "Telefonia", "Rede").
-- "type": O tipo do chamado, que deve ser EXATAMENTE "Incidente" ou "Requisição de serviço".
-- "service": O Serviço listado na FAQ.
-- "subject": O Assunto listado na FAQ.
-- "system": O Sistema envolvido (se houver).
-- "technicalInfo": A "Informação Técnica" ou a descrição principal/sintomas. FOQUE NO CONTEÚDO TÉCNICO. Use tags de formatação HTML (\`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) para deixar o texto bem legível e estruturado.
-- "procedure": O "Procedimento" a ser realizado (solução, passo a passo, etc). Use tags de formatação HTML (\`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) para deixar o texto organizado e bonito na tela.
+MUITO IMPORTANTE: O usuário pode ter colado apenas um trecho incompleto (ex: apenas os passos do procedimento, sem o cabeçalho). Se a informação não estiver explícita, VOCÊ DEVE INFERIR (deduzir) os campos para não deixá-los vazios:
 
-Responda APENAS com um objeto JSON válido, sem texto adicional, sem formatação markdown (sem \`\`\`json).
+- "faqNumber": O número da FAQ. Extraia apenas os dígitos numéricos. (Se não tiver, deixe vazio "").
+- "name": O título principal da FAQ. (Se não tiver no texto, INVENTE um título claro e curto resumindo o problema, ex: "Liberação de acesso ao WhatsApp Web").
+- "originalLink": Link direto (deixe vazio se não achar).
+- "category": A categoria (ex: "Hardware", "Rede", "Sistemas"). (Infira se necessário).
+- "type": "Incidente" (se for erro/falha) ou "Requisição de serviço" (se for solicitação/acesso). (Obrigatório deduzir um dos dois).
+- "service": O Serviço. (Se não tiver, invente com base no contexto, ex: "WhatsApp", "Impressoras", "Rede").
+- "subject": O Assunto. (Se não tiver, invente com base no contexto, ex: "Acesso", "Falha de conexão").
+- "system": O Sistema envolvido (se houver, senão deixe vazio).
+- "technicalInfo": A "Informação Técnica" (causa, contexto). (SEMPRE preencha. Se o texto original só tiver o procedimento, crie um resumo do contexto em HTML, ex: <b>Contexto:</b> Instruções para...).
+- "procedure": O "Procedimento" (passo a passo). Formate BEM em HTML (tags <b>, <br>, <ul>, <li>).
+
+Responda APENAS com o JSON válido.
 
 JSON esperado:
 {
   "faqNumber": "123",
-  "name": "Título da FAQ",
-  "originalLink": "https://capri.senado.gov.br/...",
+  "name": "Título gerado ou extraído",
+  "originalLink": "",
   "category": "Rede",
-  "type": "Incidente",
-  "service": "Serviço X",
-  "subject": "Assunto Y",
+  "type": "Requisição de serviço",
+  "service": "Nome do Serviço",
+  "subject": "Assunto Principal",
   "system": "Sistema Z",
-  "technicalInfo": "<b>Causa:</b><br>O erro ocorre devido a...",
+  "technicalInfo": "<b>Contexto:</b><br>O erro ocorre devido a...",
   "procedure": "<b>Passo 1:</b> Reiniciar o modem<br><b>Passo 2:</b> Testar a conexão"
 }
 
-Texto bruto copiado do OTRS:
+Texto bruto copiado:
 """
 ${rawText}
 """`;
