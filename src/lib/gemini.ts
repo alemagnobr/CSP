@@ -409,20 +409,32 @@ export const parseOtrsFaq = async (
   const prompt = `Você é um assistente técnico especializado. Eu vou te passar o conteúdo bruto de uma FAQ copiada de um sistema OTRS.
 Sua tarefa é estruturar as informações em formato JSON rigoroso.
 
-Extraia as seguintes informações (se disponíveis, senão deixe como string vazia ""):
-- "faqNumber": O número da FAQ (ex: 123). Muitas vezes está no topo ou no título (ex: "FAQ# 123" ou "FAQ 123"). Extraia apenas os dígitos numéricos.
-- "category": A categoria (ex: "Hardware", "Telefonia", "Rede"). Pode estar perto do título.
+Extraia as seguintes informações (se disponíveis, preencha da melhor forma. Senão, deixe como string vazia ""):
+- "faqNumber": O número da FAQ (ex: 123). Extraia apenas os dígitos numéricos.
 - "name": O título ou nome principal da FAQ (sem o número).
-- "technicalInfo": O conteúdo, sintomas, passos ou solução técnica informada. Pode conter HTML simples (tags \`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) se isso ajudar na formatação do texto.
+- "originalLink": Tente encontrar o link direto da FAQ no texto, ou um link padrão que faça sentido, ou deixe vazio.
+- "category": A categoria (ex: "Hardware", "Telefonia", "Rede").
+- "type": O tipo do chamado, que deve ser EXATAMENTE "Incidente" ou "Requisição de serviço".
+- "service": O Serviço listado na FAQ.
+- "subject": O Assunto listado na FAQ.
+- "system": O Sistema envolvido (se houver).
+- "technicalInfo": A "Informação Técnica" ou a descrição principal/sintomas. FOQUE NO CONTEÚDO TÉCNICO. Use tags de formatação HTML (\`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) para deixar o texto bem legível e estruturado.
+- "procedure": O "Procedimento" a ser realizado (solução, passo a passo, etc). Use tags de formatação HTML (\`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) para deixar o texto organizado e bonito na tela.
 
 Responda APENAS com um objeto JSON válido, sem texto adicional, sem formatação markdown (sem \`\`\`json).
 
 JSON esperado:
 {
   "faqNumber": "123",
-  "category": "Rede",
   "name": "Título da FAQ",
-  "technicalInfo": "Detalhes..."
+  "originalLink": "https://capri.senado.gov.br/...",
+  "category": "Rede",
+  "type": "Incidente",
+  "service": "Serviço X",
+  "subject": "Assunto Y",
+  "system": "Sistema Z",
+  "technicalInfo": "<b>Causa:</b><br>O erro ocorre devido a...",
+  "procedure": "<b>Passo 1:</b> Reiniciar o modem<br><b>Passo 2:</b> Testar a conexão"
 }
 
 Texto bruto copiado do OTRS:

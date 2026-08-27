@@ -192,6 +192,12 @@ export function FaqPanel({ appSettings, onUpdateSettings, tickets = [] }: FaqPan
         category: parsedData.category || prev.category,
         name: parsedData.name || prev.name,
         technicalInfo: parsedData.technicalInfo || prev.technicalInfo,
+        originalLink: parsedData.originalLink || prev.originalLink,
+        type: (parsedData.type === 'Incidente' || parsedData.type === 'Requisição de serviço') ? parsedData.type : prev.type,
+        service: parsedData.service || prev.service,
+        subject: parsedData.subject || prev.subject,
+        system: parsedData.system || prev.system,
+        procedure: parsedData.procedure || prev.procedure,
       }));
       setShowOtrsImport(false);
       setOtrsRawText('');
