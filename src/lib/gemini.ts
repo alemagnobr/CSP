@@ -400,6 +400,60 @@ Requisitos para o Título:
   }
 };
 
+export const parseOtrsFaq = async (
+  apiKey: string,
+  provider: 'gemini' | 'openrouter',
+  rawText: string,
+  openRouterModel?: string
+) => {
+  const prompt = `Você é um assistente técnico especializado. Eu vou te passar o conteúdo bruto de uma FAQ copiada de um sistema OTRS.
+Sua tarefa é estruturar as informações em formato JSON rigoroso.
+
+Extraia as seguintes informações (se disponíveis, senão deixe como string vazia ""):
+- "faqNumber": O número da FAQ (ex: 123). Muitas vezes está no topo ou no título (ex: "FAQ# 123" ou "FAQ 123"). Extraia apenas os dígitos numéricos.
+- "category": A categoria (ex: "Hardware", "Telefonia", "Rede"). Pode estar perto do título.
+- "name": O título ou nome principal da FAQ (sem o número).
+- "technicalInfo": O conteúdo, sintomas, passos ou solução técnica informada. Pode conter HTML simples (tags \`<b>\`, \`<br>\`, \`<ul>\`, \`<li>\`) se isso ajudar na formatação do texto.
+
+Responda APENAS com um objeto JSON válido, sem texto adicional, sem formatação markdown (sem \`\`\`json).
+
+JSON esperado:
+{
+  "faqNumber": "123",
+  "category": "Rede",
+  "name": "Título da FAQ",
+  "technicalInfo": "Detalhes..."
+}
+
+Texto bruto copiado do OTRS:
+"""
+${rawText}
+"""`;
+
+  if (provider === 'openrouter') {
+    const responseData = await fetchOpenRouter(
+      apiKey,
+      openRouterModel || 'openrouter/free',
+      [{ role: 'user', content: prompt }],
+      { response_format: { type: "json_object" } }
+    );
+    const content = responseData.choices?.[0]?.message?.content || '{}';
+    return JSON.parse(content.trim().replace(/^```json/i, '').replace(/```$/i, '').trim());
+  } else {
+    const ai = new GoogleGenAI({ apiKey });
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+      }
+    });
+
+    const content = response.text || '{}';
+    return JSON.parse(content.trim());
+  }
+};
+
 export function formatAiError(errorMsg: string, provider: 'gemini' | 'openrouter'): string {
   try {
     const parsed = JSON.parse(errorMsg);

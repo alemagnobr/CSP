@@ -191,33 +191,6 @@ export function Sidebar({ activeItem = 'Atendimento', onNavigate, appSettings, o
             ))
           )}
         </div>
-
-        {/* Test OTRS Area */}
-        <div className="mt-8 px-4">
-          <button
-            onClick={async () => {
-              try {
-                const response = await fetch('https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQExplorer;CategoryID=21;Nav=', {
-                  method: 'GET',
-                  mode: 'cors',
-                  credentials: 'include'
-                });
-                if (response.ok) {
-                  const text = await response.text();
-                  alert(`Sucesso! O OTRS permitiu o acesso sem bloquear CORS.\n\nTamanho do HTML recebido: ${text.length} caracteres.`);
-                } else {
-                  alert(`Erro na resposta do OTRS: ${response.status} - ${response.statusText}`);
-                }
-              } catch (err: any) {
-                console.error("Erro no teste do OTRS:", err);
-                alert(`O navegador bloqueou a requisição (CORS error) ou a rede está inacessível.\n\nDetalhe do erro: ${err.message}`);
-              }
-            }}
-            className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 rounded transition-colors border border-slate-700"
-          >
-            <span>Teste de CORS OTRS</span>
-          </button>
-        </div>
       </div>
 
       <div className="mt-auto p-4 border-t border-slate-800 bg-slate-900 shrink-0 flex items-center gap-2">

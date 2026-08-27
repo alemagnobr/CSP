@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Plus, Trash2, Edit2, Copy, ChevronDown, ChevronRight, X, Check, Sparkles } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Plus, Trash2, Edit2, Copy, ChevronDown, ChevronRight, X, Check, Sparkles, Wand2 } from 'lucide-react';
 import { AppSettings, FAQ, Ticket } from '@/types';
 import { cn } from '@/lib/utils';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import { parseOtrsFaq } from '@/lib/gemini';
 
 function formatDuration(seconds: number) {
   const m = Math.floor(seconds / 60);
@@ -150,6 +151,47 @@ export function FaqPanel({ appSettings, onUpdateSettings, tickets = [] }: FaqPan
   const handleCloseForm = () => {
     setIsFormOpen(false);
     setEditingId(null);
+    setShowOtrsImport(false);
+    setOtrsRawText('');
+  };
+
+  const [showOtrsImport, setShowOtrsImport] = useState(false);
+  const [otrsRawText, setOtrsRawText] = useState('');
+  const [isParsingOtrs, setIsParsingOtrs] = useState(false);
+
+  const handleParseOtrs = async () => {
+    if (!otrsRawText.trim()) return;
+    setIsParsingOtrs(true);
+    try {
+      const apiKey = appSettings.geminiApiKey;
+      if (!apiKey) {
+        alert('Chave de API não configurada. Vá em Configurações para adicionar sua chave.');
+        setIsParsingOtrs(false);
+        return;
+      }
+      
+      const parsedData = await parseOtrsFaq(
+        apiKey,
+        appSettings.aiProvider || 'gemini',
+        otrsRawText,
+        appSettings.openRouterModel
+      );
+
+      setFormData(prev => ({
+        ...prev,
+        faqNumber: parsedData.faqNumber || prev.faqNumber,
+        category: parsedData.category || prev.category,
+        name: parsedData.name || prev.name,
+        technicalInfo: parsedData.technicalInfo || prev.technicalInfo,
+      }));
+      setShowOtrsImport(false);
+      setOtrsRawText('');
+    } catch (error: any) {
+      console.error('Error parsing OTRS FAQ:', error);
+      alert('Erro ao processar com IA: ' + error.message);
+    } finally {
+      setIsParsingOtrs(false);
+    }
   };
 
   const handleSave = () => {
@@ -503,6 +545,63 @@ export function FaqPanel({ appSettings, onUpdateSettings, tickets = [] }: FaqPan
             </div>
             
             <div className="p-6 space-y-6">
+              {!editingId && (
+                <div className="bg-blue-50/50 border border-blue-100 rounded-lg p-4">
+                  {!showOtrsImport ? (
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-sm font-bold text-blue-900 flex items-center gap-2">
+                          <Wand2 className="h-4 w-4" />
+                          Preenchimento Inteligente (OTRS)
+                        </h3>
+                        <p className="text-xs text-blue-700 mt-1">Cole o texto bruto de uma FAQ do OTRS e a IA preencherá o formulário automaticamente.</p>
+                      </div>
+                      <button
+                        onClick={() => setShowOtrsImport(true)}
+                        className="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded hover:bg-blue-700 transition-colors"
+                      >
+                        Usar IA
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-3 animate-fade-in">
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="block text-sm font-bold text-blue-900">Cole o conteúdo da FAQ do OTRS (Ctrl+A, Ctrl+C)</label>
+                        <button onClick={() => { setShowOtrsImport(false); setOtrsRawText(''); }} className="text-blue-500 hover:text-blue-700">
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <textarea
+                        value={otrsRawText}
+                        onChange={(e) => setOtrsRawText(e.target.value)}
+                        className="w-full p-3 rounded border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm h-32 resize-none"
+                        placeholder="Cole aqui todo o texto da tela da FAQ..."
+                        disabled={isParsingOtrs}
+                      />
+                      <div className="flex justify-end">
+                        <button
+                          onClick={handleParseOtrs}
+                          disabled={isParsingOtrs || !otrsRawText.trim()}
+                          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        >
+                          {isParsingOtrs ? (
+                            <>
+                              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Analisando...
+                            </>
+                          ) : (
+                            <>
+                              <Sparkles className="h-4 w-4" />
+                              Preencher com IA
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">Número da FAQ</label>
