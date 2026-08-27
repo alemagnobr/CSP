@@ -305,9 +305,10 @@ O texto é:
 
   const handleUpdateActiveTicket = (updatedTicket: ActiveTicket) => {
     setActiveTabs(tabs => tabs.map(t => {
-      const tKey = t.tabId || t.id;
-      const updatedKey = updatedTicket.tabId || updatedTicket.id;
-      return tKey === updatedKey ? updatedTicket : t;
+      const isMatch = (t.tabId && updatedTicket.tabId && t.tabId === updatedTicket.tabId) ||
+                      (t.id && updatedTicket.id && t.id === updatedTicket.id) ||
+                      ((t.tabId || t.id) === (updatedTicket.tabId || updatedTicket.id));
+      return isMatch ? { ...t, ...updatedTicket } : t;
     }));
   };
 

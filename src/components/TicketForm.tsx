@@ -95,8 +95,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       ...appSettings,
       verifications: updatedVerifs
     });
-    if (ticket.selectedVerifications?.includes(id)) {
-      handleChange('selectedVerifications', ticket.selectedVerifications.filter(vId => vId !== id));
+    if (ticketRef.current.selectedVerifications?.includes(id)) {
+      handleChange('selectedVerifications', ticketRef.current.selectedVerifications.filter(vId => vId !== id));
     }
   };
 
@@ -127,8 +127,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       ...appSettings,
       procedures: updatedProcs
     });
-    if (ticket.selectedProcedures?.includes(id)) {
-      handleChange('selectedProcedures', ticket.selectedProcedures.filter(pId => pId !== id));
+    if (ticketRef.current.selectedProcedures?.includes(id)) {
+      handleChange('selectedProcedures', ticketRef.current.selectedProcedures.filter(pId => pId !== id));
     }
   };
 
@@ -174,7 +174,10 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       const diff = Math.floor((now - lastTickRef.current) / 1000);
       if (diff > 0) {
         lastTickRef.current = now;
-        onUpdateRef.current({ ...ticketRef.current, durationSeconds: ticketRef.current.durationSeconds + diff });
+        const currentTicket = ticketRef.current;
+        const updated = { ...currentTicket, durationSeconds: currentTicket.durationSeconds + diff };
+        ticketRef.current = updated;
+        onUpdateRef.current(updated);
       }
     }, 1000);
 
@@ -182,23 +185,26 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   }, [isActive, isPaused]);
 
   const handleChange = (field: keyof ActiveTicket, value: any) => {
+    const baseTicket = ticketRef.current;
+    let updated: ActiveTicket = { ...baseTicket, [field]: value };
+
     if (field === 'associatedFaqId' && value) {
       const selectedFaq = appSettings.faqs?.find(f => f.id === value);
       if (selectedFaq) {
         const faqProcIds = selectedFaq.associatedProcedureIds || (selectedFaq.associatedProcedureId ? [selectedFaq.associatedProcedureId] : []);
         if (faqProcIds.length > 0) {
-          const currentProcs = ticket.selectedProcedures || [];
+          const currentProcs = baseTicket.selectedProcedures || [];
           const mergedProcs = Array.from(new Set([...currentProcs, ...faqProcIds]));
-          onUpdate({
-            ...ticket,
+          updated = {
+            ...updated,
             associatedFaqId: value,
             selectedProcedures: mergedProcs
-          });
-          return;
+          };
         }
       }
     }
-    onUpdate({ ...ticket, [field]: value });
+    ticketRef.current = updated;
+    onUpdate(updated);
   };
 
   const handleMoveProcedure = (index: number, direction: 'up' | 'down') => {
@@ -256,7 +262,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   };
 
   const handleFinalizeIA = async () => {
-    if (!ticket.description.trim()) return;
+    const currentTicket = ticketRef.current;
+    if (!currentTicket.description.trim()) return;
     setAiError(null);
     
     const provider = appSettings.aiProvider || 'gemini';
@@ -270,24 +277,24 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     setIsAiLoading(true);
     try {
       // Preserve selection order by mapping over the selected arrays instead of filtering the source arrays
-      const selectedProcs = (ticket.selectedProcedures || [])
+      const selectedProcs = (currentTicket.selectedProcedures || [])
         .map(id => appSettings.procedures?.find(p => p.id === id))
         .filter(Boolean) as typeof appSettings.procedures;
         
-      const selectedVerifs = (ticket.selectedVerifications || [])
+      const selectedVerifs = (currentTicket.selectedVerifications || [])
         .map(id => appSettings.verifications?.find(v => v.id === id))
         .filter(Boolean) as typeof appSettings.verifications;
       
       const resultText = await generateTicketStructure(apiKey, provider, { 
-        description: ticket.description,
+        description: currentTicket.description,
         procedures: selectedProcs.map(p => ({ name: p.name, description: p.description })),
         verifications: selectedVerifs.map(v => ({ name: v.name, description: v.description })),
-        problemSolved: ticket.problemSolved,
-        clientValidated: ticket.clientValidated,
-        isEscalated: ticket.isEscalated,
-        isFormatMicro: ticket.isFormatMicro,
-        formatMicroDetails: ticket.formatMicroDetails,
-        escalationDetails: ticket.escalationDetails,
+        problemSolved: currentTicket.problemSolved,
+        clientValidated: currentTicket.clientValidated,
+        isEscalated: currentTicket.isEscalated,
+        isFormatMicro: currentTicket.isFormatMicro,
+        formatMicroDetails: currentTicket.formatMicroDetails,
+        escalationDetails: currentTicket.escalationDetails,
         closingText: appSettings.closingTextEnabled ? appSettings.closingText : '',
         aiGuidelines: appSettings.aiGuidelines,
         aiPromptStandard: appSettings.aiPromptStandard,
@@ -302,7 +309,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         finalResult = finalResult.replace(/^```html\s*/i, '').replace(/```$/i, '').trim();
 
         // Ensure it starts at the first <div (strips out any prepended hallucinations)
-        if (!ticket.isEscalated) {
+        if (!currentTicket.isEscalated) {
           const firstDivIndex = finalResult.indexOf('<div');
           if (firstDivIndex > 0) {
             finalResult = finalResult.substring(firstDivIndex);
@@ -315,7 +322,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
            }
         }
         
-        if (!ticket.isEscalated && appSettings.closingTextEnabled && appSettings.closingText.trim()) {
+        if (!currentTicket.isEscalated && appSettings.closingTextEnabled && appSettings.closingText.trim()) {
           const closingHtml = `\n<!--{cke_protected}{C}%3C!%2D%2D%20ASSINATURA%20%2D%2D%3E-->\n<div style="margin-top:8px; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">\n<div>${appSettings.closingText.trim().replace(/\n/g, '<br>')}</div>\n</div>`;
           if (finalResult.trim().endsWith('</div>')) {
             const lastDivIndex = finalResult.lastIndexOf('</div>');
@@ -336,7 +343,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   };
 
   const handleSearchSolution = async () => {
-    if (!ticket.description.trim()) return;
+    const currentTicket = ticketRef.current;
+    if (!currentTicket.description.trim()) return;
     setAiError(null);
 
     const provider = appSettings.aiProvider || 'gemini';
@@ -353,7 +361,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     try {
       const ticketsToSearch = finishedTickets.slice(0, 50);
       const resultJson = await searchSolutions(apiKey, provider, {
-        description: ticket.description,
+        description: currentTicket.description,
         faqs: appSettings.faqs || [],
         procedures: appSettings.procedures || [],
         orientations: appSettings.orientations || [],
@@ -391,33 +399,35 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleEditResult = () => {
     if (aiResult) {
-      onUpdate({ ...ticket, description: aiResult });
+      handleChange('description', aiResult);
       setAiResult(null);
       setIsPaused(false); // Resume timer
     }
   };
 
   const handleSaveResult = () => {
-    if (!ticket.id || !ticket.id.trim()) {
+    const currentTicket = ticketRef.current;
+    if (!currentTicket.id || !currentTicket.id.trim()) {
       setValidationError('É necessário colocar o número do chamado antes de salvar.');
       setAiResult(null);
       setTimeout(() => ticketIdInputRef.current?.focus(), 100);
       return;
     }
     if (aiResult) {
-      onFinish({ ...ticket, description: ticket.description, structuredResult: aiResult });
+      onFinish({ ...currentTicket, description: currentTicket.description, structuredResult: aiResult });
       setAiResult(null);
     }
   };
 
   const handleSaveWithValidation = () => {
-    if (!ticket.id || !ticket.id.trim()) {
+    const currentTicket = ticketRef.current;
+    if (!currentTicket.id || !currentTicket.id.trim()) {
       setValidationError('É necessário colocar o número do chamado antes de salvar.');
       ticketIdInputRef.current?.focus();
       return;
     }
     setValidationError(null);
-    onFinish(ticket);
+    onFinish(currentTicket);
   };
 
   const handleGenerateTitle = async () => {
@@ -432,10 +442,11 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
     setIsGeneratingTitle(true);
     try {
+      const currentTicket = ticketRef.current;
       const generated = await generateProfessionalTitle(apiKey, provider, {
-        currentTitle: ticket.title || '',
-        description: ticket.description || '',
-        category: ticket.category || '',
+        currentTitle: currentTicket.title || '',
+        description: currentTicket.description || '',
+        category: currentTicket.category || '',
         openRouterModel: appSettings.openRouterModel
       });
 
