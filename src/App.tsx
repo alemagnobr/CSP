@@ -10,8 +10,9 @@ import { InformationPanel } from '@/components/InformationPanel';
 import { ToolsPanel } from '@/components/ToolsPanel';
 import { SLADashboard } from '@/components/SLADashboard';
 import { TechnicalDoubtsPanel } from '@/components/TechnicalDoubtsPanel';
-import { Ticket, ActiveTicket, AppSettings } from '@/types';
-import { cn } from '@/lib/utils';
+import { Ticket, ActiveTicket, AppSettings, FAQ } from '@/types';
+import { initialFaqs } from '@/data/defaultFaqs';
+import { cn, cleanFaq } from '@/lib/utils';
 
 // Firebase imports
 import { auth, db, collection, doc, setDoc, getDocs, deleteDoc, onSnapshot, signOut, handleFirestoreError, OperationType } from '@/lib/firebase';
@@ -105,7 +106,8 @@ O texto é:
     aiPromptStandard: defaultAiPromptStandard,
     aiPromptEscalated: defaultAiPromptEscalated,
     aiProvider: 'gemini',
-    defaultSlaTimeFilter: 'month'
+    defaultSlaTimeFilter: 'month',
+    faqs: initialFaqs
   });
 
   const [activeSidebarItem, setActiveSidebarItem] = useState('Atendimento');
@@ -130,9 +132,34 @@ O texto é:
     const unsubSettings = onSnapshot(doc(db, 'settings', 'global'), (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data() as AppSettings;
+
+        // Ensure we strictly enforce all official FAQs and remove obsolete ones (e.g. 1000601 or raw HTML)
+        const officialNumbers = new Set(initialFaqs.map(f => f.faqNumber));
+        const hasLegacyFaqs = data.faqs && data.faqs.some(
+          f => f.faqNumber === '1000601' || 
+               (f.procedure && (f.procedure.includes('&nbsp;') || f.procedure.includes('<p>')))
+        );
+
+        // Check if any official FAQ is missing from current Firestore data
+        const existingNumbers = new Set((data.faqs || []).map(f => f.faqNumber));
+        const isMissingOfficial = initialFaqs.some(f => !existingNumbers.has(f.faqNumber));
+
+        let sanitizedFaqs: FAQ[];
+        if (!data.faqs || data.faqs.length === 0 || hasLegacyFaqs || isMissingOfficial) {
+          // Merge user-created FAQs with all official FAQs
+          const userFaqs = (data.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
+          sanitizedFaqs = [...initialFaqs, ...userFaqs];
+          setDoc(doc(db, 'settings', 'global'), { ...data, faqs: sanitizedFaqs }, { merge: true }).catch(console.error);
+        } else {
+          sanitizedFaqs = data.faqs
+            .filter(f => f.faqNumber !== '1000601' && (officialNumbers.has(f.faqNumber) || f.id?.startsWith('faq-user-')))
+            .map(cleanFaq);
+        }
+
         setAppSettings(prev => ({
           ...prev,
           ...data,
+          faqs: sanitizedFaqs,
           profileManagerPath: data.profileManagerPath ?? prev.profileManagerPath,
         }));
       }

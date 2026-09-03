@@ -86,12 +86,36 @@ export interface PredefinedSolution {
   content: string;
 }
 
+export interface FAQAttachment {
+  name: string;
+  url: string;
+  size?: string;
+}
+
+export interface FAQVisualRef {
+  title: string;
+  url: string;
+}
+
+export interface FAQAdminInfo {
+  caminho?: string;
+  categoria?: string;
+  palavrasChave?: string;
+  estado?: string;
+  validade?: string;
+  criado?: string;
+  alterado?: string;
+  atualizadoEm?: string;
+  paginaOriginal?: string;
+  itemId?: string;
+}
+
 export interface FAQ {
   id: string;
   faqNumber: string;
   category: string;
   name: string;
-  technicalInfo: string;
+  technicalInfo?: string;
   type: 'Incidente' | 'Requisição de serviço' | '';
   service: string;
   subject: string;
@@ -100,6 +124,15 @@ export interface FAQ {
   associatedProcedureIds?: string[];
   procedure: string;
   originalLink?: string;
+  subCategory?: string;
+  observacoes?: string;
+  acessoUtilizacao?: string;
+  permissaoAcesso?: string;
+  credenciaisAcesso?: string;
+  attachments?: FAQAttachment[];
+  visualRefs?: FAQVisualRef[];
+  adminInfo?: FAQAdminInfo;
+  relatedLinks?: { title: string; url: string }[];
 }
 
 export interface Information {
