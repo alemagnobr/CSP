@@ -133,33 +133,19 @@ O texto é:
       if (docSnap.exists()) {
         const data = docSnap.data() as AppSettings;
 
-        // Ensure we strictly enforce all official FAQs and remove obsolete ones (e.g. 1000601 or raw HTML)
-        const officialNumbers = new Set(initialFaqs.map(f => f.faqNumber));
-        const hasLegacyFaqs = data.faqs && data.faqs.some(
-          f => f.faqNumber === '1000601' || 
-               (f.procedure && (f.procedure.includes('&nbsp;') || f.procedure.includes('<p>')))
-        );
+        // Extract any user-created FAQs (id starts with 'faq-user-') from userFaqs or legacy faqs
+        const storedUserFaqs: FAQ[] = (data.userFaqs || []).length > 0
+          ? data.userFaqs!
+          : (data.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
 
-        // Check if any official FAQ is missing from current Firestore data
-        const existingNumbers = new Set((data.faqs || []).map(f => f.faqNumber));
-        const isMissingOfficial = initialFaqs.some(f => !existingNumbers.has(f.faqNumber));
-
-        let sanitizedFaqs: FAQ[];
-        if (!data.faqs || data.faqs.length === 0 || hasLegacyFaqs || isMissingOfficial) {
-          // Merge user-created FAQs with all official FAQs
-          const userFaqs = (data.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
-          sanitizedFaqs = [...initialFaqs, ...userFaqs];
-          setDoc(doc(db, 'settings', 'global'), { ...data, faqs: sanitizedFaqs }, { merge: true }).catch(console.error);
-        } else {
-          sanitizedFaqs = data.faqs
-            .filter(f => f.faqNumber !== '1000601' && (officialNumbers.has(f.faqNumber) || f.id?.startsWith('faq-user-')))
-            .map(cleanFaq);
-        }
+        // Always compose full FAQ list from initialFaqs + storedUserFaqs
+        const allFaqs = [...initialFaqs, ...storedUserFaqs.map(cleanFaq)];
 
         setAppSettings(prev => ({
           ...prev,
           ...data,
-          faqs: sanitizedFaqs,
+          userFaqs: storedUserFaqs,
+          faqs: allFaqs,
           profileManagerPath: data.profileManagerPath ?? prev.profileManagerPath,
         }));
       }
@@ -208,10 +194,28 @@ O texto é:
 
   // Save Settings to Firestore when updated
   const handleUpdateSettings = async (newSettings: AppSettings) => {
-    setAppSettings(newSettings);
+    // Extract any user-created FAQs from newSettings.faqs or newSettings.userFaqs
+    const userCreatedFaqs = (newSettings.userFaqs && newSettings.userFaqs.length > 0)
+      ? newSettings.userFaqs
+      : (newSettings.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
+
+    // Compose local full in-memory state
+    const fullSettings: AppSettings = {
+      ...newSettings,
+      userFaqs: userCreatedFaqs,
+      faqs: [...initialFaqs, ...userCreatedFaqs.map(cleanFaq)]
+    };
+    setAppSettings(fullSettings);
+
     if (!user) return;
     try {
-      await setDoc(doc(db, 'settings', 'global'), newSettings);
+      // Prepare sanitized payload for Firestore: NEVER write the massive static initialFaqs array
+      // only write userFaqs so the document size stays tiny (~10-30 KB)
+      const firestorePayload: Record<string, any> = { ...newSettings };
+      delete firestorePayload.faqs; // remove 500+ static FAQs
+      firestorePayload.userFaqs = userCreatedFaqs;
+
+      await setDoc(doc(db, 'settings', 'global'), firestorePayload);
     } catch (error) {
       handleFirestoreError(error, OperationType.WRITE, 'settings/global');
     }

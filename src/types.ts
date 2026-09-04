@@ -181,6 +181,7 @@ export interface AppSettings {
   aiPromptStandard?: string;
   aiPromptEscalated?: string;
   faqs?: FAQ[];
+  userFaqs?: FAQ[];
   systems?: string[];
   orientations?: Orientation[];
   technicalDoubts?: TechnicalDoubt[];

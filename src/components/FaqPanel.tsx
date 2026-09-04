@@ -20,11 +20,16 @@ import {
   RotateCcw,
   Sparkles,
   Layers,
-  BookOpen
+  BookOpen,
+  Grid,
+  Filter
 } from 'lucide-react';
 import { AppSettings, FAQ, FAQAttachment, FAQVisualRef } from '@/types';
 import { initialFaqs } from '@/data/defaultFaqs';
 import { cleanFaq, stripAndFormatHtml } from '@/lib/utils';
+import { SoftwareGroupType, SOFTWARE_GROUPS, categorizeSystem } from '@/lib/softwareCatalog';
+import { SoftwareGroupSelector } from '@/components/SoftwareGroupSelector';
+import { SoftwareDirectoryModal } from '@/components/SoftwareDirectoryModal';
 
 interface FaqPanelProps {
   appSettings: AppSettings;
@@ -46,6 +51,8 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>('TODOS');
   const [selectedType, setSelectedType] = useState<string>('TODOS');
   const [selectedSystem, setSelectedSystem] = useState<string>('TODOS');
+  const [selectedSoftwareGroup, setSelectedSoftwareGroup] = useState<SoftwareGroupType>('TODOS');
+  const [isDirectoryModalOpen, setIsDirectoryModalOpen] = useState(false);
 
   // UI States
   const [expandedFaqIds, setExpandedFaqIds] = useState<Record<string, boolean>>({});
@@ -75,14 +82,70 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     originalLink: '',
   });
 
-  // Extract unique systems for filter
-  const systemsList = useMemo(() => {
-    const list = new Set<string>();
+  // Calculate software group metrics (count of FAQs and unique systems)
+  const { groupCounts, systemsCountByGroup, systemsByGroupMap } = useMemo(() => {
+    const counts: Record<SoftwareGroupType, number> = {
+      TODOS: faqs.length,
+      APLICATIVOS_DESKTOP: 0,
+      SISTEMAS_INTERNOS: 0,
+      TECNOLOGIA_INFRA: 0,
+      LEGISLATIVO_PARLAMENTAR: 0,
+      SEGURANCA_POLICIA: 0,
+      GESTAO_RH_SAUDE: 0,
+    };
+
+    const sysSets: Record<SoftwareGroupType, Set<string>> = {
+      TODOS: new Set<string>(),
+      APLICATIVOS_DESKTOP: new Set<string>(),
+      SISTEMAS_INTERNOS: new Set<string>(),
+      TECNOLOGIA_INFRA: new Set<string>(),
+      LEGISLATIVO_PARLAMENTAR: new Set<string>(),
+      SEGURANCA_POLICIA: new Set<string>(),
+      GESTAO_RH_SAUDE: new Set<string>(),
+    };
+
     faqs.forEach(f => {
-      if (f.system?.trim()) list.add(f.system.trim());
+      const sys = f.system?.trim();
+      const group = categorizeSystem(sys, f.category, f.subject);
+      counts[group] = (counts[group] || 0) + 1;
+
+      if (sys) {
+        sysSets.TODOS.add(sys);
+        sysSets[group].add(sys);
+      }
     });
-    return Array.from(list).sort();
+
+    const sysCounts: Record<SoftwareGroupType, number> = {
+      TODOS: sysSets.TODOS.size,
+      APLICATIVOS_DESKTOP: sysSets.APLICATIVOS_DESKTOP.size,
+      SISTEMAS_INTERNOS: sysSets.SISTEMAS_INTERNOS.size,
+      TECNOLOGIA_INFRA: sysSets.TECNOLOGIA_INFRA.size,
+      LEGISLATIVO_PARLAMENTAR: sysSets.LEGISLATIVO_PARLAMENTAR.size,
+      SEGURANCA_POLICIA: sysSets.SEGURANCA_POLICIA.size,
+      GESTAO_RH_SAUDE: sysSets.GESTAO_RH_SAUDE.size,
+    };
+
+    const sysLists: Record<SoftwareGroupType, string[]> = {
+      TODOS: Array.from(sysSets.TODOS).sort(),
+      APLICATIVOS_DESKTOP: Array.from(sysSets.APLICATIVOS_DESKTOP).sort(),
+      SISTEMAS_INTERNOS: Array.from(sysSets.SISTEMAS_INTERNOS).sort(),
+      TECNOLOGIA_INFRA: Array.from(sysSets.TECNOLOGIA_INFRA).sort(),
+      LEGISLATIVO_PARLAMENTAR: Array.from(sysSets.LEGISLATIVO_PARLAMENTAR).sort(),
+      SEGURANCA_POLICIA: Array.from(sysSets.SEGURANCA_POLICIA).sort(),
+      GESTAO_RH_SAUDE: Array.from(sysSets.GESTAO_RH_SAUDE).sort(),
+    };
+
+    return {
+      groupCounts: counts,
+      systemsCountByGroup: sysCounts,
+      systemsByGroupMap: sysLists,
+    };
   }, [faqs]);
+
+  // Extract systems for dropdown based on active group
+  const systemsList = useMemo(() => {
+    return systemsByGroupMap[selectedSoftwareGroup] || systemsByGroupMap.TODOS;
+  }, [systemsByGroupMap, selectedSoftwareGroup]);
 
   // Statistics
   const stats = useMemo(() => {
@@ -96,6 +159,12 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
   // Filtered FAQs
   const filteredFaqs = useMemo(() => {
     return faqs.filter(faq => {
+      // Group match
+      if (selectedSoftwareGroup !== 'TODOS') {
+        const group = categorizeSystem(faq.system, faq.category, faq.subject);
+        if (group !== selectedSoftwareGroup) return false;
+      }
+
       // Search text match
       const search = searchTerm.toLowerCase().trim();
       const matchesSearch = !search || (
@@ -123,7 +192,7 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
 
       return matchesSearch && matchesSubCategory && matchesType && matchesSystem;
     });
-  }, [faqs, searchTerm, selectedSubCategory, selectedType, selectedSystem]);
+  }, [faqs, searchTerm, selectedSubCategory, selectedType, selectedSystem, selectedSoftwareGroup]);
 
   // Helper to show temporary toast
   const showToast = (msg: string) => {
@@ -237,8 +306,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
       showToast(`Nova FAQ cadastrada com sucesso!`);
     }
 
+    const userOnlyFaqs = updatedList.filter(item => item.id?.startsWith('faq-user-'));
     onUpdateSettings({
       ...appSettings,
+      userFaqs: userOnlyFaqs,
       faqs: updatedList.map(cleanFaq)
     });
 
@@ -249,8 +320,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
   const handleDeleteFaq = (id: string, name: string) => {
     if (window.confirm(`Deseja realmente remover a FAQ "${name}"?`)) {
       const updatedList = faqs.filter(item => item.id !== id);
+      const userOnlyFaqs = updatedList.filter(item => item.id?.startsWith('faq-user-'));
       onUpdateSettings({
         ...appSettings,
+        userFaqs: userOnlyFaqs,
         faqs: updatedList
       });
       showToast('FAQ removida.');
@@ -259,9 +332,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
   // Restore Default FAQs (Strictly the official FAQs)
   const handleRestoreDefaults = () => {
-    if (window.confirm(`Deseja restaurar a base oficial com todas as ${initialFaqs.length} FAQs do Senado? As FAQs padrões serão recarregadas.`)) {
+    if (window.confirm(`Deseja restaurar a base oficial com todas as ${initialFaqs.length} FAQs do Senado? As FAQs padrões serão recarregadas e as personalizadas serão desfeitas.`)) {
       onUpdateSettings({
         ...appSettings,
+        userFaqs: [],
         faqs: initialFaqs
       });
       showToast(`Base restaurada com as ${initialFaqs.length} FAQs oficiais.`);
@@ -294,7 +368,15 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <button
+              onClick={() => setIsDirectoryModalOpen(true)}
+              title="Abrir diretório completo com todos os softwares e sistemas"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors border border-indigo-200 shadow-xs"
+            >
+              <Grid className="h-4 w-4 text-indigo-600" />
+              Diretório de Softwares & Sistemas
+            </button>
             <button
               onClick={handleRestoreDefaults}
               title="Restaurar lista com as 15 FAQs padrão"
@@ -311,6 +393,19 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               Nova FAQ
             </button>
           </div>
+        </div>
+
+        {/* Software Group Selector (Hierarquia: Softwares Desktop, Sistemas Internos, etc.) */}
+        <div className="max-w-7xl mx-auto mt-6">
+          <SoftwareGroupSelector
+            selectedGroup={selectedSoftwareGroup}
+            onSelectGroup={(group) => {
+              setSelectedSoftwareGroup(group);
+              setSelectedSystem('TODOS');
+            }}
+            groupCounts={groupCounts}
+            systemsCountByGroup={systemsCountByGroup}
+          />
         </div>
 
         {/* Metric summary counters */}
@@ -358,74 +453,102 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-4 shadow-sm">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-          {/* Search Input */}
-          <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-3.5 shadow-sm space-y-3">
+        <div className="max-w-7xl mx-auto flex flex-col gap-3">
+          {/* Top Line: Full-width high-contrast search input */}
+          <div className="relative w-full">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
             <input
               type="text"
               placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/80 focus:bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-slate-800"
+              className="w-full pl-11 pr-24 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
             />
-            {searchTerm && (
+            {searchTerm ? (
               <button 
                 onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 bg-slate-200/70 hover:bg-slate-300 rounded px-1.5 py-0.5"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors"
               >
                 Limpar
               </button>
+            ) : (
+              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] font-medium text-slate-400 bg-slate-200/60 px-2 py-0.5 rounded">
+                Ctrl + K
+              </span>
             )}
           </div>
 
-          {/* Quick Filter Selects */}
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            {/* SubCategory Filter */}
-            <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-1">
-              <button
-                onClick={() => setSelectedSubCategory('TODOS')}
-                className={`px-2.5 py-1 rounded-md font-semibold transition-colors ${selectedSubCategory === 'TODOS' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-600 hover:text-slate-900'}`}
+          {/* Bottom Line: Responsive Filters and Selects */}
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="flex flex-wrap items-center gap-2.5">
+              {/* SubCategory Filter */}
+              <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-1">
+                <button
+                  onClick={() => setSelectedSubCategory('TODOS')}
+                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'TODOS' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-600 hover:text-slate-900'}`}
+                >
+                  Todas Categorias
+                </button>
+                <button
+                  onClick={() => setSelectedSubCategory('INSTALACAO')}
+                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'INSTALACAO' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                >
+                  Instalação
+                </button>
+                <button
+                  onClick={() => setSelectedSubCategory('ERRO')}
+                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'ERRO' ? 'bg-amber-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                >
+                  Erros
+                </button>
+              </div>
+
+              {/* Type Filter */}
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="py-1.5 px-3 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
               >
-                Todas Categorias
-              </button>
-              <button
-                onClick={() => setSelectedSubCategory('INSTALACAO')}
-                className={`px-2.5 py-1 rounded-md font-semibold transition-colors ${selectedSubCategory === 'INSTALACAO' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
-              >
-                Instalação
-              </button>
-              <button
-                onClick={() => setSelectedSubCategory('ERRO')}
-                className={`px-2.5 py-1 rounded-md font-semibold transition-colors ${selectedSubCategory === 'ERRO' ? 'bg-amber-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
-              >
-                Erros
-              </button>
+                <option value="TODOS">Todos os Tipos</option>
+                <option value="Requisição de serviço">Requisição de serviço</option>
+                <option value="Incidente">Incidente</option>
+              </select>
+
+              {/* System Filter */}
+              <div className="flex items-center gap-1.5">
+                <select
+                  value={selectedSystem}
+                  onChange={(e) => setSelectedSystem(e.target.value)}
+                  className="py-1.5 px-3 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 max-w-[280px]"
+                >
+                  <option value="TODOS">
+                    {selectedSoftwareGroup === 'TODOS' ? 'Todos os Softwares & Sistemas' : `Todos de ${SOFTWARE_GROUPS.find(g => g.id === selectedSoftwareGroup)?.label.split('&')[0]}`} ({systemsList.length})
+                  </option>
+                  {systemsList.map(sys => (
+                    <option key={sys} value={sys}>{sys}</option>
+                  ))}
+                </select>
+
+                {(selectedSoftwareGroup !== 'TODOS' || selectedSystem !== 'TODOS') && (
+                  <button
+                    onClick={() => {
+                      setSelectedSoftwareGroup('TODOS');
+                      setSelectedSystem('TODOS');
+                    }}
+                    className="px-2.5 py-1 text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-md transition-colors"
+                    title="Limpar filtros de grupo e software"
+                  >
+                    Limpar Categoria
+                  </button>
+                )}
+              </div>
             </div>
 
-            {/* Type Filter */}
-            <select
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="py-1.5 px-3 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
-            >
-              <option value="TODOS">Todos os Tipos</option>
-              <option value="Requisição de serviço">Requisição de serviço</option>
-              <option value="Incidente">Incidente</option>
-            </select>
-
-            {/* System Filter */}
-            <select
-              value={selectedSystem}
-              onChange={(e) => setSelectedSystem(e.target.value)}
-              className="py-1.5 px-3 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
-            >
-              <option value="TODOS">Todos os Softwares</option>
-              {systemsList.map(sys => (
-                <option key={sys} value={sys}>{sys}</option>
-              ))}
-            </select>
+            {/* Total Results indicator */}
+            <div className="text-xs text-slate-500 font-medium">
+              Procedimentos visíveis: <strong className="text-slate-800">{filteredFaqs.length}</strong> de <strong className="text-slate-800">{faqs.length}</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -989,6 +1112,16 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
           </div>
         </div>
       )}
+      {/* Modal de Diretório Completo de Softwares & Sistemas */}
+      <SoftwareDirectoryModal
+        isOpen={isDirectoryModalOpen}
+        onClose={() => setIsDirectoryModalOpen(false)}
+        faqs={faqs}
+        onSelectSystem={(systemName, group) => {
+          setSelectedSoftwareGroup(group);
+          setSelectedSystem(systemName);
+        }}
+      />
     </div>
   );
 }

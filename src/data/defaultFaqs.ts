@@ -26,6 +26,27 @@ import { additionalFaqsBatch24 } from './additionalFaqsBatch24';
 import { additionalFaqsBatch25 } from './additionalFaqsBatch25';
 import { additionalFaqsBatch26 } from './additionalFaqsBatch26';
 import { additionalFaqsBatch27 } from './additionalFaqsBatch27';
+import { additionalFaqsBatch28 } from './additionalFaqsBatch28';
+import { additionalFaqsBatch29 } from './additionalFaqsBatch29';
+import { additionalFaqsBatch30 } from './additionalFaqsBatch30';
+import { additionalFaqsBatch31 } from './additionalFaqsBatch31';
+import { additionalFaqsBatch32 } from './additionalFaqsBatch32';
+import { additionalFaqsBatch33 } from './additionalFaqsBatch33';
+import { additionalFaqsBatch34 } from './additionalFaqsBatch34';
+import { additionalFaqsBatch35 } from './additionalFaqsBatch35';
+import { additionalFaqsBatch36 } from './additionalFaqsBatch36';
+import { additionalFaqsBatch37 } from './additionalFaqsBatch37';
+import { additionalFaqsBatch38 } from './additionalFaqsBatch38';
+import { additionalFaqsBatch39 } from './additionalFaqsBatch39';
+import { additionalFaqsBatch40 } from './additionalFaqsBatch40';
+import { additionalFaqsBatch41 } from './additionalFaqsBatch41';
+import { additionalFaqsBatch42 } from './additionalFaqsBatch42';
+import { additionalFaqsBatch43 } from './additionalFaqsBatch43';
+import { additionalFaqsBatch44 } from './additionalFaqsBatch44';
+import { additionalFaqsBatch45 } from './additionalFaqsBatch45';
+import { additionalFaqsBatch46 } from './additionalFaqsBatch46';
+import { additionalFaqsBatch47 } from './additionalFaqsBatch47';
+import { additionalFaqsBatch48 } from './additionalFaqsBatch48';
 
 const initialFaqsOriginal: FAQ[] = [
   {
@@ -705,7 +726,28 @@ const rawCombinedFaqs: FAQ[] = [
   ...additionalFaqsBatch24,
   ...additionalFaqsBatch25,
   ...additionalFaqsBatch26,
-  ...additionalFaqsBatch27
+  ...additionalFaqsBatch27,
+  ...additionalFaqsBatch28,
+  ...additionalFaqsBatch29,
+  ...additionalFaqsBatch30,
+  ...additionalFaqsBatch31,
+  ...additionalFaqsBatch32,
+  ...additionalFaqsBatch33,
+  ...additionalFaqsBatch34,
+  ...additionalFaqsBatch35,
+  ...additionalFaqsBatch36,
+  ...additionalFaqsBatch37,
+  ...additionalFaqsBatch38,
+  ...additionalFaqsBatch39,
+  ...additionalFaqsBatch40,
+  ...additionalFaqsBatch41,
+  ...additionalFaqsBatch42,
+  ...additionalFaqsBatch43,
+  ...additionalFaqsBatch44,
+  ...additionalFaqsBatch45,
+  ...additionalFaqsBatch46,
+  ...additionalFaqsBatch47,
+  ...additionalFaqsBatch48
 ];
 
 // Garantia defensiva de unicidade de chaves para evitar conflitos na renderização React
