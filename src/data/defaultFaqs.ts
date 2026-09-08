@@ -47,6 +47,9 @@ import { additionalFaqsBatch45 } from './additionalFaqsBatch45';
 import { additionalFaqsBatch46 } from './additionalFaqsBatch46';
 import { additionalFaqsBatch47 } from './additionalFaqsBatch47';
 import { additionalFaqsBatch48 } from './additionalFaqsBatch48';
+import { additionalFaqsBatch49 } from './additionalFaqsBatch49';
+import { additionalFaqsBatch50 } from './additionalFaqsBatch50';
+import { additionalFaqsBatch51 } from './additionalFaqsBatch51';
 
 const initialFaqsOriginal: FAQ[] = [
   {
@@ -747,7 +750,10 @@ const rawCombinedFaqs: FAQ[] = [
   ...additionalFaqsBatch45,
   ...additionalFaqsBatch46,
   ...additionalFaqsBatch47,
-  ...additionalFaqsBatch48
+  ...additionalFaqsBatch48,
+  ...additionalFaqsBatch49,
+  ...additionalFaqsBatch50,
+  ...additionalFaqsBatch51
 ];
 
 // Garantia defensiva de unicidade de chaves para evitar conflitos na renderização React
