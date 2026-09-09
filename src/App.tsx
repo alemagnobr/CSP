@@ -134,8 +134,8 @@ O texto é:
         const data = docSnap.data() as AppSettings;
 
         // Extract any user-created FAQs (id starts with 'faq-user-') from userFaqs or legacy faqs
-        const storedUserFaqs: FAQ[] = (data.userFaqs || []).length > 0
-          ? data.userFaqs!
+        const storedUserFaqs: FAQ[] = Array.isArray(data.userFaqs)
+          ? data.userFaqs
           : (data.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
 
         // Always compose full FAQ list from initialFaqs + storedUserFaqs
@@ -194,10 +194,10 @@ O texto é:
 
   // Save Settings to Firestore when updated
   const handleUpdateSettings = async (newSettings: AppSettings) => {
-    // Extract any user-created FAQs from newSettings.faqs or newSettings.userFaqs
-    const userCreatedFaqs = (newSettings.userFaqs && newSettings.userFaqs.length > 0)
+    // Extract any user-created FAQs from newSettings.userFaqs or newSettings.faqs
+    const userCreatedFaqs = Array.isArray(newSettings.userFaqs)
       ? newSettings.userFaqs
-      : (newSettings.faqs || []).filter(f => f.id?.startsWith('faq-user-'));
+      : (Array.isArray(newSettings.faqs) ? newSettings.faqs : []);
 
     // Compose local full in-memory state
     const fullSettings: AppSettings = {

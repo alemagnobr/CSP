@@ -38,13 +38,10 @@ interface FaqPanelProps {
 }
 
 export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
-  // Ensure faqs list is strictly the 15 official FAQs, cleaned of HTML tags
   const faqs: FAQ[] = useMemo(() => {
-    const list = (appSettings.faqs && appSettings.faqs.length > 0) ? appSettings.faqs : initialFaqs;
-    const officialNumbers = new Set(initialFaqs.map(f => f.faqNumber));
-    const filtered = list.filter(f => f.faqNumber !== '1000601' && (officialNumbers.has(f.faqNumber) || f.id.startsWith('faq-user-')));
-    return (filtered.length > 0 ? filtered : initialFaqs).map(cleanFaq);
-  }, [appSettings.faqs]);
+    const list = Array.isArray(appSettings.faqs) ? appSettings.faqs : (Array.isArray(appSettings.userFaqs) ? appSettings.userFaqs : initialFaqs);
+    return list.map(cleanFaq);
+  }, [appSettings.faqs, appSettings.userFaqs]);
 
   // Search and Filter States
   const [searchTerm, setSearchTerm] = useState('');
@@ -306,10 +303,9 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
       showToast(`Nova FAQ cadastrada com sucesso!`);
     }
 
-    const userOnlyFaqs = updatedList.filter(item => item.id?.startsWith('faq-user-'));
     onUpdateSettings({
       ...appSettings,
-      userFaqs: userOnlyFaqs,
+      userFaqs: updatedList,
       faqs: updatedList.map(cleanFaq)
     });
 
@@ -320,25 +316,47 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
   const handleDeleteFaq = (id: string, name: string) => {
     if (window.confirm(`Deseja realmente remover a FAQ "${name}"?`)) {
       const updatedList = faqs.filter(item => item.id !== id);
-      const userOnlyFaqs = updatedList.filter(item => item.id?.startsWith('faq-user-'));
       onUpdateSettings({
         ...appSettings,
-        userFaqs: userOnlyFaqs,
+        userFaqs: updatedList,
         faqs: updatedList
       });
       showToast('FAQ removida.');
     }
   };
 
-  // Restore Default FAQs (Strictly the official FAQs)
+  // Clear all FAQs (Start from zero)
+  const handleClearAllFaqs = () => {
+    if (window.confirm('Deseja realmente limpar todas as FAQs da base de conhecimento e começar do zero?')) {
+      onUpdateSettings({
+        ...appSettings,
+        userFaqs: [],
+        faqs: []
+      });
+      showToast('Todas as FAQs foram removidas com sucesso. A base está zerada!');
+    }
+  };
+
+  // Restore Default FAQs
   const handleRestoreDefaults = () => {
-    if (window.confirm(`Deseja restaurar a base oficial com todas as ${initialFaqs.length} FAQs do Senado? As FAQs padrões serão recarregadas e as personalizadas serão desfeitas.`)) {
+    if (initialFaqs.length === 0) {
+      if (window.confirm('A base padrão inicial está zerada. Deseja manter a base completamente vazia para começar do zero?')) {
+        onUpdateSettings({
+          ...appSettings,
+          userFaqs: [],
+          faqs: []
+        });
+        showToast('Base de FAQs mantida zerada.');
+      }
+      return;
+    }
+    if (window.confirm(`Deseja restaurar a base com as ${initialFaqs.length} FAQs oficiais?`)) {
       onUpdateSettings({
         ...appSettings,
         userFaqs: [],
         faqs: initialFaqs
       });
-      showToast(`Base restaurada com as ${initialFaqs.length} FAQs oficiais.`);
+      showToast(`Base restaurada com ${initialFaqs.length} FAQs oficiais.`);
     }
   };
 
@@ -377,14 +395,26 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               <Grid className="h-4 w-4 text-indigo-600" />
               Diretório de Softwares & Sistemas
             </button>
-            <button
-              onClick={handleRestoreDefaults}
-              title="Restaurar lista com as 15 FAQs padrão"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
-            >
-              <RotateCcw className="h-4 w-4" />
-              Restaurar Padrões
-            </button>
+            {initialFaqs.length > 0 && (
+              <button
+                onClick={handleRestoreDefaults}
+                title="Restaurar lista com as FAQs padrão"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
+              >
+                <RotateCcw className="h-4 w-4" />
+                Restaurar Padrões
+              </button>
+            )}
+            {faqs.length > 0 && (
+              <button
+                onClick={handleClearAllFaqs}
+                title="Limpar todas as FAQs da base (começar do zero)"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors border border-rose-200 shadow-xs"
+              >
+                <Trash2 className="h-4 w-4 text-rose-500" />
+                Limpar Tudo (Zerar)
+              </button>
+            )}
             <button
               onClick={handleOpenAddModal}
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm hover:shadow transition-all"
@@ -555,7 +585,24 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
       {/* Main Content Area */}
       <div className="max-w-7xl w-full mx-auto p-6 space-y-4">
-        {filteredFaqs.length === 0 ? (
+        {faqs.length === 0 ? (
+          <div className="bg-white border border-dashed border-slate-300 rounded-2xl p-12 text-center shadow-xs">
+            <div className="w-16 h-16 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <BookOpen className="h-8 w-8" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">Base de FAQs Limpa</h3>
+            <p className="text-sm text-slate-500 max-w-md mx-auto mb-6">
+              Todas as FAQs foram limpas e a base está pronta para você começar do zero. Cadastre novos procedimentos e soluções personalizadas.
+            </p>
+            <button
+              onClick={handleOpenAddModal}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-sm hover:shadow transition-all"
+            >
+              <Plus className="h-4 w-4" />
+              Cadastrar Primeira FAQ
+            </button>
+          </div>
+        ) : filteredFaqs.length === 0 ? (
           <div className="bg-white border border-slate-200 rounded-xl p-12 text-center shadow-sm">
             <Info className="h-12 w-12 text-slate-300 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-slate-800 mb-1">Nenhuma FAQ encontrada</h3>
@@ -568,6 +615,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 setSelectedSubCategory('TODOS');
                 setSelectedType('TODOS');
                 setSelectedSystem('TODOS');
+                setSelectedSoftwareGroup('TODOS');
               }}
               className="px-4 py-2 text-sm font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors"
             >
