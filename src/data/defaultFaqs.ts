@@ -5229,6 +5229,2355 @@ Não necessita de permissão especial administrativa e precisa ser instalado no 
       paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=845;Nav=',
       itemId: '845'
     }
+  },
+  {
+    id: 'faq-1000848',
+    faqNumber: '1000848',
+    name: 'CorelDraw – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software licenciado',
+    subject: 'Solicita instalação do CorelDraw',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'CORELDRAW',
+    associatedProcedureId: 'proc-install-licensed',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Informações e Orientações
+
+- Programa para edição de imagens e ilustração vetorial.
+- Software com limitação de licenças corporativas.
+- **Pré-requisito:** Microsoft .NET Framework instalado e atualizado.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Instale a versão de acordo com a arquitetura do sistema operacional instalado.
+2. Execute o arquivo localizado em **X:\\CorelDRAW X6 (Corel Corporation)**.
+3. Clique em **Sim**.
+4. Clique em **Prosseguir**.
+5. Clique novamente em **Sim**.
+6. Insira o número do chamado.
+7. Clique em **OK**.
+8. Clique em **‘Eu Aceito’** nos termos de licença.
+9. Clique em **Avançar**.
+10. Clique na opção **‘Instalação característica’**.
+11. Aguarde a conclusão do processo de instalação.
+12. Clique em **Concluir**.
+
+---
+
+### 📌 Credenciais e Permissões de Acesso
+
+- Insira as credenciais de rede durante o processo, se solicitado.
+- **Autorização Prévia:** Necessário solicitar autorização via Central de Serviços:
+  * *Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.*`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=848;Nav=',
+    attachments: [
+      {
+        name: 'CorelDraw – Instalação.pdf',
+        size: '566.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13354'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=10163' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13164' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13165' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13355' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13162' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=13163' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=9877' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=9878' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=9879' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=9883' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=848;FileID=9880' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > CORELDRAW > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::CORELDRAW::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 14:58 (Mayara Sales)',
+      alterado: '13/07/2026 15:22 (Leonardo Silva de Amarante)',
+      atualizadoEm: '13.07.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=848;Nav=',
+      itemId: '848'
+    }
+  },
+  {
+    id: 'faq-1000857',
+    faqNumber: '1000857',
+    name: 'D-Book (Digipix) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do D-Book',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'D-BOOK',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É um aplicativo "open source" para diagramação e montagem de fotolivros.
+- Aceite os termos contratuais durante a instalação.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\D-Book (Digipix)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Próximo**.
+7. Clique em **Instalar**.
+8. Aguarde o processo de instalação.
+9. Clique em **Terminar** para concluir.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=857;Nav=',
+    attachments: [
+      {
+        name: 'D-Book (Digipix) – Instalação.pdf',
+        size: '405.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13180'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13175' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13168' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13178' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13169' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13174' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13171' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13173' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13177' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13172' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=857;FileID=13179' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > D-BOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::D-BOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 15:51 (Mayara Sales)',
+      alterado: '24/07/2025 14:12 (Mayara Sales)',
+      atualizadoEm: '27.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=857;Nav=',
+      itemId: '857'
+    }
+  },
+  {
+    id: 'faq-10002411',
+    faqNumber: '10002411',
+    name: 'Dante Via - Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do Dante Via (Audinate)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DANTE VIA',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+O **Dante Via** é um software desenvolvido pela Audinate que permite o roteamento e o compartilhamento de sinais de áudio entre aplicações, dispositivos e equipamentos compatíveis com a tecnologia Dante, utilizando a infraestrutura de rede IP.
+
+---
+
+### 📌 Observação Importante
+
+**Atenção:** Após clicar em **RESTART** o sistema será **REINICIADO** imediatamente. Salve todos os trabalhos abertos antes de concluir.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) DANTE VIA (AUDIANTE)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Clique em **Install**.
+5. Aguarde o processo de instalação.
+6. Clique em **Restart** (o computador reiniciará).
+7. Após o reinício, clique no ícone Iniciar do Windows.
+8. Clique no atalho do **Dante Via**.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Rede DRU**](https://capri.senado.leg.brfile://DRU)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2411;Nav=',
+    attachments: [
+      {
+        name: 'Instalação do Dante Via (Audinate).pdf',
+        size: '416.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17260'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17252' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17253' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17254' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17255' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17256' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17257' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17258' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2411;FileID=17259' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DANTE VIA > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DANTE VIA::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'Dante audiante',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '21/08/2026 16:36 (Gabriel Queiroz Pires)',
+      alterado: '21/08/2026 16:38 (Gabriel Queiroz Pires)',
+      atualizadoEm: '21.08.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2411;Nav=',
+      itemId: '2411'
+    }
+  },
+  {
+    id: 'faq-10002348',
+    faqNumber: '10002348',
+    name: 'Instalação do DART',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do DART',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DART (AP Trust)',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+O **DART (Digital Archivist's Resource Tool)** é uma ferramenta de código aberto utilizada em fluxos de preservação digital para preparação, empacotamento e validação de objetos digitais destinados à preservação de longo prazo.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) Dart (AP Trust)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Aguarde o processo de instalação.
+5. Execute o atalho do **DART** localizado na Área de Trabalho.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Rede DRU**](https://capri.senado.leg.brfile://DRU)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2348;Nav=',
+    attachments: [
+      {
+        name: 'Instalação do DART.pdf',
+        size: '321.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16262'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16263' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16264' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16265' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16266' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2348;FileID=16267' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DART (AP Trust) > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DART (AP Trust)::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '(AP TRUST)',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '14/04/2026 12:18 (Gabriel Queiroz Pires)',
+      alterado: '14/04/2026 14:00 (Gabriel Queiroz Pires)',
+      atualizadoEm: '14.04.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2348;Nav=',
+      itemId: '2348'
+    }
+  },
+  {
+    id: 'faq-1000855',
+    faqNumber: '1000855',
+    name: 'DaVinci Resolve – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do DaVinci Resolve',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DAVINCI RESOLVE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O **DaVinci Resolve** é um software profissional que combina edição, correção de cores, efeitos visuais e pós-produção de áudio em até 8K na mesma ferramenta.
+- Tela inicial do programa após conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\DaVinci Resolve (Blackmagicdesign)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de extração de arquivos.
+7. Clique em **“Install”**.
+8. Aguarde o processo de instalação dos componentes.
+9. Aguarde o processo de preparação do instalador.
+10. Clique em **“Next”**.
+11. Marque a opção **“I accept the terms”**.
+12. Clique em **“Next”**.
+13. Clique novamente em **“Next”**.
+14. Clique em **“Install”**.
+15. Aguarde o processo de instalação.
+16. Clique em **“Finish”**.
+17. Clique em **OK**.
+18. Selecione o idioma de preferência.
+19. Clique em **Continuar** para abrir o DaVinci Resolve.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=855;Nav=',
+    attachments: [
+      {
+        name: 'DaVinci Resolve – Instalação.pdf',
+        size: '708.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13189'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13192' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13195' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13188' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13187' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13184' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13197' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13185' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13181' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13193' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13190' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13183' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13186' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13182' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13191' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13196' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=13194' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=855;FileID=11258' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DAVINCI RESOLVE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DAVINCI RESOLVE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 15:42 (Mayara Sales)',
+      alterado: '24/07/2025 14:48 (Mayara Sales)',
+      atualizadoEm: '27.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=855;Nav=',
+      itemId: '855'
+    }
+  },
+  {
+    id: 'faq-1000863',
+    faqNumber: '1000863',
+    name: 'DiaLux – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do DiaLux',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DIALUX',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Informações e Orientações
+
+- Software utilizado para desenvolver projetos luminotécnicos profissionais.
+- Estudo da aplicação de iluminação artificial tanto em espaços interiores como exteriores com planejamento de iluminação detalhado.
+- **Pré-requisito:** Microsoft .NET Framework 4.6.1, localizado em **X:\\.NET Framework (Microsoft)**.
+- O recomendado é instalar o .NET Framework antes do DiaLux para evitar interrupções, porém é possível iniciar a instalação do programa antes.
+- Aceite os termos de licença durante o processo.
+- Tela inicial do programa após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\DIALux evo (DIAL)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Clique em **"Next"**.
+8. Clique novamente em **"Next"**.
+9. Clique novamente em **"Next"**.
+10. Clique novamente em **"Next"**.
+11. Clique novamente em **"Next"**.
+12. Aguarde o processo de instalação.
+13. Clique em **"Finish"**.
+
+---
+
+### 📌 Permissão de Acesso
+
+Necessário solicitar autorização prévia via Central de Serviços:
+*Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a Sistemas.*`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=863;Nav=',
+    attachments: [
+      {
+        name: 'DiaLux – Instalação.pdf',
+        size: '596.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13203'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=10165' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13201' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13204' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13209' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13211' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13202' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13207' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13199' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13210' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13200' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13205' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13206' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13198' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=863;FileID=13208' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DIALUX > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DIALUX::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 16:28 (Mayara Sales)',
+      alterado: '24/07/2025 15:11 (Mayara Sales)',
+      atualizadoEm: '27.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=863;Nav=',
+      itemId: '863'
+    }
+  },
+  {
+    id: 'faq-1000864',
+    faqNumber: '1000864',
+    name: 'Novo Dicionário Eletrônico (Aurélio) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Dicionário Aurélio',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DICIONÁRIO AURÉLIO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software de consulta ao Novo Dicionário Eletrônico Aurélio.
+- Tela inicial do programa após o término.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Novo Dicionário Eletrônico (Aurélio)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de preparação do instalador.
+7. Clique em **OK**.
+8. Aguarde o processo de instalação ser concluído.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=864;Nav=',
+    attachments: [
+      {
+        name: 'Novo Dicionário Eletrônico (Aurélio) – Instalação.pdf',
+        size: '370.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13214'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13215' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13217' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13219' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13212' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13218' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13213' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13216' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=864;FileID=13220' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DICIONÁRIO AURÉLIO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DICIONÁRIO AURÉLIO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 16:35 (Mayara Sales)',
+      alterado: '24/07/2025 15:23 (Mayara Sales)',
+      atualizadoEm: '27.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=864;Nav=',
+      itemId: '864'
+    }
+  },
+  {
+    id: 'faq-1000865',
+    faqNumber: '1000865',
+    name: 'Dosvox – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Dosvox',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DOSVOX',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Sistema de acessibilidade desenvolvido pelo NCE – UFRJ.
+- Possibilita que pessoas com deficiência visual utilizem o computador, baseado no uso intensivo de síntese de voz.
+- O processo de instalação é composto por **3 aplicações sequenciais**:
+  1. **Dosvox**
+  2. **LAV Filters 0.67**
+  3. **Mbrola Tools**
+- Aceite os termos de uso.
+- Tela inicial do sistema após configuração.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Dosvox (NCE UFRJ)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Avançar**.
+7. Aguarde o processo de instalação do componente principal.
+8. Clique em **“Next”** (início da instalação do LAV Filters).
+9. Clique em **"Next"**.
+10. Clique novamente em **"Next"**.
+11. Clique novamente em **"Next"**.
+12. Clique novamente em **"Next"**.
+13. Selecione todas as opções, caso alguma esteja desmarcada.
+14. Clique em **"Next"**.
+15. Clique em **“Install”**.
+16. Aguarde o processo de instalação.
+17. Clique em **“Finish”**.
+18. Clique em **“Next”** (início da instalação do Mbrola Tools).
+19. Clique em **"Next"**.
+20. Clique novamente em **"Next"**.
+21. Selecione a opção **‘Typical Installation’**.
+22. Clique em **“Next”**.
+23. Clique em **"Next"**.
+24. Clique em **“Install”**.
+25. **Importante:** Desmarque a opção **'Download mbrola databases'**.
+26. Clique em **"Finish"**.
+27. Aguarde a finalização do processo global.
+28. Clique em **Sim**.
+29. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=865;Nav=',
+    attachments: [
+      {
+        name: 'Dosvox – Instalação.pdf',
+        size: '602.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13237'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13230' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13247' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13246' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13236' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13240' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13221' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13239' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13243' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13224' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13223' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13232' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13222' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13229' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13228' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13225' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13242' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13235' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13241' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13244' },
+      { title: 'Imagem 20', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13231' },
+      { title: 'Imagem 21', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13245' },
+      { title: 'Imagem 22', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13234' },
+      { title: 'Imagem 23', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13233' },
+      { title: 'Imagem 24', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13227' },
+      { title: 'Imagem 25', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=13238' },
+      { title: 'Imagem 26', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=865;FileID=11302' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DOSVOX > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DOSVOX::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 16:49 (Mayara Sales)',
+      alterado: '24/07/2025 15:58 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=865;Nav=',
+      itemId: '865'
+    }
+  },
+  {
+    id: 'faq-1000866',
+    faqNumber: '1000866',
+    name: 'Dropbox Desktop Client – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Dropbox.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'DROPBOX',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo para sincronização local e nuvem de pastas e arquivos da conta Dropbox.
+- Efetue o login com credenciais autorizadas para sincronizar os arquivos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Desktop Client (Dropbox)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de instalação.
+7. Clique em **Acessar conta do Dropbox**.
+8. Clique em **Abrir página de acesso** para concluir a autenticação no navegador.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=866;Nav=',
+    attachments: [
+      {
+        name: 'Dropbox Desktop Client – Instalação.pdf',
+        size: '327.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13253'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13252' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13248' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=2116' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13250' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13249' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13254' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13251' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=866;FileID=13255' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > DROPBOX > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::DROPBOX::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 16:54 (Mayara Sales)',
+      alterado: '24/07/2025 16:24 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=866;Nav=',
+      itemId: '866'
+    }
+  },
+  {
+    id: 'faq-1000990',
+    faqNumber: '1000990',
+    name: 'Easy Document Creator – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Easy Document Creator',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'EASY DOCUMENT CREATOR',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo que tem como finalidade auxiliar os usuários a digitalizar, compilar e salvar documentos em vários formatos, incluindo o formato .epub.
+- Tela inicial do sistema após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Easy Document Creator (Samsung)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Instalar**.
+7. Aguarde o processo de instalação.
+8. Clique em **Terminar**.
+9. Clique em **Instalar** (para os componentes adicionais).
+10. Aguarde o processo de instalação.
+11. Clique em **Terminar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=990;Nav=',
+    attachments: [
+      {
+        name: 'Easy Document Creator – Instalação.pdf',
+        size: '543.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13266'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13260' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13268' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13258' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13259' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13262' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13261' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13267' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13263' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13265' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13269' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=990;FileID=13264' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > EASY DOCUMENT CREATOR > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::EASY DOCUMENT CREATOR::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 11:42 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 13:15 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=990;Nav=',
+      itemId: '990'
+    }
+  },
+  {
+    id: 'faq-1000989',
+    faqNumber: '1000989',
+    name: 'EasyCalc (Ecalc Software) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software EasyCalc',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'EASYCALC',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software de uso exclusivo do SEGRAF. Não é necessário perfil de administrador local para a instalação.
+- Tela inicial do programa após conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\EasyCalc (Ecalc Software)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK** para concluir.
+
+---
+
+### 📌 Permissão de Acesso e Credenciais
+
+Não requer autorização formal via Central de Serviços.
+
+Entretanto, é necessário solicitar acesso através do e-mail **seati@senado.leg.br** (SEATI – Serviço de Apoio de TI e Atualização Tecnológica), caso o cliente ainda não possua usuário e senha cadastrados para uso do aplicativo.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=989;Nav=',
+    attachments: [
+      {
+        name: 'EasyCalc (Ecalc Software) – Instalação.pdf',
+        size: '268.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13272'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13276' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13273' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13270' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13274' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13275' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=989;FileID=13271' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > EASYCALC > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::EASYCALC::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 11:29 (Leonardo Silva de Amarante)',
+      alterado: '22/10/2025 08:35 (Mayara Sales)',
+      atualizadoEm: '04.09.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=989;Nav=',
+      itemId: '989'
+    }
+  },
+  {
+    id: 'faq-1000988',
+    faqNumber: '1000988',
+    name: 'EBRplaySF (EBRAudio) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do EBRplaySF',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'EBRPLAY',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Busca e audição dos arquivos de áudio resultantes das gravações de comissões e plenário do Senado Federal.
+- Permite a união de vários arquivos de áudio selecionados em um único arquivo, possibilitando salvá-lo e editá-lo em um editor de áudio externo (Adobe Audition, Sound Forge, Audacity ou similar) e transcrição dos áudios.
+- **Suporte:** Em caso de dúvidas ou problemas, entre em contato com Alexandre Sousa Guimarães: **Ramal 1285**.
+- Aceite os termos contratuais.
+- Tela de configuração de canais e editor externo.
+
+---
+
+### 📌 Observação Importante
+
+**Recomendação:** Antes de instalar este software, recomendamos instalar primeiro o editor de áudio desejado (por exemplo, o Audacity, que é gratuito e compatível), de modo que seja possível configurá-lo adequadamente no EBRplaySF.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Sistemas Rádio Senado (SETRAD)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Selecione o idioma.
+7. Clique em **OK**.
+8. Clique em **Avançar**.
+9. Clique novamente em **Avançar**.
+10. Clique novamente em **Avançar**.
+11. Clique novamente em **Avançar**.
+12. Marque a opção desejada.
+13. Clique em **Avançar**.
+14. Clique em **Instalar**.
+15. Clique em **Concluir**.
+16. Clique em **OK**.
+17. Clique em **‘Escolha um canal’**.
+18. Selecione o canal **“PD - PLENARIO SF”** (se não aparecer nenhum arquivo na lista, selecione outra data com gravações).
+19. Para reproduzir um arquivo de áudio, dê dois cliques sobre o nome do arquivo.
+20. Clique no botão de reprodução.
+
+---
+
+### 📌 Permissão de Acesso
+
+Não necessita de autorização para instalação.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=988;Nav=',
+    attachments: [
+      {
+        name: 'EBRplaySF (EBRAudio) – Instalação.pdf',
+        size: '710.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13289'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13303' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13290' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13291' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13295' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13302' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13297' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13293' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13299' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13298' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13296' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13292' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13288' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13301' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13304' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13300' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=2794' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=988;FileID=13294' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > EBRPLAY > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::EBRPLAY::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 11:22 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 14:01 (Mayara Sales)',
+      atualizadoEm: '06.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=988;Nav=',
+      itemId: '988'
+    }
+  },
+  {
+    id: 'faq-10001221',
+    faqNumber: '10001221',
+    name: 'InfoAudio (Informa) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software InfoAudio',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'EBRPLAY',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software de automação de estúdio de radiodifusão utilizado pela Rádio Senado Federal.
+
+---
+
+### 📌 Observação Importante
+
+**Configuração do Sistema:** Para a correta configuração do sistema e parâmetros de estúdio, entre em contato com o suporte técnico da Rádio Senado nos **Ramais: 1285 / 1253 / 1273**.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Sistemas Rádio Senado (SETRAD)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Desmarque todas as opções apresentadas.
+8. Marque **apenas** a opção **‘Central de Aplicativos’**.
+9. Clique em **Avançar**.
+10. Clique em **Instalar**.
+11. Aguarde o processo de instalação.
+12. Clique em **Concluir**.
+
+---
+
+### 📌 Acesso e Utilização
+
+Ao abrir o programa pela primeira vez, será necessário configurar os acessos. Contate o suporte técnico da Rádio Senado para apoio na parametrização.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1221;Nav=',
+    attachments: [
+      {
+        name: 'InfoAudio (Informa) – Instalação.pdf',
+        size: '448.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13286'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13285' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13282' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13287' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13277' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13279' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13280' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13284' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13278' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13283' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1221;FileID=13281' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > EBRPLAY > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::EBRPLAY::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '01/02/2024 10:08 (Jeferson dos Santos Morais)',
+      alterado: '25/07/2025 13:41 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1221;Nav=',
+      itemId: '1221'
+    }
+  },
+  {
+    id: 'faq-1000987',
+    faqNumber: '1000987',
+    name: 'Eikon (Thomson Reuters) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Eikon',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'EIKON',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Informações e Orientações
+
+- Plataforma de streaming de dados financeiros com notícias em tempo real sobre os mercados de câmbio.
+- Aguarde o processo de instalação ser concluído.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Eikon (Thomson Reuters)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do Chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de instalação.
+7. Clique em **Continue**.
+8. Clique em **“Start Product”**.
+9. Aguarde o programa ser iniciado.
+
+---
+
+### 📌 Credenciais de Acesso
+
+Caso não tenha cadastro, acesse o portal [Refinitiv EIKON](https://eikon.refinitiv.com/) e siga os passos informados para criação de usuário e senha.
+Para iniciar a sessão, insira o usuário e a senha cadastrados.
+
+---
+
+### 📌 Permissão de Acesso
+
+Necessário solicitar autorização prévia via Central de Serviços:
+*Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.*`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=987;Nav=',
+    attachments: [
+      {
+        name: 'Eikon (Thomson Reuters) – Instalação.pdf',
+        size: '495.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13310'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=10070' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13306' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13308' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13309' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13305' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=10062' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=10063' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=10059' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=10065' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=10058' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=987;FileID=13307' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > EIKON > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::EIKON::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 11:12 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 14:14 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=987;Nav=',
+      itemId: '987'
+    }
+  },
+  {
+    id: 'faq-1000986',
+    faqNumber: '1000986',
+    name: 'Enable Viacam – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Enable Viacam',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'ENABLE VIACAM',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo de tecnologia assistiva que possibilita controlar a movimentação do cursor do mouse através da webcam, interpretando movimentos realizados com a cabeça.
+- Aceite os termos de licença durante o assistente.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Enable Viacam (CREA Software)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Selecione o idioma.
+7. Clique em **OK**.
+8. Clique em **Avançar**.
+9. Clique novamente em **Avançar**.
+10. Clique novamente em **Avançar**.
+11. Clique novamente em **Avançar**.
+12. Clique em **Instalar**.
+13. Aguarde o processo de instalação.
+14. Clique em **Avançar**.
+15. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=986;Nav=',
+    attachments: [
+      {
+        name: 'Enable Viacam – Instalação.pdf',
+        size: '386.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13318'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13314' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13321' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13320' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13317' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13322' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13323' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13311' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13319' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13312' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13316' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13313' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13315' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=986;FileID=13324' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ENABLE VIACAM > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ENABLE VIACAM::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 11:01 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 14:29 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=986;Nav=',
+      itemId: '986'
+    }
+  },
+  {
+    id: 'faq-1000985',
+    faqNumber: '1000985',
+    name: 'EnergyPlus – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software EnergyPlus',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'ENERGYPLUS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software de simulação de energia de edifícios completos utilizado por engenheiros, arquitetos e pesquisadores para modelar consumo de energia (aquecimento, resfriamento, ventilação, iluminação e cargas de tomada/processo) e consumo de água em edificações.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\EnergyPlus (Departamento de Energia dos EUA - DOE)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Próximo**.
+7. Clique em **‘Eu concordo’**.
+8. Clique em **Próximo**.
+9. Clique em **Instalar**.
+10. Aguarde o processo de instalação.
+11. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=985;Nav=',
+    attachments: [
+      {
+        name: 'EnergyPlus – Instalação.pdf',
+        size: '381.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13327'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13334' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13335' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13328' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13330' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13326' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13331' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13329' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13325' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13332' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=985;FileID=13333' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ENERGYPLUS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ENERGYPLUS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 10:52 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 14:43 (Mayara Sales)',
+      atualizadoEm: '28.02.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=985;Nav=',
+      itemId: '985'
+    }
+  },
+  {
+    id: 'faq-1000984',
+    faqNumber: '1000984',
+    name: 'Sistema Fluxo de Veículos (SETRAN) – Configuração',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita a configuração do sistema Fluxo de Veículos (SETRAN)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FLUXO DE VEÍCULOS',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Observação Importante
+
+**Atenção:** Não é necessário copiar o arquivo \`FLUXO2003.ldb\`.
+
+---
+
+### 📌 Informações e Orientações
+
+- **Pré-requisitos:** Access 2013 (32 bits) e Oracle 12C.
+- No menu Iniciar do Windows, pesquise por *'Ferramentas do Windows'* (ou Ferramentas Administrativas).
+- Preencha os campos da fonte de dados com as seguintes informações:
+  - **Nome da Fonte de Dados:** \`ADM_TRANSPORTE_ANIMUS\`
+  - **Descrição:** Em aberto
+  - **TNS Service Name:** \`ANIMUS\`
+  - **User ID:** \`ADM_TRANSPORTE_CONSULTA\`
+  - **Senha:** \`A662575DC2\`
+- Crie uma pasta \`\\SETRAN\` na raiz do drive **C:\\** do micro de destino (\`C:\\SETRAN\`) e copie o arquivo \`Fluxo2003.mde\` localizado em:
+  **U:\\COGER\\SETRAN\\Sistema\\SETRAN**
+- *Nota:* Este arquivo \`.mde\` também pode ser copiado de outra estação de trabalho do setor. O mesmo estará sempre localizado em \`C:\\SETRAN\`.
+- Crie um atalho na Área de Trabalho e execute o teste de funcionamento.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra **Fontes de Dados ODBC (64 bits)**.
+2. Acesse a aba **'DSN de Sistema'**.
+3. Clique em **Adicionar...**.
+4. Selecione o driver **‘Oracle em ORACLE12C_64’**.
+5. Clique em **Concluir**.
+6. Preencha os campos conforme as orientações acima e clique em **"Test Connection"**.
+7. Clique em **OK** para salvar.
+
+---
+
+### 📌 Permissão de Acesso
+
+Necessário solicitar autorização prévia via Central de Serviços:
+*Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.*`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=984;Nav=',
+    attachments: [
+      {
+        name: 'Sistema Fluxo de Veículos – Configuração.pdf',
+        size: '412.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13350'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=10145' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13346' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13348' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13349' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13351' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=984;FileID=13347' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FLUXO DE VEÍCULOS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FLUXO DE VEÍCULOS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 10:47 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 15:23 (Mayara Sales)',
+      atualizadoEm: '06.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=984;Nav=',
+      itemId: '984'
+    }
+  },
+  {
+    id: 'faq-10001504',
+    faqNumber: '10001504',
+    name: 'FontBase – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software FontBase',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FONTBASE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- FontBase é um gerenciador de fontes tipográficas profissional para designers e editores.
+- Durante a instalação, mantenha a opção **'Apenas para mim (AdmInstal)'** marcada.
+- Tela inicial do programa após o término.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\FontBase (Dominik Levitsky)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Próximo**.
+7. Clique em **Instalar**.
+8. Aguarde o processo de instalação.
+9. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1504;Nav=',
+    attachments: [
+      {
+        name: 'FontBase – Instalação.pdf',
+        size: '325.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13339'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13337' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13336' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13340' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13343' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13338' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13342' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13344' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13345' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1504;FileID=13341' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FONTBASE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FONTBASE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/02/2024 10:48 (Mayara Sales)',
+      alterado: '25/07/2025 15:04 (Mayara Sales)',
+      atualizadoEm: '07.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1504;Nav=',
+      itemId: '1504'
+    }
+  },
+  {
+    id: 'faq-1000981',
+    faqNumber: '1000981',
+    name: 'Forponto – Atualização',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Atualização do Forponto',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORPONTO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Informações e Orientações
+
+- O executável cliente/servidor do Forponto foi atualizado.
+- **Importante:** Feche o Forponto, caso esteja em execução, antes de iniciar o procedimento.
+
+---
+
+### 📌 Procedimento de Atualização
+
+1. Caso o solicitante abra chamado ou entre em contato solicitando a atualização do arquivo **FORPONTO.EXE**, o procedimento é direto e automatizado.
+2. Feche a aplicação Forponto se estiver aberta na máquina do usuário.
+3. Execute o arquivo localizado em **X:\\Forponto (TaskSistemas)**.
+4. Aguarde a conclusão da atualização automática dos binários.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=981;Nav=',
+    attachments: [
+      {
+        name: 'Forponto – Atualização.pdf',
+        size: '193.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=981;FileID=13352'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=981;FileID=13353' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORPONTO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORPONTO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 10:25 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 15:27 (Mayara Sales)',
+      atualizadoEm: '07.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=981;Nav=',
+      itemId: '981'
+    }
+  },
+  {
+    id: 'faq-1000982',
+    faqNumber: '1000982',
+    name: 'Forponto – Gestão de Ponto',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita informações sobre o Gestão de Ponto',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORPONTO',
+    associatedProcedureId: 'proc-troubleshoot',
+    procedure: `### 📌 Informações e Orientações
+
+- O gerenciamento do Ponto Eletrônico e controle de jornada dos servidores deve ser realizado diretamente pela Central de Serviços na Intranet.
+- **SEFREQ (Serviço de Controle de Frequência):**
+  - **E-mail:** sefreq@senado.leg.br
+  - **Ramais:** 2089 / 2310 / 4582
+
+---
+
+### 📌 Canais e Procedimento de Atendimento
+
+Para esclarecimentos, dúvidas de jornada ou parametrizações de frequência:
+
+#### 👤 Para o Gestor:
+- Acesse: **Intranet > Central de Serviços > Pessoal > Jornada de trabalho > Gestão do Ponto**
+
+#### 👤 Para o Servidor:
+- Acesse: **Intranet > Central de Serviços > Pessoal > Jornada de trabalho > Marcações de Ponto**
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [Ponto Biométrico (CAPRI FAQ 1902)](https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1902)
+- [Guia do Ponto Eletrônico (SEGP/SEFREQ)](https://www12.senado.leg.br/institucional/eventos-ilb/programaintegracao/posse202403/segpsefreq.pdf)
+- [Cumprimento de Horário de Trabalho](https://intranet.senado.leg.br/pessoas/servidor-efetivo/deveres-e-proibicoes/cumprimento-do-horario-de-trabalho)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=982;Nav=',
+    attachments: [
+      {
+        name: 'Forponto – Gestão de Ponto.pdf',
+        size: '235.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=982;FileID=11359'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=982;FileID=10182' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=982;FileID=10183' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORPONTO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORPONTO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 10:27 (Leonardo Silva de Amarante)',
+      alterado: '21/05/2025 13:08 (Mayara Sales)',
+      atualizadoEm: '07.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=982;Nav=',
+      itemId: '982'
+    }
+  },
+  {
+    id: 'faq-1000983',
+    faqNumber: '1000983',
+    name: 'Forponto – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do ForPonto',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORPONTO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**OBSERVAÇÃO:** PROCEDIMENTO REALIZADO PELO NÍVEL 2.
+**SOFTWARE RESTRITO.**
+
+---
+
+### 📌 Informações e Orientações
+
+- Aplicativo corporativo utilizado exclusivamente pelos administradores do Forponto, geralmente servidores da SEFREQ.
+- Tela inicial do sistema após configuração.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Forponto (TaskSistemas)**.
+2. Clique em **Sim**.
+3. Clique em **Prosseguir**.
+4. Clique novamente em **Sim**.
+5. Insira o número do chamado.
+6. Clique em **OK**.
+7. Clique novamente em **OK**.
+8. Aguarde o processo de instalação.
+9. Clique em **OK**.
+
+---
+
+### 📌 Credenciais de Acesso
+
+Insira as credenciais de rede do usuário administrador.
+
+---
+
+### 📌 Permissão de Acesso
+
+- O software requer autorização prévia: o supervisor deve solicitar formalmente o acesso para que a equipe técnica de Nível 2 possa efetuar a instalação.
+- **Solicitação via Central de Serviços:**
+  *Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a Sistemas.*
+- Após a conclusão da instalação, caso o usuário ainda não possua permissões atribuídas no sistema, deve solicitar liberação à própria SEGP/SEFREQ pelo e-mail: **controledefrequencia@senado.leg.br**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=983;Nav=',
+    attachments: [
+      {
+        name: 'Forponto – Instalação.pdf',
+        size: '377.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13365'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=10185' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13362' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13363' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13357' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13356' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13360' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13361' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13359' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13358' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=983;FileID=13364' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORPONTO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORPONTO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/01/2024 10:36 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 15:49 (Mayara Sales)',
+      atualizadoEm: '22.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=983;Nav=',
+      itemId: '983'
+    }
+  },
+  {
+    id: 'faq-10002307',
+    faqNumber: '10002307',
+    name: 'FortiClient - Falha de conexão via VPN',
+    type: 'Incidente',
+    service: 'Suporte a software de estação de trabalho',
+    subject: 'Erro de conexão FortiClient',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORTICLIENT',
+    associatedProcedureId: 'proc-troubleshoot',
+    procedure: `### 📌 Informações e Orientações
+
+- Em situações em que o FortiClient apresentar mensagens de erro como:
+  > *"Não foi possível estabelecer a conexão VPN. O servidor VPN pode estar inacessível."*
+  verifique sempre se o programa está na versão mais recente disponibilizada.
+- Grande parte dos erros recorrentes de conexão e autenticação VPN são solucionados simplesmente atualizando o cliente FortiClient para o release vigente.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Acesse o **Painel de Controle > Programas e Recursos** e confira a versão do FortiClient instalada.
+2. Caso esteja desatualizada, realize a desinstalação da versão antiga.
+3. Acesse o site oficial de downloads da Fortinet para baixar o instalador da versão mais recente: [Portal FortiClient Downloads](https://www.fortinet.com/br/support/product-downloads#vpn).
+4. Siga as etapas descritas no procedimento corporativo de instalação do FortiClient para parametrizar a conexão.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [Portal de Downloads FortiClient (Fortinet)](https://www.fortinet.com/br/support/product-downloads#vpn)
+- [Procedimento de Instalação do FortiClient (CAPRI FAQ 525)](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=525;Nav=)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2307;Nav=',
+    attachments: [
+      {
+        name: 'FortiClient – Falha de conexão.pdf',
+        size: '150.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2307;FileID=15762'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2307;FileID=15760' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2307;FileID=15761' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORTICLIENT > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORTICLIENT::ERRO',
+      palavrasChave: 'acesso remoto',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '10/02/2026 10:13 (Jeferson dos Santos Morais)',
+      alterado: '10/02/2026 10:32 (Jeferson dos Santos Morais)',
+      atualizadoEm: '10.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2307;Nav=',
+      itemId: '2307'
+    }
+  },
+  {
+    id: 'faq-1000523',
+    faqNumber: '1000523',
+    name: 'FortiClient (Linux) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do FortiClient para Linux',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORTICLIENT',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Observações Importantes
+
+- Este procedimento foi homologado e estruturado com base na distribuição **Ubuntu / Debian**.
+- É necessário ter um cliente RDP para acesso remoto à estação de trabalho, como o **Remmina**.
+- O Remmina pode ser aberto pelo inicializador de aplicativos ou via terminal pelo comando: \`remmina\`.
+- Caso ocorra falha com o domínio informado, tente com \`senado.gov.br\` ou \`Senado\`.
+
+---
+
+### 📌 Informações e Orientações
+
+1. **Instalação do pacote:**
+   - Baixe o pacote \`.deb\` na página oficial da Fortinet.
+   - O arquivo será gravado na pasta \`Downloads\`.
+2. **Configuração da VPN:**
+   - **Connection Name:** \`VPN SSO AZURE\`
+   - **Remote Gateway:** \`vpn.senado.leg.br\`
+   - Habilite as opções: **Customize port** e **Enable Single Sign ON (SSO)**.
+   - Autenticação via **SAML Login** utilizando Microsoft Authenticator e credenciais corporativas.
+3. **Acesso Remoto via Remmina:**
+   - Conecte ao endereço lógico da estação de trabalho física do Senado com usuário de rede.
+
+---
+
+### 📌 Procedimento de Instalação e Configuração
+
+1. Abra o Terminal e acesse a pasta Downloads: \`cd Downloads\`.
+2. Instale o pacote executando:
+   \`\`\`bash
+   sudo dpkg -i FortiClientPackageFileName.deb
+   \`\`\`
+3. Se houver dependências ausentes, repare executando:
+   \`\`\`bash
+   sudo apt-get install -f
+   \`\`\`
+4. Abra o FortiClient no menu de aplicativos, marque o aceite dos termos e clique em **“I accept”**.
+5. Clique em **Configurar VPN**.
+6. Preencha os dados:
+   - **Connection Name:** \`VPN SSO AZURE\`
+   - **Remote Gateway:** \`vpn.senado.leg.br\`
+   - Marque **Customize port**
+   - Marque **Enable Single Sign ON**
+7. Clique em **“Save”**.
+8. Clique no botão **‘SAML Login’**.
+9. Digite o e-mail institucional e clique em **Avançar**.
+10. Digite a senha de rede e clique em **Entrar**.
+11. Confirme a notificação do **Microsoft Authenticator** no dispositivo móvel.
+12. Aguarde a confirmação de conexão (VPN Conectada).
+13. Instale o cliente Remmina caso ainda não possua:
+    \`\`\`bash
+    sudo apt install remmina
+    \`\`\`
+14. Abra o Remmina, insira o endereço lógico do micro do Senado e configure o domínio como \`Senado\` ou \`senado.gov.br\`.
+15. Autentique com as credenciais de rede para iniciar a sessão remota.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=523;Nav=',
+    attachments: [
+      {
+        name: 'FortiClient (Linux) – Instalação.pdf',
+        size: '981.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=14049'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=13621' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=13623' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12651' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12665' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12666' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12657' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12664' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=14048' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12656' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12645' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12652' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12647' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=13624' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12655' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12663' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12654' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12660' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12661' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12648' },
+      { title: 'Imagem 20', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12646' },
+      { title: 'Imagem 21', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=523;FileID=12650' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORTICLIENT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORTICLIENT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '28/08/2023 15:49 (Mayara Sales)',
+      alterado: '13/10/2025 15:23 (Mayara Sales)',
+      atualizadoEm: '09.07.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=523;Nav=',
+      itemId: '523'
+    }
+  },
+  {
+    id: 'faq-1000524',
+    faqNumber: '1000524',
+    name: 'FortiClient (MacOS) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Acesso remoto via MacOS',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORTICLIENT',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- **FortiClient para macOS:**
+  - Faça o download do pacote para macOS no portal oficial da Fortinet.
+  - Conexão:
+    - **Nome da Conexão:** \`VPN SSO AZURE\`
+    - **Gateway Remoto:** \`vpn.senado.leg.br\`
+  - Habilite opções de Porta customizada e Ativar logon único.
+- **Permissões de Sistema no macOS:**
+  - É fundamental autorizar as extensões de sistema em:
+    *Ajustes do Sistema > Geral > Itens de Início de Sessão e Extensões > Extensões de Rede* (habilitar **vpnprovider** com Touch ID ou senha de administrador).
+- **Acesso Remoto RDP à Estação do Senado:**
+  - Baixe o aplicativo oficial **Windows App** na Mac App Store.
+  - Configure o **PC name** com o endereço lógico da sua máquina física no Senado Federal.
+
+---
+
+### 📌 Procedimento de Instalação e Configuração
+
+1. Abra o instalador baixado e clique em **Continuar**, **Concordar** e **Instalar**.
+2. Abra o FortiClient no Launchpad/Aplicativos, marque a caixa de termos e clique em **“I accept”**.
+3. Clique em **Configurar a VPN**.
+4. Defina:
+   - **Nome da Conexão:** \`VPN SSO AZURE\`
+   - **Gateway Remoto:** \`vpn.senado.leg.br\`
+   - Marque **Porta customizada**
+   - Marque **Ativar logon único**
+5. Clique em **Salvar**.
+6. Caso solicitado, clique em **“Open Security & Privacy Settings”** (ou acesse Ajustes do Sistema).
+7. Vá em **Geral > Itens de Início de Sessão e Extensões > Extensões de Rede** e autorize o **vpnprovider** clicando em **OK**.
+8. Retorne ao FortiClient e clique em **“Connect”**.
+9. Autentique com o e-mail institucional e senha de rede, confirmando a solicitação no aplicativo **Microsoft Authenticator**.
+10. Com a VPN conectada, abra o aplicativo **Windows App** (instalado via Mac App Store).
+11. Clique no botão **+** e selecione **“Add PC”**.
+12. Em **PC name**, digite o endereço lógico do micro de trabalho do Senado Federal.
+13. Em **Gateway**, utilize as configurações indicadas e selecione **“Use PC User Account”** para efetuar o login.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=524;Nav=',
+    attachments: [
+      {
+        name: 'FortiClient (MacOS) – Instalação.pdf',
+        size: '1.5 MBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=14051'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13617' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13618' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10224' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10231' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10217' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10219' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10220' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13615' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10235' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=14053' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10215' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13619' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10210' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=8940' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10232' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13620' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10211' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10221' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10229' },
+      { title: 'Imagem 20', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10223' },
+      { title: 'Imagem 21', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10237' },
+      { title: 'Imagem 22', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10213' },
+      { title: 'Imagem 23', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10216' },
+      { title: 'Imagem 24', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10240' },
+      { title: 'Imagem 25', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10234' },
+      { title: 'Imagem 26', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10230' },
+      { title: 'Imagem 27', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=13612' },
+      { title: 'Imagem 28', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=524;FileID=10228' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORTICLIENT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORTICLIENT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '28/08/2023 16:07 (Mayara Sales)',
+      alterado: '13/10/2025 15:55 (Mayara Sales)',
+      atualizadoEm: '09.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=524;Nav=',
+      itemId: '524'
+    }
+  },
+  {
+    id: 'faq-1000525',
+    faqNumber: '1000525',
+    name: 'FortiClient (Windows) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do FortiClient',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FORTICLIENT',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Observação Importante
+
+Devido a uma atualização de segurança nas políticas de acesso à rede do Senado Federal, foi implementado o novo formato de conexão VPN com autenticação corporativa única (SSO Azure / MFA).
+
+---
+
+### 📌 Informações e Orientações
+
+- Este aplicativo deve ser instalado no equipamento **PESSOAL** (notebook ou desktop particular) a partir do qual o usuário realizará o acesso remoto à sua estação de trabalho física no Senado Federal.
+- **Configuração da VPN:**
+  - **Nome da Conexão:** \`VPN SSO AZURE\`
+  - **Gateway Remoto:** \`vpn.senado.leg.br\`
+  - Habilitar: **Porta customizada** e **Ativar logon único**
+  - Autenticação com credenciais corporativas e validação pelo aplicativo **Microsoft Authenticator**.
+- **Acesso Remoto à Estação do Senado:**
+  - Após conectar a VPN, utilize a ferramenta nativa **Conexão de Área de Trabalho Remota (MSTSC)**.
+  - No campo computador/endereço lógico, informe o identificador da estação física.
+  - Caso a credencial de rede não seja reconhecida diretamente, utilize o formato: \`senado\\login\`.
+
+---
+
+### 📌 Procedimento de Instalação e Conexão
+
+1. Acesse a página oficial de download da Fortinet ou o manual da VPN e baixe o instalador para Windows.
+2. Execute o instalador baixado e aguarde a extração dos arquivos.
+3. Clique em **“Next”**, depois em **“Install”** e aguarde a instalação.
+4. Clique em **“Finish”**.
+5. Abra o FortiClient pelo ícone criado na Área de Trabalho.
+6. Marque a opção de concordância com os termos e clique em **‘Eu aceito’**.
+7. Clique em **Configurar a VPN** e preencha:
+   - **Nome da Conexão:** \`VPN SSO AZURE\`
+   - **Gateway Remoto:** \`vpn.senado.leg.br\`
+   - Marque **Porta customizada**
+   - Marque **Ativar logon único**
+8. Clique em **Salvar**.
+9. Clique em **Conectar**.
+10. Digite o e-mail institucional e clique em **Avançar**.
+11. Digite a senha e clique em **Entrar**.
+12. Confirme o código de autenticação no **Microsoft Authenticator** e toque em **Sim**.
+13. Marque a opção *'Não mostrar isso novamente'* e confirme.
+14. Com a VPN conectada, abra a **Conexão de Área de Trabalho Remota**.
+15. Insira o endereço lógico do micro de trabalho do Senado e clique em **Conectar**.
+16. Insira suas credenciais de rede (\`senado\\login\` e senha) para iniciar a sessão.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [Manual para Instalação e Utilização da VPN do Senado Federal](https://intranet.senado.leg.br/intranet/informacao-e-documentacao/normas-do-senado-federal/manuais-tecnicos-e-guias/pdfs/tecnologia-da-informacao/manual-de-instalacao-e-utilizacao-da-vpn-do-senado-1)
+- [Página de Download do FortiClient VPN (Fortinet)](https://www.fortinet.com/br/support/product-downloads#vpn)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=525;Nav=',
+    attachments: [
+      {
+        name: 'FortiClient (Windows) – Instalação.pdf',
+        size: '904.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14040'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14039' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14029' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14024' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14031' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14026' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14038' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14013' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14017' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14018' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14034' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14033' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14023' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14027' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14035' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14016' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14036' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14019' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14022' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14025' },
+      { title: 'Imagem 20', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14037' },
+      { title: 'Imagem 21', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14030' },
+      { title: 'Imagem 22', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14028' },
+      { title: 'Imagem 23', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14032' },
+      { title: 'Imagem 24', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14015' },
+      { title: 'Imagem 25', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14020' },
+      { title: 'Imagem 26', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=525;FileID=14021' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FORTICLIENT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FORTICLIENT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '28/08/2023 16:31 (Mayara Sales)',
+      alterado: '13/10/2025 14:20 (Mayara Sales)',
+      atualizadoEm: '03.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=525;Nav=',
+      itemId: '525'
+    }
+  },
+  {
+    id: 'faq-1000964',
+    faqNumber: '1000964',
+    name: 'FreeMind – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do FreeMind',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'FREEMIND',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software livre para estruturação e criação de mapas mentais e organização de ideias.
+- **Pré-requisito:** O FreeMind requer o ambiente Java (JRE) instalado para seu correto funcionamento.
+- Aceite os termos do contrato de licença durante o assistente.
+- Tela inicial do programa após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\FreeMind (Joerg Mueller)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Selecione o idioma desejado e clique em **OK**.
+7. Clique consecutivamente em **Avançar** conforme as etapas do assistente.
+8. Selecione as tarefas adicionais que desejar (ex.: atalhos na Área de Trabalho) e clique em **Avançar**.
+9. Clique em **Instalar** e aguarde a conclusão da cópia dos arquivos.
+10. Clique em **Avançar** e finalize clicando em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=964;Nav=',
+    attachments: [
+      {
+        name: 'FreeMind – Instalação.pdf',
+        size: '368.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13377'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13376' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13371' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13374' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13380' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13375' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13369' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13378' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13373' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13366' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13367' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13368' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13372' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13379' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13381' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=964;FileID=13370' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > FREEMIND > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::FREEMIND::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 19:07 (Leonardo Silva de Amarante)',
+      alterado: '25/07/2025 16:43 (Mayara Sales)',
+      atualizadoEm: '10.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=964;Nav=',
+      itemId: '964'
+    }
+  },
+  {
+    id: 'faq-1000963',
+    faqNumber: '1000963',
+    name: 'GIMP – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do GIMP',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'GIMP',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo de manipulação e edição de imagens de código aberto (GNU Image Manipulation Program).
+- Tela inicial do programa após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\GIMP (GIMP Development Team)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Clique em **Instalar**.
+8. Aguarde o processo da instalação.
+9. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=963;Nav=',
+    attachments: [
+      {
+        name: 'GIMP – Instalação.pdf',
+        size: '540.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13644'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13650' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13651' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13648' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13652' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13647' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13643' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13645' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13646' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=963;FileID=13649' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > GIMP > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::GIMP::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 18:59 (Leonardo Silva de Amarante)',
+      alterado: '09/09/2025 14:50 (Mayara Sales)',
+      atualizadoEm: '10.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=963;Nav=',
+      itemId: '963'
+    }
+  },
+  {
+    id: 'faq-1000962',
+    faqNumber: '1000962',
+    name: 'Google Drive – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do Google Drive',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'GOOGLE DRIVE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo desktop oficial do Google Drive para sincronização, backup e gerenciamento de arquivos em nuvem.
+- Pronto para ser utilizado após o login.
+
+---
+
+### 📌 Procedimento de Instalação e Login
+
+1. Execute o arquivo localizado em **X:\\Google Drive for Desktop (Google)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Instalar** e aguarde o processo de instalação.
+7. Clique em **Fechar** e depois em **OK**.
+8. Inicie o Google Drive no Menu Iniciar.
+9. Clique em **Fazer login**.
+10. Insira o e-mail e a respectiva senha para autenticar e iniciar a sincronização.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=962;Nav=',
+    attachments: [
+      {
+        name: 'Google Drive – Instalação.pdf',
+        size: '548.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13660'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13666' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13665' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13659' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13663' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13661' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13662' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13654' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13656' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13657' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13667' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13655' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13658' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13664' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=962;FileID=13653' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > GOOGLE DRIVE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::GOOGLE DRIVE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 18:54 (Leonardo Silva de Amarante)',
+      alterado: '09/09/2025 15:48 (Mayara Sales)',
+      atualizadoEm: '10.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=962;Nav=',
+      itemId: '962'
+    }
+  },
+  {
+    id: 'faq-10002340',
+    faqNumber: '10002340',
+    name: 'Google Earth Pro – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do Google Earth Pro',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'GOOGLE EARTH PRO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Software de desktop para visualização geográfica avançada que combina imagens de satélite, dados topográficos 3D e motor de pesquisa geoespacial do Google.
+- Tela inicial do programa após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Google Earth Pro (Google)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Instalar**.
+7. Aguarde o processo de instalação.
+8. Clique em **OK** para concluir.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2340;Nav=',
+    attachments: [
+      {
+        name: 'Google Earth Pro (Google) – Instalação.pdf',
+        size: '394.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16109'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16100' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16101' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16102' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16103' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16104' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16105' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16106' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2340;FileID=16107' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > GOOGLE EARTH PRO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::GOOGLE EARTH PRO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '20/03/2026 10:44 (Mayara Sales)',
+      alterado: '20/03/2026 11:38 (Leonardo Silva de Amarante)',
+      atualizadoEm: '20.03.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2340;Nav=',
+      itemId: '2340'
+    }
+  },
+  {
+    id: 'faq-10002379',
+    faqNumber: '10002379',
+    name: 'Instalação do HandBrake',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do programa HandBrake',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'HANDBRAKE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O **HandBrake** é um programa gratuito e de código aberto projetado para conversão (transcodificação) e compactação de vídeos em diversos formatos para codecs modernos como MP4 ou MKV.
+- **Dependência (.NET Runtime):** Caso ocorra erro de execução ao abrir o programa pela Área de Trabalho solicitando o .NET Desktop Runtime, instale o pacote correspondente disponível no compartilhamento de rede.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) Handbrake (Handbrake)**.
+2. Clique em **“Sim”**.
+3. Clique novamente em **“Sim”**.
+4. Clique em **“Next”**.
+5. Clique novamente em **“Next”**.
+6. Clique em **“Install”**.
+7. Aguarde o processo de instalação e clique em **“Finish”**.
+8. Tente abrir o HandBrake localizado na Área de Trabalho.
+9. **Caso solicite o .NET Runtime:**
+   - Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) .NET 10.0 Desktop Runtime (Microsoft)**.
+   - Clique em **“Instalar”** e aguarde.
+   - Clique em **“Fechar”**.
+10. Execute novamente o HandBrake na Área de Trabalho para confirmar o funcionamento.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2379;Nav=',
+    attachments: [
+      {
+        name: 'Instalação do Handbrake.pdf',
+        size: '542.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16642'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16616' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16617' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16618' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16619' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16620' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16621' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16622' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16623' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16629' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16643' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16641' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16626' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16627' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16628' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16629' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2379;FileID=16630' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > HANDBRAKE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::HANDBRAKE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'handbra hand handbake',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '25/06/2026 13:42 (Gabriel Queiroz Pires)',
+      alterado: '26/06/2026 11:34 (Mayara Sales)',
+      atualizadoEm: '26.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2379;Nav=',
+      itemId: '2379'
+    }
+  },
+  {
+    id: 'faq-1000961',
+    faqNumber: '1000961',
+    name: 'HeadMouse – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do  HeadMouse',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'HEADMOUSE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aplicativo de acessibilidade e tecnologia assistiva que permite controlar a movimentação do cursor do mouse via webcam através de movimentos da cabeça.
+- Desenvolvido especialmente para servidores e usuários com restrições motoras nos membros superiores, promovendo autonomia no uso do computador.
+- Aceite os termos de licença durante o assistente.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\HeadMouse (Indra Sistemas)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Clique consecutivamente em **Seguinte** (5 vezes) acompanhando as telas do assistente.
+8. Clique em **Instalar** e aguarde a cópia dos arquivos.
+9. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=961;Nav=',
+    attachments: [
+      {
+        name: 'HeadMouse – Instalação.pdf',
+        size: '600.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13681'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13677' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13675' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13676' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13679' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13670' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13680' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13672' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13669' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13674' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13682' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13673' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=961;FileID=13668' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > HEADMOUSE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::HEADMOUSE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 18:45 (Leonardo Silva de Amarante)',
+      alterado: '09/09/2025 16:12 (Mayara Sales)',
+      atualizadoEm: '10.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=961;Nav=',
+      itemId: '961'
+    }
+  },
+  {
+    id: 'faq-1000960',
+    faqNumber: '1000960',
+    name: 'Inkscape – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Inkscape',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'INKSCAPE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O **Inkscape** é um editor profissional de ilustrações e gráficos vetoriais de código aberto (semelhante ao Adobe Illustrator e CorelDRAW).
+- Tela inicial do programa após a conclusão da instalação.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Inkscape (The Inkscape Team)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde a finalização do processo de instalação automatizada.
+7. Clique em **OK** para concluir.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=960;Nav=',
+    attachments: [
+      {
+        name: 'Inkscape – Instalação.pdf',
+        size: '413.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13690'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13687' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13691' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13689' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13684' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13686' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13688' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=960;FileID=13685' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > INKSCAPE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::INKSCAPE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 17:40 (Leonardo Silva de Amarante)',
+      alterado: '09/09/2025 16:33 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=960;Nav=',
+      itemId: '960'
+    }
   }
 ];
 

@@ -9,6 +9,7 @@ import {
   Check, 
   Plus, 
   Copy, 
+  Code,
   X,
   Eye,
   ArrowRight,
@@ -57,6 +58,7 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
   const [activeTab, setActiveTab] = useState<TabType>('faqs');
   const [previewItem, setPreviewItem] = useState<SuggestionItem | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [copiedHtmlId, setCopiedHtmlId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [pinnedIds, setPinnedIds] = useState<string[]>(() => {
     try {
@@ -441,6 +443,12 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
     navigator.clipboard.writeText(cleanText);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const handleCopyHtml = (htmlContent: string, id: string) => {
+    navigator.clipboard.writeText(htmlContent);
+    setCopiedHtmlId(id);
+    setTimeout(() => setCopiedHtmlId(null), 2000);
   };
 
   const handleAssociateFaq = (faqId: string) => {
@@ -860,11 +868,34 @@ export function SmartSuggestions({ description, appSettings, finishedTickets, ti
               </div>
 
               <div className="flex items-center gap-2.5">
+                {/* Copy HTML button for structured results / html content */}
+                {(previewItem.type === 'ticket' ? previewItem.extraContent : (previewItem.extraContent || previewItem.content)) && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const htmlToCopy = previewItem.type === 'ticket' 
+                        ? (previewItem.extraContent || previewItem.content)
+                        : (previewItem.extraContent || previewItem.content);
+                      handleCopyHtml(htmlToCopy, previewItem.id);
+                    }}
+                    className="flex items-center gap-1.5 px-3.5 py-2 text-blue-600 hover:text-blue-800 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg text-xs font-bold transition-all shadow-xs cursor-pointer"
+                    title="Copiar código HTML da solução formatada"
+                  >
+                    {copiedHtmlId === previewItem.id ? <Check className="h-4 w-4 text-emerald-600" /> : <Code className="h-4 w-4" />}
+                    {copiedHtmlId === previewItem.id ? 'HTML Copiado!' : 'Copiar HTML'}
+                  </button>
+                )}
+
                 {/* Copy content button */}
                 <button
                   type="button"
-                  onClick={() => handleCopyText(previewItem.content, previewItem.id)}
-                  className="flex items-center gap-1.5 px-3.5 py-2 text-slate-600 hover:text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold transition-all"
+                  onClick={() => {
+                    const textToCopy = previewItem.type === 'ticket' && previewItem.extraContent
+                      ? `${previewItem.content}\n\n[Solução]:\n${previewItem.extraContent}`
+                      : previewItem.content;
+                    handleCopyText(textToCopy, previewItem.id);
+                  }}
+                  className="flex items-center gap-1.5 px-3.5 py-2 text-slate-600 hover:text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold transition-all shadow-xs cursor-pointer"
                 >
                   {copiedId === previewItem.id ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
                   {copiedId === previewItem.id ? 'Copiado!' : 'Copiar Texto'}

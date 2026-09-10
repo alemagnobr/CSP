@@ -9,7 +9,7 @@
  * - Live countdown timer and SLA status display.
  * - Auto-saving to Firestore and integration with Gemini / OpenRouter API.
  */
-import { Play, Pause, Copy, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical } from 'lucide-react';
+import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket } from '@/types';
 import { cn } from '@/lib/utils';
@@ -55,10 +55,14 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   } | null>(null);
   const [selectedSolutionItem, setSelectedSolutionItem] = useState<{ type: string; item: any } | null>(null);
   const [copiedResult, setCopiedResult] = useState(false);
+  const [copiedSolutionHtml, setCopiedSolutionHtml] = useState(false);
+  const [copiedSolutionText, setCopiedSolutionText] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
+  const [closingTicketIdError, setClosingTicketIdError] = useState<string | null>(null);
   const [isGeneratingTitle, setIsGeneratingTitle] = useState(false);
   const ticketIdInputRef = useRef<HTMLInputElement>(null);
+  const closingTicketIdInputRef = useRef<HTMLInputElement>(null);
 
   // Direct Verifications and Procedures Creation/Deletion State
   const [isCreatingVerif, setIsCreatingVerif] = useState(false);
@@ -408,11 +412,11 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const handleSaveResult = () => {
     const currentTicket = ticketRef.current;
     if (!currentTicket.id || !currentTicket.id.trim()) {
-      setValidationError('É necessário colocar o número do chamado antes de salvar.');
-      setAiResult(null);
-      setTimeout(() => ticketIdInputRef.current?.focus(), 100);
+      setClosingTicketIdError('Por favor, informe o número do chamado antes de finalizar.');
+      setTimeout(() => closingTicketIdInputRef.current?.focus(), 100);
       return;
     }
+    setClosingTicketIdError(null);
     if (aiResult) {
       onFinish({ ...currentTicket, description: currentTicket.description, structuredResult: aiResult });
       setAiResult(null);
@@ -492,6 +496,21 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               </button>
             </div>
             
+            {closingTicketIdError && (
+              <div className="mb-4 p-3 bg-amber-50 border border-amber-300 rounded-xl flex items-center gap-3 text-amber-900 text-sm animate-in fade-in slide-in-from-top-2">
+                <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0" />
+                <div className="flex-1 font-medium">
+                  {closingTicketIdError} Digite o número abaixo no painel lateral ou no campo destacado para gravar.
+                </div>
+                <button 
+                  onClick={() => setClosingTicketIdError(null)}
+                  className="p-1 hover:bg-amber-100 rounded-lg text-amber-700 transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+            
             <div className="flex-1 flex flex-col md:flex-row gap-4 mb-6 min-h-0">
               <div className="flex-1 overflow-y-auto bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-3 shrink-0">
@@ -544,32 +563,81 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 </div>
               </div>
               
-              <div className="w-full md:w-80 overflow-y-auto bg-slate-50 border border-slate-200 rounded-lg p-4 shrink-0">
-                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Dados do Chamado</h4>
-                <div className="space-y-4">
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Login de Rede</span>
-                    <span className="text-sm font-medium text-slate-800">{ticket.networkLogin || <span className="text-slate-400 italic">Não informado</span>}</span>
+              <div className="w-full md:w-80 overflow-y-auto bg-slate-50 border border-slate-200 rounded-lg p-4 shrink-0 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Dados do Chamado</h4>
+                  
+                  {/* Campo de Número do Chamado diretamente na tela de fechamento */}
+                  <div className={cn(
+                    "mb-4 p-3 rounded-lg border transition-all",
+                    closingTicketIdError 
+                      ? "bg-rose-50/80 border-rose-300 ring-2 ring-rose-400/30" 
+                      : !ticket.id || !ticket.id.trim()
+                        ? "bg-amber-50/60 border-amber-300"
+                        : "bg-white border-slate-200 shadow-2xs"
+                  )}>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider mb-1 flex items-center justify-between">
+                      <span className={cn(
+                        closingTicketIdError ? "text-rose-700" : "text-slate-600"
+                      )}>
+                        Número do Chamado <span className="text-rose-500">*</span>
+                      </span>
+                      {(!ticket.id || !ticket.id.trim()) && (
+                        <span className="text-[10px] font-semibold text-amber-700 bg-amber-100/80 px-1.5 py-0.5 rounded">
+                          Obrigatório
+                        </span>
+                      )}
+                    </label>
+                    <input
+                      ref={closingTicketIdInputRef}
+                      type="text"
+                      value={ticket.id || ''}
+                      onChange={(e) => {
+                        handleChange('id', e.target.value);
+                        if (e.target.value.trim()) {
+                          setClosingTicketIdError(null);
+                        }
+                      }}
+                      placeholder="Ex: 2026123456"
+                      className={cn(
+                        "w-full px-2.5 py-1.5 text-sm font-semibold rounded-md border transition-all focus:outline-none focus:ring-2",
+                        closingTicketIdError
+                          ? "border-rose-400 bg-white text-rose-900 focus:ring-rose-500 focus:border-rose-500 placeholder:text-rose-300"
+                          : "border-slate-300 bg-white text-slate-800 focus:ring-blue-500 focus:border-blue-500"
+                      )}
+                    />
+                    {closingTicketIdError && (
+                      <p className="mt-1 text-xs text-rose-600 font-medium">
+                        {closingTicketIdError}
+                      </p>
+                    )}
                   </div>
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Ramal</span>
-                    <span className="text-sm font-medium text-slate-800">{ticket.extension || <span className="text-slate-400 italic">Não informado</span>}</span>
-                  </div>
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Celular</span>
-                    <span className="text-sm font-medium text-slate-800">{ticket.mobile || <span className="text-slate-400 italic">Não informado</span>}</span>
-                  </div>
-                  <div>
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email</span>
-                    <span className="text-sm font-medium text-slate-800">{ticket.clientEmail || <span className="text-slate-400 italic">Não informado</span>}</span>
-                  </div>
-                  <div className="pt-2 border-t border-slate-200">
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Endereço Lógico</span>
-                    <div className="text-sm font-medium text-slate-800 flex flex-col gap-1 mt-1">
-                      <span>Micro: {ticket.microLogicalAddress || '-'}</span>
-                      <span>Imp: {ticket.printerLogicalAddress || '-'}</span>
-                      <span>Mon: {ticket.monitorLogicalAddress || '-'}</span>
-                      <span>Outros: {ticket.otherLogicalAddress || '-'}</span>
+
+                  <div className="space-y-4">
+                    <div>
+                      <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Login de Rede</span>
+                      <span className="text-sm font-medium text-slate-800">{ticket.networkLogin || <span className="text-slate-400 italic">Não informado</span>}</span>
+                    </div>
+                    <div>
+                      <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Ramal</span>
+                      <span className="text-sm font-medium text-slate-800">{ticket.extension || <span className="text-slate-400 italic">Não informado</span>}</span>
+                    </div>
+                    <div>
+                      <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Celular</span>
+                      <span className="text-sm font-medium text-slate-800">{ticket.mobile || <span className="text-slate-400 italic">Não informado</span>}</span>
+                    </div>
+                    <div>
+                      <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Email</span>
+                      <span className="text-sm font-medium text-slate-800">{ticket.clientEmail || <span className="text-slate-400 italic">Não informado</span>}</span>
+                    </div>
+                    <div className="pt-2 border-t border-slate-200">
+                      <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Endereço Lógico</span>
+                      <div className="text-sm font-medium text-slate-800 flex flex-col gap-1 mt-1">
+                        <span>Micro: {ticket.microLogicalAddress || '-'}</span>
+                        <span>Imp: {ticket.printerLogicalAddress || '-'}</span>
+                        <span>Mon: {ticket.monitorLogicalAddress || '-'}</span>
+                        <span>Outros: {ticket.otherLogicalAddress || '-'}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -792,12 +860,43 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             
             <div className="flex items-center justify-between pt-4 border-t border-slate-100">
               {selectedSolutionItem ? (
-                <button 
-                  onClick={() => setSelectedSolutionItem(null)}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-bold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 transition-colors cursor-pointer"
-                >
-                  Voltar para resultados
-                </button>
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => setSelectedSolutionItem(null)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 transition-colors cursor-pointer"
+                  >
+                    Voltar para resultados
+                  </button>
+                  {selectedSolutionItem.type === 'ticket' && selectedSolutionItem.item.structuredResult && (
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(selectedSolutionItem.item.structuredResult);
+                        setCopiedSolutionHtml(true);
+                        setTimeout(() => setCopiedSolutionHtml(false), 2000);
+                      }}
+                      className="flex items-center gap-1.5 px-3.5 py-2 text-blue-600 hover:text-blue-800 bg-white hover:bg-blue-50 border border-blue-200 rounded-lg text-xs font-bold transition-all shadow-xs cursor-pointer"
+                      title="Copiar código HTML da solução"
+                    >
+                      {copiedSolutionHtml ? <Check className="h-4 w-4 text-emerald-600" /> : <Code className="h-4 w-4" />}
+                      {copiedSolutionHtml ? 'HTML Copiado!' : 'Copiar HTML'}
+                    </button>
+                  )}
+                  {selectedSolutionItem.type === 'ticket' && (
+                    <button
+                      onClick={() => {
+                        const cleanText = (selectedSolutionItem.item.structuredResult || selectedSolutionItem.item.description || '').replace(/<[^>]*>/g, '');
+                        navigator.clipboard.writeText(cleanText);
+                        setCopiedSolutionText(true);
+                        setTimeout(() => setCopiedSolutionText(false), 2000);
+                      }}
+                      className="flex items-center gap-1.5 px-3.5 py-2 text-slate-600 hover:text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold transition-all shadow-xs cursor-pointer"
+                      title="Copiar texto da solução"
+                    >
+                      {copiedSolutionText ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
+                      {copiedSolutionText ? 'Texto Copiado!' : 'Copiar Texto'}
+                    </button>
+                  )}
+                </div>
               ) : <div />}
               <button 
                 onClick={() => { setSearchedSolution(null); setSelectedSolutionItem(null); setIsPaused(false); }}
