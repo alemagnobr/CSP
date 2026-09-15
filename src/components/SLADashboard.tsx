@@ -444,10 +444,20 @@ export function SLADashboard({ tickets, appSettings }: SLADashboardProps) {
                   <YAxis domain={[0, maxTimelineVal]} axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#64748b' }} />
                   <Tooltip 
                     contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                    formatter={(value: number, name: string) => [
-                      name === 'avgMinutes' ? `${value.toFixed(1)} min` : value, 
-                      name === 'avgMinutes' ? 'Tempo Médio' : 'Qtd Chamados'
-                    ]}
+                    formatter={(value: number, _name: string, item: any) => {
+                      const count = item?.payload?.count;
+                      return [
+                        <span>
+                          <strong className="text-slate-800">{value.toFixed(1)} min</strong>
+                          {count !== undefined && (
+                            <span className="block text-xs text-slate-500 font-normal mt-0.5">
+                              {count} {count === 1 ? 'chamado' : 'chamados'} atendidos
+                            </span>
+                          )}
+                        </span>,
+                        'Tempo Médio'
+                      ];
+                    }}
                   />
                   <Legend iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
                   <Line 

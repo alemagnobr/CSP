@@ -7578,10 +7578,10321 @@ Devido a uma atualização de segurança nas políticas de acesso à rede do Sen
       paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=960;Nav=',
       itemId: '960'
     }
+  },
+  {
+    id: 'faq-1000959',
+    faqNumber: '1000959',
+    name: 'IRPF (Serpro) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do IRPF.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'IRPF',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- .
+- Tela inicial do programa.
+- .
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\IRPF (Serpro - Receita Federal Brasileira)**.
+2. Clique em **“Sim”**.
+3. Clique novamente em **“Sim”**.
+4. Aguarde o processo de instalação.
+5. Clique em **“Avançar”**.
+6. Clique novamente em **“Avançar”**.
+7. Clique novamente em **“Avançar”**.
+8. Aguarde o processo de instalação.
+9. Clique em **“Terminar”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=959;Nav=',
+    attachments: [
+      {
+        name: 'IRPF (Serpro) – Instalação.pdf',
+        size: '565.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16111'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16120' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16119' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16116' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16115' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16114' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16118' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16112' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16113' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16121' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=959;FileID=16117' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > IRPF > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::IRPF::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 17:33 (Leonardo Silva de Amarante)',
+      alterado: '23/03/2026 09:37 (Leonardo Silva de Amarante)',
+      atualizadoEm: '23.03.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=959;Nav=',
+      itemId: '959'
+    }
+  },
+  {
+    id: 'faq-1000958',
+    faqNumber: '1000958',
+    name: 'iTunes (Apple) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do iTunes',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'ITUNES',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Observação Importante
+
+Observação: A nova versão não é compatível com o Windows 10.
+
+Observação: Caso seja necessário instalar a versão mais atualizada do iTunes em micro com Windows 10, é recomendável que a instalação seja feita mediante solicitação de acesso temporário ao aplicativo Windows Store.
+
+---
+
+### 📌 Informações e Orientações
+
+- Reprodutor de áudio e vídeo desenvolvido pela Apple.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Instale o driver correspondente ao sistema operacional. Windows 10 – Versão 12.12.5.8 | Windows 11 – Versão 12.13.6.1.
+2. Execute o arquivo localizado em **X:\\iTunes (Apple)**.
+3. Clique em **Sim**.
+4. Clique novamente em **Sim**.
+5. Insira o número do chamado.
+6. Clique em **OK**.
+7. Aguarde o processo de instalação.
+8. Clique em **Aceitar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=958;Nav=',
+    attachments: [
+      {
+        name: 'iTunes (Apple) – Instalação.pdf',
+        size: '464.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13711'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13704' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13709' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13708' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13705' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13707' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13706' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=958;FileID=13710' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ITUNES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ITUNES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 17:27 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 10:49 (Mayara Sales)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=958;Nav=',
+      itemId: '958'
+    }
+  },
+  {
+    id: 'faq-10002284',
+    faqNumber: '10002284',
+    name: 'Instalação do JANAI (HOMEBREW)',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software licenciado',
+    subject: 'Solicita a instalação do programa JanAI',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'JANAI (HOMEBREW)',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Solicitações de uso de ferramentas de inteligência artificial, que não foram homologadas pelo Prodasen, precisam passar por uma avaliação prévia, a fim de garantir a segurança e integridade da rede. Portanto, uso de ferramentas, seja online ou desktop, bloqueadas na rede, devem ser direcionados para a central de serviços, para que passem por esse processo de avaliação.
+- Jan.AI é uma plataforma de inteligência artificial de código aberto e gratuita que permite aos usuários executar modelos de linguagem grandes (LLMs) diretamente em seus próprios computadores, sem a necessidade de uma conexão com a internet.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) JANAI (Homebrew)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Aguarde o processo de instalação.
+
+---
+
+### 📌 Permissão de Acesso
+
+O que temos disponível, autorizado pelo Prodasen, é o JanAI.
+
+Observação: O software requer autorização prévia. Para conceder acesso ao usuário, o chefe de serviço deve abrir uma solicitação na Central de Serviços:
+**Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.**`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2284;Nav=',
+    attachments: [
+      {
+        name: 'Instalação do JanAI.pdf',
+        size: '352.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15200'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15201' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15202' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15203' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15204' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15205' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2284;FileID=15206' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > JANAI (HOMEBREW) > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::JANAI (HOMEBREW)::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '13/11/2025 14:42 (Gabriel Queiroz Pires)',
+      alterado: '14/11/2025 15:05 (Gabriel Queiroz Pires)',
+      atualizadoEm: '12.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2284;Nav=',
+      itemId: '2284'
+    }
+  },
+  {
+    id: 'faq-1000957',
+    faqNumber: '1000957',
+    name: 'Kdenlive – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Kdenlive',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'KDENLIVE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É um editor de vídeo open-source baseado no framework MLT e KDE.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Kdenlive (kdenlive.org)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **“Next”**.
+7. Clique novamente em **“Next”**.
+8. Clique novamente em **“Next”**.
+9. Clique em **"Install”**.
+10. Aguarde o processo de instalação.
+11. Clique em **"Finish”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=957;Nav=',
+    attachments: [
+      {
+        name: 'Kdenlive – Instalação.pdf',
+        size: '603.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13714'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13720' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13722' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13723' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13717' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13712' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13713' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13719' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13721' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13718' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13715' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=957;FileID=13716' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > KDENLIVE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::KDENLIVE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 17:07 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 11:11 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=957;Nav=',
+      itemId: '957'
+    }
+  },
+  {
+    id: 'faq-1000953',
+    faqNumber: '1000953',
+    name: 'Kies (Samsung) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Kies',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'KIES',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Programa para sincronizar dados entre dispositivos e transferência de arquivos.
+- Aceite os termos.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Kies (Samsung)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Avançar**.
+7. Aguarde o processo de instalação.
+8. Marque a opção 'Instalador de drive unificado'.
+9. Clique em **Avançar**.
+10. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=953;Nav=',
+    attachments: [
+      {
+        name: 'Kies (Samsung) – Instalação.pdf',
+        size: '674.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13732'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13731' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13728' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13730' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13726' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13735' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13725' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13734' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13729' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=953;FileID=13733' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > KIES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::KIES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 16:46 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 11:29 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=953;Nav=',
+      itemId: '953'
+    }
+  },
+  {
+    id: 'faq-10001843',
+    faqNumber: '10001843',
+    name: 'Kiloview Multiview Player (Ndi Tools) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Kiloview Multiview.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'KILOVIEW MULTIVIEW',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O reprodutor KV Multiview é um software de reprodução multitela para fluxos NDI ilimitados.
+- Aceite os termos.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Kiloview Multiview Player (Ndi Tools)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Clique em **“Next”**.
+8. Clique novamente em **“Next”**.
+9. Marque a opção indicada.
+10. Clique em **“Next”**.
+11. Clique em **“Install”**.
+12. Aguarde o processo da instalação.
+13. Clique em **“Finish”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1843;Nav=',
+    attachments: [
+      {
+        name: 'Kiloview Multiview Player (Ndi Tools) – Instalação.pdf',
+        size: '606.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13740'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13739' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13737' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13744' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13742' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13743' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13746' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13738' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13747' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13736' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13741' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=13745' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1843;FileID=10430' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > KILOVIEW MULTIVIEW > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::KILOVIEW MULTIVIEW::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '19/07/2024 13:19 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 11:43 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1843;Nav=',
+      itemId: '1843'
+    }
+  },
+  {
+    id: 'faq-1000952',
+    faqNumber: '1000952',
+    name: 'Sistema LAG (Lista de Autoridades Governamentais)',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita informações sobre o sistema LAG',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LAG - LISTA DE AUTORIDADES GOVERNAMENTAIS',
+    associatedProcedureId: 'proc-doubt-support',
+    procedure: `### 📌 Informações e Orientações
+
+- O Serviço de Desenvolvimento de Coleções – SEDECO, faz aquisições de acesso ao sistema LAG anualmente.
+- É um site que provê informações para consultas sobre as autoridades e dirigentes do poder público.
+- Informações sobre acesso, uso e dúvidas do sistema, entre em contato com o atendimento da biblioteca através dos seguintes canais: E-mail: **biblioteca@senado.leg.br** (COBIB - Biblioteca) | Ramal: **3303-1425**.
+- Além deste sistema, a biblioteca conta com outras bases de dados.
+
+---
+
+### 📌 Acesso ao LAG
+
+1. Acesse a página da Lista de Autoridades Governamentais.
+2. Acesse a Bases de dados assinadas.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Lista de Autoridades Governamentais**](https://capri.senado.leg.br//novo.lag.com.br/)
+- [**Bases de dados assinadas**](https://intranet.senado.leg.br/informacao-e-documentacao/livros-arquivos-e-documentos/biblioteca/bases-de-dados-assinadas)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=952;Nav=',
+    attachments: [
+      {
+        name: 'Sistema LAG (Lista de Autoridades Governamentais).pdf',
+        size: '356.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=952;FileID=11399'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=952;FileID=10436' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=952;FileID=10437' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LAG - LISTA DE AUTORIDADES GOVERNAMENTAIS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LAG - LISTA DE AUTORIDADES GOVERNAMENTAIS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 16:38 (Leonardo Silva de Amarante)',
+      alterado: '21/05/2025 14:46 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=952;Nav=',
+      itemId: '952'
+    }
+  },
+  {
+    id: 'faq-10002378',
+    faqNumber: '10002378',
+    name: 'LibreCad – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do LibreCad.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LIBRECAD',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É um software gratuito e de código aberto para desenho técnico em 2D (CAD – Computer-Aided Design). Usado para criar plantas, projetos mecânicos, esquemas técnicos e desenhos precisos.
+- Aceite os termos.
+- Um atalho será criado na Área de Trabalho.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\LibreCAD(Dongxu Li)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Próximo**.
+7. Clique em **Instalar**.
+8. Aguarde o processo de instalação.
+9. Clique em **Fechar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2378;Nav=',
+    attachments: [
+      {
+        name: 'LibreCad – Instalação.pdf',
+        size: '400.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16611'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16600' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16601' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16602' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16603' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16604' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16605' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16606' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16607' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16608' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16609' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2378;FileID=16610' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LIBRECAD > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LIBRECAD::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '24/06/2026 14:49 (Mayara Sales)',
+      alterado: '24/06/2026 15:20 (Mayara Sales)',
+      atualizadoEm: '24.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2378;Nav=',
+      itemId: '2378'
+    }
+  },
+  {
+    id: 'faq-10002230',
+    faqNumber: '10002230',
+    name: 'LibreOffice – Importar Etiquetas do Word',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Importação de Etiquetas do MS Word para o LibreOffice',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LIBREOFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Será aberta uma nova janela com o arquivo importado.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Para este procedimento, é necessário que as etiquetas já estejam criadas no Word Desktop, conforme o procedimento Word – Criação de Etiquetas (Padrão 16 por página).
+2. Após criação, salve o arquivo Word em qualquer área do computador.
+3. Clique em **Salvar**.
+4. Clique em **Utilizar o formato ODF**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Abra o LibreOffice Writer.
+2. Clique em **Arquivo**.
+3. Clique em **Abrir**.
+4. Selecione o modelo de etiquetas que foi criado anteriormente no MS Word.
+5. Clique em **Abrir**.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Word – Criação de Etiquetas (Padrão 16 por página)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1113;Nav=)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2230;Nav=',
+    attachments: [
+      {
+        name: 'LibreOffice – Importar Etiquetas do Word.pdf',
+        size: '247.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2230;FileID=13748'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2230;FileID=11402' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2230;FileID=11404' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2230;FileID=11403' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LIBREOFFICE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LIBREOFFICE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '02/04/2025 13:01 (Samantha Hellen da Silva Menezes)',
+      alterado: '10/09/2025 11:47 (Mayara Sales)',
+      atualizadoEm: '02.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2230;Nav=',
+      itemId: '2230'
+    }
+  },
+  {
+    id: 'faq-10002082',
+    faqNumber: '10002082',
+    name: 'LibreOffice – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do LibreOffice.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LIBREOFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Suíte instalada com êxito.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\LibreOffice (The Document Foundation)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde a preparação para instalação.
+7. Clique em **Próximo**.
+8. Marque a opção “Típica”.
+9. Clique em **Próximo**.
+10. Marque as opções desejadas.
+11. Clique em **Instalar**.
+12. Aguarde o processo da instalação.
+13. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2082;Nav=',
+    attachments: [
+      {
+        name: 'LibreOffice – Instalação.pdf',
+        size: '278.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13761'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13759' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13754' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13757' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13750' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13751' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13758' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13749' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13755' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13760' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13756' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2082;FileID=13753' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LIBREOFFICE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LIBREOFFICE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/10/2024 14:40 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 12:12 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2082;Nav=',
+      itemId: '2082'
+    }
+  },
+  {
+    id: 'faq-10002349',
+    faqNumber: '10002349',
+    name: 'Instalação do LOCALVOCAL',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do LOCALVOCAL',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LOCALVOCAL (ROYSHILKROT)',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É um plugin para o software de transmissão OBS Studio (Open Broadcaster Software) que oferece legendagem e tradução ao vivo. A sua principal característica é processar todas as informações localmente na máquina do usuário, sem a necessidade de enviar dados para serviços de nuvem pagos.
+- Plugin para o software de transmissão OBS Studio (Open Broadcaster Software).
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **CENTRAL_ATENDIMENTO (\\\\DRU) (X:) LocalVocal (royshilkrot)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Clique em **“Next”**.
+5. Clique novamente em **“Next”**.
+6. Clique novamente em **“Next”**.
+7. Clique em **“Install”**.
+8. Aguarde o processo de instalação.
+9. Clique em **“Finish”**.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**\\\\DRU**](https://capri.senado.leg.brfile://DRU)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2349;Nav=',
+    attachments: [
+      {
+        name: 'Instalação do LocalVocal.pdf',
+        size: '484.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16268'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16269' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16270' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16271' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16272' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16273' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16274' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16275' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16276' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16277' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2349;FileID=16278' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LOCALVOCAL (ROYSHILKROT) > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LOCALVOCAL (ROYSHILKROT)::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'royshilkrot local vocal Local voca LOCAL VOCAL local',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '14/04/2026 12:29 (Gabriel Queiroz Pires)',
+      alterado: '25/06/2026 15:18 (Gabriel Queiroz Pires)',
+      atualizadoEm: '14.04.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2349;Nav=',
+      itemId: '2349'
+    }
+  },
+  {
+    id: 'faq-1000951',
+    faqNumber: '1000951',
+    name: 'Lousa Digital (SMART Board) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação da Lousa Digital Smart-Board',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'LOUSA DIGITAL SMART-BOARD',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**OBSERVAÇÃO:**
+- PROCEDIMENTO REALIZADO PELO NÍVEL 2
+- SOFTWARE RESTRITO
+
+---
+
+### 📌 Observação Importante
+
+Observação: A lousa não tem endereço lógico, portanto deve ser aberta ocorrência com o endereço lógico do micro do instrutor. Verifique o cabeamento. Verifique se a Lousa e o Projetor estão ligados.
+
+---
+
+### 📌 Informações e Orientações
+
+- Instalação da lousa digital nas Salas de treinamento.
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\SMART Board (SMART Technologies)**.
+2. Clique em **Sim**.
+3. Clique em **Prosseguir**.
+4. Clique em **Sim**.
+5. Insira o número do chamado.
+6. Clique em **OK**.
+7. Clique em **Avançar**.
+8. Clique novamente em **Avançar**.
+9. Clique novamente em **Avançar**.
+10. Marque todas as aplicações.
+11. Clique em **Avançar**.
+12. Clique novamente em **Avançar**.
+13. Clique novamente em **Avançar**.
+14. Remova os idiomas selecionados.
+15. Clique em **Avançar**.
+16. Clique em **Instalar**.
+17. Aguarde o processo de instalação.
+18. Reinicie o computador.
+19. Aguarde.
+20. Clique em **Concluir**.
+21. Insira a chave do produto localizada em **W:\\COATEN\\SEARP\\Drivers\\_antigo\\SMART Board**.
+22. Clique em **Adicionar**.
+23. Clique em **Avançar**.
+24. Clique em **Concluir**.
+25. Verifique na área de trabalho se aparece o painel de controle da Lousa digital.
+
+---
+
+### 📌 Credenciais de Acesso
+
+Insira login e senha.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=951;Nav=',
+    attachments: [
+      {
+        name: 'Lousa digital (SMART Board) – Instalação.pdf',
+        size: '579.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13779'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13796' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13790' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13786' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13795' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13787' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13777' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13791' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13784' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13788' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13781' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13785' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13794' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13783' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13782' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13778' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13793' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13792' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13789' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13780' },
+      { title: 'Imagem 20', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13797' },
+      { title: 'Imagem 21', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=13798' },
+      { title: 'Imagem 22', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=951;FileID=10469' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > LOUSA DIGITAL SMART-BOARD > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::LOUSA DIGITAL SMART-BOARD::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 16:27 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 14:50 (Mayara Sales)',
+      atualizadoEm: '11.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=951;Nav=',
+      itemId: '951'
+    }
+  },
+  {
+    id: 'faq-1000757',
+    faqNumber: '1000757',
+    name: 'Macrium Reflect – Realizar Backup',
+    type: 'Requisição de serviço',
+    service: 'Backup de dados em estação de trabalho',
+    subject: 'Solicitação de backup na estação de trabalho',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MACRIUM REFLECT',
+    associatedProcedureId: 'proc-backup-estacao',
+    procedure: `### 📌 Informações e Orientações
+
+- A primeira providência a ser adotada é a verificação do tipo de sistema que está instalado no computador, podendo ser 32bits ou 64bits.
+- Ou selecione apenas as partições desejadas.
+- Altere o modo de Médio para 'Alto'.
+- Backup concluído.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Selecione a pasta localizada em **W:\\COATEN\\SEARP\\MacriumReflect**.
+2. Execute o arquivo desejado.
+3. Marque a caixa indicada para selecionar todas as partições.
+4. Selecione o local onde o backup será salvo clicando no ícone abaixo.
+5. Clique em **Avançar**.
+6. Clique em **Opções avançadas**.
+7. Clique em **OK**.
+8. Clique em **Concluir**.
+9. Clique em **OK**.
+10. Aguarde a conclusão do backup.
+11. Clique em **OK**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Ao abrir o software é exibida uma mensagem de download.
+2. Clique em **Cancelar**.
+3. Clique em **'Criar imagem deste disco...'**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=757;Nav=',
+    attachments: [
+      {
+        name: 'Macrium Reflect – Realizar Backup.pdf',
+        size: '386.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13770'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13774' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13772' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13766' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13763' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13775' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13773' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13776' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13765' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13771' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13769' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13764' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13762' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13767' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=757;FileID=13768' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MACRIUM REFLECT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MACRIUM REFLECT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/01/2024 15:06 (Jeferson dos Santos Morais)',
+      alterado: '10/09/2025 12:55 (Mayara Sales)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=757;Nav=',
+      itemId: '757'
+    }
+  },
+  {
+    id: 'faq-1000766',
+    faqNumber: '1000766',
+    name: 'Macrium Reflect – Restaurar Backup',
+    type: 'Requisição de serviço',
+    service: 'Restauração de dados de estação de trabalho',
+    subject: 'Solicita restaurar Backup na estação de trabalho',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MACRIUM REFLECT',
+    associatedProcedureId: 'proc-restore-estacao',
+    procedure: `### 📌 Observação Importante
+
+Observação: Depois da escolha da partição.
+
+---
+
+### 📌 Informações e Orientações
+
+- No campo de ‘Seleção de backup’ Escolha qual partição deve ser aberta.
+- Uma vez selecionado será aberta uma janela que aparecerá o backup referente à partição escolhida.
+- A restauração das informações pode ser feita arrastando as pastas e arquivos de interesse para o local desejado Ou então utilizando o método Copiar e Colar.
+- Ou diretamente pelo programa Macrium na opção ‘Desmontar imagem de backup do Windows Explorer’.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Selecione a letra referente a cada partição.
+2. Marque a opção ‘Ativar acesso a pastas restritas’.
+3. Clique em **OK**.
+4. Após a conclusão da restauração do backup é necessário desmontar a imagem para finalizar o procedimento.
+5. Clique com o botão direito do mouse na partição que foi criada.
+6. Selecione a opção 'Desmontar imagem do Macrium...'.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Abra a pasta em que o arquivo de backup do Macrium Reflect foi salvo Com o botão direito do mouse.
+2. Selecione a opção ‘Explorar Imagem...’.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=766;Nav=',
+    attachments: [
+      {
+        name: 'Macrium Reflect – Restaurar Backup.pdf',
+        size: '408.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11411'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11412' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11409' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11408' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11413' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=766;FileID=11410' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MACRIUM REFLECT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MACRIUM REFLECT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/01/2024 16:09 (Jeferson dos Santos Morais)',
+      alterado: '03/02/2026 18:04 (Gabriel Queiroz Pires)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=766;Nav=',
+      itemId: '766'
+    }
+  },
+  {
+    id: 'faq-1000950',
+    faqNumber: '1000950',
+    name: 'Marc Dublin Core – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Marc Dublin Core',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MARC DUBLIN CORE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Marc Dublin Core é um esquema de metadados que visa descrever objetos digitais, tais como, vídeos, sons, imagens, textos e sites na web.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Marc Dublin Core (Prodasen)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **"Next"**.
+7. Clique novamente em **"Next"**.
+8. Clique em **“Install”**.
+9. Aguarde o processo de instalação.
+10. Clique em **“Finish”**.
+11. Clique em **OK**.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**metadados**](https://pt.wikipedia.org/wiki/Metadados)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=950;Nav=',
+    attachments: [
+      {
+        name: 'Marc Dublin Core – Instalação.pdf',
+        size: '312.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13800'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13803' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13808' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13806' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13802' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13801' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13807' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13805' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13799' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13810' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13804' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=950;FileID=13809' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MARC DUBLIN CORE > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MARC DUBLIN CORE::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:37 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 15:15 (Mayara Sales)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=950;Nav=',
+      itemId: '950'
+    }
+  },
+  {
+    id: 'faq-1000948',
+    faqNumber: '1000948',
+    name: 'MarcEdit – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software MarcEdit',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MARC EDIT',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Trata-se de uma ferramenta para edição e conversão de registros.
+- Requisitos: NET Framework 4.6 ou superior (X:\\.NET Framework (Microsoft) .
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\MarcEdit (Terry Reese)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de instalação.
+7. Selecione o idioma.
+8. Clique na opção desejada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=948;Nav=',
+    attachments: [
+      {
+        name: 'MarcEdit – Instalação.pdf',
+        size: '241.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13813'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13817' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13812' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13815' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13818' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13811' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13814' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=948;FileID=13816' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MARC EDIT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MARC EDIT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:31 (Leonardo Silva de Amarante)',
+      alterado: '10/09/2025 15:31 (Mayara Sales)',
+      atualizadoEm: '02.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=948;Nav=',
+      itemId: '948'
+    }
+  },
+  {
+    id: 'faq-10001483',
+    faqNumber: '10001483',
+    name: 'Sistema MEMS (Polícia) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do sistema Mems (Polícia)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MEMS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**OBSERVAÇÃO:**
+- PROCEDIMENTO REALIZADO PELO NÍVEL 2
+
+---
+
+### 📌 Observação Importante
+
+O sistema MEMS é utilizado pela polícia do Senado Federal para o cadastro de digitais e confecção de crachás.
+
+Observação: A equipe da SECRED fica responsável por acionar o Mantenedor responsável pelo sistema MEMS, pois o mesmo precisa configurar o Software para que os usuários consigam acessar.
+
+---
+
+### 📌 Informações e Orientações
+
+- Os clientes que fazem uso deste sistema necessitam de privilégios de administrador local para realizar todas as operações necessárias no sistema.
+- PROCEDIMENTO REALIZADO PELO NÍVEL 2.
+- INSTALAÇÃO MEMS (USUÁRIOS ADM).
+- Em ‘Ativar\\desativar recursos do Windows’ Habilite o Net Framework 3.5.
+- Instalação do Office 365 localizado em X:\\Office (Microsoft).
+- Instalação do Sistema da X:\\Sistemas_Policia (NTI Polícia).
+- INSTALAÇÃO DO MEMS.
+- Conecte o Leitor Biométrico juntamente com o leitor do crachá.
+- Tela do sistema.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Caso o cliente não seja administrador, o Chefe de Serviço deve solicitar o privilégio na Central de Serviços.
+2. Instale o Net Framework 3.5 localizado em **X:\\.NET Framework (Microsoft)**.
+3. Instale o Client Oracle 12c versão 64Bits localizado em **X:\\Cliente Oracle 12C (Oracle)**.
+4. Execute o arquivo localizado em **W:\\COATEN\\SEARP\\Mens**.
+5. Execute o arquivo “Setup.exe”.
+6. Aguarde a preparação da instalação.
+7. Marque a opção "Mems Standard Connected to Microsoft Access Database Format".
+8. Clique em **“Next”**.
+9. Clique em **“Finish”**.
+10. Reinicie o Sistema Operacional.
+11. Instale os drivers localizados em **W:\\COATEN\\SEARP\\Mens ‘Sagem MorphoSmart USB 64 bits Driver’ ‘SDI01x_driver_v5.30_and_v5.44’**.
+
+---
+
+### 📌 Acesso ao MEMS
+
+1. Intranet > Central de Serviços > Informática > Estação de Trabalho > Administrador de estação.
+2. Acesse Segurança do Windows > Segurança do dispositivo > Isolamento de núcleo.
+3. Clique em **‘Detalhes de isolamento de núcleo’ Desative o Isolamento de núcleo (Windows 11 Pro)**.
+
+---
+
+### 📌 Permissão de Acesso
+
+Todos os usuários do SECRED possuem autorização para acesso de administrador local.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1483;Nav=',
+    attachments: [
+      {
+        name: 'Sistema MEMS (Polícia) – Instalação.pdf',
+        size: '470.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13819'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=10551' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13831' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13828' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13834' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13821' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13827' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13825' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13823' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13829' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13830' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13832' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13826' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13820' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13822' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1483;FileID=13824' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MEMS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MEMS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '27/02/2024 14:45 (Mayara Sales)',
+      alterado: '06/11/2025 16:04 (Jeferson dos Santos Morais)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1483;Nav=',
+      itemId: '1483'
+    }
+  },
+  {
+    id: 'faq-1000822',
+    faqNumber: '1000822',
+    name: 'MeshCommander – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Manual de Utilização MeshCommander',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MESHCOMMANDER',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**OBSERVAÇÃO:**
+- PROCEDIMENTO REALIZADO PELO NÍVEL 2
+
+---
+
+### 📌 Observação Importante
+
+Antes de utilizarmos a ferramenta para qualquer ação em um equipamento, é necessário a verificação do estado do computador através do comando Ping no endereço lógico correspondente ao do chamado registrado no CAPRI.
+
+Observação: Pode ocorrer de ter computadores positivo c810 master, Dell 7050 que não pegaram a nova política de rede por consequência de não ter sido reiniciado, conforme comandos dados pela COINTI (Por estarem desligados), nesses casos será necessário a intervenção técnica para que as novas políticas subam.
+
+Observação: A verificação do estado do computador pelo Ping servirá para nortear o operador em relação ao atendimento, pode acontecer do Ping não responder com algum TTL e retornar apenas esgotado o tempo limite do pedido, caso o Ping responda com tempo esgotado mesmo assim tente conectar o equipamento pelo MeshCommander.
+
+Observação: Sempre que for preencher as informações o hostname deve ser completo conforme exemplo: ‘MP1922.senado.gov.br’.
+
+Observação: Em Status do Sistema a função que estaremos utilizando é apenas a Power Actions, ressaltamos que nesta opção tem o comando Power Down que representa o desligamento abrupto do equipamento, como o comando chega ao computador através do hardware ele não gera a opção de salvar trabalho que está sendo feito, o desligamento do computador acontece como se o botão Power tivesse sido pressionado até o desligamento ou mesmo como se o cabo de energia tivesse sido desconectado, por isso a importância do chamado aberto para que a ação tenha o respaldo da solicitação do cliente.
+
+---
+
+### 📌 Informações e Orientações
+
+- É um aplicativo que fornece uma interface para o uso da Intel® Active Management Technology. Seu objetivo é facilitar a configuração de hardware pela rede.
+- MeshCommander é usado principalmente para gerenciamento remoto ponto a ponto de dispositivos.
+- Os recursos suportados incluem: Hardware KVM viewer, Serial over LAN terminal, IDE-R support, Power control, Event viewer, Audit log viewer, Hardware asset, Account management, Network settings, Wi-Fi management, User consent and control, Certificate & TLS management, CIRA e WSMAN browser.
+- Foco principal voltado para o **Power Control** (Gerenciamento Remoto de Energia das Estações – Intel AMT nos computadores Positivo c810 master e Dell 7050).
+- Nos demais equipamentos (como Positivo 2013 e Workstation WP), não é possível utilizar a ferramenta por incompatibilidade de firmware e falta de contrato de manutenção vigente.
+- A orientação da COINTI é que para cada atendimento realizado com o MeshCommander será necessário um chamado via CAPRI para preservar as políticas de segurança da informação.
+- **Valores de TTL no teste Ping:**
+  - TTL entre **120, 123, 126 ou 128**: Sistema Operacional é Windows e está respondendo (se cliente não acessa, Windows pode estar travado).
+  - TTL **acima de 250**: Intel® Active Management Technology (AMT) está respondendo (micro inacessível em estado Soft-OFF, ligar via MeshCommander).
+  - **Tempo esgotado**: Micro sem alimentação ou desligado (mesmo assim, tentar conectar via Mesh).
+- **Power Actions:**
+  - *Power ON:* aplicar comando **Reset**.
+  - *Soft OFF:* aplicar comando **Power up**.
+  - *Hibernate (OFF Soft):* aplicar comando **Power up**.
+  - *Power Down:* desligamento forçado abrupto (usar com extrema cautela e respaldo de chamado).
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Para o gerenciamento é necessário que o AMT tenha sido configurado no computador (via políticas de rede da COINTI).
+2. Execute o arquivo localizado em **W:\\COATEN\\SEARP\\MeshCommander**.
+3. Clique em **"Next"**.
+4. Clique novamente em **"Next"**.
+5. Clique em **“Next”**.
+6. Clique em **“Install”**.
+7. Aguarde o processo de instalação.
+8. Clique em **"Finish"**.
+9. Clique em **‘Language’** e selecione o idioma.
+10. O computador não precisa estar ligado no Windows, apenas conectado à energia, à rede do Senado e com AMT pré-instalado.
+11. Para adicionar: na tela principal clique em **“Add Computer”**.
+12. Insira as informações do equipamento (Hostname completo, ex: MPxxxx.senado.gov.br) e clique em **OK**.
+13. Clique no botão **“Connect”**.
+14. No painel esquerdo, acesse **System Status** para verificar o estado e executar as ações necessárias do **Power Control**.
+15. Caso apresente *erro de tempo limite*, o AMT pode não estar instalado na máquina (será necessária ida ao local).
+
+---
+
+### 📌 Observações sobre o Login
+
+Observação: Caso ocorra o erro *(WSMAN Parsing Error)*, verifique se o operador foi incluído no grupo **Intel AMT Remote Control Users**.
+
+---
+
+### 📌 Permissão de Acesso
+
+É necessária a instalação do MeshCommander na estação conectada à rede do Senado, bem como a inclusão do operador no grupo **Intel AMT Remote Control Users** (definida pela Gestão). Todas as ações ficam registradas no Event Log e Audit Log.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=822;Nav=',
+    attachments: [
+      {
+        name: 'MeshCommander – Instalação.pdf',
+        size: '1.1 MBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13835'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13844' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13848' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13852' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13851' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13843' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13850' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13849' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13846' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13841' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13838' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13842' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13847' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13837' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13845' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13853' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13836' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13840' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=822;FileID=13839' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MESHCOMMANDER > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MESHCOMMANDER::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 10:08 (Jeferson dos Santos Morais)',
+      alterado: '11/09/2025 14:42 (Mayara Sales)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=822;Nav=',
+      itemId: '822'
+    }
+  },
+  {
+    id: 'faq-1000823',
+    faqNumber: '1000823',
+    name: 'MeshCommander – Script de Atendimento',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Script de Atendimento MeshCommander',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MESHCOMMANDER',
+    associatedProcedureId: 'proc-doubt-support',
+    procedure: `### 📌 Informações e Orientações
+
+#### MICRO TRAVADO
+- Registrar e encaminhar para a fila da supervisão N1:
+  - Dados do cliente
+  - Telefone para contato
+  - Telas de erro (incluindo a de ping)
+
+#### MICRO DESLIGADO
+- Registrar e encaminhar para a fila da supervisão N1:
+  - Dados do cliente
+  - Telefone para contato
+  - Telas de erro (incluindo a de ping)
+- Supervisão N1 encaminha para a fila da Supervisão N2.
+
+#### SUPERVISÃO N2
+- Verificar nas telas de Ping se micro está respondendo pelo AMT ou pelo Software (Windows):
+  - *Somente os micros 2017 têm a tecnologia AMT. Em casos de micros 2017 que não estejam respondendo ao AMT, terão que ser reiniciados de forma manual para receber a nova política.*
+  - **Exemplos de Pings:**
+    - Resposta de 172.20.1.72: bytes=32 tempo=5ms **TTL=253** (Micro respondendo pelo AMT - micro desligado/soft-off).
+    - Resposta de 172.20.2.184: bytes=32 tempo<1ms **TTL=126** (Micro respondendo pelo Windows - micro ligado, mas Windows travado).
+- Incluir micro no MeshCommander e verificar se popula:
+  - Populou? Verificar o estado:
+    - **Power on:** aplicar o comando *Reset*.
+    - **Soft off:** aplicar o comando *Power up*.
+    - **Hibernate (Off soft):** aplicar o comando *Power up*.
+- Entrar em contato com o cliente e pedir para fazer um teste de acesso remoto.
+- Cliente conseguiu acessar remotamente o micro no Senado Federal? Fechar o chamado.
+
+---
+
+### 📌 Permissão de Acesso e Roteiro de Teste Remoto
+
+- Não consegue acessar remotamente:
+  1. Realizar teste de acesso remoto.
+  2. FortiClient conectou?
+     - *Se não:* registrar qual a mensagem de erro.
+     - *Se sim:* testar conexão da Área de Trabalho Remota.
+  3. Deu erro na Área de Trabalho Remota? (Registrar mensagem de erro).
+  4. Realizar teste de ping (**Sempre**).
+  5. Caso o micro responda ao teste ping, enviar comando para reinicializar o equipamento:
+     \`shutdown -r -f -t 00 -m \\\\mpxxxxx\`
+  6. Caso o micro não responda ao comando para reiniciar, incluir a tela de ping.
+  7. Micro reiniciou? Solicitar teste por parte do cliente.
+  8. Cliente acessou normalmente? Fechar o chamado.
+  9. Se persistir erro, registrar e encaminhar para a fila da supervisão N1:
+     - Dados do cliente
+     - Telefone para contato
+     - Telas de erro (incluindo a de ping).`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=823;Nav=',
+    attachments: [
+      {
+        name: 'MeshCommander – Script de Atendimento.pdf',
+        size: '295.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=823;FileID=11422'
+      }
+    ],
+    visualRefs: [],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MESHCOMMANDER > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MESHCOMMANDER::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '18/01/2024 10:25 (Jeferson dos Santos Morais)',
+      alterado: '17/09/2025 10:37 (Gabriel Queiroz Pires)',
+      atualizadoEm: '13.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=823;Nav=',
+      itemId: '823'
+    }
+  },
+  {
+    id: 'faq-1000945',
+    faqNumber: '1000945',
+    name: 'Plotter Mimaki CJV150 (Driver de Impressão) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Instalação do Driver de Impressora Plotter - Modelo CJV150',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MIMAKI',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Driver de impressão do modelo Plotter CJV150 da fabricante Mimaki.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\RasterLink6 (Mimaki)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo da extração dos arquivos.
+7. Clique em **'Mimaki driver setup'**.
+8. Clique em **OK**.
+9. Clique em **"Next"**.
+10. Marque a opção ‘I accept the terms’.
+11. Clique em **“Next”**.
+12. Clique em **“Install”**.
+13. Aguarde o processo de instalação.
+14. Clique em **Instalar**.
+15. Clique em **OK**.
+16. Clique em **“Finish”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=945;Nav=',
+    attachments: [
+      {
+        name: 'Plotter Mimaki CJV150 (Driver de Impressão) – Instalação.pdf',
+        size: '576.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13858'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13857' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13863' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13855' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13854' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13860' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13859' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13865' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13861' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13856' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13864' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13868' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13862' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13866' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=945;FileID=13867' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MIMAKI > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MIMAKI::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:20 (Leonardo Silva de Amarante)',
+      alterado: '11/09/2025 15:43 (Mayara Sales)',
+      atualizadoEm: '14.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=945;Nav=',
+      itemId: '945'
+    }
+  },
+  {
+    id: 'faq-1000947',
+    faqNumber: '1000947',
+    name: 'RasterLink – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software RasterLink',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MIMAKI',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O RasterLink é um software RIP que realiza o processo de rasterização de imagens.
+- Este processo tem por objetivo a conversão de pixels em conjunto de pontos de tinta de vários tamanhos e densidades para cada separação para impressão.
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\RasterLink6 (Mimaki)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo da extração dos arquivos.
+7. Clique em **OK**.
+8. Clique em **‘Install RasterLink3 V5.15’**.
+9. Clique em **OK**.
+10. Para instalar o Microsoft Visual C++.
+11. Clique em **“Next”**.
+12. Clique em **“Install”**.
+13. Clique em **“Finish”**.
+14. Clique em **OK**.
+15. Clique em **“Next”**.
+16. Marque a opção 'I accept the terms'.
+17. Clique em **“Next”**.
+18. Aguarde o processo da instalação.
+19. Clique em **“Next”**.
+20. Clique em **“Install”**.
+21. Aguarde o processo da instalação.
+22. Clique em **“Finish”**.
+23. Clique em **“Yes”**.
+24. Reinicie o computador.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=947;Nav=',
+    attachments: [
+      {
+        name: 'RasterLink – Instalação.pdf',
+        size: '638.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13877'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13884' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13879' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13880' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13876' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13872' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13882' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13875' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13883' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13888' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13887' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13873' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13870' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13878' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13885' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13881' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13874' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13869' },
+      { title: 'Imagem 18', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13886' },
+      { title: 'Imagem 19', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=947;FileID=13871' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MIMAKI > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MIMAKI::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:25 (Leonardo Silva de Amarante)',
+      alterado: '11/09/2025 16:16 (Mayara Sales)',
+      atualizadoEm: '14.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=947;Nav=',
+      itemId: '947'
+    }
+  },
+  {
+    id: 'faq-10002269',
+    faqNumber: '10002269',
+    name: 'Módulo de Segurança da Caixa Econômica – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do módulo de segurança da Caixa Econômica',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MÓDULOS BANCÁRIOS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- No primeiro acesso ao Internet Banking, é necessário cadastrar sua conta e criar um usuário de acesso.
+- Será realizado o download do executável.
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Caso já possua cadastro, basta informar o usuário para entrar.
+2. Clique em **Continuar**.
+3. Aguarde o processo de instalação.
+4. Clique em **OK**.
+5. Clique em **Acessar minha conta**.
+6. Insira o Usuário.
+7. Clique nas iniciais do nome.
+8. Insira a senha pelo teclado virtual.
+9. Clique em **Continuar**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Acesse o site da Caixa Econômica e informe o Usuário.
+2. Clique em **Concordo**.
+
+---
+
+### 📌 Observações sobre o Login
+
+Observação: Para proceder com a instalação do módulo de Segurança Bancária, é imprescindível que o instalador seja executado com credenciais que possuam privilégios administrativos no sistema operacional. Recomenda‑se utilizar o login institucional do técnico (\`login_INS\`) ou, alternativamente, elevar temporariamente o perfil do usuário final ao grupo Administradores durante o processo de instalação, garantindo assim as permissões necessárias para gravação em diretórios protegidos e aplicação de chaves no registro do Windows.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Caixa Econômica**](https://internetbanking.caixa.gov.br/sinbc/#!nb/login)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2269;Nav=',
+    attachments: [
+      {
+        name: 'Módulo de Segurança da Caixa Econômica – Instalação.pdf',
+        size: '489.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=15842'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14838' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14837' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14836' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14835' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14834' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14833' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14832' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14831' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14830' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2269;FileID=14839' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MÓDULOS BANCÁRIOS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MÓDULOS BANCÁRIOS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/10/2025 10:16 (Mayara Sales)',
+      alterado: '11/02/2026 15:03 (Gabriel Queiroz Pires)',
+      atualizadoEm: '11.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2269;Nav=',
+      itemId: '2269'
+    }
+  },
+  {
+    id: 'faq-1000941',
+    faqNumber: '1000941',
+    name: 'Módulo de Segurança do Banco do Brasil – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do módulo de segurança do Banco do Brasil',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MÓDULOS BANCÁRIOS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Insira os dados da conta.
+2. Clique em **Continuar**.
+3. Clique em **Mais detalhes**.
+4. Clique em **'Diagnóstico do módulo de segurança'**.
+5. Clique em **Instalar versão mais recente**.
+6. Execute o arquivo 'DiagnosticoBB'.
+7. Clique em **Continuar**.
+8. Aguarde o processo da instalação.
+9. Clique em **Sim (O computador será reiniciado)**.
+10. Após reiniciar, o módulo seguirá com a instalação.
+11. Clique em **OK**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Acesse o site do Banco do Brasil.
+2. Clique em **Acesse sua conta**.
+3. Acesse novamente o site e entre na conta.
+
+---
+
+### 📌 Observações sobre o Login
+
+Observação: Para proceder com a instalação do módulo de Segurança Bancária, é imprescindível que o instalador seja executado com credenciais que possuam privilégios administrativos no sistema operacional. Recomenda‑se utilizar o login institucional do técnico (\`login_INS\`) ou, alternativamente, elevar temporariamente o perfil do usuário final ao grupo Administradores durante o processo de instalação, garantindo assim as permissões necessárias para gravação em diretórios protegidos e aplicação de chaves no registro do Windows.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Banco do Brasil**](https://www.bb.com.br/site/)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=941;Nav=',
+    attachments: [
+      {
+        name: 'Módulo de Segurança do Banco do Brasil – Instalação.pdf',
+        size: '646.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=15843'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13908' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13910' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13906' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13912' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13918' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13915' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13913' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13909' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13917' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13914' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13919' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=941;FileID=13907' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MÓDULOS BANCÁRIOS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MÓDULOS BANCÁRIOS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:11 (Leonardo Silva de Amarante)',
+      alterado: '11/02/2026 15:05 (Gabriel Queiroz Pires)',
+      atualizadoEm: '11.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=941;Nav=',
+      itemId: '941'
+    }
+  },
+  {
+    id: 'faq-1000943',
+    faqNumber: '1000943',
+    name: 'Módulo de Segurança do BRB – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do módulo de segurança do BRB',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MÓDULOS BANCÁRIOS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Clique em **Continuar**.
+2. Aguarde o processo da instalação.
+3. Clique em **OK**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Acesse o site do Banco BRB.
+2. Clique em **‘Baixar Módulo de Segurança’**.
+3. Clique em **OK**.
+
+---
+
+### 📌 Observações sobre o Login
+
+Observação: Para proceder com a instalação do módulo de Segurança Bancária, é imprescindível que o instalador seja executado com credenciais que possuam privilégios administrativos no sistema operacional. Recomenda‑se utilizar o login institucional do técnico (\`login_INS\`) ou, alternativamente, elevar temporariamente o perfil do usuário final ao grupo Administradores durante o processo de instalação, garantindo assim as permissões necessárias para gravação em diretórios protegidos e aplicação de chaves no registro do Windows.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Banco BRB**](https://brbbanknet.brb.com.br/netbanking/)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=943;Nav=',
+    attachments: [
+      {
+        name: 'Módulo de Segurança do BRB – Instalação.pdf',
+        size: '537.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=15841'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=13903' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=13898' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=13905' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=13900' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=943;FileID=13902' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MÓDULOS BANCÁRIOS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MÓDULOS BANCÁRIOS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:13 (Leonardo Silva de Amarante)',
+      alterado: '11/02/2026 14:58 (Gabriel Queiroz Pires)',
+      atualizadoEm: '11.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=943;Nav=',
+      itemId: '943'
+    }
+  },
+  {
+    id: 'faq-1000939',
+    faqNumber: '1000939',
+    name: 'Movie Maker – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Movie Maker',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'MOVIE MAKER',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O Movie Maker é um software de edição de vídeos e imagens gratuito.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Movie Maker (Microsoft)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **‘Instalar todos os programas...’**.
+7. Clique em **‘Baixar e instalar este recurso’**.
+8. Aguarde o processo de instalação.
+9. Clique em **Fechar**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Abra o menu Iniciar.
+2. Envie o atalho do Movie Maker para a área de trabalho.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=939;Nav=',
+    attachments: [
+      {
+        name: 'Movie Maker – Instalação.pdf',
+        size: '472.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13896'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13893' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13890' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13894' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13895' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13897' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=10625' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13891' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13892' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=939;FileID=13889' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > MOVIE MAKER > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::MOVIE MAKER::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 15:04 (Leonardo Silva de Amarante)',
+      alterado: '12/09/2025 13:23 (Mayara Sales)',
+      atualizadoEm: '14.03.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=939;Nav=',
+      itemId: '939'
+    }
+  },
+  {
+    id: 'faq-1000938',
+    faqNumber: '1000938',
+    name: 'Natron – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Natron',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NATRON',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O Natron é um compositor digital capaz de lidar com necessidades 2D/2.5D.
+- Aceite os termos de contrato.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Natron (Natron)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **“Next”**.
+7. Clique novamente em **“Next”**.
+8. Clique novamente em **“Next”**.
+9. Clique novamente em **“Next”**.
+10. Clique novamente em **“Next”**.
+11. Clique em **“Install”**.
+12. Aguarde o processo de instalação.
+13. Clique em **“Finish”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=938;Nav=',
+    attachments: [
+      {
+        name: 'Natron – Instalação.pdf',
+        size: '397.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12162'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12102' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12115' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12114' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12105' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12104' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12108' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12106' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12110' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12109' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12107' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12112' },
+      { title: 'Imagem 16', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12111' },
+      { title: 'Imagem 17', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=938;FileID=12113' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NATRON > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NATRON::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 14:57 (Leonardo Silva de Amarante)',
+      alterado: '17/06/2025 14:34 (Mayara Sales)',
+      atualizadoEm: '12.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=938;Nav=',
+      itemId: '938'
+    }
+  },
+  {
+    id: 'faq-10001201',
+    faqNumber: '10001201',
+    name: 'Firefox – Falha de Estabilidade ou Segurança do Web PKI',
+    type: 'Incidente',
+    service: 'Suporte a software de estações de trabalho',
+    subject: 'Falha de Estabilidade ou Segurança do Web PKI no Firefox',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-web-browsers-error',
+    procedure: `### 📌 Observação Importante
+
+Observação: Ao concluir os passos, feche e reabra o navegador e acesse novamente as abas desejadas.
+
+---
+
+### 📌 Informações e Orientações
+
+- Mensagem de Erro.
+- Na nova barra de pesquisa.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Caso ocorra mensagem de erro, e não seja possível a utilização dos outros navegadores (Chrome ou Edge), segue abaixo os passos de solução para contorno até uma resolução definitiva.
+2. Digite o comando: \`extensions.blocklist.enabled\`.
+3. Após inserir o comando.
+4. Clique em **Alterar** e altere a notificação para **"False"**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Acesse **about:config** na barra de endereços do Firefox.
+2. Clique em **Aceitar o risco e continuar**.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- **about:config** (acesso interno do navegador)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1201;Nav=',
+    attachments: [
+      {
+        name: 'Firefox – Falha de Estabilidade ou Segurança do Web PKI.pdf',
+        size: '279.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1201;FileID=12120'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1201;FileID=12119' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1201;FileID=12116' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1201;FileID=12117' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1201;FileID=12118' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 11:56 (Leonardo Silva de Amarante)',
+      alterado: '13/06/2025 14:23 (Mayara Sales)',
+      atualizadoEm: '13.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1201;Nav=',
+      itemId: '1201'
+    }
+  },
+  {
+    id: 'faq-10002281',
+    faqNumber: '10002281',
+    name: 'Google Chrome – Limpeza de Cache e Cookies do Navegador',
+    type: 'Incidente',
+    service: 'Suporte a software de estações de trabalho',
+    subject: 'Limpeza de cache e cookies do navegador.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-web-browsers-error',
+    procedure: `### 📌 Observação Importante
+
+Este procedimento auxilia a corrigir erros que ocorrem em algumas aplicações ao serem executadas no navegador Google Chrome.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Pressione **Ctrl + Shift + Delete** no navegador.
+2. Na janela ‘Excluir dados de navegação’, selecione a aba **Avançado**.
+3. Em 'Intervalo de tempo', selecione **Todo o período**.
+4. Marque as opções de histórico, cookies e arquivos em cache.
+5. Clique em **Excluir dados**.
+6. Reinicie o navegador.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Abra o Google Chrome.
+2. Pressione **Ctrl + Shift + Delete**. Será exibida a janela de ‘Excluir histórico’.
+3. Clique em **Mais > Todo período**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2281;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome – Limpeza de Cache e Cookies do Navegador.pdf',
+        size: '300.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2281;FileID=15176'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2281;FileID=15177' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2281;FileID=15178' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2281;FileID=15179' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '12/11/2025 16:29 (Mayara Sales)',
+      alterado: '12/11/2025 16:29 (Mayara Sales)',
+      atualizadoEm: '12.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2281;Nav=',
+      itemId: '2281'
+    }
+  },
+  {
+    id: 'faq-10002280',
+    faqNumber: '10002280',
+    name: 'Microsoft Edge – Limpeza de Cache e Cookies do Navegador',
+    type: 'Incidente',
+    service: 'Suporte a software de estações de trabalho',
+    subject: 'Limpeza de cache e cookies do navegador.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-web-browsers-error',
+    procedure: `### 📌 Observação Importante
+
+Este procedimento auxilia a corrigir erros que ocorrem em algumas aplicações ao serem executadas no navegador Microsoft Edge.
+
+---
+
+### 📌 Informações e Orientações
+
+- Em ‘Intervalo de tempo’.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Selecione ‘Desde o começo’.
+2. Marque as opções desejadas (Histórico, Cookies, Arquivos e imagens em cache).
+3. Clique em **Limpar agora**.
+4. Reinicie o navegador.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Abra o Microsoft Edge.
+2. Pressione **Ctrl + Shift + Delete**. Será exibida a janela de ‘Excluir dados de navegação’.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2280;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Edge – Limpeza de Cache e Cookies do Navegador.pdf',
+        size: '330.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2280;FileID=15175'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2280;FileID=15172' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2280;FileID=15173' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2280;FileID=15174' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '12/11/2025 16:24 (Mayara Sales)',
+      alterado: '12/11/2025 16:24 (Mayara Sales)',
+      atualizadoEm: '12.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2280;Nav=',
+      itemId: '2280'
+    }
+  },
+  {
+    id: 'faq-10001205',
+    faqNumber: '10001205',
+    name: 'Google Chrome - Tornar Mecanismo de Pesquisa Padrão',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita a configuração para tornar o Google meu mecanismo de pesquisa padrão',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Procedimento de Configuração
+
+1. Clique em **Personalizar e controlar o Google Chrome** (ícone de 3 pontos no canto superior direito).
+2. Clique em **Configurações**.
+3. No menu lateral, clique em **Mecanismo de pesquisa**.
+4. Clique em **Alterar**.
+5. Marque a opção **‘Google’**.
+6. Clique em **Definir como padrão**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1205;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome - Tornar Mecanismo de Pesquisa Padrão.pdf',
+        size: '267.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1205;FileID=12125'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1205;FileID=12126' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1205;FileID=12121' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1205;FileID=12122' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 12:19 (Leonardo Silva de Amarante)',
+      alterado: '16/06/2025 14:37 (Mayara Sales)',
+      atualizadoEm: '13.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1205;Nav=',
+      itemId: '1205'
+    }
+  },
+  {
+    id: 'faq-1000543',
+    faqNumber: '1000543',
+    name: 'Google Chrome – Alterar Idioma',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita a alteração do idioma do Chrome',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+Observação: Caso esteja usando Mac ou Linux, o Chrome é exibido automaticamente no idioma padrão do sistema do computador.
+
+Observação: Se o idioma não estiver listado, use a opção de adicionar idiomas.
+
+---
+
+### 📌 Informações e Orientações
+
+- É possível selecionar o idioma nas configurações do Chrome apenas no Windows.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Clique em **Personalizar e controlar o Google Chrome**.
+2. Clique em **Configurações**.
+3. Clique em **Idiomas**.
+4. Selecione o idioma desejado (caso não esteja listado, clique em **Adicionar idiomas**).
+5. Marque a opção **‘Mostrar o Chrome neste idioma’**.
+6. Reinicie o navegador.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=543;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome – Alterar Idioma.pdf',
+        size: '272.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=543;FileID=12131'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=543;FileID=12127' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=543;FileID=12128' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=543;FileID=12129' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/08/2023 14:50 (Marco Túlio Caixeta Calazans)',
+      alterado: '16/06/2025 15:09 (Mayara Sales)',
+      atualizadoEm: '16.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=543;Nav=',
+      itemId: '543'
+    }
+  },
+  {
+    id: 'faq-10002403',
+    faqNumber: '10002403',
+    name: 'Google Chrome – Atualizar navegador',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita atualização do Google Chrome',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Em seguida, selecione a opção “Sobre o Chrome”.
+- Na próxima tela será exibido o alerta de atualização, basta aguardar e depois clicar em “Reiniciar”.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Para atualizar o Google Chrome manualmente, clique no botão **“Personalizar e controlar o Google Chrome”** e selecione a opção **“Configurações”**.
+2. Clique em **“Sobre o Google Chrome”** no menu lateral.
+3. Aguarde a verificação e o download da atualização.
+4. Clique em **“Reiniciar”** para aplicar a nova versão.
+5. Após a reinicialização do navegador, refaça todo o caminho novamente para confirmar a mensagem "O Google Chrome está atualizado".`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2403;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome – Atualizar navegador.pdf',
+        size: '326.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2403;FileID=16996'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2403;FileID=16997' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2403;FileID=16998' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2403;FileID=16999' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2403;FileID=17000' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '07/08/2026 16:28 (Leonardo Silva de Amarante)',
+      alterado: '07/08/2026 16:31 (Leonardo Silva de Amarante)',
+      atualizadoEm: '07.08.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2403;Nav=',
+      itemId: '2403'
+    }
+  },
+  {
+    id: 'faq-10002369',
+    faqNumber: '10002369',
+    name: 'Google Chrome – Desativar notificação',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita a desativação de notificações no navegador Google Chrome.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+Este procedimento auxilia a como desativar as notificações indesejadas enviadas por um site no navegador Google Chrome.
+
+---
+
+### 📌 Informações e Orientações
+
+- Notificação indesejada.
+- DESATIVAR NOTIFICAÇÃO.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Clique em **Personalizar e controlar o Google Chrome**.
+2. Clique em **Configurações**.
+3. Clique em **Privacidade e segurança**.
+4. Clique em **‘Configurações do site’**.
+5. Clique em **Notificações**.
+6. Marque a opção **‘Não permitir que os sites enviem notificações’** ou remova sites específicos da lista de permissões.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2369;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome – Desativar notificação.pdf',
+        size: '418.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16477'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16471' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16472' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16473' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16474' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16475' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2369;FileID=16476' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'Google Chrome desativar notificação',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '03/06/2026 11:41 (Mayara Sales)',
+      alterado: '03/06/2026 11:41 (Mayara Sales)',
+      atualizadoEm: '03.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2369;Nav=',
+      itemId: '2369'
+    }
+  },
+  {
+    id: 'faq-10001202',
+    faqNumber: '10001202',
+    name: 'Google Chrome – Tela Preta',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Google Chrome Apresentando Tela Preta',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Normalmente acontece quando a janela do Google Chrome é minimizada ou quando as teclas ALT+TAB são pressionadas, ao voltar para a janela do navegador é apresentada tela preta.
+- Tela preta no navegador.
+- Na barra de endereços.
+- Ou se preferir pelo menu de opções.
+- Desabilite a opção ‘Usar aceleração gráfica quando disponível’.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Digite na barra de endereços: \`chrome://settings/system\` (ou acesse Configurações > Sistema).
+2. Pressione **Enter**.
+3. Desabilite a opção **‘Usar aceleração gráfica quando disponível’**.
+4. Clique em **Reiniciar** no navegador para que a alteração seja concluída.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1202;Nav=',
+    attachments: [
+      {
+        name: 'Google Chrome – Tela Preta.pdf',
+        size: '321.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12137'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12133' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12132' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12135' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12134' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1202;FileID=12136' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 12:00 (Leonardo Silva de Amarante)',
+      alterado: '16/06/2025 16:05 (Mayara Sales)',
+      atualizadoEm: '16.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1202;Nav=',
+      itemId: '1202'
+    }
+  },
+  {
+    id: 'faq-10002368',
+    faqNumber: '10002368',
+    name: 'Microsoft Edge – Desativar notificação',
+    type: 'Requisição de serviço',
+    service: 'Configuração de software',
+    subject: 'Solicita a desativação de notificações no navegador Microsoft Edge.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NAVEGADORES',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+Este procedimento auxilia a como desativar as notificações indesejadas enviadas por um site no navegador Microsoft Edge.
+
+---
+
+### 📌 Informações e Orientações
+
+- Notificações indesejadas.
+- DESATIVAR NOTIFICAÇÃO.
+- No menu à esquerda, em ‘Privacidade, pesquisa e serviços’.
+- Habilite a opção ‘Perguntar antes de enviar (recomendado)’.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra o Microsoft Edge.
+2. Clique em **Configurações e mais (Alt + F)** e selecione **Configurações**.
+3. No menu à esquerda, clique em **Cookies e permissões do site** (ou Permissões do site).
+4. Clique em **Todas as permissões** e selecione **Notificações**.
+5. Desative a opção ‘Perguntar antes de enviar’ ou remova os sites indesejados da lista ‘Permitir’.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2368;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Edge – Desativar notificação.pdf',
+        size: '547.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16470'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16464' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16465' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16466' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16467' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16468' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2368;FileID=16469' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NAVEGADORES > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NAVEGADORES::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'edge desativar notificação',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '03/06/2026 11:31 (Mayara Sales)',
+      alterado: '03/06/2026 11:31 (Mayara Sales)',
+      atualizadoEm: '03.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2368;Nav=',
+      itemId: '2368'
+    }
+  },
+  {
+    id: 'faq-1000936',
+    faqNumber: '1000936',
+    name: 'NDI Tools – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do NDI Tools',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NDI TOOLS',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Dispositivo de interface via rede, onde podemos transmitir imagens e áudio sem a necessidade de cabos SDI ou HDMI.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Ndi Tools (Newtek Inc)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de instalação.
+7. Clique em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=936;Nav=',
+    attachments: [
+      {
+        name: 'NDI Tools – Instalação.pdf',
+        size: '270.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12164'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12167' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12169' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12165' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12170' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12166' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12163' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=936;FileID=12168' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NDI TOOLS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NDI TOOLS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 14:51 (Leonardo Silva de Amarante)',
+      alterado: '17/06/2025 14:50 (Mayara Sales)',
+      atualizadoEm: '17.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=936;Nav=',
+      itemId: '936'
+    }
+  },
+  {
+    id: 'faq-1000935',
+    faqNumber: '1000935',
+    name: 'Neoid (Serpro) – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software Certificado Neoid (Serpro)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NEOID (SERPRO)',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo do caminho **X:\\Neoid (Serpro)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde a preparação.
+7. Aguarde o processo de instalação.
+8. Após a instalação, prossiga com as orientações conforme o procedimento Certificado Digital Serpro – Instalação.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Certificado Digital Serpro – Instalação**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1682)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=935;Nav=',
+    attachments: [
+      {
+        name: 'Neoid (Serpro) – Instalação.pdf',
+        size: '338.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=17201'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12176' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12171' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=17200' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12175' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12172' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12174' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=935;FileID=12177' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NEOID (SERPRO) > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NEOID (SERPRO)::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 14:46 (Leonardo Silva de Amarante)',
+      alterado: '21/08/2026 11:06 (Gabriel Queiroz Pires)',
+      atualizadoEm: '21.08.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=935;Nav=',
+      itemId: '935'
+    }
+  },
+  {
+    id: 'faq-1000930',
+    faqNumber: '1000930',
+    name: 'Notepad++ – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do NOTEPAD++',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NOTEPAD++',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Editor de código fonte gratuito e uma substituição do bloco de notas do Windows, que suporta vários idiomas.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Notepad++ (Don Ho)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique novamente em **OK**.
+7. Clique em **Próximo**.
+8. Clique em **'Eu Concordo'**.
+9. Clique em **Próximo**.
+10. Clique novamente em **Próximo**.
+11. Clique em **Instalar**.
+12. Aguarde o processo de instalação.
+13. Clique em **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=930;Nav=',
+    attachments: [
+      {
+        name: 'Notepad++ – Instalação.pdf',
+        size: '682.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12312'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12212' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12214' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12313' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12217' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12211' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12202' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12201' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12206' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12207' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12208' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12203' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12209' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=930;FileID=12210' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NOTEPAD++ > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NOTEPAD++::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 13:58 (Leonardo Silva de Amarante)',
+      alterado: '25/06/2025 16:33 (Mayara Sales)',
+      atualizadoEm: '18.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=930;Nav=',
+      itemId: '930'
+    }
+  },
+  {
+    id: 'faq-1000928',
+    faqNumber: '1000928',
+    name: 'Emulador NVDA – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do software NVDA',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'NVDA',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O NVDA (NonVisual Desktop Access) é um leitor de ecrã livre e open source para o sistema operativo Microsoft Windows.
+- É licenciado pela GPL o que permite novos estudos e aumenta consequentemente o desenvolvimento de novas funcionalidades nesta área. O software é livre para instalação.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Emulador NVDA (NV Access)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o início do processo de instalação.
+7. Marque a opção ‘Concordo’.
+8. Clique em **Instalar o NVDA neste computador**.
+9. Clique em **Continuar**.
+10. Clique em **OK**.
+11. Clique novamente em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=928;Nav=',
+    attachments: [
+      {
+        name: 'Emulador NVDA – Instalação.pdf',
+        size: '367.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12309'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12302' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12303' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12311' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12307' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12221' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12304' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12310' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12306' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=928;FileID=12305' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > NVDA > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::NVDA::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '23/01/2024 13:51 (Leonardo Silva de Amarante)',
+      alterado: '25/06/2025 16:27 (Mayara Sales)',
+      atualizadoEm: '18.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=928;Nav=',
+      itemId: '928'
+    }
+  },
+  {
+    id: 'faq-1000917',
+    faqNumber: '1000917',
+    name: 'OBS Studio – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do OBS Studio',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OBS STUDIO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O OBS Studio é um software livre de código aberto para gravação e edição de vídeo.
+- O recurso de transmissão em tempo real não está disponível.
+- Tela inicial do programa.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\OBS Studio (OBS Studio Contributors)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o processo de instalação.
+7. Clique em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=917;Nav=',
+    attachments: [
+      {
+        name: 'OBS Studio – Instalação.pdf',
+        size: '277.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12229'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12228' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12234' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12233' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12231' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12230' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=917;FileID=12232' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OBS STUDIO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OBS STUDIO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '22/01/2024 15:36 (Leonardo Silva de Amarante)',
+      alterado: '18/06/2025 12:37 (Mayara Sales)',
+      atualizadoEm: '18.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=917;Nav=',
+      itemId: '917'
+    }
+  },
+  {
+    id: 'faq-10001092',
+    faqNumber: '10001092',
+    name: 'Access 2003 – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita a instalação do Access 2003',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações Complementares
+
+**SOFTWARE RESTRITO**
+
+---
+
+### 📌 Permissão de Acesso
+
+Necessário solicitar autorização via Central de Serviços:
+**Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.**
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Office (Microsoft)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o progresso de instalação.
+7. Clique em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1092;Nav=',
+    attachments: [
+      {
+        name: 'Access 2003 – Instalação.pdf',
+        size: '265.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12241'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=10669' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12238' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12236' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12235' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12240' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12237' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1092;FileID=12239' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > ACCESS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::ACCESS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 14:30 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/06/2025 14:15 (Mayara Sales)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1092;Nav=',
+      itemId: '1092'
+    }
+  },
+  {
+    id: 'faq-10001093',
+    faqNumber: '10001093',
+    name: 'Access 2007 – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de Software.',
+    subject: 'Solicita a instalação do Access 2007',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O programa pode ser encontrado no menu Iniciar após a conclusão.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Office (Microsoft)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Aguarde o progresso de instalação.
+7. Clique em **Fechar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1093;Nav=',
+    attachments: [
+      {
+        name: 'Access 2007 – Instalação.pdf',
+        size: '363.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12243'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12246' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12245' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12242' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12247' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12249' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12244' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1093;FileID=12248' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > ACCESS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::ACCESS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 14:36 (Samantha Hellen da Silva Menezes)',
+      alterado: '17/09/2025 10:53 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1093;Nav=',
+      itemId: '1093'
+    }
+  },
+  {
+    id: 'faq-10001094',
+    faqNumber: '10001094',
+    name: 'MS Access Runtime 2013 – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de Software.',
+    subject: 'Solicita a instalação do MS Access Runtime 2013',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Aceite os termos.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Execute o arquivo localizado em **X:\\Office (Microsoft)**.
+2. Clique em **Sim**.
+3. Clique novamente em **Sim**.
+4. Insira o número do chamado.
+5. Clique em **OK**.
+6. Clique em **Continuar**.
+7. Aguarde o progresso de instalação.
+8. Clique em **Fechar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1094;Nav=',
+    attachments: [
+      {
+        name: 'MS Access Runtime 2013 – Instalação.pdf',
+        size: '317.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=15489'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=15488' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=12257' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=15486' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=15487' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=12254' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=12255' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1094;FileID=12256' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > ACCESS > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::ACCESS::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 14:42 (Samantha Hellen da Silva Menezes)',
+      alterado: '30/12/2025 16:20 (Mayara Sales)',
+      atualizadoEm: '30.12.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1094;Nav=',
+      itemId: '1094'
+    }
+  },
+  {
+    id: 'faq-10002330',
+    faqNumber: '10002330',
+    name: 'Excel – Não respondendo',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Travamento do Microsoft Excel',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-office-excel-error',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** O encerramento forçado pode resultar em perda de dados não salvos e possível corrupção do arquivo.
+
+---
+
+### 📌 Informações e Orientações
+
+- O objetivo dessa FAQ é estabelecer o procedimento padrão para análise e tratamento de situações em que o Microsoft Excel apresenta travamento ou estado de "Não Respondendo", garantindo que todas as tentativas seguras de recuperação sejam realizadas antes do encerramento forçado do processo.
+- **Esse procedimento visa:**
+  - Reduzir risco de perda de dados.
+  - Evitar corrupção de arquivos.
+  - Minimizar interrupções no trabalho do usuário.
+- **Aplica-se aos atendimentos relacionados a:**
+  - Travamento do Microsoft Excel;
+  - Excel exibindo “Não Respondendo”;
+  - Lentidão severa durante o uso;
+  - Travamento durante processamento de dados, macros, fórmulas ou salvamento.
+
+---
+
+### 📌 Verificações Iniciais
+
+1. **Identificar o Contexto do Arquivo:**
+   - Nome e extensão (\`.xlsx\`, \`.xlsm\`, \`.xlsb\`).
+   - Local de armazenamento: Rede / SharePoint / OneDrive / Local.
+2. **Verificar Processamento no Gerenciador de Tarefas:**
+   - Pressione \`CTRL + SHIFT + ESC\`.
+   - Localize **Microsoft Excel (EXCEL.EXE)**.
+   - Observe a CPU e Memória: Se os números oscilam ou crescem, há processamento interno em curso → **aguarde**. Se estático por muito tempo, avance para as etapas seguintes.
+
+---
+
+### 📌 Tentativas de Fechamento Seguro e Verificação de Janelas
+
+1. **Tentativa de Fechamento Seguro:**
+   - Pressione \`ALT + F4\`. Se surgir a janela de SALVAR, oriente a salvar o arquivo.
+   - Se o Excel responder brevemente, use \`CTRL + S\` ou **Salvar Como** com novo nome/local.
+2. **Procurar Janelas Ocultas:**
+   - Podem existir diálogos em segundo plano aguardando confirmação (Atualização de links/vínculos externos, solicitação de permissão de Macro/Segurança, etc.).
+   - Use o atalho \`Alt + Tab\` para alternar e localizar janelas de diálogo ocultas.
+3. **Conectividade em Nuvem/Rede:**
+   - Se o arquivo estiver em Rede/SharePoint/OneDrive, confirme se o link está acessível ou se houve perda momentânea de conexão. Se possível, copie o arquivo para a máquina local para teste.
+
+---
+
+### 📌 Encerramento Forçado e Recuperação (Último Recurso)
+
+1. **Encerramento Forçado:**
+   - Somente após esgotar as tentativas de recuperação: Abra o Gerenciador de Tarefas (\`CTRL + SHIFT + ESC\`), selecione **Microsoft Excel (EXCEL.EXE)** e clique em **Finalizar Tarefa**.
+2. **Reabertura e Recuperação:**
+   - Abra o Excel novamente e confira o painel lateral de **Recuperação de Documentos**.
+   - Ou acesse: **Arquivo > Informações > Gerenciar Pasta de Trabalho > Recuperar Pastas de Trabalho Não Salvas**.
+   - Abra a versão recuperada e execute **Salvar Como** com um novo nome.
+
+---
+
+### 📌 Padrão de Registro no Chamado (Evidência)
+
+- **Arquivo e local:** Ex.: *Relatorio_Financeiro_2024.xlsx (SharePoint > Financeiro > Relatórios Mensais)*.
+- **Situação inicial observada:** Descreva o sintoma relatado pelo usuário.
+- **Ações realizadas (com horários):** Histórico das tentativas seguras, análise de CPU/memória e verificação de caixas de diálogo.
+- **Resultado obtido e orientações fornecidas ao usuário.**`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2330;Nav=',
+    attachments: [
+      {
+        name: 'Travamento do Microsoft Excel.pdf',
+        size: '1.4 MBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16062'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16035' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16036' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16037' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16038' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16039' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16040' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16041' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16042' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16043' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16044' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16045' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16046' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16047' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2330;FileID=16048' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > EXCEL > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::EXCEL::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '11/03/2026 11:45 (Gabriel Queiroz Pires)',
+      alterado: '11/03/2026 18:30 (Gabriel Queiroz Pires)',
+      atualizadoEm: '11.03.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2330;Nav=',
+      itemId: '2330'
+    }
+  },
+  {
+    id: 'faq-10001099',
+    faqNumber: '10001099',
+    name: 'Excel – Ativar Modo Estatística',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a ativação do modo estatística no Excel',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Clientes da área de gestão, processos ou de áreas de interesse em estatísticas costumam utilizar o recurso Modo de estatística na ferramenta Microsoft Excel.
+- Esta opção não está ativada por padrão, para habilitá-lo deve seguir procedimento abaixo.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. No Microsoft Excel, clique em **Arquivo > Opções**.
+2. No menu lateral da janela Opções, clique em **Suplementos**.
+3. Na caixa Gerenciar (na parte inferior), mantenha 'Suplementos do Excel' e clique em **Ir...**.
+4. Marque a opção **‘Ferramentas de Análise’** (Analysis ToolPak).
+5. Clique em **OK**.
+6. Acesse a guia **Dados** no menu superior do Excel.
+7. Clique na opção **'Análise de Dados'** (Analysis).
+8. Selecione a opção **'Estatística descritiva'** (ou a análise estatística desejada).
+9. Clique em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1099;Nav=',
+    attachments: [
+      {
+        name: 'Excel – Ativar Modo Estatística.pdf',
+        size: '344.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1099;FileID=12280'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1099;FileID=12279' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1099;FileID=12281' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1099;FileID=12282' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1099;FileID=12283' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > EXCEL > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::EXCEL::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 15:09 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 16:06 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1099;Nav=',
+      itemId: '1099'
+    }
+  },
+  {
+    id: 'faq-10001106',
+    faqNumber: '10001106',
+    name: 'Excel – Instalar Suplemento Power Pivot',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a instalação do suplemento Power Pivot para Excel',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Procedimento de Configuração
+
+1. No Microsoft Excel, clique em **Arquivo > Opções**.
+2. Clique em **Suplementos**.
+3. Na caixa 'Gerenciar' (parte inferior), selecione **‘Suplementos COM’**.
+4. Clique em **Ir...**.
+5. Marque a opção **‘Microsoft Power Pivot for Excel’**.
+6. Clique em **OK**.
+7. Verifique se a guia ou suplemento **Power Pivot** está ativo na faixa de opções do Excel.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1106;Nav=',
+    attachments: [
+      {
+        name: 'Excel – Instalar Suplemento Power Pivot.pdf',
+        size: '308.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1106;FileID=12273'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1106;FileID=12271' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1106;FileID=12272' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1106;FileID=12270' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > EXCEL > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::EXCEL::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 15:56 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 17:14 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1106;Nav=',
+      itemId: '1106'
+    }
+  },
+  {
+    id: 'faq-10001107',
+    faqNumber: '10001107',
+    name: 'Excel – Instalar Suplemento Power Query',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a instalação do suplemento Power Query Excel',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Suplemento com fornecimento de dados a operadores de informações, amplamente utilizado para trabalhos de Business Intelligence (B.I.).
+- Tela do Editor do Power Query.
+
+---
+
+### 📌 Procedimento de Acesso e Configuração
+
+1. Abra o Microsoft Excel.
+2. Acesse a guia **Dados** no menu superior.
+3. No grupo 'Obter e Transformar Dados', clique em **Obter Dados**.
+4. Clique na opção **Iniciar Editor do Power Query...**.
+5. Utilize a janela do editor para modelagem, transformação e carga de dados.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1107;Nav=',
+    attachments: [
+      {
+        name: 'Excel – Instalar Suplemento Power Query.pdf',
+        size: '399.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1107;FileID=12269'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1107;FileID=12268' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1107;FileID=12266' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1107;FileID=12267' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > EXCEL > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::EXCEL::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 16:01 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 17:14 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1107;Nav=',
+      itemId: '1107'
+    }
+  },
+  {
+    id: 'faq-10001102',
+    faqNumber: '10001102',
+    name: 'Excel – Salvar Planilha como Somente Leitura',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração para salvar uma planilha do Excel como somente leitura',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Para garantir que ninguém altere indevidamente as informações do documento, você pode proteger sua planilha para que abra somente no modo leitura.
+- Crie e reinsira a senha de proteção.
+- Em seguida, o documento solicitará a senha ao abrir; caso o usuário não tenha a senha para gravação, o arquivo será aberto como 'Somente Leitura'.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra a pasta de trabalho no Microsoft Excel.
+2. Clique em **Arquivo > Salvar Como**.
+3. Na caixa de diálogo de salvamento, clique no botão **Ferramentas** (próximo ao botão Salvar).
+4. Selecione a opção **Opções Gerais...**.
+5. Marque a opção **‘Recomendável somente leitura’** ou defina uma **Senha de gravação** para permitir edição apenas a usuários autorizados.
+6. Clique em **OK**, confirme a senha e clique em **Salvar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1102;Nav=',
+    attachments: [
+      {
+        name: 'Excel – Salvar Planilha como Somente Leitura.pdf',
+        size: '322.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1102;FileID=12278'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1102;FileID=12277' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1102;FileID=12275' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1102;FileID=12276' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1102;FileID=12274' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > EXCEL > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::EXCEL::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 15:31 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 16:05 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1102;Nav=',
+      itemId: '1102'
+    }
+  },
+  {
+    id: 'faq-10002286',
+    faqNumber: '10002286',
+    name: 'Microsoft Teams – Correção de erro',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro de instalação do Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-office-teams-error',
+    procedure: `### 📌 Permissão de Acesso e Pré-requisitos
+
+**Atenção:** É necessário conceder permissões de administrador local ao usuário para a execução deste procedimento. Após a conclusão das configurações, essas permissões devem ser imediatamente removidas.
+Acesse o procedimento relacionado **Windows – Perfil de administrador** para conceder ou remover privilégios.
+
+---
+
+### 📌 Informações e Orientações
+
+- Procedimento de correção do Microsoft Teams quando ocorre falha crítica na abertura ou durante a instalação/atualização.
+- Caso o Teams não abra ou trave continuamente após limpeza, consulte também o procedimento **Microsoft Teams – Instalação/Atualização (Versão Desktop)**.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Pressione as teclas \`Windows + I\` e acesse **Aplicativos > Aplicativos Instalados**.
+2. Procure pelo programa **Microsoft Teams**.
+3. Clique em **Mais opções (...) > Desinstalar** e confirme em **Desinstalar**.
+4. Pressione \`Windows + R\` e acesse as pastas de perfil do usuário, removendo os diretórios de cache e dados temporários:
+   - \`D:\\Users\\(usuário)\\AppData\\Roaming\\Microsoft\\Teams\`
+   - \`D:\\Users\\(usuário)\\AppData\\Local\\Microsoft\\Teams\`
+   *(ou \`C:\\Users\\...\` conforme a unidade do perfil do usuário)*.
+5. Reinicie o computador.
+6. Execute o instalador oficial localizado no compartilhamento de rede: **X:\\Teams (Microsoft)**.
+7. Conclua a instalação e efetue login com as credenciais institucionais.
+8. Remova os privilégios administrativos do usuário.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Windows – Perfil de administrador**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2249)
+- [**Microsoft Teams – Instalação/Atualização (Versão Desktop)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2265;Nav=)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2286;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Correção de erro.pdf',
+        size: '478.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2286;FileID=15309'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2286;FileID=15288' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2286;FileID=15289' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2286;FileID=15290' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2286;FileID=15291' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=15292' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::ERRO',
+      palavrasChave: 'erro na instalação erro no teams',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '17/11/2025 17:27 (Mayara Sales)',
+      alterado: '18/11/2025 10:08 (Mayara Sales)',
+      atualizadoEm: '17.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2286;Nav=',
+      itemId: '2286'
+    }
+  },
+  {
+    id: 'faq-10002162',
+    faqNumber: '10002162',
+    name: 'Microsoft Teams – Erro na Configuração da Conta no Celular',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro ao configurar conta do Teams no celular',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-office-teams-mobile-error',
+    procedure: `### 📌 Observação Importante
+
+**Observação:** Caso o erro persista após seguir os passos abaixo, será necessário excluir a conta institucional configurada no aplicativo Outlook ou nas configurações de contas do smartphone e reconfigurá-la. Se ainda assim não for resolvido, documente o chamado com evidências e encaminhe para a Supervisão N1.
+
+---
+
+### 📌 Informações e Orientações
+
+- Caso o usuário receba a mensagem de erro *‘Estamos tendo problemas para conectá-lo. Tente novamente.’* ao configurar o Teams no celular, é necessária a limpeza do vínculo de conta nos ajustes do aparelho.
+- Ao entrar com a conta do Senado Federal, será solicitada a verificação em duas etapas (2FA/MFA), devendo ser concluída para prosseguir.
+
+---
+
+### 📌 Procedimento de Remoção e Reconexão da Conta
+
+#### 1. No iOS (iPhone/iPad):
+1. Acesse **Ajustes > Mail > Contas do Mail**.
+2. Selecione a conta institucional **Exchange** e toque em **Apagar Conta**.
+
+#### 2. No Android (Samsung / Padrão):
+1. Acesse **Configurações > Contas e backup > Gerenciar contas**.
+2. Toque na conta corporativa (\`usuario@senado.leg.br\`) e selecione **Remover conta**.
+
+#### 3. No HyperOS / Xiaomi:
+1. Acesse **Configurações > Contas e sincronização > Conta corporativa**.
+2. Toque na conta institucional e selecione **Remover conta**.
+
+---
+
+### 📌 Reconectando o Teams
+
+1. Abra o aplicativo **Microsoft Teams** no smartphone.
+2. Insira o e-mail institucional completo (\`usuario@senado.leg.br\`) e toque em **Avançar**.
+3. Realize a autenticação com senha de rede e aprove a solicitação de verificação em duas etapas.
+4. Conceda as permissões necessárias e conclua a configuração.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2162;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Erro na Configuração da Conta no Celular.pdf',
+        size: '812.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13562'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13561' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13554' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13558' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13556' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13555' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13563' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13553' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13560' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13564' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13557' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2162;FileID=13559' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/11/2024 18:04 (Leonardo Silva de Amarante)',
+      alterado: '18/09/2025 17:10 (Jeferson dos Santos Morais)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2162;Nav=',
+      itemId: '2162'
+    }
+  },
+  {
+    id: 'faq-10001119',
+    faqNumber: '10001119',
+    name: 'Microsoft Teams',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Orientação sobre o Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-office-teams-info',
+    procedure: `### 📌 Observação Importante
+
+**Observação:** Caso o cliente não possua nenhuma das licenças corporativas exigidas, oriente-o a entrar em contato com a chefia de serviço para formalizar a solicitação via Central de Serviços:
+**Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.**
+
+---
+
+### 📌 Informações e Orientações Gerais
+
+O Microsoft Teams é uma plataforma de colaboração desenvolvida pela Microsoft voltada para comunicação e trabalho em equipe no ambiente corporativo do Senado Federal.
+
+#### Principais Funcionalidades:
+- **Chat:** Conversas individuais ou em grupo com histórico completo e pesquisa.
+- **Chamadas de Vídeo e Áudio:** Reuniões online com gravação, compartilhamento de tela e fundos personalizados.
+- **Integração com Microsoft 365:** Acesso e coedição direta de arquivos do Word, Excel, PowerPoint, OneNote e SharePoint.
+- **Canais e Equipes:** Organização estruturada por comissões, gabinetes, projetos ou setores.
+- **Segurança Corporativa:** Criptografia ponta a ponta e controle de acesso integrado ao Active Directory.
+
+---
+
+### 📌 Licenciamento e Verificação no AD
+
+Licenças que concedem acesso completo ao Microsoft Teams (Desktop/Web/Mobile):
+- \`Lic-O365-E1\` / \`Lic-O365-E1-ADP1\`
+- \`Lic-M365-APPS-Contrato-CT12-2025\`
+- \`Lic-M365-F1\` / \`Lic-M365-F1-ExchK\`
+
+*Nota técnica:* O atendente pode consultar os grupos e atributos do usuário no Active Directory (AD) para validar a atribuição da licença. A instalação física do aplicativo cliente não requer licença prévia, porém o login e uso dos recursos de colaboração dependem da licença ativa.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Microsoft Teams – Agendar Reunião**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1109;Nav=)
+- [**Microsoft Teams – Alterar Plano de Fundo em Reunião**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1844;Nav=)
+- [**Microsoft Teams – Erro na Configuração da Conta no Celular**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2162;Nav=)
+- [**Microsoft Teams – Ingressar na Reunião como Convidado**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1110;Nav=)
+- [**Microsoft Teams – Instalação – Atualização – Dispositivo Móvel**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2262;Nav=)
+- [**Microsoft Teams – Instalação/Atualização – Versão Desktop**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2265)
+- [**Agendar o evento ao vivo (Microsoft)**](https://support.microsoft.com/pt-br/office/agendar-um-evento-ao-vivo-no-microsoft-teams-7a9ce97c-e1cd-470f-acaf-e6dfc179a0e2)
+- [**Alterar opções de reunião durante a reunião**](https://support.microsoft.com/pt-br/office/alterar-op%C3%A7%C3%B5es-de-reuni%C3%A3o-durante-a-reuni%C3%A3o-4b25bc23-e120-47b2-863c-ba8c9cc7876a)
+- [**Capacidades e limites do evento ao vivo**](https://docs.microsoft.com/pt-br/microsoftteams/teams-live-events/plan-for-teams-live-events#who-can-attend-create-and-schedule-live-events)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1119;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams.pdf',
+        size: '248.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1119;FileID=14565'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1119;FileID=10759' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 17:14 (Samantha Hellen da Silva Menezes)',
+      alterado: '23/10/2025 11:43 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1119;Nav=',
+      itemId: '1119'
+    }
+  },
+  {
+    id: 'faq-10002407',
+    faqNumber: '10002407',
+    name: 'Microsoft Teams - Desativação de Notificações do Microsoft Teams no Outlook',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas',
+    subject: 'Microsoft Teams - Desativação de Notificações do Microsoft Teams no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento orienta como desativar o recebimento contínuo de e-mails automáticos enviados pelo Microsoft Teams (tais como notificações de atividades perdidas, menções e atualizações) diretamente na caixa de entrada do Outlook.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra o **Microsoft Teams**.
+2. Clique no ícone de **três pontos (...)** no canto superior direito (ao lado da foto/iniciais de perfil).
+3. Selecione a opção **Configurações**.
+4. No menu lateral, acesse **Notificações e Atividade**.
+5. Localize a seção **E-mails de Atividade Ausentes** (ou E-mails de atividades perdidas).
+6. Altere a configuração para **Desativado** (Off).
+7. Concluída a alteração, o usuário não receberá mais os e-mails informativos automáticos do Teams no Outlook.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2407;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams - Desativação de Notificações do Microsoft Teams no Outlook.pdf',
+        size: '314.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2407;FileID=17131'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2407;FileID=17128' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2407;FileID=17129' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2407;FileID=17130' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'teams outlook notificação',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '14/08/2026 11:36 (Lucas Rodrigues Alves)',
+      alterado: '14/08/2026 13:24 (Lucas Rodrigues Alves)',
+      atualizadoEm: '14.08.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2407;Nav=',
+      itemId: '2407'
+    }
+  },
+  {
+    id: 'faq-10001109',
+    faqNumber: '10001109',
+    name: 'Microsoft Teams – Agendar Reunião',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita orientação para agendar reunião com o Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- É importante configurar o aparelho móvel para permitir notificações desses aplicativos, seja no Outlook Mobile ou nos apps nativos do Apple iOS ou Google Android.
+- Ao utilizar o smartphone para visualizar os eventos através do Microsoft Teams, por padrão só são apresentados os próximos 7 dias. Para visualizar todo o histórico e calendário completo, utilize o Outlook Mobile ou o calendário nativo sincronizado.
+
+---
+
+### 📌 Informações e Orientações
+
+- A funcionalidade de agendar reunião no Teams está disponível no **Cliente Outlook Desktop** (não no Outlook Web) para todos os usuários corporativos.
+- O aplicativo desktop do Teams **deve estar instalado no mesmo computador**.
+- O botão fica disponível no **Calendário do Outlook** (aba *Página Inicial > Nova Reunião do Teams*).
+- **Se o ícone não estiver disponível no Outlook:**
+  1. Feche o Outlook e o Teams Desktop.
+  2. Abra o Teams Desktop e confirme se está autenticado.
+  3. Abra novamente o Outlook Desktop.
+
+---
+
+### 📌 Sincronização nos Smartphones (iOS / Android)
+
+- **iPhone (iOS):**
+  - Configure o cliente de e-mail e calendário em *Ajustes > Mail / Calendário > Contas*. O calendário nativo do iOS exibirá todos os eventos do Teams/Exchange.
+- **Android:**
+  - Instale o **Microsoft Outlook** ou sincronize a conta corporativa no aplicativo **Gmail / Google Agenda** via Play Store inserindo o e-mail (\`usuario@senado.leg.br\`) e senha de rede.
+
+---
+
+### 📌 Ingressar na Reunião Agendada
+
+- Os convidados receberão um convite de calendário com o link direto: **‘Ingressar em Reunião do Microsoft Teams’**. Ao clicar no link, o aplicativo ou a versão Web do Teams é inicializada automaticamente.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Outlook – Configurar E-mail Corporativo (IOS)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1522;Nav=)
+- [**Outlook – Configurar E-mail Corporativo (Android)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1347;Nav=)
+- [**Google Play Store**](https://play.google.com/store/games?hl=pt_BR)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1109;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Agendar Reunião.pdf',
+        size: '457.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=13524'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=10729' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=10726' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=13520' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=13521' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=13523' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1109;FileID=13525' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 16:19 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 17:30 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1109;Nav=',
+      itemId: '1109'
+    }
+  },
+  {
+    id: 'faq-10001844',
+    faqNumber: '10001844',
+    name: 'Microsoft Teams – Alterar Plano de Fundo em Reunião',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Alterar o plano de fundo de reunião no Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A configuração de plano de fundo pode ser realizada tanto antes de ingressar quanto durante uma reunião em andamento no Microsoft Teams.
+- É possível fazer testes com os planos de fundo e filtros visuais antes de ativar a câmera.
+
+---
+
+### 📌 Antes de Ingressar na Reunião
+
+1. Na tela de pré-adesão (onde configura câmera e microfone), clique em **Filtros de tela de fundo**.
+2. Um painel será exibido ao lado direito com vários modelos de plano de fundo que podem ser utilizados.
+3. Selecione o modelo desejado (desfoque, imagens institucionais padrão ou imagens personalizadas).
+
+---
+
+### 📌 Após Ingressar na Reunião
+
+1. Na barra de controles da reunião, clique na **seta ao lado do ícone de Câmera** ou clique em **Mais (...) > Efeitos e configurações de vídeo**.
+2. Selecione a opção **Mais efeitos e configurações de vídeo**.
+3. Para inserir uma imagem personalizada, clique em **Adicionar nova** e selecione o arquivo no computador.
+4. Clique em **Visualizar** para verificar o resultado sem que os outros participantes vejam.
+5. Clique em **Aplicar e ativar o vídeo**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1844;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Alterar Plano de Fundo em Reunião.pdf',
+        size: '367.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13539'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13536' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13526' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13538' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13537' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13540' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1844;FileID=13531' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '19/07/2024 16:49 (Leonardo Silva de Amarante)',
+      alterado: '18/09/2025 16:10 (Gabriel Queiroz Pires)',
+      atualizadoEm: '16.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1844;Nav=',
+      itemId: '1844'
+    }
+  },
+  {
+    id: 'faq-10002275',
+    faqNumber: '10002275',
+    name: 'Microsoft Teams – Gravar reunião',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas',
+    subject: 'Gravar reunião no Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante sobre Segurança
+
+**Atenção:** Por questões de segurança e proteção de dados, o agente automático de gravação e transcrição **Read AI foi desabilitado corporativamente**. Este agente **NÃO deve ser habilitado**, pois pode disponibilizar dados sensíveis da reunião de forma indevida. Caso o cliente insista em ter o agente habilitado, deve abrir solicitação formal e justificada via Central de Serviços:
+**Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.**
+
+---
+
+### 📌 Informações e Orientações
+
+- Para gravar uma reunião no Teams, utilize exclusivamente o recurso nativo de gravação.
+- Ao iniciar, confirme o idioma da transcrição se solicitado.
+- No canto superior direito da tela, um banner e o contador de tempo indicarão que a gravação está ativa para todos os participantes.
+- Ao encerrar a gravação ou a reunião, o arquivo será processado e disponibilizado automaticamente no chat da reunião e no OneDrive corporativo do anfitrião/organizador.
+
+---
+
+### 📌 Procedimento de Execução
+
+1. **Para iniciar a gravação:**
+   - Na barra de controles da reunião, clique no menu **Mais (...)**.
+   - Acesse a opção **Gravar e transcrever > Iniciar gravação**.
+2. **Para encerrar a gravação antes do fim da chamada:**
+   - Clique em **Mais (...) > Gravar e transcrever > Parar gravação**.
+   - Confirme no botão **Parar**.
+3. **Encerrar reunião:**
+   - Ao encerrar a reunião normalmente, a gravação é interrompida automaticamente.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2275;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Gravar reunião.pdf',
+        size: '366.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15042'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15043' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15039' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15045' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15041' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15040' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2275;FileID=15044' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '11/11/2025 09:04 (Jeferson dos Santos Morais)',
+      alterado: '11/11/2025 10:46 (Mayara Sales)',
+      atualizadoEm: '11.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2275;Nav=',
+      itemId: '2275'
+    }
+  },
+  {
+    id: 'faq-10001110',
+    faqNumber: '10001110',
+    name: 'Microsoft Teams – Ingressar na Reunião como Convidado',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Orientação sobre ingressar em uma reunião pelo Microsoft Teams como convidado',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O anfitrião pode enviar convites de reunião a qualquer momento, inclusive com a chamada já em andamento.
+- O link de ingresso pode ser compartilhado por e-mail, WhatsApp ou qualquer outra plataforma corporativa.
+- **Não é necessário criar conta no Teams ou realizar download prévio:** O convidado externo pode participar diretamente pelo navegador de internet (Microsoft Edge ou Google Chrome).
+
+---
+
+### 📌 Procedimento de Acesso pelo Convidado
+
+1. Abra o link da reunião recebido.
+2. Na página inicial do navegador, escolha a opção **Continuar neste navegador** (caso não queira baixar ou abrir o aplicativo).
+3. Conceda permissão ao navegador para utilizar microfone e câmera.
+4. Digite o seu nome para identificação na chamada.
+5. Clique em **Ingressar agora**.
+6. Aguarde no lobby/sala de espera até que o organizador autorize a sua entrada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1110;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – Ingressar na Reunião como Convidado.pdf',
+        size: '177.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1110;FileID=13547'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1110;FileID=13546' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1110;FileID=13544' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1110;FileID=13542' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1110;FileID=13545' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 16:23 (Samantha Hellen da Silva Menezes)',
+      alterado: '22/08/2025 11:36 (Mayara Sales)',
+      atualizadoEm: '15.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1110;Nav=',
+      itemId: '1110'
+    }
+  },
+  {
+    id: 'faq-10002265',
+    faqNumber: '10002265',
+    name: 'Microsoft Teams – Instalação/Atualização (Versão Desktop)',
+    type: 'Requisição de serviço',
+    service: 'Instalação/atualização da aplicação.',
+    subject: 'Instalação/atualização do Microsoft Teams - Versão Desktop',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Observações Importantes
+
+- Caso o cliente não possua nenhuma licença institucional atribuída ao seu perfil no Active Directory, a conta de e-mail corporativo não sincronizará com os serviços do Teams (consulte a FAQ 10001119).
+- O aplicativo Web do Teams (\`teams.microsoft.com\`) está sempre na versão mais atualizada.
+
+---
+
+### 📌 Procedimento de Instalação (Desktop)
+
+1. Execute o arquivo de instalação localizado em **X:\\Teams (Microsoft)**.
+2. Clique em **Sim** nas caixas de confirmação.
+3. Aguarde o término da instalação automatizada.
+4. Clique em **OK**.
+5. Abra o Microsoft Teams e aguarde a sincronização com a conta corporativa.
+
+---
+
+### 📌 Atualização do Microsoft Teams Desktop
+
+- O Teams realiza atualizações automáticas em segundo plano quando uma versão mais nova é disponibilizada e o aplicativo fica ocioso.
+- **Para atualizar manualmente sem aguardar o período ocioso:**
+  1. Quando uma nova versão estiver disponível, um aviso surgirá na barra superior do Teams.
+  2. Clique em **Atualizar > Atualizar e reiniciar o Teams**.
+  3. O Teams fechará e reabrirá na versão atualizada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2265;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – InstalaçãoAtualização (Versão Desktop).pdf',
+        size: '398.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15055'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15061' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=PictureUpload;FormID=1762873279.2260474.1942748;ContentID=inline874801.563730237.1762873279.2260474.1942748@capri.senado.gov.br' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15065' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15066' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15064' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15068' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15067' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15063' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15062' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=14457' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=14456' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2265;FileID=15057' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '22/10/2025 11:13 (Gabriel Queiroz Pires)',
+      alterado: '11/11/2025 12:11 (Mayara Sales)',
+      atualizadoEm: '23.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2265;Nav=',
+      itemId: '2265'
+    }
+  },
+  {
+    id: 'faq-10002262',
+    faqNumber: '10002262',
+    name: 'Microsoft Teams – Instalação/Atualização no dispositivo móvel',
+    type: 'Requisição de serviço',
+    service: 'Instalação/atualização da aplicação.',
+    subject: 'Instalação/atualização do Microsoft Teams',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Observação Importante
+
+- O usuário pode acessar diretamente o link de redirecionamento oficial da Microsoft pelo navegador do celular: **[aka.ms/teamsmobiledownload](https://aka.ms/teamsmobiledownload)** para ser encaminhado à loja de aplicativos correspondente ao sistema operacional do smartphone.
+
+---
+
+### 📌 Procedimento de Instalação no Celular
+
+1. **Download do aplicativo:**
+   - **No Android:** Abra a Google Play Store e pesquise por "Microsoft Teams".
+   - **No iOS (iPhone/iPad):** Abra a App Store e pesquise por "Microsoft Teams".
+2. Toque em **Instalar** (Android) ou **Obter** (iOS).
+3. Após a instalação, toque em **Abrir / Introdução**.
+4. **Configuração inicial da conta:**
+   - Insira o e-mail corporativo institucional: \`usuario@senado.leg.br\`.
+   - Realize a autenticação com senha e aprove a verificação em duas etapas (2FA).
+5. **Permissões:** Conceda as permissões de acesso solicitadas para microfone, câmera e notificações tocando em **Permitir / OK**.
+
+---
+
+### 📌 Procedimento de Atualização do App
+
+1. Abra a loja de aplicativos do dispositivo móvel (**Google Play Store** ou **App Store**).
+2. Na barra de busca, digite "Microsoft Teams".
+3. Se houver uma atualização disponível, o botão **Atualizar** estará visível. Toque em **Atualizar**. Se já estiver na versão mais recente, o botão exibirá apenas "Abrir".`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2262;Nav=',
+    attachments: [
+      {
+        name: 'Microsoft Teams – InstalaçãoAtualização no dispositivo móvel.pdf',
+        size: '527.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15051'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15047' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15050' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15049' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15048' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15046' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2262;FileID=15052' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/10/2025 17:14 (Gabriel Queiroz Pires)',
+      alterado: '11/11/2025 11:41 (Mayara Sales)',
+      atualizadoEm: '23.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2262;Nav=',
+      itemId: '2262'
+    }
+  },
+  {
+    id: 'faq-10002062',
+    faqNumber: '10002062',
+    name: 'Office 365 – Compartilhar Arquivo via OneDrive/SharePoint',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Compartilhamento de arquivos via OneDrive/SharePoint',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- **Limite de Envio:** Devido ao limite máximo de 25MB do Outlook para envio de arquivos anexos por e-mail, deve-se utilizar o compartilhamento via OneDrive e SharePoint para arquivos maiores.
+- **Atenção:** Com base em testes realizados, **NÃO recomendamos utilizar a opção ‘Pessoas que você escolhe’**, pois o link de convite do compartilhamento frequentemente não chega por e-mail ao destinatário.
+
+---
+
+### 📌 Informações e Orientações
+
+- Opções de compartilhamento disponíveis:
+  - **Alguém com o link:** Compartilhar publicamente com qualquer pessoa que possuir o endereço (se habilitado).
+  - **Pessoas em Senado Federal:** Apenas para usuários autenticados com conta do Senado Federal.
+  - **Somente pessoas com acesso existente:** Enviar o link sem alterar permissões para quem já possui acesso concedido.
+- É possível definir restrições específicas: conceder permissão de edição, somente leitura ou bloquear o download do documento.
+
+---
+
+### 📌 Procedimento de Carregamento e Compartilhamento
+
+1. Acesse o portal **[Office365 / OneDrive](https://www.office.com/onedrive/?auth=2)** e efetue login com as credenciais de rede do Senado.
+2. No menu lateral, clique em **OneDrive**.
+3. Clique no botão **‘+ Adicionar novo’** e selecione **Carregamento de arquivos**.
+4. Selecione o arquivo desejado no seu computador (mesmo arquivos grandes, ex.: acima de 100MB) e clique em **Abrir**.
+5. Aguarde a conclusão do carregamento do arquivo.
+6. Localize o arquivo na lista e clique no botão **Compartilhar** (ou no ícone de compartilhamento).
+7. Clique no ícone de **engrenagem (Configurações de compartilhamento)** para gerenciar o público e o tipo de acesso.
+8. Expanda **‘Mais configurações’** e defina se permite ou bloqueia a edição/download.
+9. Clique em **Aplicar**.
+10. Escolha a forma de envio:
+    - Clique em **‘Copiar link’** para obter a URL e colar diretamente em mensagens, chats ou e-mails.
+    - Ou insira o nome/e-mail do contato e clique em **‘Enviar’**.
+
+---
+
+### 📌 Alteração e Gerenciamento de Acessos Posteriores
+
+1. Localize o arquivo compartilhado no OneDrive.
+2. Clique novamente no ícone de **Compartilhar**.
+3. Clique em **‘Gerenciar acesso’** para adicionar ou remover contatos e modificar permissões existentes.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2062;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 – Compartilhar Arquivo via OneDrive_SharePoint.pdf',
+        size: '789.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12301'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12295' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12300' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12294' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12296' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12293' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12297' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12299' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12298' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12291' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=12292' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=11497' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2062;FileID=11496' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '10/10/2024 17:51 (Leonardo Silva de Amarante)',
+      alterado: '02/10/2025 18:32 (Leonardo Silva de Amarante)',
+      atualizadoEm: '16.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2062;Nav=',
+      itemId: '2062'
+    }
+  },
+  {
+    id: 'faq-10001622',
+    faqNumber: '10001622',
+    name: 'Office 365 – Instalar Apps',
+    type: 'Requisição de serviço',
+    service: 'Instalação/atualização da aplicação.',
+    subject: 'Solicita a instalação do Office 365 apps',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A instalação do pacote **Office 365 Apps** realiza a desinstalação automática de outras versões legadas do Microsoft Office previamente instaladas no computador.
+- Garante o acesso aos aplicativos Word, Excel, PowerPoint, Outlook e Access atualizados.
+
+---
+
+### 📌 Procedimento de Instalação
+
+1. Acesse o compartilhamento corporativo e execute o instalador localizado em **X:\\Office (Microsoft)**.
+2. Clique em **Sim** nas caixas de confirmação de execução e elevação.
+3. Insira o **número do chamado de atendimento** quando solicitado.
+4. Clique em **OK**.
+5. Aguarde a barra de progresso da instalação finalizar o download e aplicação dos pacotes.
+6. Ao término, clique em **OK** e depois em **Fechar**.
+7. Abra um dos aplicativos do Office e verifique a autenticação e sincronização da conta institucional.
+
+---
+
+### 📌 Permissões de Acesso e Grupos no Active Directory
+
+- Caso ocorra algum erro de ativação ou licenciamento, verifique no Active Directory (AD):
+  - Grupo \`Lic-O365-E1-ADP1\`: Concede a utilização dos serviços em nuvem.
+  - Grupo \`Lic-O365-APPS\`: Autoriza a ativação do produto em até 5 dispositivos por usuário.
+- Caso o usuário não possua os grupos requeridos, oriente que a chefia do setor formalize a solicitação via Central de Serviços:
+  **Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a Sistemas.**`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1622;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 – Instalar Apps.pdf',
+        size: '386.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12260'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12264' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12261' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12258' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12265' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12263' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12262' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=12259' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=10764' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1622;FileID=10769' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '01/04/2024 17:47 (Leonardo Silva de Amarante)',
+      alterado: '22/06/2026 09:43 (Mayara Sales)',
+      atualizadoEm: '16.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1622;Nav=',
+      itemId: '1622'
+    }
+  },
+  {
+    id: 'faq-10001117',
+    faqNumber: '10001117',
+    name: 'Office 365 – Migração de Contas de E-mail',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita orientação sobre a migração de contas de e-mail',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A migração de contas para o ambiente Office 365 afeta exclusivamente o aplicativo de correio eletrônico **Outlook**. As demais ferramentas do Office instaladas localmente (Teams, Word, Excel, etc.) continuam operando normalmente sem impacto.
+- **Identificação de Caixa Migrada:** É possível verificar se uma caixa postal já foi migrada através do processo de abertura de caixa compartilhada/adicional no **Outlook Web**. Ao tentar abrir uma caixa que ainda não foi migrada para a nuvem através do ambiente Exchange Online, será apresentada a mensagem de alerta indicando que a caixa não se encontra no ambiente em nuvem.
+
+---
+
+### 📌 Consulta de Contas e Documentação
+
+- Para consultar a planilha de controle de contas de e-mail que ainda não foram migradas:
+  [**Acessar Planilha de Contas Não Migradas no SharePoint**](https://senadofederal-my.sharepoint.com/:x:/g/personal/jefermor_senado_leg_br/EeuB3zFc0uhDmc5epaEunHkBJn1Ju-1U7JtSdxqNOytJyQ?e=0tnkKf)
+- Para consultar o procedimento de abertura de caixas de correio adicionais:
+  [**Outlook Web – Abrir outra caixa de correio**](https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1142;Nav=)
+- **Atendimento de Suporte:** O atendente deve registrar detalhadamente no chamado as evidências com prints da tentativa de acesso. Caso seja necessária a migração da conta, o chefe de setor deve encaminhar o pedido via Central de Serviços:
+  **Central de Serviços Administrativos > Informática > Apoio a aplicativos > Autorização de acesso a sistemas.**
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Office 365 – Solução de Erros de Migração (ItemID 2264)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2264;Nav=)
+- [**Grupos do AD e Licenciamento Office 365 (ItemID 2236)**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2236;Nav=&OTRSAgentInterface=10YRWeG6n8QGae61C6GHN2jw2Xs5pm1QQE)
+- [**Outlook Web – Abrir outra caixa de correio (FAQ 1142)**](https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1142;Nav=)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1117;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 – Migração de Contas de E-mail.pdf',
+        size: '208.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1117;FileID=14612'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1117;FileID=14613' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 17:06 (Samantha Hellen da Silva Menezes)',
+      alterado: '23/10/2025 15:42 (Leonardo Silva de Amarante)',
+      atualizadoEm: '17.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1117;Nav=',
+      itemId: '1117'
+    }
+  },
+  {
+    id: 'faq-10001118',
+    faqNumber: '10001118',
+    name: 'Office 365 E1 – Informações',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita orientação sobre o Office 365 E1',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante sobre a Licença E1
+
+**Atenção:** A licença **Office 365 E1** é voltada para ferramentas e serviços corporativos baseados em nuvem (aplicações Web, Exchange Online, OneDrive e Teams). **Não inclui o direito de instalação de produtos locais para desktop do pacote Office** (como Word, Excel e PowerPoint instalados fisicamente no computador). Não há qualquer necessidade de remoção do pacote Office existente no computador.
+
+---
+
+### 📌 Informações e Orientações
+
+- O Senado Federal adquiriu lotes de licenças do Office 365 E1, sendo necessária a oficialização do pedido via Central de Serviços para atribuição ao usuário.
+- Para esclarecimento de dúvidas técnicas ou alinhamento sobre a licença E1, entre em contato com a equipe da SERETI:
+  - **E-mail:** \`SERETI@senado.leg.br\` (Serviço de Relacionamento de TI da COATEN).
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Acesse o portal corporativo: **[portal.office.com](https://portal.office.com)**.
+2. No campo de login, informe seu UPN institucional (\`login@senado.leg.br\`).
+3. **Autenticação:**
+   - Conectado na rede corporativa do Senado (computador desktop local): O login ocorre de forma automática via SSO (sem necessidade de senha).
+   - Conectado fora da rede ou via rede Wi-Fi: Insira a senha de rede do Senado e confirme o segundo fator (MFA).
+4. Após o login, acesse os aplicativos Web disponíveis ou consulte tutoriais no **[Centro de Treinamento do Office](https://support.office.com/pt-br/office-training-center)**.
+
+---
+
+### 📌 Solicitação de Acesso
+
+Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1118;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 E1 – Informações.pdf',
+        size: '324.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=15907'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=10754' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=10756' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=10755' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=10757' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1118;FileID=10753' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 17:09 (Samantha Hellen da Silva Menezes)',
+      alterado: '20/02/2026 09:58 (Leonardo Silva de Amarante)',
+      atualizadoEm: '20.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1118;Nav=',
+      itemId: '1118'
+    }
+  },
+  {
+    id: 'faq-10002225',
+    faqNumber: '10002225',
+    name: 'Office 365 Web – Instalar Produtos na Área de Trabalho',
+    type: 'Requisição de serviço',
+    service: 'Instalação/atualização da aplicação',
+    subject: 'Solicita a instalação dos produtos Office Web na área de trabalho',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É possível instalar o Word, Excel e/ou PowerPoint como um aplicativo Web progressivo (PWA) utilizando o Microsoft Edge ou o Google Chrome.
+- Deste modo, a versão Web dos produtos Office pode ser inicializada diretamente pela Área de Trabalho ou por atalho fixado na barra de tarefas, com janela dedicada e limpa.
+- **Substituição de aplicativo:** Esta solução substitui com excelência o aplicativo desktop local para aqueles usuários que não possuem licenças do pacote Office Desktop atribuídas.
+
+---
+
+### 📌 Procedimento no Microsoft Edge
+
+1. Acesse o portal corporativo do **Office 365** e efetue login com suas credenciais de rede.
+2. Abra o produto desejado (ex.: Word Web ou Excel Web).
+3. No canto superior direito do Microsoft Edge, clique em **Configurações e mais (...) > Mais ferramentas > Apps**.
+4. Clique em **Instalar este site como app** (ou clique no ícone de aplicativo na barra de endereços).
+5. Na janela de confirmação, clique em **Instalar**.
+6. Marque as preferências desejadas (Criar atalho na área de trabalho, Fixar na barra de tarefas, etc.) e clique em **Permitir**.
+
+---
+
+### 📌 Procedimento no Google Chrome
+
+1. Acesse o portal do **Office 365** e abra o produto desejado (ex.: Excel Web).
+2. Clique no menu de três pontos verticais (**Personalizar e controlar o Google Chrome**).
+3. Acesse **Transmitir, salvar e compartilhar > Instalar página como app...** (ou *Salvar e compartilhar > Criar atalho / Instalar*).
+4. Confirme o nome do aplicativo e clique em **Instalar**.
+5. O aplicativo será aberto em janela dedicada e seus atalhos serão criados na Área de Trabalho e Barra de Tarefas.
+
+---
+
+### 🔗 Procedimentos e Links Relacionados
+
+- [**Office 365 Web – Vantagens de Utilização (FAQ 2226)**](https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2226)
+- [**Portal Microsoft 365 Cloud**](https://m365.cloud.microsoft/?auth=2)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2225;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 Web – Instalar Produtos na Área de Trabalho.pdf',
+        size: '494.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16525'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=13516' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16527' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16526' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16529' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16528' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=13517' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16530' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=16524' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=13510' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2225;FileID=13513' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2025 15:20 (Leonardo Silva de Amarante)',
+      alterado: '15/06/2026 15:48 (Mayara Sales)',
+      atualizadoEm: '15.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2225;Nav=',
+      itemId: '2225'
+    }
+  },
+  {
+    id: 'faq-10002226',
+    faqNumber: '10002226',
+    name: 'Office 365 Web – Vantagens de Utilização',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Vantagens de utilizar o Office 365 Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações para Atendimento
+
+O Office 365 Web oferece diversas vantagens estratégicas para a equipe técnica e para os usuários do Senado Federal, especialmente para quem busca mobilidade, agilidade e integração:
+
+#### Principais Benefícios:
+1. **Acesso de qualquer lugar:** Como é baseado na nuvem, você pode acessar seus arquivos e aplicativos (Word, Excel, PowerPoint, Outlook, OneDrive etc.) de qualquer dispositivo com internet, sem a necessidade de instalações físicas locais.
+2. **Colaboração em tempo real:** Permite que múltiplos servidores editem o mesmo documento simultaneamente, visualizando alterações instantâneas com histórico de versões completo.
+3. **Armazenamento e segurança na nuvem:** Integração direta com OneDrive e SharePoint Corporativo, evitando perda de documentos caso ocorram falhas de hardware no computador.
+4. **Atualizações automáticas:** O ambiente em nuvem está permanentemente na versão mais recente, com novos recursos e correções de segurança aplicadas sem interrupção de serviço.
+5. **Integração total do ecossistema:** Comunicação fluida com Teams, Outlook, Planner e ferramentas de colaboração institucional.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2226;Nav=',
+    attachments: [
+      {
+        name: 'Office 365 Web – Vantagens de Utilização.pdf',
+        size: '219.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2226;FileID=11505'
+      }
+    ],
+    visualRefs: [],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2025 15:13 (Leonardo Silva de Amarante)',
+      alterado: '22/05/2025 11:59 (Mayara Sales)',
+      atualizadoEm: '16.04.2024',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2226;Nav=',
+      itemId: '2226'
+    }
+  },
+  {
+    id: 'faq-10001108',
+    faqNumber: '10001108',
+    name: 'Outlook Mobile – Adicionar Caixa Compartilhada',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita orientação para adicionar caixa compartilhada no Outlook Mobile',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** Este procedimento é exclusivo para caixas de correio eletrônico que já se encontram no ambiente em nuvem (tanto a conta individual do usuário quanto a caixa compartilhada solicitada).
+
+---
+
+### 📌 Informações e Orientações
+
+- A configuração pode ser executada tanto no aplicativo Outlook para **iOS (iPhone/iPad)** quanto para **Android**.
+- O usuário já deve possuir permissão prévia de acesso à caixa compartilhada delegada no Exchange/Office 365.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra o aplicativo **Microsoft Outlook** no dispositivo móvel.
+2. Toque no ícone de perfil no canto superior esquerdo (ou ícone da conta Microsoft 365).
+3. Toque no ícone de **Adicionar Conta** (ícone de envelope com sinal de '+' ou engrenagem).
+4. Selecione a opção **‘Adicionar uma conta de correio compartilhada...’** (ou Adicionar Caixa de Correio Compartilhada).
+5. Selecione a conta corporativa principal que possui a delegação.
+6. Insira o endereço de e-mail institucional completo da caixa compartilhada (ex.: \`setor@senado.leg.br\`).
+7. Toque em **Continuar / Adicionar**.
+8. A caixa institucional será vinculada e exibida no menu lateral do aplicativo abaixo das pastas principais.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1108;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Mobile – Adicionar Caixa Compartilhada.pdf',
+        size: '330.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1108;FileID=13501'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1108;FileID=13500' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1108;FileID=16346' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1108;FileID=16345' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OFFICE 365 > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OFFICE 365::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '29/01/2024 16:10 (Samantha Hellen da Silva Menezes)',
+      alterado: '29/04/2026 11:49 (Mayara Sales)',
+      atualizadoEm: '04.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1108;Nav=',
+      itemId: '1108'
+    }
+  },
+  {
+    id: 'faq-10001289',
+    faqNumber: '10001289',
+    name: 'Outlook – E-mails Apagados Automaticamente pelo Lixo Eletrônico',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'E-mails Apagados Automaticamente pelo Lixo Eletrônico',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este incidente ocorre quando regras rigorosas de lixo eletrônico ou listas de bloqueio movem ou excluem automaticamente mensagens legítimas recebidas pelo usuário.
+- É necessário revisar as regras de filtragem de remetentes bloqueados e remetentes confiáveis no cliente Outlook.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. No Microsoft Outlook, clique com o botão direito sobre qualquer mensagem na lista de e-mails.
+2. Posicione o cursor sobre **Lixo Eletrônico** e clique em **Opções de Lixo Eletrônico...**.
+3. Na guia **Opções**, selecione a configuração **‘Sem Filtragem Automática’** (embora o lixo eletrônico ainda mova itens da lista de Remetentes Bloqueados).
+4. Acesse a guia **Remetentes Bloqueados**:
+   - Verifique se o endereço ou domínio do remetente legítimo consta na listagem.
+   - Caso conste, selecione o remetente e clique em **Remover**.
+5. Acesse a guia **Remetentes Confiáveis**:
+   - Clique em **Adicionar** e insira o e-mail ou domínio desejado para assegurar o recebimento normal.
+6. Clique em **OK** para salvar as alterações.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1289;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – E-mails Apagados Automaticamente pelo Lixo Eletrônico.pdf',
+        size: '237.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=11514'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=10887' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=10888' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=10889' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=10885' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1289;FileID=10886' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 16:03 (Mayara Sales)',
+      alterado: '17/09/2025 14:30 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1289;Nav=',
+      itemId: '1289'
+    }
+  },
+  {
+    id: 'faq-10001286',
+    faqNumber: '10001286',
+    name: 'Outlook – Erro ao Abrir o programa (.pst)',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro ao Abrir o Outlook (PST)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Diagnóstico do Erro
+
+- Esse erro surge na inicialização do Outlook quando o caminho configurado para o arquivo de Pastas Particulares (.pst) está incorreto, ou se o arquivo .pst foi movido, renomeado ou excluído.
+- Ao clicar em **OK** na mensagem de erro inicial, uma janela do Windows Explorer será aberta apontando para o último caminho registrado. O erro decorre da ausência do arquivo exatamente naquele local.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Na tela de aviso do erro, clique em **OK**.
+2. Na janela de seleção de arquivos do Windows Explorer, navegue até a pasta onde o arquivo \`.pst\` realmente está armazenado (geralmente em \`D:\\Users\\...\`, pastas de backup ou unidade de rede pessoal).
+3. Selecione o arquivo de dados correto correspondente às pastas particulares.
+4. Clique no botão **Abrir**.
+5. O Outlook vinculará novamente o arquivo de dados e abrirá normalmente com todas as pastas e e-mails recuperados.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1286;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Erro ao Abrir o programa (.pst) .pdf',
+        size: '214.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1286;FileID=11513'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1286;FileID=10880' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1286;FileID=10883' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1286;FileID=10882' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:46 (Mayara Sales)',
+      alterado: '17/09/2025 14:30 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1286;Nav=',
+      itemId: '1286'
+    }
+  },
+  {
+    id: 'faq-10001284',
+    faqNumber: '10001284',
+    name: 'Outlook – Erro ao Iniciar',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro ao Iniciar o Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- **Segurança dos dados:** Arquivos de pastas particulares (.pst) ou públicas e e-mails arquivados no servidor **não serão perdidos** com a remoção e recriação do perfil no computador local.
+- **Histórico de preenchimento automático:** O histórico de destinatários de e-mails sugeridos fica armazenado localmente no arquivo .ost. Para manter esse histórico e evitar inconsistências, **o novo perfil deve ser criado exatamente com o mesmo nome do perfil antigo**.
+
+---
+
+### 📌 Diagnóstico do Erro
+
+- Mensagem apresentada: *“Não é possível iniciar o Microsoft Outlook. Não é possível abrir a janela do Outlook. Não é possível abrir o conjunto de pastas. O arquivo C:\\Users\\...\\Outlook\\usuario.ost...”*
+- A causa é a corrupção do perfil local de e-mail ou do arquivo de dados offline (.ost).
+
+---
+
+### 📌 Procedimento de Correção (Recriação do Perfil)
+
+1. Feche todos os processos do Microsoft Outlook.
+2. Abra o **Painel de Controle** do Windows e clique no ícone **Mail (Microsoft Outlook)** (ou Email).
+3. Na janela Configuração de Email, clique em **Mostrar Perfis...**.
+4. Selecione o perfil corrompido existente e clique em **Remover**, confirmando a exclusão em **Sim**.
+5. Em seguida, clique em **Adicionar...**.
+6. Digite o **mesmo nome do perfil anterior** e clique em **OK**.
+7. O assistente de configuração de conta será exibido. Verifique os dados institucionais (\`usuario@senado.leg.br\`), clique em **Avançar** e aguarde a configuração automática.
+8. Clique em **Concluir** e depois em **OK**.
+9. Abra o Microsoft Outlook e aguarde a sincronização completa das mensagens.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1284;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Erro ao Iniciar.pdf',
+        size: '333.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=11512'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10877' },
+      { title: 'Imagem 2', url: 'https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=4026' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10871' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10873' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10875' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10876' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10874' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10878' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1284;FileID=10872' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:38 (Mayara Sales)',
+      alterado: '17/09/2025 14:31 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1284;Nav=',
+      itemId: '1284'
+    }
+  },
+  {
+    id: 'faq-10001282',
+    faqNumber: '10001282',
+    name: 'Outlook – Erro de Suplemento',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro de Suplemento do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Diagnóstico do Erro
+
+- O Outlook monitora a performance e pode exibir o alerta: *“Um problema foi detectado – Modo desabilitado suplementos”*.
+- O desligamento automático impede que suplementos corporativos essenciais funcionem, tais como:
+  - **Outlook Social Connector**
+  - **Suplemento de Reunião do Lync / Skype for Business / Teams para o Microsoft Office**
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Na barra amarela de alerta que surge na parte superior do Outlook, clique em **‘Exibir suplementos desabilitados’** (ou **‘Modo desabilitado de suplementos’**).
+2. Na janela pop-up que detalha o suplemento desativado, selecione a opção **‘Sempre habilitar este suplemento’** (ou *Não desabilitar este suplemento pelos próximos 30 dias*).
+3. Clique em **Aplicar / Fechar**.
+4. Reinicie o Microsoft Outlook para garantir a inicialização correta dos módulos integrados.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1282;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Erro de Suplemento.pdf',
+        size: '394.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1282;FileID=11511'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1282;FileID=10870' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1282;FileID=10869' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:27 (Mayara Sales)',
+      alterado: '17/09/2025 14:31 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1282;Nav=',
+      itemId: '1282'
+    }
+  },
+  {
+    id: 'faq-10001281',
+    faqNumber: '10001281',
+    name: 'Outlook – Erro na Pesquisa',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro na Pesquisa do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico e Informações
+
+- Falha reportada: A ferramenta de pesquisa do Outlook não localiza mensagens recentes, não exibe nenhum resultado ou informa que a indexação está pausada ou incompleta.
+- Se a indexação parecer paralisada, é necessário recriar o catálogo de pesquisa do Windows Search.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Feche o Microsoft Outlook.
+2. No menu Iniciar do Windows, pesquise por **Opções de Indexação** e pressione Enter.
+3. Na janela que se abrir, clique em **Modificar**:
+   - Desmarque a caixa de seleção correspondente ao **Microsoft Outlook**.
+   - Clique em **OK**.
+4. De volta à janela principal de Opções de Indexação, clique no botão **Avançado**.
+5. Na guia *Configurações do Índice*, localize a seção *Solução de problemas* e clique em **Recriar**.
+6. Uma mensagem alertará que a recriação do índice pode demorar algum tempo. Clique em **OK**.
+7. Clique em **Fechar** e aguarde o Windows processar a indexação.
+8. Abra o Microsoft Outlook e realize uma nova pesquisa para validar o funcionamento.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1281;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Erro na Pesquisa.pdf',
+        size: '329.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=11510'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10864' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10865' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10863' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10861' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10866' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10860' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1281;FileID=10867' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:23 (Mayara Sales)',
+      alterado: '17/09/2025 14:31 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1281;Nav=',
+      itemId: '1281'
+    }
+  },
+  {
+    id: 'faq-10001277',
+    faqNumber: '10001277',
+    name: 'Outlook – Ferramenta de Reparo para Arquivos (.ost) e (.pst)',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Ferramenta de Reparo para Arquivos .OST e .PST do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações Complementares e Alçada
+
+**ATENÇÃO:** PROCEDIMENTO REALIZADO PELO NÍVEL 2 (SUPORTE TÉCNICO PRESENCIAL / ESPECIALIZADO).
+
+---
+
+### 📌 Informações e Diagnóstico
+
+- Ao inicializar o Outlook, o sistema apresenta mensagem de erro indicando inconsistência ou corrupção no arquivo de pastas particulares (\`.pst\`) ou de dados offline (\`.ost\`), exigindo a execução da ferramenta de reparo da Caixa de Entrada (\`SCANPST.EXE\`).
+- **Versões e caminhos de instalação do Microsoft Office:**
+  - **Office12:** Microsoft Office 2007
+  - **Office14:** Microsoft Office 2010
+  - **Office15:** Microsoft Office 2013
+  - **Office16:** Microsoft Office 2016 / 2019 / Apps Corporativos
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Feche completamente o Microsoft Outlook e encerre todos os seus processos no Gerenciador de Tarefas.
+2. Abra o Windows Explorer e navegue até a pasta de instalação correspondente à versão instalada, tipicamente:
+   \`C:\\Arquivos de Programas (x86)\\Microsoft Office\\Office16\` (ou \`C:\\Program Files\\Microsoft Office\\root\\Office16\`).
+3. Localize e execute o aplicativo **SCANPST.EXE**.
+4. Na tela da *Ferramenta de Reparo da Caixa de Entrada do Microsoft Outlook*, clique em **Procurar...** e selecione o arquivo \`.pst\` ou \`.ost\` que apresentou erro (armazenado em \`%localappdata%\\Microsoft\\Outlook\`).
+5. Clique em **Iniciar** para iniciar a verificação de integridade do arquivo.
+6. Após a análise, certifique-se de marcar a opção de fazer backup do arquivo antes de reparar e clique no botão **Reparar**.
+7. Aguarde a mensagem informando que o reparo foi concluído com êxito.
+8. Abra novamente o Microsoft Outlook e certifique-se de que as pastas e e-mails carregam normalmente.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1277;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Ferramenta de Reparo para Arquivos (.ost) e (.pst).pdf',
+        size: '285.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1277;FileID=11509'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1277;FileID=10852' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1277;FileID=10850' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1277;FileID=6443' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1277;FileID=10851' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:00 (Mayara Sales)',
+      alterado: '17/09/2025 14:31 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1277;Nav=',
+      itemId: '1277'
+    }
+  },
+  {
+    id: 'faq-10001266',
+    faqNumber: '10001266',
+    name: 'Outlook – Mensagem Não é Salva na Pasta de Itens Enviados',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Mensagem Não é Salva na Pasta de Itens Enviados',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Diagnóstico
+
+- Ocorre quando o usuário envia e-mails em nome de uma caixa compartilhada ou delegada, e a mensagem enviada não é gravada na pasta de "Itens Enviados" da caixa delegada, ficando apenas na caixa pessoal do atendente (ou não sendo salva).
+- A correção requer o ajuste do parâmetro \`DelegateSentItemsStyle\` no Registro do Windows.
+
+---
+
+### 📌 Procedimento de Correção no Registro do Windows
+
+1. Feche o Microsoft Outlook.
+2. Pressione as teclas **Windows + R**, digite \`regedit\` e pressione Enter (ou clique em Iniciar > digite \`regedit\` > Abrir).
+3. Navegue até a seguinte subchave de acordo com a versão do Office instalada:
+   \`HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Outlook\\Preferences\` (ou \`15.0\` para Office 2013).
+4. No painel à direita, verifique se o valor **DelegateSentItemsStyle** já existe:
+   - **Caso NÃO exista:** Clique com o botão direito em uma área vazia, selecione **Novo > Valor DWORD (32 bits)**, nomeie como \`DelegateSentItemsStyle\` e tecle Enter.
+5. Dê um duplo clique em **DelegateSentItemsStyle** (ou clique com o botão direito e selecione **Modificar**).
+6. Defina o campo **Dados do valor** como **1** e a base como **Hexadecimal** (ou Decimal) e clique em **OK**.
+   *(Nota: Se o valor já estiver definido como 1 e a falha persistir, altere para 0, clique em OK, modifique novamente para 1 e clique em OK para forçar a regravação).*
+7. Feche o Editor do Registro e reinicie o Microsoft Outlook para que a configuração entre em vigor.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1266;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Mensagem Não é Salva na Pasta de Itens Enviados.pdf',
+        size: '505.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=11508'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10843' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10848' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10844' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10846' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10847' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1266;FileID=10849' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:56 (Mayara Sales)',
+      alterado: '17/09/2025 14:32 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1266;Nav=',
+      itemId: '1266'
+    }
+  },
+  {
+    id: 'faq-10002333',
+    faqNumber: '10002333',
+    name: 'Outlook – Modo de segurança',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Outlook – Modo de segurança',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico e Identificação
+
+- Ao iniciar o aplicativo Microsoft Outlook, o sistema exibe sucessivamente a mensagem:
+  *“O Outlook não pôde ser iniciado na última vez. O modo de segurança pode ajudá-lo a solucionar o problema... Deseja iniciar no modo de segurança?”*.
+- A causa mais recorrente deste travamento é a incompatibilidade ou falha no carregamento do suplemento de reuniões do Microsoft Teams.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Na caixa de diálogo do erro, clique em **Sim** para permitir que o Outlook abra temporariamente em Modo de Segurança.
+2. Com o aplicativo aberto, clique no menu superior em **Arquivo > Opções**.
+3. No painel lateral esquerdo da janela de Opções, clique na seção **Suplementos**.
+4. Na parte inferior, certifique-se de que a caixa de seleção *Gerenciar* está definida como **Suplementos de COM** e clique no botão **Ir...**.
+5. Na lista de suplementos disponíveis, localize e **desmarque** a caixa de seleção correspondente a:
+   - **Microsoft Teams Meeting Add-in for Microsoft Office**.
+6. Clique em **OK** para confirmar a desativação.
+7. Feche o Outlook e abra-o novamente em modo normal.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2333;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Modo de Segurança.pdf',
+        size: '286.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2333;FileID=16073'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2333;FileID=16070' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2333;FileID=16071' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2333;FileID=16072' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: 'Modo de segurança',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '12/03/2026 11:28 (Mayara Sales)',
+      alterado: '12/03/2026 11:37 (Mayara Sales)',
+      atualizadoEm: '12.03.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2333;Nav=',
+      itemId: '2333'
+    }
+  },
+  {
+    id: 'faq-10001264',
+    faqNumber: '10001264',
+    name: 'Outlook – Programa Travando',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Outlook Travando',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico e Causa
+
+- Procedimento indicado para casos em que o Microsoft Outlook apresenta travamentos constantes, congelamento ao digitar mensagens, lentidão ao alternar pastas ou demora excessiva no carregamento do perfil.
+- Na maioria dos casos corporativos, suplementos de terceiros como a extensão da nuvem do Adobe causam esse bloqueio. A desativação destes suplementos não prejudica o funcionamento nem do Outlook nem do Adobe Acrobat Reader local.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. No Microsoft Outlook, clique em **Arquivo > Opções**.
+2. Clique no menu **Suplementos**.
+3. Na parte inferior em *Gerenciar*, selecione **Suplementos de COM** e clique em **Ir...**.
+4. Desmarque as caixas dos suplementos:
+   - **Acrobat PDFMaker Office COM Addin**
+   - **Adobe Document Cloud for Microsoft Outlook**
+5. Clique em **OK**.
+6. Feche e reabra o Outlook para testar o desempenho.
+
+---
+
+### 💡 Ações Complementares (Caso o travamento persista):
+- Criar um novo perfil de e-mail no Painel de Controle (Mail/Email).
+- Executar o Reparo Rápido da instalação do pacote Office no Painel de Controle (*Programas e Recursos > Microsoft Office > Alterar > Reparar*).
+- Reiniciar o computador corporativo.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1264;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Programa Travando.pdf',
+        size: '230.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1264;FileID=11507'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1264;FileID=10840' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1264;FileID=10841' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:44 (Mayara Sales)',
+      alterado: '17/09/2025 14:32 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1264;Nav=',
+      itemId: '1264'
+    }
+  },
+  {
+    id: 'faq-10001280',
+    faqNumber: '10001280',
+    name: 'Outlook – Suplemento Outlook Scan',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Erro no Outlook 2013 – Outlook Scan',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico do Erro
+
+- Ao iniciar o Outlook, o usuário se depara com a mensagem:
+  *“O suplemento Outlook Scan (C:\\Windows\\system32\\MFEOtlk.dll) não pode ser carregado e foi desabilitado pelo Outlook. Contate o fabricante do suplemento para obter uma atualização. Caso não haja uma disponível, desinstale o suplemento.”*
+- Trata-se de uma DLL residual de versões anteriores da proteção antivírus corporativa (McAfee/Trellix) que permaneceu registrada nos suplementos do cliente de e-mail.
+
+---
+
+### 📌 Procedimento de Correção
+
+1. Abra o Microsoft Outlook.
+2. Clique em **Arquivo > Opções**.
+3. Selecione a guia **Suplementos**.
+4. No campo *Gerenciar*, confirme que está selecionada a opção **Suplementos de COM** e clique no botão **Ir...**.
+5. Na lista apresentada, localize o suplemento **Outlook Scan** (ou que aponte para \`MFEOtlk.dll\`).
+6. Desmarque a opção ou selecione-o e clique em **Remover**.
+7. Clique em **OK**.
+8. Feche e abra o Outlook novamente; a mensagem de falha não será mais apresentada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1280;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Suplemento Outlook Scan.pdf',
+        size: '279.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1280;FileID=11506'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1280;FileID=10856' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1280;FileID=10859' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1280;FileID=10857' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1280;FileID=10855' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:17 (Mayara Sales)',
+      alterado: '17/09/2025 14:31 (Jeferson dos Santos Morais)',
+      atualizadoEm: '23.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1280;Nav=',
+      itemId: '1280'
+    }
+  },
+  {
+    id: 'faq-10002332',
+    faqNumber: '10002332',
+    name: 'Outlook Web – Falha de acesso',
+    type: 'Incidente',
+    service: 'Suporte a Aplicações Corporativas',
+    subject: 'Outlook Web – Falha de acesso',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico e Verificação de Licença
+
+- O usuário recebe erro ao tentar acessar a caixa postal no Outlook Web (ex.: *“Algo deu errado... Não foi possível encontrar uma caixa de correio para esta conta”* ou mensagem de licença não atribuída).
+- Isso indica que a conta do usuário não possui licença do Exchange Online ativa no Active Directory / Office 365.
+
+---
+
+### 📌 Roteiro de Atendimento para o Analista
+
+1. Realize a consulta da conta do usuário no **Active Directory (AD)**:
+   - Verifique os grupos de licença pertencentes ao perfil.
+2. **Caso o usuário possua a licença \`Lic-ExchK\` (ou correlata):**
+   - A licença está atribuída, mas ocorreu erro de sincronização ou aprovisionamento na nuvem.
+   - Siga o fluxo de atendimento normal e direcione o chamado para o **Nível 2 (N2)** para diagnóstico especializado.
+3. **Caso o usuário NÃO possua a licença atribuída (ex.: perfil de aposentado ou novo ingresso):**
+   - O chamado deve ser encaminhado para a equipe da **SUAPE** para validação e concessão formal de acesso à plataforma web corporativa.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2332;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web - Falha de acesso.pdf',
+        size: '270.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2332;FileID=16711'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2332;FileID=16064' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: 'licença aposentado',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '12/03/2026 08:50 (Mayara Sales)',
+      alterado: '02/07/2026 15:06 (Leonardo Silva de Amarante)',
+      atualizadoEm: '02.07.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2332;Nav=',
+      itemId: '2332'
+    }
+  },
+  {
+    id: 'faq-10002264',
+    faqNumber: '10002264',
+    name: 'Possíveis erros de migração',
+    type: 'Incidente',
+    service: 'E-mail corporativo - Exchange',
+    subject: 'Informações sobre possíveis erros de migração',
+    category: 'E-MAIL CORPORATIVO',
+    subCategory: 'EXCHANGE',
+    system: 'E-MAIL CORPORATIVO',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Diagnóstico dos Principais Incidentes Pós-Migração de E-mail
+
+Durante o processo de migração de caixas postais para a nuvem (Exchange Online / Office 365), é normal surgirem os seguintes comportamentos pontuais:
+
+---
+
+#### 1. Calendário do Microsoft Teams não aparece ou sumiu
+- **Comportamento:** A sincronização entre o Exchange Online e o serviço de calendário do Teams pode levar de **1 a 2 dias úteis**. Em dispositivos móveis costuma sincronizar com maior agilidade.
+- **Ação:** Recomenda-se desconectar a conta do Teams (fazer logoff/sair) e efetuar um novo login para acelerar a sincronização dos tokens.
+
+---
+
+#### 2. Outlook no Celular parou de sincronizar
+- **Comportamento:** Ao migrar a caixa, as credenciais e rotas antigas de sincronização EAS são invalidadas.
+- **Ação:** No aplicativo móvel, vá nas configurações da conta, remova a conta ou toque em Sair e configure novamente com o e-mail institucional completo e login federado.
+
+---
+
+#### 3. Outlook Desktop parou de funcionar ou exibe alerta de servidor
+- **Comportamento:** O cliente desktop pode apresentar alertas de desincronização de servidor ou solicitar reinicialização contínua.
+- **Ação de Correção:**
+  1. No Outlook, clique em **Arquivo > Configurações de Conta > Configurações de Conta...**.
+  2. Na guia **Email**, selecione a conta corporativa e clique no botão **Reparar**.
+  3. Siga as instruções do assistente e reinicie o aplicativo.
+
+---
+
+#### 4. Mensagem informando redirecionamento para servidor local
+- **Comportamento:** Ao acessar a web, o usuário é alertado que a caixa ainda está no servidor on-premises.
+- **Ação:** A caixa ainda não concluiu a migração; oriente o usuário a utilizar o link de redirecionamento fornecido na própria tela para acessar o webmail local temporariamente.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2264;Nav=',
+    attachments: [
+      {
+        name: 'Possíveis erros de migração.pdf',
+        size: '298.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2264;FileID=14599'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2264;FileID=14600' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2264;FileID=14320' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2264;FileID=14321' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '17/10/2025 15:50 (Leonardo Silva de Amarante)',
+      alterado: '23/10/2025 15:41 (Leonardo Silva de Amarante)',
+      atualizadoEm: '17.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2264;Nav=',
+      itemId: '2264'
+    }
+  },
+  {
+    id: 'faq-10002331',
+    faqNumber: '10002331',
+    name: 'Outlook - Compartilhamento e Configuração de Calendário',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita compartilhamento do calendário',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** Este procedimento pode ser aplicado tanto na caixa de correio pessoal quanto na caixa de correio institucional/compartilhada.
+
+---
+
+### 📌 Procedimento de Compartilhamento no Outlook Desktop
+
+1. Inicie o aplicativo **Outlook Desktop** no computador, certificando-se de estar conectado à sua conta corporativa ou institucional.
+2. No canto superior ou inferior esquerdo, clique no ícone de **Calendário**.
+3. No painel de navegação esquerdo, em *Meus Calendários*, selecione o calendário que deseja compartilhar.
+4. Na faixa de opções superior, clique no botão **“Compartilhar Calendário”** (e selecione o calendário correspondente).
+5. Na janela de Propriedades de Permissões do Calendário, clique no botão **“Adicionar...”**.
+6. No campo de pesquisa do Catálogo de Endereços, digite o nome completo da pessoa com quem deseja compartilhar, selecione-a e clique em **Adicionar -> OK**.
+7. Selecione o nome do usuário adicionado e defina o **Nível de Permissão** adequado (ver detalhes abaixo).
+8. Clique em **Aplicar** e depois em **OK**.
+
+---
+
+### 📌 Níveis de Permissão de Acesso Disponíveis
+
+- **Pode exibir quando estou ocupado (somente disponibilidade):**
+  O usuário só consegue ver os blocos horários marcados como Ocupado, Livre, Tentativa ou Fora do Escritório. Não visualiza títulos, locais, convidados nem descrições. É o nível mais restrito que preserva total privacidade.
+- **Pode exibir títulos e locais (detalhes limitados):**
+  O usuário visualiza o título dos compromissos, local (sala, endereço, link do Teams) e status de disponibilidade. Não visualiza a descrição interna, participantes nem anexos.
+- **Pode exibir todos os detalhes (detalhes completos - somente leitura):**
+  Permite ver todas as informações do evento: título, local, participantes, anotações, links e anexos, porém sem permissão para alterar nada.
+- **Pode Editar:**
+  O usuário pode criar novos compromissos no calendário, editar ou mover eventos, e excluir compromissos. Não permite agir em nome do titular para aceitar/recusar convites de reunião.
+- **Representante (Delegate):**
+  Permissão mais avançada. O representante pode editar compromissos, receber cópias de convites enviados a você e **aceitar ou recusar convites em seu nome**. Ideal para secretariado e apoio executivo.
+
+---
+
+### 📌 Recebimento e Exibição do Calendário Compartilhado
+
+1. A pessoa convidada receberá um e-mail automático informando que um calendário foi compartilhado com ela.
+2. Abra a mensagem e clique no botão **“Aceitar e exibir calendário”**.
+3. O Outlook adicionará o calendário automaticamente à seção **“Calendários Compartilhados”** na barra lateral.
+4. Basta marcar a caixa de seleção ao lado do nome do calendário para exibi-lo lado a lado ou sobreposto à sua agenda.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2331;Nav=',
+    attachments: [
+      {
+        name: 'Outlook - Compartilhamento e configuração do calendário.pdf',
+        size: '4.8 MBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16061'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16050' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16051' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16052' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16053' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16054' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16055' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16056' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16057' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16058' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16059' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2331;FileID=16060' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'Desktop',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '11/03/2026 17:44 (Gabriel Queiroz Pires)',
+      alterado: '11/03/2026 17:51 (Gabriel Queiroz Pires)',
+      atualizadoEm: '11.03.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2331;Nav=',
+      itemId: '2331'
+    }
+  },
+  {
+    id: 'faq-10001148',
+    faqNumber: '10001148',
+    name: 'Outlook – Adicionar Lembrete',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração para adicionar lembrete no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Adicionar um lembrete a um e-mail permite que o Outlook exiba um pop-up de alerta sonoro e visual na data e horário programados, auxiliando no cumprimento de prazos de atendimento.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. No Microsoft Outlook, localize e abra (ou selecione na lista) o e-mail em que deseja configurar o alerta.
+2. Na faixa de opções superior (ou clicando com o botão direito sobre o ícone de bandeira do e-mail), clique em **Acompanhamento (Follow Up)**.
+3. Selecione a opção **Adicionar Lembrete...**.
+4. Na caixa de diálogo de Personalização:
+   - Marque a caixa de seleção **Lembrete**.
+   - Defina a **Data** e a **Hora** exatas para o alarme.
+   - Opcionalmente, escolha o som do alerta.
+5. Clique em **OK**. O lembrete será disparado automaticamente conforme programado.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1148;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Adicionar Lembrete.pdf',
+        size: '142.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1148;FileID=11558'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1148;FileID=10905' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1148;FileID=10907' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1148;FileID=10906' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 09:54 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 16:00 (Gabriel Queiroz Pires)',
+      atualizadoEm: '24.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1148;Nav=',
+      itemId: '1148'
+    }
+  },
+  {
+    id: 'faq-10001150',
+    faqNumber: '10001150',
+    name: 'Outlook – Adicionar Lista de Distribuição',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração para adicionar lista de distribuição no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Permissões e Alçada de Acesso
+
+**Importante:** Para ter acesso de envio ou participação em uma lista de distribuição corporativa, é indispensável possuir autorização prévia, uma vez que o controle de membros das listas é administrado pelo sistema **MidPoint**.
+- Caso não tenha permissão, abra uma solicitação formal via **Central de Serviços**:
+  *Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas*.
+
+---
+
+### 📌 Procedimento para Localizar e Enviar E-mail para a Lista
+
+1. No Microsoft Outlook, abra uma nova mensagem ou clique no ícone do **Catálogo de Endereços** (Address Book).
+2. No menu suspenso de Catálogo de Endereços, selecione a exibição **"All Distribution Lists"** (ou *Todas as Listas de Distribuição*).
+3. Pesquise pelo nome da lista desejada.
+4. Selecione a lista e adicione-a ao campo **Para (To)** ou **Cc**.
+5. Conclua e envie a mensagem corporativa normalmente.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1150;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Adicionar Lista de Distribuição.pdf',
+        size: '314.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1150;FileID=11557'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1150;FileID=10908' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1150;FileID=10911' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1150;FileID=10909' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 10:06 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:59 (Gabriel Queiroz Pires)',
+      atualizadoEm: '24.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1150;Nav=',
+      itemId: '1150'
+    }
+  },
+  {
+    id: 'faq-10001155',
+    faqNumber: '10001155',
+    name: 'Outlook – Alterar a Cor dos E-mails',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração para alterar a cor dos e-mails recebidos',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- É possível personalizar e diferenciar visualmente e-mails recebidos de remetentes específicos (ex.: chefe imediato, diretorias, sistemas de alerta) por meio de regras de formatação condicional no Outlook.
+
+---
+
+### 📌 Procedimento para Criar Regra de Cor para Remetente Específico
+
+1. No Microsoft Outlook, acesse a guia **Exibir** na barra superior e clique em **Configurações do Modo de Exibição**.
+2. Na janela que se abrir, clique no botão **Formatação Condicional...**.
+3. Clique em **Adicionar** e digite um nome identificador para a regra (ex.: *E-mails do Chefe*).
+4. Clique em **Fonte...** e selecione a cor, tamanho e estilo de fonte desejados (ex.: Vermelho, Negrito). Clique em **OK**.
+5. Clique no botão **Condição...**:
+   - No campo **De...**, informe o nome completo ou endereço de e-mail do remetente desejado.
+   - *(Opcional)*: Se desejar que a cor seja aplicada apenas a mensagens não lidas, acesse a guia *Mais Opções* e marque *Somente itens que: não foram lidos*. Caso contrário, todos os e-mails daquela pessoa permanecerão na cor escolhida.
+6. Clique em **OK** nas três janelas abertas para salvar a regra.
+
+---
+
+### 📌 Como Redefinir para a Formatação Padrão do Outlook
+
+1. Na guia **Exibir**, clique no botão **Redefinir Modo de Exibição**.
+2. Uma caixa de diálogo solicitará a confirmação; clique em **Sim**.
+3. Todas as cores e fontes de exibição retornarão ao padrão do Outlook.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1155;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Alterar a Cor dos E-mails.pdf',
+        size: '459.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=11556'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10913' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10912' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=5036' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10914' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10920' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10918' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1155;FileID=10915' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 10:21 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:58 (Gabriel Queiroz Pires)',
+      atualizadoEm: '24.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1155;Nav=',
+      itemId: '1155'
+    }
+  },
+  {
+    id: 'faq-10001157',
+    faqNumber: '10001157',
+    name: 'Outlook – Atualizar Catálogo de Endereço',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a atualização do catálogo de endereços do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Diagnóstico
+
+- O Outlook mantém em cache local uma cópia do Catálogo de Endereços Offline (OAB). Quando novos servidores tomam posse ou quando colaboradores mudam de setor ou e-mail, pode haver atraso na atualização automática do cache local.
+- O procedimento a seguir força a sincronização imediata com os servidores do Exchange/Office 365.
+
+---
+
+### 📌 Procedimento de Atualização Forçada
+
+1. No Microsoft Outlook, clique na guia superior **Arquivo**.
+2. Clique no botão **Configurações de Conta** e, no menu suspenso, selecione **Baixar Catálogo de Endereços...**.
+3. Na caixa de diálogo que abrir:
+   - Certifique-se de marcar a opção **‘Baixar alterações desde a última Envio/Recebimento’** (ou desmarque-a caso queira baixar o catálogo integral completo).
+   - Verifique se o catálogo selecionado é o catálogo global corporativo (\`\\Catálogo de Endereços Global Offline\`).
+4. Clique em **OK**.
+5. Uma pequena barra de progresso de sincronização será exibida e fechará automaticamente ao término do download.
+6. Reinicie o Microsoft Outlook para confirmar que os contatos e listas foram atualizados.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1157;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Atualizar Catálogo de Endereço.pdf',
+        size: '259.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1157;FileID=11555'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1157;FileID=10923' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1157;FileID=10924' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1157;FileID=10921' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1157;FileID=10922' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 10:32 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:57 (Gabriel Queiroz Pires)',
+      atualizadoEm: '24.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1157;Nav=',
+      itemId: '1157'
+    }
+  },
+  {
+    id: 'faq-10001163',
+    faqNumber: '10001163',
+    name: 'Outlook – Ausência Temporária',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração de ausência temporária no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** Se marcar a opção **“Só enviar durante este intervalo de tempo”**, o recurso Respostas Automáticas continuará em execução automaticamente até atingir a data e a hora final programadas.
+
+---
+
+### 📌 Procedimento de Configuração no Outlook Desktop
+
+1. No Microsoft Outlook, clique na guia superior **Arquivo**.
+2. Na seção *Informações sobre Contas*, clique no botão **Respostas Automáticas (Ausência Temporária)**.
+3. Marque a caixa de seleção **‘Enviar respostas automáticas’**.
+4. Marque a opção **‘Só enviar durante este intervalo de tempo’**:
+   - Defina a **Hora/Data de início** do período de afastamento.
+   - Defina a **Hora/Data de término**.
+5. Na guia **‘Dentro da minha organização’**:
+   - Digite a mensagem padrão informando aos colegas internos o período de ausência e a quem recorrer em caso de urgência.
+6. Na guia **‘Fora da minha organização’**:
+   - Se desejar responder a remetentes externos, marque *‘Responder automaticamente a pessoas fora da minha organização’* (pode optar por "Somente Meus Contatos" ou "Qualquer pessoa").
+   - Digite a mensagem corporativa apropriada para o público externo.
+7. Clique em **OK** para salvar e ativar o agendamento.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1163;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Ausência Temporária.pdf',
+        size: '307.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=11554'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=10929' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=10927' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=10931' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=10928' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1163;FileID=10930' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 10:58 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:55 (Gabriel Queiroz Pires)',
+      atualizadoEm: '24.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1163;Nav=',
+      itemId: '1163'
+    }
+  },
+  {
+    id: 'faq-10001168',
+    faqNumber: '10001168',
+    name: 'Outlook – Backup Arquivos de Dados (.pst)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita o backup do Outlook (Arquivo dados .pst)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- O assistente do Outlook lista todas as caixas configuradas em seu perfil de e-mail, inclusive pastas particulares já existentes.
+- Por padrão, o arquivo de exportação é nomeado como **“backup.pst”**, porém é possível escolher qualquer nome e local de sua preferência.
+- O mesmo procedimento pode ser executado para uma subpasta específica (ex.: apenas *Caixa de Entrada* ou uma pasta de projetos) caso não deseje exportar a caixa de correio inteira.
+- Ao abrir o arquivo \`.pst\` exportado futuramente, a estrutura original de pastas e subpastas será rigorosamente mantida.
+
+---
+
+### 📌 Procedimento de Exportação / Backup (.pst)
+
+1. No Microsoft Outlook, clique em **Arquivo**.
+2. Acesse **Abrir e Exportar** e selecione a opção **Importar/Exportar**.
+3. Na janela do assistente, selecione **‘Exportar para um arquivo’** e clique em **Avançar**.
+4. Selecione a opção **‘Arquivo de Dados do Outlook (.pst)’** e clique em **Avançar**.
+5. Selecione a caixa de correio inteira ou a pasta específica da qual deseja fazer o backup. Certifique-se de marcar a opção **‘Incluir subpastas’**. Clique em **Avançar**.
+6. Clique no botão **Procurar...** para selecionar a pasta de destino no computador (ex.: Documentos ou unidade de backup) e defina o nome do arquivo.
+7. Selecione como tratar itens duplicados e clique em **Concluir**.
+8. *(Opcional)*: Uma janela solicitará a definição de uma senha para proteger o arquivo \`.pst\`. Caso não deseje colocar senha, deixe os campos em branco e clique em **OK**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1168;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Backup Arquivos de Dados (.pst).pdf',
+        size: '493.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=11553'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10949' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10945' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10946' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10948' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10943' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10944' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1168;FileID=10947' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 11:13 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:54 (Gabriel Queiroz Pires)',
+      atualizadoEm: '25.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1168;Nav=',
+      itemId: '1168'
+    }
+  },
+  {
+    id: 'faq-10001183',
+    faqNumber: '10001183',
+    name: 'Outlook – Caixa Institucional',
+    type: 'Requisição de serviço',
+    service: 'Configuração de caixa postal institucional',
+    subject: 'Solicita a configuração da caixa institucional',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- Se a caixa institucional for mapeada pelas "Propriedades de Arquivo de Dados", podem ocorrer erros operacionais ou instabilidades. O método recomendado pelo N2/Suporte é via **Adicionar Conta**.
+- Caso o alias ou endereço da caixa institucional esteja incorreto, o Outlook não conseguirá localizar a caixa postal no Exchange/Microsoft 365.
+- **Caixas de Senadores:** Seguem o mesmo procedimento; o endereço institucional sempre se inicia com o prefixo \`sen.\` (ex.: \`sen.nome@senado.leg.br\`).
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Com o Microsoft Outlook aberto, clique na guia superior **Arquivo**.
+2. Clique no botão **Adicionar Conta**.
+3. Digite o endereço de e-mail completo da caixa institucional do setor (ou do Senador).
+4. Clique em **Conectar**.
+5. Na tela de autenticação de credenciais da Microsoft/Rede:
+   - **Atenção:** Insira o **e-mail pessoal do usuário atendente/servidor** e a sua respectiva **senha de rede** (pois o usuário precisa ter delegação de permissão atribuída na caixa institucional).
+6. Aguarde a mensagem de confirmação de que a conta foi adicionada com sucesso e clique em **Concluído**.
+7. Feche e reinicie o Microsoft Outlook. A caixa institucional aparecerá na lista de pastas no painel esquerdo.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1183;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Caixa Institucional.pdf',
+        size: '387.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=11549'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10959' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10955' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10958' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10961' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10960' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10957' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10956' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10963' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1183;FileID=10962' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 17:47 (Samantha Hellen da Silva Menezes)',
+      alterado: '17/10/2025 13:59 (Leonardo Silva de Amarante)',
+      atualizadoEm: '17.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1183;Nav=',
+      itemId: '1183'
+    }
+  },
+  {
+    id: 'faq-10001182',
+    faqNumber: '10001182',
+    name: 'Outlook – Caixa Institucional (Primeira Opção)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração da caixa institucional como primeira opção',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este método vincula a caixa postal institucional como uma caixa de correio adicional dentro do perfil principal já existente do usuário, permitindo reposicionar e organizar visualmente a caixa no topo da lista.
+
+---
+
+### 📌 Procedimento de Instalação e Reorganização
+
+1. No Microsoft Outlook, clique com o botão direito do mouse em cima do nome da caixa de correio principal do usuário (no topo do painel esquerdo).
+2. Selecione a opção **Propriedades de Arquivo de Dados...**.
+3. Na janela de propriedades, clique no botão **Avançado...**.
+4. Na guia *Avançado*, acesse a seção de caixas adicionais e clique no botão **Adicionar...**.
+5. Digite o nome ou alias da caixa institucional do setor e clique em **OK**.
+6. O Outlook localizará a caixa correspondente no Exchange; clique em **Aplicar** e depois em **OK**.
+7. Feche as janelas clicando em **OK**.
+8. Na lista de pastas do Outlook, localize a caixa institucional adicionada, clique com o botão esquerdo, segure e arraste-a para a posição superior desejada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1182;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Caixa Institucional (Primeira Opção).pdf',
+        size: '325.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1182;FileID=11552'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1182;FileID=10952' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1182;FileID=10954' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1182;FileID=10951' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 13:10 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:53 (Gabriel Queiroz Pires)',
+      atualizadoEm: '25.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1182;Nav=',
+      itemId: '1182'
+    }
+  },
+  {
+    id: 'faq-10001204',
+    faqNumber: '10001204',
+    name: 'Outlook – Caixa Institucional (Separada)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de caixa Postal Institucional.',
+    subject: 'Solicita a configuração da caixa institucional separada',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento permite criar um perfil de e-mail dedicado exclusivamente para a caixa institucional. Dessa forma, ao abrir o Outlook, o usuário escolhe se deseja entrar na sua caixa pessoal ou na caixa institucional do setor, evitando misturar notificações e fluxos.
+
+---
+
+### 📌 Procedimento de Criação de Perfil Separado
+
+1. Feche o Microsoft Outlook completamente.
+2. Abra o **Painel de Controle** do Windows e altere o modo de exibição no canto superior direito para **Ícones grandes**.
+3. Localize e clique no ícone **Mail (Microsoft Outlook)**.
+4. Na janela de Configuração de Email, clique em **Mostrar Perfis...**.
+5. Clique no botão **Adicionar...**, insira o nome identificador para o novo perfil (ex.: *Caixa Institucional Setor*) e clique em **OK**.
+6. Na tela de adição de conta, selecione **Microsoft 365** (ou Exchange), informe o endereço completo da caixa institucional e proceda com a autenticação (utilizando o login e senha de rede do atendente autorizado). Conclua a configuração.
+7. Na janela *Perfis*:
+   - Marque obrigatoriamente a opção **“Solicitar um perfil a ser usado”**.
+   - Clique em **Aplicar** e depois em **OK**.
+
+---
+
+### 📌 Acesso e Utilização
+
+1. Ao abrir o Microsoft Outlook, surgirá a janela seletora de perfis.
+2. Escolha o perfil que deseja acessar (*Pessoal* ou *Institucional*) e clique em **OK**.
+3. O Outlook iniciará carregando apenas a caixa selecionada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1204;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Caixa Institucional (Separada).pdf',
+        size: '559.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16995'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16986' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16988' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16991' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16989' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16990' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16987' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16992' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16994' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1204;FileID=16993' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 12:14 (Samantha Hellen da Silva Menezes)',
+      alterado: '07/08/2026 15:46 (Leonardo Silva de Amarante)',
+      atualizadoEm: '07.08.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1204;Nav=',
+      itemId: '1204'
+    }
+  },
+  {
+    id: 'faq-10001210',
+    faqNumber: '10001210',
+    name: 'Outlook – Calendário Sobreposto',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Calendário Sobreposto',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Quando múltiplos calendários estão selecionados no Outlook, eles podem ser exibidos no modo **Sobreposição** (fundindo os compromissos em uma única grade) ou **Lado a Lado** (colunas individuais por calendário).
+
+---
+
+### 📌 Procedimento de Ajuste
+
+1. No Microsoft Outlook, acesse o módulo **Calendário** (no canto inferior ou superior esquerdo).
+2. Na barra de menus superior, acesse a guia **Exibir**.
+3. Caso os calendários estejam com os eventos sobrepostos e o usuário deseje vê-los separadamente:
+   - Localize o botão **Sobreposição** (Overlay) e clique nele para **desabilitar**. Os calendários passarão a ser exibidos lado a lado.
+   - Alternativamente, clique na seta para a esquerda na aba superior do cabeçalho do calendário para separá-lo ou na seta para a direita para sobrepô-lo.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1210;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Calendário Sobreposto.pdf',
+        size: '284.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1210;FileID=11548'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1210;FileID=10979' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1210;FileID=10978' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1210;FileID=10980' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 13:49 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:49 (Gabriel Queiroz Pires)',
+      atualizadoEm: '28.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1210;Nav=',
+      itemId: '1210'
+    }
+  },
+  {
+    id: 'faq-10001212',
+    faqNumber: '10001212',
+    name: 'Outlook – Cancelar E-mail Enviado',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração para cancelar um e-mail já enviado',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** O cancelamento (recolhimento) de mensagem enviada só funciona caso os destinatários façam parte da mesma organização corporativa (Exchange/Office 365) e **ainda não tenham lido a mensagem**. Se o destinatário já tiver aberto o e-mail, o recolhimento não terá efeito.
+
+---
+
+### 📌 Procedimento de Cancelamento
+
+1. No Microsoft Outlook, acesse a pasta **Itens Enviados**.
+2. Abra com duplo clique a mensagem de e-mail que deseja cancelar.
+3. Na janela da mensagem, acesse a guia **Mensagem** e, no grupo *Mover*, clique em **Ações**.
+4. Selecione a opção **Cancelar Mensagem Enviada...** (Recall This Message).
+5. Na caixa de diálogo:
+   - Selecione *‘Excluir cópias não lidas desta mensagem’* (ou *‘Excluir cópias não lidas e substituí-las por uma nova mensagem’*).
+   - Mantenha marcada a opção *‘Avisar se o cancelamento for bem-sucedido ou falhar para cada destinatário’*.
+6. Clique em **OK**.
+7. Uma mensagem de notificação do sistema chegará na sua Caixa de Entrada confirmando o status do cancelamento para cada destinatário.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1212;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Cancelar E-mail Enviado.pdf',
+        size: '217.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1212;FileID=11547'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1212;FileID=10989' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1212;FileID=10988' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 14:08 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:47 (Gabriel Queiroz Pires)',
+      atualizadoEm: '28.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1212;Nav=',
+      itemId: '1212'
+    }
+  },
+  {
+    id: 'faq-10001211',
+    faqNumber: '10001211',
+    name: 'Outlook – Categorizar E-mail',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração para categorizar os e-mails',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- As Categorias de Cores permitem classificar, agrupar e identificar visualmente os e-mails na lista de mensagens do Outlook.
+- É possível definir atalhos rápidos do teclado (ex.: CTRL+F2 até CTRL+F12) para aplicar as categorias com um único comando.
+
+---
+
+### 📌 Procedimento para Criar e Atribuir Categorias
+
+1. Na lista de mensagens do Microsoft Outlook, clique com o botão direito sobre o e-mail que deseja classificar.
+2. No menu de contexto, selecione **Categorizar** e clique em **Todas as Categorias...**.
+3. Na janela *Categorias de Cores*, clique no botão **Nova...**.
+4. No campo **Nome**, digite a identificação da categoria (ex.: *Urgente*, *Projetos*, *Diretoria*).
+5. No campo **Cor**, selecione a cor desejada.
+6. *(Opcional)*: No campo **Tecla de atalho**, selecione um atalho de teclado para rápida atribuição.
+7. Clique em **OK**.
+8. Marque a caixa de seleção ao lado da categoria desejada e clique em **OK** para aplicá-la ao e-mail selecionado.
+9. Para editar ou renomear categorias existentes futuramente, retorne a *Todas as Categorias*, selecione o item e utilize os botões *Renomear*, *Excluir* ou *Cor*.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1211;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Categorizar E-mail.pdf',
+        size: '244.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1211;FileID=11546'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1211;FileID=10985' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1211;FileID=10984' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1211;FileID=10983' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1211;FileID=10982' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '31/01/2024 14:00 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:48 (Gabriel Queiroz Pires)',
+      atualizadoEm: '28.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1211;Nav=',
+      itemId: '1211'
+    }
+  },
+  {
+    id: 'faq-10001323',
+    faqNumber: '10001323',
+    name: 'Outlook – Compartilhar Contatos',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração de compartilhamento de contatos no Outlook 2013',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observação Importante
+
+**Atenção:** Não é possível abrir ou visualizar pastas de contatos compartilhadas diretamente na versão Web do Outlook (OWA). O acesso deve ser realizado através do aplicativo desktop do Outlook.
+
+---
+
+### 📌 Procedimento 1: Compartilhar a Pasta Principal de Contatos
+
+1. No Microsoft Outlook, clique no ícone **Pessoas / Contatos** (barra inferior ou lateral).
+2. No painel de navegação, clique com o botão direito do mouse em **‘Contatos’** (ou use a opção *Compartilhar Contatos* na faixa superior da Página Inicial).
+3. Selecione **Compartilhar > Compartilhar Contatos**.
+4. Uma janela de convite de compartilhamento será aberta:
+   - No campo **Para...**, informe o nome ou e-mail corporativo do destinatário.
+   - Ajuste o Assunto e adicione uma mensagem caso deseje.
+5. Clique no botão **Enviar**.
+6. Uma caixa de diálogo de confirmação perguntará se deseja realmente conceder permissão de acesso; clique em **Sim**.
+7. O destinatário receberá um convite por e-mail e deverá clicar em **“Abrir esta pasta de contatos”** para sincronizá-la.
+
+---
+
+### 📌 Procedimento 2: Criar e Compartilhar uma Subpasta Específica de Contatos
+
+1. Caso não queira compartilhar todos os seus contatos pessoais, crie uma pasta dedicada:
+   - Clique com o botão direito em *Contatos* e escolha **Nova Pasta...**.
+   - Digite um nome para a nova pasta (ex.: *Contatos do Setor*) e pressione Enter.
+2. Copie os contatos desejados da pasta principal e cole-os na nova pasta utilizando o comando do teclado (**Ctrl+C** e **Ctrl+V**).
+3. Clique com o botão direito sobre a nova pasta de contatos criada e selecione **Propriedades...** ou **Compartilhar > Permissões de Pasta**.
+4. Ajuste os níveis de permissão (Leitura, Criação, etc.).
+5. Clique em **Compartilhar Contatos**, insira o destinatário e clique em **Enviar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1323;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Compartilhar Contatos.pdf',
+        size: '599.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11951'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11947' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11948' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11944' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11952' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11943' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11949' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11946' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11939' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11937' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11940' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11945' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11941' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11938' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11950' },
+      { title: 'Imagem 15', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1323;FileID=11942' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '08/02/2024 11:18 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:06 (Gabriel Queiroz Pires)',
+      atualizadoEm: '06.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1323;Nav=',
+      itemId: '1323'
+    }
+  },
+  {
+    id: 'faq-10001329',
+    faqNumber: '10001329',
+    name: 'Outlook – Configurar E-mail',
+    type: 'Requisição de serviço',
+    service: 'Configuração de caixa postal pessoal',
+    subject: 'Solicita configuração de e-mail no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento detalha a criação inicial do perfil de e-mail de rede no Microsoft Outlook utilizando a configuração assistida do Windows.
+- O endereço corporativo padrão é formado pelo formato \`login@senado.leg.br\`.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Abra o **Painel de Controle** do Windows (defina a exibição como *Ícones Grandes*).
+2. Clique no ícone **Mail (Microsoft Outlook)**.
+3. Na janela de Configuração de E-mail, clique no botão **Mostrar Perfis...**.
+4. Clique em **Adicionar...**.
+5. Digite o nome para o perfil (ex.: *Outlook* ou o nome do usuário) e clique em **OK**.
+6. Na tela de Configuração Automática de Conta:
+   - Digite o **Nome** do usuário.
+   - No campo **Endereço de Email**, informe o e-mail corporativo (\`login@senado.leg.br\`).
+   - Insira a **Senha de Rede** e confirme-a.
+7. Clique em **Avançar**.
+8. O assistente estabelecerá a conexão de rede criptografada e localizará as configurações da conta no Exchange/Office 365.
+9. Ao concluir os testes com sucesso, clique em **Concluir**.
+10. Abra o Microsoft Outlook e aguarde a sincronização inicial das pastas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1329;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Configurar E-mail.pdf',
+        size: '499.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11875'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11926' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11925' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11928' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11927' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11924' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1329;FileID=11923' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '08/02/2024 12:01 (Samantha Hellen da Silva Menezes)',
+      alterado: '27/08/2025 11:32 (Gabriel Queiroz Pires)',
+      atualizadoEm: '05.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1329;Nav=',
+      itemId: '1329'
+    }
+  },
+  {
+    id: 'faq-10001347',
+    faqNumber: '10001347',
+    name: 'Outlook – Configurar E-mail Corporativo (Android)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração do e-mail corporativo - Android',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Guia para instalação e configuração segura do aplicativo Microsoft Outlook em dispositivos com sistema operacional Android.
+- A conta corporativa exige autenticação de dois fatores por meio do aplicativo **Microsoft Authenticator**.
+
+---
+
+### 📌 Procedimento de Instalação e Configuração no Android
+
+1. No celular Android, acesse a **Google Play Store** e pesquise por **Microsoft Outlook**.
+2. Faça o download e instale o aplicativo.
+3. Abra o Microsoft Outlook e toque no botão **‘Adicionar Conta’** (ou *Introdução*).
+4. Insira o seu endereço de e-mail institucional completo (\`login@senado.leg.br\`) e toque em **Continuar**.
+5. Na tela de autenticação corporativa do Senado Federal:
+   - Digite a sua **senha de rede**.
+   - Toque em **Entrar**.
+6. Realize a aprovação do acesso no aplicativo **Microsoft Authenticator** (inserindo o número exibido na tela).
+7. O aplicativo perguntará se deseja adicionar outra conta: selecione **‘Talvez Mais Tarde’**.
+8. Toque em **OK** nas permissões de notificação e orientações de uso. O e-mail corporativo estará configurado e pronto para uso no dispositivo.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1347;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Configurar E-mail Corporativo (Android).pdf',
+        size: '380.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13455'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13453' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13452' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13456' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13451' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=13450' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1347;FileID=13454' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 11:22 (Mayara Sales)',
+      alterado: '18/09/2025 14:59 (Gabriel Queiroz Pires)',
+      atualizadoEm: '20.08.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1347;Nav=',
+      itemId: '1347'
+    }
+  },
+  {
+    id: 'faq-10001522',
+    faqNumber: '10001522',
+    name: 'Outlook – Configurar E-mail Corporativo (IOS)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração de e-mail corporativo - IOS',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Guia para instalação e configuração do aplicativo Microsoft Outlook no sistema iOS (iPhone e iPad).
+- Requer autenticação de dois fatores através do aplicativo **Microsoft Authenticator**.
+
+---
+
+### 📌 Procedimento de Instalação e Configuração no iOS
+
+1. No dispositivo Apple (iPhone ou iPad), acesse a **App Store** e pesquise por **Microsoft Outlook**.
+2. Baixe e instale o aplicativo oficial.
+3. Abra o aplicativo e toque no botão **‘Adicionar Conta’**.
+4. Insira o seu endereço de e-mail institucional (\`login@senado.leg.br\`) e toque em **Adicionar Conta**.
+5. Na página de logon institucional do Senado Federal:
+   - Digite sua **senha de rede**.
+   - Toque no botão **Entrar**.
+6. Conclua a validação do duplo fator de autenticação no **Microsoft Authenticator**.
+7. Na tela que indaga se deseja adicionar outra conta, selecione **‘Talvez Mais Tarde’**.
+8. Permita o envio de notificações caso deseje ser alertado de novas mensagens. O e-mail estará pronto para uso.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1522;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Configurar E-mail Corporativo (IOS).pdf',
+        size: '336.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1522;FileID=13549'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1522;FileID=13552' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1522;FileID=13551' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1522;FileID=13550' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1522;FileID=13548' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '04/03/2024 14:33 (Mayara Sales)',
+      alterado: '18/09/2025 14:45 (Gabriel Queiroz Pires)',
+      atualizadoEm: '20.08.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1522;Nav=',
+      itemId: '1522'
+    }
+  },
+  {
+    id: 'faq-10001348',
+    faqNumber: '10001348',
+    name: 'Outlook – Confirmar Leitura E-mails Enviados',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração de confirmação de leitura',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento permite habilitar globalmente no Outlook a solicitação de confirmação de entrega e/ou confirmação de leitura para todas as mensagens enviadas pelo usuário.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. No Microsoft Outlook, clique na guia superior **Arquivo**.
+2. Clique no menu **Opções** (no canto inferior esquerdo).
+3. Na janela de Opções do Outlook, clique na categoria **E-mail**.
+4. Role a página até localizar a seção **Acompanhamento** (Tracking).
+5. Marque as caixas de seleção desejadas:
+   - **‘Confirmação de entrega garantindo que a mensagem foi entregue no servidor de email do destinatário’**
+   - **‘Confirmação de leitura confirmando que o destinatário visualizou a mensagem’**
+6. Na opção *‘Para qualquer mensagem recebida que inclua uma solicitação de confirmação de leitura’*, configure o comportamento desejado (ex.: *Perguntar sempre antes de enviar uma resposta* ou *Nunca enviar uma resposta*).
+7. Clique no botão **OK** para salvar as preferências.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1348;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Confirmar Leitura E-mails Enviados.pdf',
+        size: '239.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1348;FileID=11816'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1348;FileID=11904' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 13:53 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 14:57 (Gabriel Queiroz Pires)',
+      atualizadoEm: '04.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1348;Nav=',
+      itemId: '1348'
+    }
+  },
+  {
+    id: 'faq-10001362',
+    faqNumber: '10001362',
+    name: 'Outlook – Criar Assinatura',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a criação de assinatura no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Padrões Visuais e Modelos Oficiais
+
+- Para manter a padronização da identidade visual do Senado Federal, acesse a pasta da rede setorial com os modelos oficiais de assinaturas:
+  **\`W:\\COATEN\\SEARP\\Assinatura Outlook\`**
+- Abra o modelo correspondente ao seu setor ou gabinete, copie o conteúdo pré-formatado e personalize com seus dados funcionais (Nome, Cargo, Lotação, Ramal e Telefones).
+
+---
+
+### 📌 Procedimento de Configuração no Outlook
+
+1. No Microsoft Outlook, clique em **Arquivo > Opções**.
+2. Na janela de Opções, clique na guia **E-mail**.
+3. Na seção *Compor mensagens*, clique no botão **Assinaturas...**.
+4. Na guia *Assinatura de Email*, clique no botão **Novo**.
+5. Digite um nome para a assinatura (ex.: *Assinatura Oficial*) e clique em **OK**.
+6. No campo inferior *Editar assinatura*, cole o modelo oficial copiado da rede e realize os ajustes necessários.
+7. No canto superior direito, na seção *Escolher assinatura padrão*:
+   - Em **Conta de email**, selecione a sua conta.
+   - Em **Novas mensagens**, selecione a assinatura recém-criada.
+   - Em **Respostas/encaminhamentos**, defina se deseja incluir a assinatura completa ou reduzida.
+8. Clique em **OK** e novamente em **OK** para salvar.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1362;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Assinatura.pdf',
+        size: '235.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1362;FileID=11810'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1362;FileID=11802' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1362;FileID=11799' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1362;FileID=11800' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/02/2024 13:14 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 14:56 (Gabriel Queiroz Pires)',
+      atualizadoEm: '03.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1362;Nav=',
+      itemId: '1362'
+    }
+  },
+  {
+    id: 'faq-10001364',
+    faqNumber: '10001364',
+    name: 'Outlook – Criar Compromisso Recorrente',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita criação compromisso recorrente',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Compromissos recorrentes são úteis para agendamento de reuniões de alinhamento periódico, comitês, prazos de entrega ou tarefas de rotina (diárias, semanais, mensais ou anuais).
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. No Microsoft Outlook, acesse o módulo de **Calendário**.
+2. Na faixa superior, clique em **Novo Compromisso** (ou *Nova Reunião*).
+3. Na janela do compromisso, clique no botão **Tornar Recorrente** (no grupo *Opções*).
+4. Na janela de *Recorrência do Compromisso*:
+   - Defina a **Hora do Compromisso** (Hora de início, término e duração).
+   - Defina o **Padrão de Recorrência**:
+     - *Diário:* Repete a cada N dias ou todo dia útil.
+     - *Semanal:* Selecione os dias da semana (ex.: toda segunda e quarta).
+     - *Mensal:* Dia específico do mês ou posição relativa (ex.: primeira segunda-feira do mês).
+     - *Anual:* Data específica de cada ano.
+   - Defina o **Intervalo de Recorrência**:
+     - Data de início.
+     - Término: *Sem data de término*, *Terminar após N ocorrências* ou *Terminar em data específica*.
+5. Clique em **OK**.
+6. Preencha o Assunto, Local e notas do compromisso.
+7. Clique em **Salvar e Fechar** (ou *Enviar* caso tenha convidados).`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1364;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Compromisso Recorrente.pdf',
+        size: '189.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1364;FileID=11794'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1364;FileID=11797' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1364;FileID=11798' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1364;FileID=11796' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1364;FileID=11795' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/02/2024 14:27 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 14:52 (Gabriel Queiroz Pires)',
+      atualizadoEm: '03.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1364;Nav=',
+      itemId: '1364'
+    }
+  },
+  {
+    id: 'faq-10001246',
+    faqNumber: '10001246',
+    name: 'Outlook – Criar Grupo de Contatos no Outlook',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas',
+    subject: 'Configuração para criar grupo de contatos no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- **Listas de Distribuição Corporativas:** Solicitações para criação de listas de distribuição institucionais devem ser direcionadas para a Central de Serviços (*Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas*), onde a viabilidade técnica será avaliada.
+- Este procedimento destina-se à criação de **Grupos de Contatos Locais** no próprio cliente Outlook do usuário.
+- Para gabinetes parlamentares, os contatos oficiais dos senadores podem ser consultados no portal: [Senadores em Exercício](https://www25.senado.leg.br/web/senadores/em-exercicio).
+
+---
+
+### 📌 Procedimento de Instalação e Criação do Grupo
+
+1. No Microsoft Outlook, clique no ícone **Pessoas / Contatos** (barra de navegação inferior ou lateral).
+2. Na guia *Página Inicial*, clique no botão **Novo Grupo de Contatos**.
+3. No campo **Nome**, digite a identificação do grupo (ex.: *Base de Conhecimento*, *Equipe de Projetos*).
+4. Na faixa superior, clique em **Adicionar Membros** e selecione a fonte desejada:
+   - **Do Catálogo de Endereços:** Para buscar membros na Lista de Endereços Global (GAL) do Senado.
+   - **Dos Contatos do Outlook:** Para selecionar a partir de seus contatos pessoais já salvos.
+   - **Novo Contato de Email:** Para cadastrar um endereço externo manualmente.
+5. Selecione os contatos, dê duplo clique ou clique no campo **Membros ->** e clique em **OK**.
+6. Repita a operação até incluir todos os participantes necessários.
+7. Clique em **Salvar e Fechar** para gravar o grupo de contatos em sua lista.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1246;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Grupo de Contatos no Outlook.pdf',
+        size: '313.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15268'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15269' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=11005' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=11004' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=11008' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15264' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15267' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15266' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=11009' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1246;FileID=15265' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '01/02/2024 11:36 (Samantha Hellen da Silva Menezes)',
+      alterado: '14/11/2025 10:17 (Jeferson dos Santos Morais)',
+      atualizadoEm: '14.11.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1246;Nav=',
+      itemId: '1246'
+    }
+  },
+  {
+    id: 'faq-10001351',
+    faqNumber: '10001351',
+    name: 'Outlook – Criar Pasta Particular (.pst)',
+    type: 'Requisição de serviço',
+    service: 'Cópia de segurança de caixa postal - PST',
+    subject: 'Solicita criar pasta particular no Outlook (*.pst)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Todas as pastas particulares criadas localmente são salvas por padrão no caminho:
+  \`D:\\Usuarios\\perfildousuario\\Documents\\Arquivos do Outlook\` (ou na pasta padrão de documentos do usuário).
+- **Importante:** Não é possível criar ou manipular arquivos \`.pst\` na versão Web do Outlook (OWA). Esta funcionalidade é exclusiva do aplicativo Outlook Desktop no Windows.
+
+---
+
+### 📌 Procedimento para Criar Arquivo de Dados (.pst)
+
+1. No Microsoft Outlook Desktop, acesse a guia **Página Inicial**.
+2. Clique em **Novos Itens > Mais Itens > Arquivo de Dados do Outlook...**.
+3. Na janela que se abre, navegue até a pasta de destino onde deseja armazenar o arquivo.
+4. No campo **Nome do arquivo**, digite o nome descritivo para a pasta particular (ex.: *Arquivo 2024*, *Backup Antigo*).
+5. Clique no botão **OK**.
+6. A nova pasta particular (.pst) será exibida imediatamente no painel de navegação à esquerda do Outlook, pronta para receber mensagens e subpastas organizadas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1351;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Pasta Particular (.pst).pdf',
+        size: '391.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1351;FileID=11811'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1351;FileID=11936' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1351;FileID=11934' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1351;FileID=11935' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 14:51 (Samantha Hellen da Silva Menezes)',
+      alterado: '02/06/2026 13:12 (Leonardo Silva de Amarante)',
+      atualizadoEm: '02.05.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1351;Nav=',
+      itemId: '1351'
+    }
+  },
+  {
+    id: 'faq-10001365',
+    faqNumber: '10001365',
+    name: 'Outlook – Criar Regra',
+    type: 'Requisição de serviço',
+    service: 'Criação/exclusão de regras em e-mails',
+    subject: 'Solicita criação de regra no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- As regras no Outlook permitem gerenciar, classificar, mover ou descartar e-mails recebidos de forma automatizada com base em critérios como remetente, assunto, anexos ou destinatários.
+- Recomenda-se realizar um envio de teste imediatamente após a criação para validar se a regra está atuando conforme o planejado.
+
+---
+
+### 📌 Procedimento de Instalação e Criação de Regra
+
+1. Na guia **Página Inicial** do Microsoft Outlook, clique em **Regras > Criar Regra...**.
+2. Na janela rápida que se abre, clique no botão **Opções Avançadas...** para abrir o Assistente de Regras completo.
+3. **Etapa 1 (Condições):** Selecione as condições que a mensagem deve atender (ex.: *de pessoas ou grupo público*, *com palavras específicas no assunto*, *enviado somente para mim*). Clique nas palavras sublinhadas no painel inferior para configurar os valores e clique em **Avançar**.
+4. **Etapa 2 (Ações):** Escolha o que deve ser feito com o e-mail (ex.: *mover para a pasta especificada*, *marcar com categoria*, *encaminhar para pessoas ou grupo público*). Selecione o destino no painel inferior e clique em **Avançar**.
+5. **Etapa 3 (Exceções):** Se aplicável, marque exceções para a regra e clique em **Avançar**.
+6. **Etapa 4 (Conclusão):**
+   - Atribua um nome claro à regra.
+   - Marque a caixa de diálogo **‘Ativar esta regra’**.
+   - *(Opcional)*: Marque a opção **‘Executar esta regra agora em mensagens que já estão na Caixa de Entrada’**.
+7. Clique no botão **Concluir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1365;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Regra.pdf',
+        size: '424.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1365;FileID=11607'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1365;FileID=11606' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1365;FileID=11608' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1365;FileID=11609' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1365;FileID=11605' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/02/2024 16:39 (Samantha Hellen da Silva Menezes)',
+      alterado: '05/11/2025 15:24 (Jeferson dos Santos Morais)',
+      atualizadoEm: '27.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1365;Nav=',
+      itemId: '1365'
+    }
+  },
+  {
+    id: 'faq-10001244',
+    faqNumber: '10001244',
+    name: 'Outlook – Criar Regra na Caixa Institucional',
+    type: 'Requisição de serviço',
+    service: 'Criação/exclusão de regras em e-mails',
+    subject: 'Solicita a configuração para criar regra em caixas institucionais',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- **Atenção:** Por se tratar de uma caixa institucional compartilhada do setor, é indispensável alinhar previamente com a chefia ou gestor responsável antes de criar ou modificar regras.
+- **Onde Configurar:** Recomenda-se realizar a criação de regras através da versão **Web (Outlook Web App)**. Se a regra for criada pelo Outlook Desktop com a caixa institucional mapeada sob o perfil pessoal do atendente, a regra ficará armazenada localmente no perfil e não funcionará no servidor enquanto o Outlook do usuário estiver fechado.
+
+---
+
+### 📌 Procedimento Recomendado (Outlook Web App)
+
+1. Acesse o portal corporativo do **Outlook na Web** ([outlook.office.com](https://outlook.office.com)).
+2. Faça login com suas credenciais institucionais (\`login@senado.leg.br\`) e valide o acesso no **Microsoft Authenticator**.
+3. No canto superior direito, clique na sua **foto de perfil / iniciais** e selecione a opção **Abrir outra caixa de correio...**.
+4. Digite o endereço ou nome da caixa institucional e clique em **Abrir**. A caixa abrirá em uma nova aba exclusiva.
+5. Na nova aba da caixa institucional, clique no ícone de **Engrenagem (Configurações)** no canto superior direito.
+6. Navegue até **Email > Regras**.
+7. Clique no botão **+ Adicionar nova regra**.
+8. Preencha as configurações:
+   - Dê um nome para a regra.
+   - Selecione a condição (ex.: *De*, *O assunto inclui*).
+   - Selecione a ação (ex.: *Mover para*, *Copiar para*, *Marcar como lida*).
+9. Marque a opção **‘Executar regras agora’** para processar mensagens antigas existentes.
+10. Clique em **Salvar**. A regra ficará ativa e será executada no servidor Exchange independentemente de quem esteja logado.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1244;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Regra na Caixa Institucional.pdf',
+        size: '321.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=13495'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=13496' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=13494' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=10993' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=10992' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=11003' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=10999' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=10997' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1244;FileID=11000' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '01/02/2024 11:07 (Samantha Hellen da Silva Menezes)',
+      alterado: '24/02/2026 13:25 (Jeferson dos Santos Morais)',
+      atualizadoEm: '29.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1244;Nav=',
+      itemId: '1244'
+    }
+  },
+  {
+    id: 'faq-10001366',
+    faqNumber: '10001366',
+    name: 'Outlook – Criar Senha em Pasta Particular (.pst)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita criar senha em pasta particular (.pst)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Observações Importantes
+
+- **Regras da Senha:** A senha pode conter até 15 caracteres alfanuméricos e símbolos, sendo sensível a maiúsculas e minúsculas (*case-sensitive*).
+- **Importante:** Não existe mecanismo corporativo de recuperação de senha para arquivos \`.pst\` caso a senha seja esquecida.
+- O Microsoft Outlook deve ser reiniciado logo após a conclusão do procedimento para solicitar a nova credencial.
+
+---
+
+### 📌 Procedimento de Instalação da Senha
+
+1. No Microsoft Outlook, clique em **Arquivo > Configurações de Conta > Configurações de Conta...**.
+2. Na janela de configurações, acesse a guia **Arquivos de Dados**.
+3. Selecione o arquivo de pasta particular (\`.pst\`) que deseja proteger.
+4. Clique no botão **Configurações...** (ou dê um duplo clique no arquivo).
+5. Na tela que surgir, clique no botão **Alterar Senha...**.
+6. No campo **Senha anterior**, caso o arquivo ainda não possua senha, deixe o campo totalmente em branco.
+7. Nos campos **Nova senha** e **Confirmar senha**, digite a senha desejada.
+8. *(Aviso de Segurança)*: Recomenda-se não marcar a opção "Salvar esta senha na sua lista de senhas" para exigir que a senha seja digitada a cada abertura do Outlook.
+9. Clique em **OK**, feche as telas de configuração e reinicie o Microsoft Outlook para testar o bloqueio.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1366;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Criar Senha em Pasta Particular (.pst).pdf',
+        size: '284.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1366;FileID=11603'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1366;FileID=11601' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1366;FileID=11602' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1366;FileID=11604' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1366;FileID=11600' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/02/2024 16:45 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 14:39 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1366;Nav=',
+      itemId: '1366'
+    }
+  },
+  {
+    id: 'faq-10001270',
+    faqNumber: '10001270',
+    name: 'Outlook – Diminuir e Atualizar o Tamanho da Pasta Particular (.pst)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração para diminuir e atualizar o tamanho da pasta particular (.pst)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Quando e-mails são excluídos de uma pasta particular (\`.pst\`), o espaço em disco não é liberado automaticamente. É necessário executar o processo de compactação de arquivo para recuperar o espaço vago e atualizar o tamanho real em disco.
+- **Atenção:** O tempo de compactação é proporcional ao tamanho total do arquivo de dados e à velocidade do disco/rede. Durante esse processo, o Outlook poderá apresentar leve lentidão.
+
+---
+
+### 📌 Procedimento de Compactação do Arquivo .pst
+
+1. No Microsoft Outlook, esvazie a pasta *Itens Excluídos* da pasta particular antes de iniciar.
+2. Clique com o botão direito do mouse sobre o título da pasta particular (\`.pst\`) no painel de navegação à esquerda.
+3. No menu de contexto, clique em **Propriedades de Arquivo de Dados...** (ou *Propriedades de [Nome]*).
+4. Na guia *Geral*, clique no botão **Avançado...**.
+5. Na janela *Arquivo de Dados do Outlook*, clique no botão **Compactar Agora**.
+6. Aguarde a barra de progresso da compactação ser concluída. O botão voltará ao estado normal quando o processo terminar.
+7. Clique em **OK** para fechar as janelas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1270;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Diminuir e Atualizar o Tamanho da Pasta Particular (.pst).pdf',
+        size: '240.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1270;FileID=11542'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1270;FileID=11023' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1270;FileID=11026' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1270;FileID=11025' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1270;FileID=11024' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 11:46 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:30 (Gabriel Queiroz Pires)',
+      atualizadoEm: '30.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1270;Nav=',
+      itemId: '1270'
+    }
+  },
+  {
+    id: 'faq-10001922',
+    faqNumber: '10001922',
+    name: 'Outlook – Enviar Anexo pela Nuvem',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração na opção de envio de anexo pela nuvem no Outlook.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Quando o **Adobe Acrobat Pro** está instalado na estação de trabalho, o suplemento do Acrobat para Microsoft Outlook é habilitado automaticamente.
+- Este suplemento permite o compartilhamento de arquivos PDF pesados via link público da nuvem da Adobe em vez de anexar o arquivo físico diretamente no e-mail.
+- Caso o usuário deseje enviar o arquivo físico convencional anexado e desativar o envio automático como link de nuvem, deve-se aplicar o procedimento abaixo.
+
+---
+
+### 📌 Procedimento para Desabilitar o Envio de Anexo em Nuvem
+
+1. No Microsoft Outlook, abra uma nova janela de mensagem (clique em **Novo Email**).
+2. Na barra de menus superior da mensagem, localize e clique na guia **Acrobat**.
+3. Clique no botão de configurações **Ajustes** (ou *Preferências do Adobe Acrobat*).
+4. Na tela de configurações do suplemento, marque a opção:
+   - **‘Nunca perguntar ao anexar’** (ou desmarque a opção *Compartilhar links do Adobe Document Cloud ao anexar arquivos*).
+5. Clique no botão **OK**.
+6. A partir desse ajuste, ao clicar em *Anexar Arquivo*, o arquivo PDF será incorporado normalmente à mensagem como anexo local tradicional.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1922;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Enviar Anexo pela Nuvem.pdf',
+        size: '303.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1922;FileID=11595'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1922;FileID=11597' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1922;FileID=11598' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1922;FileID=11596' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1922;FileID=11599' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '14/08/2024 14:43 (Mayara Sales)',
+      alterado: '18/09/2025 14:43 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1922;Nav=',
+      itemId: '1922'
+    }
+  },
+  {
+    id: 'faq-10001288',
+    faqNumber: '10001288',
+    name: 'Outlook – Enviar e Salvar Grupo de Contatos',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas..',
+    subject: 'Como enviar e salvar grupo de contatos do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Permite que um atendente ou colaborador envie um grupo de contatos previamente criado para outro usuário, que poderá salvá-lo diretamente em sua própria lista de contatos do Outlook.
+
+---
+
+### 📌 Procedimento 1: Enviar o Grupo de Contatos (Remetente)
+
+1. No Microsoft Outlook, clique em **Pessoas / Contatos**.
+2. Localize o grupo de contatos que deseja compartilhar e clique com o botão direito do mouse sobre ele.
+3. No menu, selecione **Encaminhar Contato > Como Contato do Outlook** (o grupo será anexado em formato de cartão de visita/mensagem).
+4. Uma nova janela de e-mail será gerada com o grupo anexado.
+5. No campo **Para...**, insira o endereço de e-mail do destinatário.
+6. Adicione uma mensagem no corpo do e-mail e clique em **Enviar**.
+
+---
+
+### 📌 Procedimento 2: Salvar o Grupo Recebido (Destinatário)
+
+1. O destinatário deve abrir a mensagem de e-mail recebida no seu Outlook.
+2. Dê um duplo clique no anexo do grupo de contatos para abri-lo.
+3. Na janela do grupo de contatos, clique no menu superior **Arquivo**.
+4. Clique na opção **Mover para Pasta > Copiar para Pasta...**.
+5. Selecione a pasta **Contatos** do perfil e clique em **OK**.
+6. O grupo de contatos estará disponível na lista de contatos do usuário para envios futuros.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1288;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Enviar e Salvar Grupo de Contatos.pdf',
+        size: '346.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11594'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11593' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11591' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11588' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11589' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11590' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11587' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1288;FileID=11592' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:58 (Mayara Sales)',
+      alterado: '18/09/2025 15:13 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1288;Nav=',
+      itemId: '1288'
+    }
+  },
+  {
+    id: 'faq-10001303',
+    faqNumber: '10001303',
+    name: 'Outlook – Enviar E-mails com Horário Agendado',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas',
+    subject: 'Configuração para envio de e-mails com horário agendado',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este recurso permite redigir uma mensagem no Microsoft Outlook e programar o seu envio para data e hora futuras.
+- **Importante:** Para que o e-mail seja despachado no horário determinado quando utilizado no modo Exchange com cache, o Microsoft Outlook deve permanecer aberto conectado à rede ou o servidor Exchange processará o envio automaticamente na nuvem/servidor.
+
+---
+
+### 📌 Procedimento de Instalação e Agendamento
+
+1. No Microsoft Outlook, clique em **Novo Email** e redija o conteúdo normalmente, preenchendo os destinatários e o assunto.
+2. Na janela de composição da mensagem, clique na guia superior **Opções**.
+3. No grupo *Mais Opções*, clique no botão **Programar Entrega** (ou *Atrasar Entrega* / *Propriedades da Mensagem*).
+4. Na janela de Propriedades, na seção **Opções de entrega**:
+   - Marque a opção: **‘Não entregar antes de’** (ou *Enviar a mensagem*).
+   - Configure a **data** e a **hora** exatas desejadas para o envio.
+5. Clique no botão **Fechar**.
+6. Clique no botão normal **Enviar** da mensagem.
+7. A mensagem ficará armazenada na pasta **Caixa de Saída** até que a data e o horário programados sejam atingidos, sendo então disparada automaticamente.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1303;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Enviar E-mails com Horário Agendado.pdf',
+        size: '211.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1303;FileID=11540'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1303;FileID=11541' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1303;FileID=11041' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '06/02/2024 12:50 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 17:05 (Jeferson dos Santos Morais)',
+      atualizadoEm: '30.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1303;Nav=',
+      itemId: '1303'
+    }
+  },
+  {
+    id: 'faq-10001279',
+    faqNumber: '10001279',
+    name: 'Outlook – Excluir Calendário',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita exclusão de calendário do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento orienta como excluir da visualização do Outlook calendários adicionais, subcalendários particulares ou calendários compartilhados que não são mais necessários.
+- **Atenção:** O calendário principal do perfil pessoal não pode ser excluído por ser o calendário padrão da conta.
+
+---
+
+### 📌 Procedimento de Exclusão de Calendário
+
+1. No Microsoft Outlook, clique no ícone de **Calendário** (barra de navegação lateral ou inferior).
+2. No painel de navegação à esquerda, em *Meus Calendários* ou *Outros Calendários*, localize o calendário que deseja remover.
+3. Clique com o botão direito do mouse sobre o nome do calendário.
+4. No menu de opções que se abrir, clique em **Excluir Calendário**.
+5. Uma janela de confirmação solicitará se tem certeza de que deseja mover o calendário para a pasta *Itens Excluídos*: clique em **Sim**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1279;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Excluir Calendário.pdf',
+        size: '213.7 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1279;FileID=11586'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1279;FileID=11585' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1279;FileID=11582' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:12 (Mayara Sales)',
+      alterado: '18/09/2025 15:14 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1279;Nav=',
+      itemId: '1279'
+    }
+  },
+  {
+    id: 'faq-10001278',
+    faqNumber: '10001278',
+    name: 'Outlook – Exportar Contatos',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Como exportar contatos do Microsoft Outlook 2013',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A exportação de contatos permite gerar uma planilha ou arquivo de intercâmbio com todos os contatos salvos no Outlook, possibilitando backup ou importação em outro aplicativo/dispositivo.
+- Formatos suportados: Valores Separados por Vírgula (\`.csv\`) e cartão eletrônico vCard (\`.vcf\`).
+
+---
+
+### 📌 Procedimento de Exportação de Contatos
+
+1. No Microsoft Outlook, clique no menu superior **Arquivo > Abrir e Exportar**.
+2. Clique na opção **Importar/Exportar**.
+3. Na janela do Assistente de Importação e Exportação, selecione a ação:
+   - **Exportar para um arquivo** e clique em **Avançar**.
+4. Selecione o tipo de arquivo a ser criado:
+   - Escolha **Valores Separados por Vírgulas** (CSV) e clique em **Avançar**.
+5. Na árvore de pastas, selecione a pasta **Contatos** de origem que deseja exportar e clique em **Avançar**.
+6. Clique no botão **Procurar...**, selecione a pasta do computador onde o arquivo será salvo e digite o nome do arquivo (ex.: *Contatos_Backup.csv*). Clique em **OK** e em **Avançar**.
+7. Clique no botão **Concluir**.
+8. Aguarde o progresso da exportação ser finalizado. O arquivo gerado poderá ser aberto no Excel ou importado em outras ferramentas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1278;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Exportar Contatos.pdf',
+        size: '439.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11574'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11575' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11580' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11579' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11578' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11576' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1278;FileID=11577' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 15:06 (Mayara Sales)',
+      alterado: '18/09/2025 15:15 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1278;Nav=',
+      itemId: '1278'
+    }
+  },
+  {
+    id: 'faq-10001275',
+    faqNumber: '10001275',
+    name: 'Outlook – Habilitar Função AutoArquivar',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração para habilitar a função auto arquivar no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O recurso **AutoArquivar** ajuda a gerenciar o espaço ocupado na caixa de correio do servidor Exchange, transferindo automaticamente e-mails antigos que ultrapassaram determinado período para um arquivo de dados local morto (\`.pst\`).
+- O arquivo morto permanece acessível normalmente na árvore de pastas do Outlook para consultas e pesquisas.
+
+---
+
+### 📌 Procedimento de Instalação e Configuração
+
+1. No Microsoft Outlook, clique em **Arquivo > Opções**.
+2. Na janela de Opções, clique na guia **Avançado**.
+3. Localize a seção **AutoArquivar** e clique no botão **Configurações para AutoArquivar...**.
+4. Na janela de preferências:
+   - Marque a opção: **‘Executar AutoArquivar a cada [X] dias’** (defina o intervalo desejado, ex.: 14 ou 30 dias).
+   - *(Opcional)*: Marque *‘Avisar antes de executar o AutoArquivar’*.
+   - Marque a opção: **‘Mover itens antigos para:’**.
+   - Clique no botão **Procurar...** para selecionar a pasta do computador/rede e nomear o arquivo de dados (ex.: *archive.pst*).
+   - Defina o critério de idade dos itens (ex.: limpar itens anteriores a 6 meses).
+5. Clique em **OK** e novamente em **OK** para salvar as diretrizes de arquivamento.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1275;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Habilitar Função AutoArquivar.pdf',
+        size: '340.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1275;FileID=11569'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1275;FileID=11564' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1275;FileID=11568' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1275;FileID=11566' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1275;FileID=11565' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 14:47 (Mayara Sales)',
+      alterado: '18/09/2025 15:20 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1275;Nav=',
+      itemId: '1275'
+    }
+  },
+  {
+    id: 'faq-10001273',
+    faqNumber: '10001273',
+    name: 'Outlook – Habilitar Modo de Toque/Mouse',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração para habilitar o Modo de Toque/Mouse no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O **Modo de Toque/Mouse** ajusta os elementos de interface, espaçamento entre comandos, botões da faixa de opções e menus suspensos para facilitar o uso em notebooks com tela sensível ao toque ou tablets híbridos.
+- No modo Toque, os botões ficam mais espaçados para evitar toques acidentais, e uma barra de comandos rápidos é exibida lateralmente.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Na barra superior do Microsoft Outlook, clique na seta suspensa **‘Personalizar Barra de Ferramentas de Acesso Rápido’** (localizada no canto superior esquerdo ou superior da faixa).
+2. No menu suspenso, clique sobre a opção **Modo de Toque/Mouse** para inseri-la na barra.
+3. O ícone de mão/toque será exibido na Barra de Ferramentas de Acesso Rápido.
+4. Clique no ícone e selecione o modo desejado:
+   - **Toque:** Aumenta o espaçamento de todos os comandos e ícones da interface.
+   - **Mouse:** Restaura a densidade e o espaçamento padrão compacto para uso convencional de mouse e teclado.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1273;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Habilitar Modo de Toque_Mouse.pdf',
+        size: '308.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1273;FileID=11560'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1273;FileID=11562' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1273;FileID=11563' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1273;FileID=11561' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1273;FileID=11559' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 14:38 (Mayara Sales)',
+      alterado: '18/09/2025 17:32 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1273;Nav=',
+      itemId: '1273'
+    }
+  },
+  {
+    id: 'faq-10001276',
+    faqNumber: '10001276',
+    name: 'Outlook – Habilitar Mudança de Remetente',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração para habilitar mudança de remetente no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Por padrão, o Outlook oculta o campo **"De"** quando o usuário possui apenas uma conta configurada.
+- Habilitar o campo **"De"** permite alternar o remetente e enviar mensagens em nome de uma caixa institucional, caixa de setor ou endereço compartilhado no qual o usuário tenha permissão de envio (*Enviar como* ou *Enviar em nome de*).
+- Na mesma tela é possível habilitar o campo **"Cco"** (Cópia Oculta).
+
+---
+
+### 📌 Procedimento para Habilitar os Campos 'De' e 'Cco'
+
+1. No Microsoft Outlook, clique em **Novo Email** para abrir uma tela de composição.
+2. Na barra de ferramentas superior da mensagem, clique na guia **Opções**.
+3. No grupo *Mostrar Campos*, clique sobre os botões:
+   - **De:** O campo com a seleção de remetente passará a ser exibido logo acima do campo *Para*.
+   - **Cco:** O campo de cópia oculta será adicionado abaixo do campo *Cc*.
+4. Para enviar a partir de outro endereço, clique no botão **De**, selecione **Outro Endereço de Email...**, busque a caixa institucional no Catálogo Global e confirme.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1276;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Habilitar Mudança de Remetente.pdf',
+        size: '283.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1276;FileID=11573'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1276;FileID=11572' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1276;FileID=11571' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1276;FileID=11570' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 14:54 (Mayara Sales)',
+      alterado: '18/09/2025 15:19 (Gabriel Queiroz Pires)',
+      atualizadoEm: '23.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1276;Nav=',
+      itemId: '1276'
+    }
+  },
+  {
+    id: 'faq-10001272',
+    faqNumber: '10001272',
+    name: 'Outlook – Habilitar Visualização de Contatos no Catálogo de Endereços',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Habilitar visualização de contatos no catálogo de endereços no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Quando uma pasta adicional de contatos é criada no Outlook, ela pode não aparecer imediatamente no diálogo do Catálogo de Endereços ao clicar nos botões *Para...*, *Cc...* ou *Cco...*.
+- Este procedimento configura a pasta para que ela seja listada como um Catálogo de Endereços ativo.
+
+---
+
+### 📌 Procedimento de Habilitação da Pasta
+
+1. No Microsoft Outlook, clique no ícone **Pessoas / Contatos** (barra lateral ou inferior).
+2. No painel de navegação à esquerda, localize a pasta ou lista de contatos que deseja habilitar.
+3. Clique com o botão direito do mouse sobre a pasta de contatos e selecione **Propriedades...**.
+4. Na janela de propriedades, clique na guia **Catálogo de Endereços do Outlook**.
+5. Marque a caixa de seleção:
+   - **‘Mostrar esta pasta como catálogo de emails’**.
+6. *(Opcional)*: Ajuste o *Nome do catálogo de endereços* para fácil localização na lista suspensa.
+7. Clique em **OK**.
+8. Ao compor um novo e-mail e clicar no botão *Para...*, a referida pasta estará disponível para seleção no menu do Catálogo de Endereços.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1272;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Habilitar Visualização de Contatos no Catálogo de Endereços.pdf',
+        size: '357.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11539'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11176' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11178' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11177' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11180' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1272;FileID=11179' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 14:32 (Mayara Sales)',
+      alterado: '18/09/2025 15:28 (Gabriel Queiroz Pires)',
+      atualizadoEm: '16.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1272;Nav=',
+      itemId: '1272'
+    }
+  },
+  {
+    id: 'faq-10001271',
+    faqNumber: '10001271',
+    name: 'Outlook – Inserir Foto',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a configuração para inserir foto no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A foto de perfil do usuário é compartilhada em todo o ecossistema do Microsoft 365 institucional (Outlook, Teams, SharePoint).
+- A alteração da foto é realizada via portal web corporativo com validação no Microsoft Authenticator.
+
+---
+
+### 📌 Procedimento 1: Carregar ou Alterar a Foto de Perfil
+
+1. No Microsoft Outlook, clique no menu superior **Arquivo > Informações**.
+2. Sob a foto de perfil atual (ou ícone padrão), clique no link **Alterar**.
+3. O navegador web será aberto no portal de conta do Senado Federal:
+   - Insira seu e-mail institucional (\`login@senado.leg.br\`) e clique em **Avançar**.
+   - Insira sua senha de rede e clique em **Entrar**.
+   - Conclua a autenticação com o **Microsoft Authenticator**.
+4. Na tela de perfil, clique no ícone da **Câmera** sobre a foto.
+5. Clique em **Carregar uma nova foto**.
+6. Selecione a imagem salva no computador e clique em **Abrir**.
+7. Ajuste o enquadramento e clique em **Aplicar** e depois em **Concluído**.
+8. *(Nota)*: A sincronização da foto pode levar alguns minutos até ser refletida em todas as aplicações.
+
+---
+
+### 📌 Procedimento 2: Habilitar Exibição de Fotos no Outlook Desktop
+
+Caso as fotografias dos contatos ou a sua própria não apareçam nas mensagens:
+1. No Outlook Desktop, clique em **Arquivo > Opções**.
+2. Clique na categoria **Pessoas**.
+3. Marque a caixa de seleção: **‘Mostrar fotografia do usuário quando disponíveis’**.
+4. Clique em **OK** e reinicie o Outlook.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1271;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Inserir Foto.pdf',
+        size: '388.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=13482'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11531' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11536' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=13480' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=13481' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11535' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11527' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11528' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11537' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11534' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11538' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11530' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1271;FileID=11526' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 11:49 (Mayara Sales)',
+      alterado: '18/09/2025 15:29 (Gabriel Queiroz Pires)',
+      atualizadoEm: '16.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1271;Nav=',
+      itemId: '1271'
+    }
+  },
+  {
+    id: 'faq-10001301',
+    faqNumber: '10001301',
+    name: 'Outlook – Inserir Régua',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração para inserir régua no Outlook 2013',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- A ferramenta de régua permite controlar recuos de parágrafos, margens e paradas de tabulação com precisão ao redigir mensagens no Microsoft Outlook.
+
+---
+
+### 📌 Procedimento de Instalação e Ativação da Régua
+
+1. No Microsoft Outlook, clique em **Arquivo > Opções**.
+2. Na janela de Opções do Outlook, clique na categoria **Barra de Ferramentas de Acesso Rápido**.
+3. No menu suspenso **‘Escolher comandos em’**, selecione a opção **Todos os Comandos**.
+4. Role a lista alfabética até encontrar o comando **Régua**.
+5. Clique no botão central **Adicionar >>** para incluir a Régua na coluna da direita.
+6. Clique no botão **OK**.
+7. Ao abrir ou redigir uma mensagem de e-mail, localize o ícone de **Régua** na Barra de Ferramentas de Acesso Rápido (topo da janela) e clique sobre ele para exibir ou ocultar a régua de alinhamento no corpo da mensagem.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1301;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Inserir Régua.pdf',
+        size: '276.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1301;FileID=11525'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1301;FileID=11029' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1301;FileID=11028' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1301;FileID=11027' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '06/02/2024 11:53 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:12 (Gabriel Queiroz Pires)',
+      atualizadoEm: '30.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1301;Nav=',
+      itemId: '1301'
+    }
+  },
+  {
+    id: 'faq-10001302',
+    faqNumber: '10001302',
+    name: 'Outlook – Limpar Cache',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a limpeza do cache do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Problemas no preenchimento de endereços ou falha de associação do e-mail da caixa institucional com o Catálogo do Outlook geralmente ocorrem por cache local desatualizado ou corrompido.
+- **Solução:** Providenciar a limpeza do cache de e-mails/auto-complete para que o Outlook volte a sincronizar com o Catálogo Global corretamente.
+- A limpeza pode ser executada por três métodos diferentes:
+
+---
+
+### 📌 Método 1: Linha de Comando (Limpeza Total do AutoComplete)
+*Observação: O Outlook abrirá automaticamente assim que o comando for executado.*
+
+1. Feche o Microsoft Outlook.
+2. Pressione as teclas **Windows + R** (ou clique no menu **Iniciar** e digite **Executar**).
+3. Na caixa de texto, digite exatamente:
+   \`\`\`cmd
+   outlook.exe /CleanAutoCompleteCache
+   \`\`\`
+4. Clique em **OK**. O Outlook será iniciado com o cache de endereçamento limpo.
+
+---
+
+### 📌 Método 2: Remoção Manual de Nomes Específicos
+1. Abra o Outlook e clique em **Novo E-mail**.
+2. No campo **Para**, comece a digitar as primeiras letras do e-mail ou nome que está apresentando erro.
+3. Quando a lista suspensa de sugestões for exibida, posicione o mouse sobre o endereço incorreto ou use a seta para baixo e clique no ícone **"X"** ao lado direito do nome para removê-lo do histórico.
+
+---
+
+### 📌 Método 3: Exclusão Manual do Arquivo Stream_Autocomplete
+1. Feche o Microsoft Outlook.
+2. Pressione as teclas **Windows + R** e acesse a pasta:
+   \`\`\`text
+   %localappdata%\\Microsoft\\Outlook\\RoamCache
+   \`\`\`
+   *(Ou navegue até \`D:\\Users\\[login_do_usuario]\\AppData\\Local\\Microsoft\\Outlook\\RoamCache\`)*.
+3. Localize e exclua o arquivo de extensão \`.dat\` iniciado por:
+   \`\`\`text
+   Stream_Autocomplete_X_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.dat
+   \`\`\`
+4. Abra o Outlook novamente para que um novo cache limpo seja gerado.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1302;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Limpar Cache.pdf',
+        size: '365.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1302;FileID=11524'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1302;FileID=11034' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1302;FileID=11032' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1302;FileID=11033' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1302;FileID=11035' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '06/02/2024 12:32 (Samantha Hellen da Silva Menezes)',
+      alterado: '18/09/2025 15:11 (Gabriel Queiroz Pires)',
+      atualizadoEm: '30.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1302;Nav=',
+      itemId: '1302'
+    }
+  },
+  {
+    id: 'faq-10001265',
+    faqNumber: '10001265',
+    name: 'Outlook – Modificar Idioma das Pastas',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Configuração para modificar o idioma das pastas do Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Em determinadas ocasiões, as pastas padrão do Microsoft Outlook (como *Caixa de Entrada*, *Itens Enviados*, *Itens Excluídos*) passam a ser exibidas em inglês (*Inbox*, *Sent Items*, *Deleted Items*) devido a sincronizações com dispositivos móveis ou trocas de perfil.
+- É possível restaurar os nomes das pastas para o idioma padrão do Windows e do Office do computador através de um parâmetro de inicialização.
+
+---
+
+### 📌 Procedimento de Redefinição de Idioma das Pastas
+*Observação: Existe um espaço obrigatório entre o comando e a barra (\`outlook.exe /resetfoldernames\`)*.
+
+1. Feche o Microsoft Outlook.
+2. Pressione as teclas **Windows + R** (ou clique na barra de pesquisa do Menu Iniciar e digite **Executar**).
+3. Digite o seguinte comando:
+   \`\`\`cmd
+   outlook.exe /resetfoldernames
+   \`\`\`
+4. Clique em **OK** ou pressione **Enter**.
+5. O Microsoft Outlook será inicializado e fará a checagem com o Exchange, traduzindo automaticamente as pastas padrão para o idioma local (Português - Brasil).`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1265;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Modificar o Idioma das Pastas.pdf',
+        size: '244.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1265;FileID=11523'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1265;FileID=11092' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:50 (Mayara Sales)',
+      alterado: '18/09/2025 15:36 (Gabriel Queiroz Pires)',
+      atualizadoEm: '14.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1265;Nav=',
+      itemId: '1265'
+    }
+  },
+  {
+    id: 'faq-10001263',
+    faqNumber: '10001263',
+    name: 'Outlook – Recuperar Itens Excluídos',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a recuperação de itens excluídos no Outlook',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Quando uma mensagem é excluída no Outlook, ela permanece temporariamente na pasta **Itens Excluídos**.
+- Se a pasta *Itens Excluídos* for esvaziada ou a mensagem tiver sido excluída permanentemente via Shift+Delete, ainda é possível recuperá-la durante o período de retenção do servidor Exchange.
+
+---
+
+### 📌 Procedimento 1: Recuperação no Outlook Desktop
+
+1. **Verificação na pasta Itens Excluídos:**
+   - Acesse a pasta **Itens Excluídos** no painel de navegação à esquerda.
+   - Caso o e-mail esteja presente, clique com o botão direito nele e escolha **Mover > Outra Pasta > Caixa de Entrada**.
+2. **Recuperação do Servidor (Itens expurgados):**
+   - Com a pasta **Itens Excluídos** selecionada, clique na guia superior **Página Inicial** ou na mensagem no topo da lista:
+   - Clique em **‘Recuperar os Itens recentemente removidos desta pasta’** (ou no botão da faixa: **Recuperar Itens Excluídos do Servidor**).
+   - Na lista que se abrir, localize e selecione as mensagens que devem ser restauradas.
+   - Certifique-se de marcar a opção: **‘Restaurar Itens Selecionados’**.
+   - Clique em **OK**. As mensagens voltarão para a pasta *Itens Excluídos* ou *Caixa de Entrada*.
+
+---
+
+### 📌 Procedimento 2: Recuperação pelo Outlook Web
+
+Caso os e-mails não apareçam no cliente Desktop:
+1. Acesse o Outlook Web: [http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br).
+2. Insira o e-mail institucional e senha corporativa, autenticando pelo **Microsoft Authenticator**.
+3. No painel de pastas à esquerda, selecione **Itens Excluídos**.
+4. Caso a mensagem esteja na lista, selecione-a e clique no botão **Restaurar** na barra superior.
+5. Se não estiver, clique no link **‘Recuperar itens excluídos desta pasta’** no topo da lista, selecione os e-mails e clique em **Restaurar**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1263;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Recuperar Itens Excluídos.pdf',
+        size: '473.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=13483'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11077' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11079' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11076' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=6498' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=13484' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=13485' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11078' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11080' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1263;FileID=11081' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:37 (Mayara Sales)',
+      alterado: '18/09/2025 15:37 (Gabriel Queiroz Pires)',
+      atualizadoEm: '08.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1263;Nav=',
+      itemId: '1263'
+    }
+  },
+  {
+    id: 'faq-10001262',
+    faqNumber: '10001262',
+    name: 'Outlook – Registro de Informações de E-mail',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Registro de Informações de E-mail',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Os registros técnicos e metadados de uma mensagem de e-mail (como endereço IP de origem, servidores intermediários de retransmissão, autenticação SPF/DKIM/DMARC e data/hora exata dos saltos) são armazenados nos **Cabeçalhos de Internet**.
+- Estas informações são essenciais para abertura de chamados de segurança da informação (triagem de phishing/spam) ou investigação de atrasos na entrega.
+
+---
+
+### 📌 Procedimento para Obter os Cabeçalhos de Internet
+
+1. No Microsoft Outlook, dê um duplo clique sobre o e-mail recebido para abri-lo em uma janela própria.
+2. No menu superior da janela da mensagem, clique em **Arquivo**.
+3. Na guia *Informações*, clique no botão **Propriedades**.
+4. Na parte inferior da janela que se abrir, localize o campo **‘Cabeçalhos de Internet’**.
+5. Clique dentro do campo, selecione todo o texto (**Ctrl + A**) e copie (**Ctrl + C**).
+6. Cole o conteúdo copiado no chamado da Central de Serviços ou no chamado OTRS para análise da equipe especializada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1262;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Registro de Informações de E-mail.pdf',
+        size: '227.1 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1262;FileID=11521'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1262;FileID=11075' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1262;FileID=11073' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1262;FileID=11074' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:25 (Mayara Sales)',
+      alterado: '18/09/2025 17:33 (Gabriel Queiroz Pires)',
+      atualizadoEm: '08.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1262;Nav=',
+      itemId: '1262'
+    }
+  },
+  {
+    id: 'faq-10001261',
+    faqNumber: '10001261',
+    name: 'Outlook – Restaurar Contatos (AutoComplete)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita restauração dos contatos no Outlook AutoComplete',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Ao enviar mensagens, o Outlook cria um histórico automático dos endereços preenchidos (*AutoComplete*).
+- Ao recriar o perfil do Outlook ou migrar para uma nova máquina, esse histórico recente de sugestões não é exibido automaticamente se o arquivo não for migrado.
+- O histórico de autocompletar fica armazenado na pasta:
+  \`\`\`text
+  D:\\USERS\\[perfil_usuario]\\AppData\\Local\\Microsoft\\Outlook\\RoamCache
+  \`\`\`
+  *(Ou em \`%localappdata%\\Microsoft\\Outlook\\RoamCache\`)*.
+- **Observação Importante:** Verifique o tamanho dos arquivos na pasta. O arquivo antigo/backup de maior tamanho é o que contém a maior quantidade de contatos acumulados.
+
+---
+
+### 📌 Procedimento de Restauração
+
+1. Feche o Microsoft Outlook.
+2. Abra o novo perfil do Outlook uma única vez e feche-o para que ele gere o arquivo de cache inicial.
+3. Navegue até a pasta \`%localappdata%\\Microsoft\\Outlook\\RoamCache\`.
+4. Você encontrará dois arquivos iniciados com o prefixo \`Stream_Autocomplete_...\`:
+   - O arquivo recém-gerado (menor tamanho, aproximadamente 2 a 5 KB).
+   - O arquivo antigo de backup (maior tamanho).
+5. Copie o nome exato do novo arquivo gerado e adicione um sufixo (ex.: \`.old\`).
+6. Renomeie o arquivo antigo de maior tamanho com o nome exato do novo arquivo.
+7. Abra o Microsoft Outlook: ao compor uma nova mensagem, todo o histórico anterior de autocompletar estará restaurado.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1261;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Restaurar Contatos (AutoComplete).pdf',
+        size: '425.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1261;FileID=11520'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1261;FileID=11071' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1261;FileID=11067' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1261;FileID=11069' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1261;FileID=11070' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 10:14 (Mayara Sales)',
+      alterado: '18/09/2025 17:34 (Gabriel Queiroz Pires)',
+      atualizadoEm: '08.05.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1261;Nav=',
+      itemId: '1261'
+    }
+  },
+  {
+    id: 'faq-10002263',
+    faqNumber: '10002263',
+    name: 'Outlook – Verificar Permissão de Acesso a Caixa Postal Institucional',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Verificar permissão de acesso a caixa postal institucional',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento orienta o atendente de suporte a verificar no Active Directory (AD) se determinado usuário possui autorização e já está inserido no grupo de segurança que concede acesso a uma caixa postal institucional.
+- A unidade organizacional e os grupos com a nomenclatura \`senado.gov.br/CaixasPostaisInstitucionais\` indicam as permissões vigentes.
+
+---
+
+### 📌 Procedimento de Verificação no Active Directory (AD)
+
+1. No servidor ou estação com as ferramentas RSAT instaladas, abra o console **Usuários e Computadores do Active Directory** (\`dsa.msc\`).
+2. Clique com o botão direito no domínio \`senado.gov.br\` e selecione a opção **Localizar**.
+3. No campo de busca, digite o nome completo ou o login de rede do usuário e clique em **Localizar Agora**.
+4. Dê um duplo clique sobre a conta do usuário nos resultados para abrir a janela de propriedades.
+5. Clique na guia **Membro de**.
+6. Verifique se consta na lista o grupo da caixa postal institucional desejada (geralmente sob \`CaixasPostaisInstitucionais\`).
+7. **Caso a caixa institucional não apareça na lista de grupos:**
+   - O usuário não possui permissão formal concedida.
+   - A solicitação de acesso deve ser formalizada pelo Chefe de Setor ou Gabinete através do formulário na Central de Serviços:
+     - *Intranet > Central de Serviços > Administrativos > Informática > Correio Eletrônico > Autorização de acesso a caixa postal institucional*.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2263;Nav=',
+    attachments: [
+      {
+        name: 'Outlook – Verificar Permissão de Acesso a Caixa Postal Institucional.pdf',
+        size: '389.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14399'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14404' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14400' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14401' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14403' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2263;FileID=14402' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '17/10/2025 15:26 (Leonardo Silva de Amarante)',
+      alterado: '22/10/2025 08:21 (Mayara Sales)',
+      atualizadoEm: '17.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2263;Nav=',
+      itemId: '2263'
+    }
+  },
+  {
+    id: 'faq-10001142',
+    faqNumber: '10001142',
+    name: 'Outlook Web – Abrir Caixa Institucional',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita abrir a caixa postal institucional no Outlook Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O Outlook Web permite acessar caixas postais institucionais a partir de qualquer navegador, sem necessidade de configurar o aplicativo de desktop.
+- **Observação Importante:** A caixa institucional permanece aberta enquanto a sessão da caixa pessoal do usuário estiver ativa. Ao desconectar ou expirar a sessão da conta principal, a aba da caixa institucional também será encerrada.
+
+---
+
+### 📌 Procedimento de Acesso no Navegador
+
+1. Acesse o portal do webmail institucional: [https://outlook.live.com/mail/0/](https://outlook.live.com/mail/0/) ou [http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br).
+2. Insira o e-mail institucional e clique em **Avançar**.
+3. Digite sua senha de rede, clique em **Entrar** e realize a autenticação com o **Microsoft Authenticator**.
+4. No canto superior direito da tela inicial do e-mail, clique na foto ou círculo do seu **Perfil**.
+5. No menu suspenso, clique na opção **Abrir outra caixa de correio**.
+6. Digite o nome ou o endereço de e-mail da caixa postal institucional desejada.
+7. Selecione a caixa correspondente na lista de sugestões.
+8. Clique em **Abrir**. A caixa institucional será aberta em uma nova aba do navegador.
+
+---
+
+### 📌 Permissão de Acesso e Erros
+- Caso seja exibida a mensagem *"Você não tem permissão para acessar esta caixa de correio"*, o usuário não foi adicionado ao grupo de segurança da caixa no Active Directory.
+- O chefe do setor deve solicitar a liberação via Central de Serviços:
+  *Intranet > Central de Serviços > Administrativos > Informática > Correio Eletrônico > Autorização de acesso a caixa postal institucional*.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1142;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Abrir Caixa Institucional.pdf',
+        size: '357.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=16766'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14445' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14438' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14444' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14443' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14440' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14442' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14439' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1142;FileID=14441' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 09:34 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:52 (Mayara Sales)',
+      atualizadoEm: '17.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1142;Nav=',
+      itemId: '1142'
+    }
+  },
+  {
+    id: 'faq-10001144',
+    faqNumber: '10001144',
+    name: 'Outlook Web – Acesso',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita orientação para acessar o Outlook Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O Outlook Web (OWA) permite gerenciar e-mails corporativos, contatos, tarefas e calendário institucional a partir de qualquer navegador web moderno, sem depender da instalação do pacote Office local.
+- O acesso requer autenticação em dois fatores com o aplicativo **Microsoft Authenticator**.
+
+---
+
+### 📌 Procedimento de Acesso
+
+1. Acesse o portal oficial do correio eletrônico institucional:
+   - Link: [https://outlook.live.com/mail/0/](https://outlook.live.com/mail/0/) ou [http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br).
+2. No campo de identificação, insira o seu e-mail institucional (\`login@senado.leg.br\`).
+3. Clique no botão **Avançar**.
+4. Digite a sua senha de rede corporativa e clique em **Entrar**.
+5. Confirme a notificação de entrada de dois fatores no aplicativo **Microsoft Authenticator** no smartphone.
+6. A página inicial da Caixa de Entrada do Outlook Web será carregada.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1144;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web - Acesso.pdf',
+        size: '285.5 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1144;FileID=16767'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1144;FileID=14435' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1144;FileID=14434' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1144;FileID=14433' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 09:38 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:52 (Mayara Sales)',
+      atualizadoEm: '16.10.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1144;Nav=',
+      itemId: '1144'
+    }
+  },
+  {
+    id: 'faq-10001342',
+    faqNumber: '10001342',
+    name: 'Outlook Web – Ausência Temporária',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Ausência Temporária no Outlook Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O recurso de Ausência Temporária (Respostas Automáticas / Out of Office) envia uma mensagem automática a qualquer pessoa que envie um e-mail durante o período em que o usuário estiver de férias, recesso ou licença.
+- É possível programar antecipadamente o início e o fim do período e personalizar respostas distintas para remetentes internos e externos.
+
+---
+
+### 📌 Procedimento de Configuração
+
+1. Acesse o Outlook Web: [http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br).
+2. Faça login com as credenciais institucionais e valide no **Microsoft Authenticator**.
+3. No canto superior direito da página, clique no ícone de **Configurações** (engrenagem).
+4. No menu lateral de opções, clique em **Contas** e selecione **Respostas Automáticas**.
+5. Ative a chave **Ativar respostas automáticas**.
+6. Marque a caixa de seleção: **‘Enviar resposta apenas durante um período de tempo’**.
+   - Defina a **Data de início** e a **Hora de início**.
+   - Defina a **Data de término** e a **Hora de término**.
+7. Na caixa de texto **‘Dentro da minha organização’**, digite a mensagem padrão para colegas de trabalho (informando período de afastamento e contatos de substitutos).
+8. Se desejar responder remetentes fora do Senado:
+   - Marque *‘Enviar respostas para fora da minha organização’*.
+   - Digite a mensagem no campo correspondente.
+9. Clique no botão **Salvar** na parte inferior para confirmar.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1342;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Ausência Temporária.pdf',
+        size: '363.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=16768'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=13472' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=13470' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=10941' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=10935' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=10934' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=10936' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1342;FileID=10939' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 10:14 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:52 (Mayara Sales)',
+      atualizadoEm: '25.04.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1342;Nav=',
+      itemId: '1342'
+    }
+  },
+  {
+    id: 'faq-10001343',
+    faqNumber: '10001343',
+    name: 'Outlook Web – Caixa Institucional Junto da Pessoal',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração da  caixa institucional junto da pessoal via Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este método permite fixar a caixa postal institucional no mesmo painel lateral da caixa de correio pessoal, facilitando a visualização unificada de pastas e mensagens sem abrir uma segunda aba no navegador.
+- **Observação Importante:** Este procedimento só funciona quando ambas as caixas (a conta pessoal do usuário e a caixa institucional do setor) já foram migradas para a nuvem do Microsoft 365.
+
+---
+
+### 📌 Procedimento para Adicionar Pasta Compartilhada
+
+1. Acesse o Outlook Web ([http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br)) e realize a autenticação com o **Microsoft Authenticator**.
+2. No painel de navegação à esquerda, localize o cabeçalho **Pastas** (onde se encontram Caixa de Entrada, Rascunhos, etc.).
+3. Clique com o botão direito do mouse sobre o nome **Pastas**.
+4. No menu que aparecer, clique em **Adicionar caixa de correio ou pasta compartilhada**.
+5. Na janela suspensa, digite o nome completo ou o endereço de e-mail da caixa institucional.
+6. Selecione a caixa correspondente na lista e clique em **Continuar** (ou **Adicionar**).
+7. Clique em **Fechar**.
+8. A caixa institucional será exibida permanentemente na árvore de navegação abaixo das pastas pessoais.
+9. *(Tratamento de erro)*: Caso apresente a mensagem *‘Não é possível completar a solicitação’*, a caixa institucional ainda pode estar no Exchange local (on-premises) ou o usuário não tem permissão de leitura concedida no grupo de segurança.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1343;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Caixa Institucional Junto da Pessoal.pdf',
+        size: '422.9 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=16769'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=13467' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=13469' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11917' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11918' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11919' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11921' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11922' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1343;FileID=11920' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 10:23 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:53 (Mayara Sales)',
+      atualizadoEm: '05.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1343;Nav=',
+      itemId: '1343'
+    }
+  },
+  {
+    id: 'faq-10001345',
+    faqNumber: '10001345',
+    name: 'Outlook Web – Caixa Institucional Separada da Pessoal',
+    type: 'Requisição de serviço',
+    service: 'Configuração de caixa postal institucional',
+    subject: 'Solicita configuração da caixa institucional separada da pessoal via web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Para atendentes e secretarias que administram frequentemente uma caixa institucional e necessitam abri-la separadamente da conta pessoal em janela própria e com atalho direto na Área de Trabalho, é possível instalá-la como um Aplicativo Web Progressivo (**PWA**).
+- O procedimento pode ser realizado tanto no **Google Chrome** quanto no **Microsoft Edge**.
+
+---
+
+### 📌 Etapa 1: Abrir a Caixa Institucional
+1. Acesse o Outlook Web com sua conta e autentique via **Microsoft Authenticator**.
+2. Clique no ícone de **Perfil** no canto superior direito e selecione **Abrir outra caixa de correio**.
+3. Digite o nome ou endereço da caixa institucional e clique em **Abrir**.
+4. A caixa institucional abrirá em uma nova aba.
+
+---
+
+### 📌 Etapa 2A: Instalação via Google Chrome (PWA)
+1. Na aba da caixa institucional aberta no Chrome, clique no menu de três pontos verticais (canto superior direito).
+2. Acesse a opção **Transmitir, salvar e compartilhar** (ou *Salvar e Compartilhar*).
+3. Clique em **Instalar Outlook (PWA)** (ou *Instalar página como app*).
+4. Confirme clicando em **Instalar**.
+5. Uma janela própria independente será criada e um atalho do aplicativo será adicionado na Área de Trabalho.
+
+---
+
+### 📌 Etapa 2B: Instalação via Microsoft Edge (PWA)
+1. Na aba da caixa institucional aberta no Edge, clique no menu de três pontos horizontais.
+2. Acesse a opção **Aplicativos (Apps)**.
+3. Clique em **Instalar Outlook (PWA)**.
+4. Clique em **Instalar**.
+5. Na janela de permissões, marque as opções desejadas (*Fixar na barra de tarefas*, *Criar atalho na área de trabalho*) e clique em **Permitir**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1345;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Caixa Institucional Separada da Pessoal.pdf',
+        size: '734.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=16770'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=13461' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=13462' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11884' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11890' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11892' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11886' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11893' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11885' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11894' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11889' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11887' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11888' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1345;FileID=11896' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 10:33 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:53 (Mayara Sales)',
+      atualizadoEm: '23.06.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1345;Nav=',
+      itemId: '1345'
+    }
+  },
+  {
+    id: 'faq-10002245',
+    faqNumber: '10002245',
+    name: 'Outlook Web – Cancelar E-mail Enviado',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita a auxílio para cancelar e-mail enviado pelo Outlook Web.',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- O recurso de **Mensagem de recall (cancelamento de e-mail)** permite tentar recolher uma mensagem enviada antes que o destinatário a abra.
+- O cancelamento funciona apenas para destinatários que possuam caixa postal corporativa no mesmo ambiente Exchange do Senado Federal.
+- **Observação Importante:** Não é possível cancelar um e-mail enviado de uma caixa institucional (do setor) pelo Outlook Web; nesses casos, o recolhimento deve ser executado obrigatoriamente através do Outlook Desktop.
+
+---
+
+### 📌 Procedimento de Recall no Outlook Web
+
+1. Acesse o Outlook Web ([https://outlook.live.com/mail/0/](https://outlook.live.com/mail/0/)) na sua conta pessoal.
+2. No painel lateral de pastas, clique em **Itens Enviados**.
+3. Abra a mensagem que deseja cancelar.
+4. No canto superior direito da mensagem, clique no botão de três pontos (**Mais ações**).
+5. Posicione o mouse sobre **Ações avançadas**.
+6. Clique na opção **Mensagem de recall**.
+7. Uma caixa de diálogo de confirmação informará sobre o processo de cancelamento: clique em **OK**.
+8. O servidor disparará o recolhimento e você receberá um e-mail de status confirmando o sucesso ou a impossibilidade do cancelamento (caso o destinatário já tenha lido a mensagem).`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2245;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Cancelar E-mail Enviado.pdf',
+        size: '358.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=16771'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=13502' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=13503' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=13504' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=13505' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2245;FileID=13506' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '21/08/2025 10:09 (Mayara Sales)',
+      alterado: '09/07/2026 15:54 (Mayara Sales)',
+      atualizadoEm: '21.08.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2245;Nav=',
+      itemId: '2245'
+    }
+  },
+  {
+    id: 'faq-10001321',
+    faqNumber: '10001321',
+    name: 'Outlook Web – Compartilhar Calendário',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita compartilhamento do calendário',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OFFICE',
+    associatedProcedureId: 'proc-config-software',
+    procedure: `### 📌 Informações e Orientações
+
+- Este procedimento permite conceder acesso à sua agenda (pessoal ou institucional) para outros servidores ou colaboradores, com níveis definidos de permissão (apenas visualização de disponibilidade, visualização de detalhes, edição ou delegação para criar/excluir compromissos).
+- **Observação Importante:** Funciona tanto na caixa de correio pessoal quanto na caixa institucional.
+
+---
+
+### 📌 Procedimento para Conceder Acesso ao Calendário
+
+1. Acesse o Outlook Web ([http://outlook.com/owa/senado.gov.br](http://outlook.com/owa/senado.gov.br)) e autentique-se.
+2. Na barra de navegação esquerda, clique no ícone de **Calendário**.
+3. No canto superior direito da visualização da agenda, clique em **Compartilhar**.
+4. No diálogo **Compartilhamento e permissões**:
+   - Digite o nome ou e-mail institucional da pessoa que receberá o acesso.
+   - Selecione o nível de permissão desejado:
+     - *Pode exibir quando estou ocupado*
+     - *Pode exibir títulos e locais*
+     - *Pode exibir todos os detalhes*
+     - *Pode editar* (permite criar, alterar e excluir compromissos).
+5. Clique em **Compartilhar** (ou **Adicionar**) e depois em **OK**.
+6. *(Recomendação)*: Caso utilize o Outlook Desktop simultaneamente, reinicie-o para que a permissão seja sincronizada localmente.
+
+---
+
+### 📌 Procedimento na Caixa do Usuário Destinatário
+
+1. O usuário que recebeu a permissão receberá um convite por e-mail com o assunto *"Desejo compartilhar meu calendário com você"*.
+2. Abra o e-mail no Outlook (Web ou Desktop) e clique no botão **Aceitar**.
+3. O calendário compartilhado será adicionado automaticamente na lista lateral sob a categoria **Calendários Compartilhados**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1321;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Compartilhar Calendário.pdf',
+        size: '608.8 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=16772'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=13475' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=13474' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11961' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11959' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11955' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11960' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11964' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11956' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11953' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11958' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1321;FileID=11957' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '07/02/2024 16:04 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:55 (Mayara Sales)',
+      atualizadoEm: '03.12.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1321;Nav=',
+      itemId: '1321'
+    }
+  }
+,
+  {
+    id: 'faq-10001344',
+    faqNumber: '10001344',
+    name: 'Outlook Web – Configurar Opções Cco, Cc e De',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração das opções Cco, Cc e De na versão Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OUTLOOK',
+    associatedProcedureId: 'proc-config-app',
+    procedure: `📌 **Informações e Orientações**
+
+- Realize a autenticação com o Microsoft Authenticator.
+
+📌 **Procedimento de Instalação**
+
+1. Insira o e-mail institucional.
+2. Clique em **Avançar**.
+3. Insira a senha.
+4. Clique em **Entrar**.
+5. Clique em **Novo email**.
+6. Clique em **Opções**.
+7. Marque as opções desejadas Ao desmarcar as opções não são exibidas.
+
+📌 **Acesso e Utilização**
+
+1. Acesse Outlook.
+
+🔗 **Procedimentos e Links Relacionados**
+
+- [**Outlook**](http://outlook.com/owa/senado.gov.br)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1344;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Configurar Opções Cco, Cc e De.pdf',
+        size: '218.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1344;FileID=16773'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1344;FileID=13465' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1344;FileID=13464' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1344;FileID=11898' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1344;FileID=11897' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: 'remetente envio',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/02/2024 10:25 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:56 (Mayara Sales)',
+      atualizadoEm: '04.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1344;Nav=',
+      itemId: '1344'
+    }
+  },
+  {
+    id: 'faq-10001363',
+    faqNumber: '10001363',
+    name: 'Outlook Web – Criar Assinatura',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita a criação de assinatura no Outlook Web',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OUTLOOK',
+    associatedProcedureId: 'proc-config-app',
+    procedure: `📌 **Informações e Orientações**
+
+- Realize a autenticação com o Microsoft Authenticator.
+- Preencha a assinatura.
+
+📌 **Procedimento de Instalação**
+
+1. Insira o e-mail institucional.
+2. Clique em **Avançar**.
+3. Insira a senha.
+4. Clique em **Entrar**.
+5. Clique em **Configurações**.
+6. Clique em **Conta > Assinatura**.
+7. Marque as opções desejadas.
+8. Clique em **Salvar**.
+
+📌 **Acesso e Utilização**
+
+1. Acesse a Biblioteca Setorial para verificar os Modelos de assinatura padrão do Senado Federal **W:\\COATEN\\SEARP\\Assinatura Outlook.**.
+2. Acesse Outlook.
+
+🔗 **Procedimentos e Links Relacionados**
+
+- [**Outlook**](http://outlook.com/owa/senado.gov.br)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1363;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Criar Assinatura.pdf',
+        size: '272.0 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=16774'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=13459' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=13458' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=11804' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=13446' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1363;FileID=11806' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '16/02/2024 13:28 (Samantha Hellen da Silva Menezes)',
+      alterado: '09/07/2026 15:57 (Mayara Sales)',
+      atualizadoEm: '03.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1363;Nav=',
+      itemId: '1363'
+    }
+  },
+  {
+    id: 'faq-10001269',
+    faqNumber: '10001269',
+    name: 'Outlook Web – Instalar na Área de Trabalho',
+    type: 'Requisição de serviço',
+    service: 'Instalação/atualização da aplicação',
+    subject: 'Solicita a instalação do Outlook Web na área de trabalho',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OUTLOOK',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `📌 **Informações e Orientações**
+
+- É possível instalar a versão do Outlook Web como um aplicativo web progressivo (PWA) nos navegadores Microsoft Edge e no Google Chrome.
+- Deste modo, a versão web pode ser iniciada através da área de trabalho ou atalho fixado na barra de tarefas.
+- Esta solução irá substituir o aplicativo desktop daqueles que não tiverem licenças compatíveis atribuídas.
+- MICROSOFT EDGE.
+- Com o Outlook aberto.
+- Uma nova janela será aberta informando que o aplicativo foi instalado.
+- Escolha as opções desejadas.
+- As definições serão atualizadas de acordo com as preferências selecionadas.
+- GOOGLE CHROME.
+- Com o Outlook aberto.
+- Um atalho será criado na Área de Trabalho.
+- E será fixado na barra de tarefas.
+
+📌 **Procedimento de Instalação**
+
+1. Clique em **Configurações e mais > Apps > Instalar Outlook (PWA)**.
+2. Clique em **Instalar**.
+3. Aguarde a validação.
+4. Clique em **Permitir**.
+5. Clique em **Personalizar e controlar o Google Chrome > Transmitir, salvar e compartilhar > Instalar Outlook (PWA)...**.
+6. Clique em **Instalar**.
+
+📌 **Acesso e Utilização**
+
+1. Acesse a conta do Microsoft 365.
+2. Clique em **Inicializador de Aplicativos**.
+3. Selecione Outlook.
+4. Acesse a conta do Microsoft 365.
+5. Clique em **Inicializador de Aplicativos**.
+6. Selecione Outlook.
+
+🔗 **Procedimentos e Links Relacionados**
+
+- [**Microsoft 365**](https://m365.cloud.microsoft/apps?auth=2)
+- [**Microsoft 365**](https://m365.cloud.microsoft/?auth=2)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1269;Nav=',
+    attachments: [
+      {
+        name: 'Outlook Web – Instalar na Área de Trabalho.pdf',
+        size: '481.6 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=15695'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11100' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11093' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11096' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11103' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11102' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11094' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11095' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11097' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11101' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1269;FileID=11099' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '05/02/2024 11:36 (Mayara Sales)',
+      alterado: '04/02/2026 14:52 (Leonardo Silva de Amarante)',
+      atualizadoEm: '04.02.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1269;Nav=',
+      itemId: '1269'
+    }
+  },
+  {
+    id: 'faq-10002366',
+    faqNumber: '10002366',
+    name: 'Sincronizar calendário institucional com o calendário do celular (Android)',
+    type: 'Requisição de serviço',
+    service: 'Configuração de Aplicações Corporativas.',
+    subject: 'Solicita configuração do calendário institucional em seu calendário do celular (Android)',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'OUTLOOK',
+    associatedProcedureId: 'proc-config-app',
+    procedure: `📌 **Informações e Orientações**
+
+- Na tela inicial do Outlook Desktop, selecione o menu “Calendário”.
+- Confirme se os calendários institucionais estão configurados em “Meus Calendários”.
+- Em seu celular, com sistema operacional Android, abra o aplicativo do Outlook.
+- Depois clique na opção “Sincronizar calendários”.
+- Agora abra o aplicativo do calendário do seu celular para confirmar a sincronização.
+
+📌 **Procedimento de Instalação**
+
+1. Selecione o e-mail corporativo e depois clique na engrenagem, no canto inferior esquerdo.
+2. Clique na opção “Calendário”.
+3. Marque o calendário compartilhado que deseja sincronizar com seu calendário do celular.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2366;Nav=',
+    attachments: [
+      {
+        name: 'Sincronizar calendário do Outlook com o calendário do celular (Android).pdf',
+        size: '445.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16418'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16410' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16411' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16412' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16413' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16414' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16415' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16416' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2366;FileID=16417' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > OUTLOOK > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::OUTLOOK::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '21/05/2026 11:09 (Leonardo Silva de Amarante)',
+      alterado: '21/05/2026 11:13 (Leonardo Silva de Amarante)',
+      atualizadoEm: '21.05.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2366;Nav=',
+      itemId: '2366'
+    }
+  },
+  {
+    id: 'faq-10001176',
+    faqNumber: '10001176',
+    name: 'Project – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Instalação de software',
+    subject: 'Solicita instalação do Programa Project',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'PROJECT',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `📌 **Informações Complementares**
+
+SOFTWARE RESTRITO
+
+📌 **Informações e Orientações**
+
+- As licenças disponíveis para este programa são destinadas apenas para as áreas da SINFRA, SECOM e PRODASEN.
+- APENAS COORDENADORES DESTES SETORES PODEM SOLICITAR A INSTALAÇÃO.
+- Toda tratativa sobre instalação, atualização e outras questões sobre o software licenciado Microsoft Project, devem ser originadas via Central de Serviços.
+- Versão disponível: 2016.
+- ProjectLibre - Instalação.
+
+📌 **Permissão de Acesso**
+
+Necessário solicitar autorização via Central de Serviços.
+
+Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.
+
+O software PROJECTLIBRE pode ser instalado como alternativa para os clientes que não possuem autorização para utilização do MS PROJECT.
+
+🔗 **Procedimentos e Links Relacionados**
+
+- [**ProjectLibre - Instalação**](https://capri.senado.gov.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=884;Nav=)`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1176;Nav=',
+    attachments: [
+      {
+        name: 'Project – Instalação.pdf',
+        size: '230.2 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1176;FileID=11991'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1176;FileID=11989' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > PROJECT > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::PROJECT::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 11:41 (Leonardo Silva de Amarante)',
+      alterado: '10/06/2025 09:03 (Mayara Sales)',
+      atualizadoEm: '10.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1176;Nav=',
+      itemId: '1176'
+    }
+  },
+  {
+    id: 'faq-10001173',
+    faqNumber: '10001173',
+    name: 'Visio – Instalação',
+    type: 'Requisição de serviço',
+    service: 'Suporte e solução de dúvida técnica/operacional',
+    subject: 'Solicita instalação do Programa Visio',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'VISIO',
+    associatedProcedureId: 'proc-install-software',
+    procedure: `📌 **Informações Complementares**
+
+SOFTWARE RESTRITO
+
+📌 **Informações e Orientações**
+
+- Ferramenta para auxílio de profissionais de TI e negócios, permitindo a visualização, análise e comunicação de informações, sistemas e processos.
+- Foram adquiridas apenas 15 licenças do Visio, todas destinadas à SECOM e já distribuídas.
+- Se surgirem outras necessidades os usuários deverão abrir um DOD (Documento de Oficialização de Demanda) solicitando a aquisição.
+- Toda tratativa sobre instalação, atualização e outras questões sobre o software licenciado Microsoft Visio, devem ser originadas através da Central de Serviços.
+- Versão disponível: 2016.
+
+📌 **Permissão de Acesso**
+
+Necessário solicitar autorização via Central de Serviços.
+
+Intranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1173;Nav=',
+    attachments: [
+      {
+        name: 'Visio – Instalação.pdf',
+        size: '206.3 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1173;FileID=11992'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1173;FileID=11993' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > VISIO > INSTALAÇÃO/CONFIGURAÇÃO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::VISIO::INSTALAÇÃO/CONFIGURAÇÃO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '30/01/2024 11:33 (Leonardo Silva de Amarante)',
+      alterado: '17/09/2025 14:45 (Gabriel Queiroz Pires)',
+      atualizadoEm: '10.06.2025',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1173;Nav=',
+      itemId: '1173'
+    }
+  },
+  {
+    id: 'faq-10002353',
+    faqNumber: '10002353',
+    name: 'Word - Este recurso foi desabilitado pelo administrador',
+    type: 'Incidente',
+    service: 'Suporte a aplicações corporativas',
+    subject: 'Configuração para corrigir erro ao abrir arquivos no Word',
+    category: 'APLICATIVOS',
+    subCategory: 'COMERCIAIS',
+    system: 'WORD',
+    associatedProcedureId: 'proc-config-app',
+    procedure: `📌 **Observação Importante**
+
+Observação: Antes de prosseguir, feche todos os documentos abertos no Microsoft Word.
+
+Observação: Abra novamente o arquivo que estava apresentando o problema.
+
+📌 **Informações e Orientações**
+
+- O problema costuma estar associado a falhas de sincronização do OneDrive, normalmente causadas por conflito entre contas (pessoal e corporativa) ou por inconsistências na sessão de autenticação.
+- Faça logout do OneDrive, principalmente se houver conta pessoal ativa.
+
+📌 **Procedimento de Correção**
+
+1. Clique com o botão direito no ícone do OneDrive e escolha “Configurações”.
+2. Clique na opção “Conta” em seguida clique em “Desvincular este computador”.
+3. Clique em **“Desvincular conta”**.
+4. Aguarde.
+
+📌 **Acesso e Utilização**
+
+1. Abra novamente o OneDrive e efetue o login utilizando sua conta corporativa.
+2. Clique em **“Entrar”**.
+3. Clique em **“Próximo”**.
+4. Clique em **“Iniciar backup”**.
+5. Aguarde até que o processo de sincronização seja concluído.
+6. Clique em **“Próximo”**.
+7. Clique novamente em **“Próximo”**.
+8. Clique novamente em **“Próximo”**.
+9. Clique em **“Obter o aplicativo...” ou “Agora não”**.
+10. Clique em **“Abrir minha pasta do OneDrive”**.`,
+    originalLink: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2353;Nav=',
+    attachments: [
+      {
+        name: 'Word - Este recurso foi desabilitado pelo administrador .pdf',
+        size: '861.4 KBytes',
+        url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16329'
+      }
+    ],
+    visualRefs: [
+      { title: 'Imagem 1', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16314' },
+      { title: 'Imagem 2', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16315' },
+      { title: 'Imagem 3', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16316' },
+      { title: 'Imagem 4', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16317' },
+      { title: 'Imagem 5', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16318' },
+      { title: 'Imagem 6', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16319' },
+      { title: 'Imagem 7', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16320' },
+      { title: 'Imagem 8', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16321' },
+      { title: 'Imagem 9', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16322' },
+      { title: 'Imagem 10', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16323' },
+      { title: 'Imagem 11', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16324' },
+      { title: 'Imagem 12', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16325' },
+      { title: 'Imagem 13', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16326' },
+      { title: 'Imagem 14', url: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2353;FileID=16327' }
+    ],
+    adminInfo: {
+      caminho: 'FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > ERRO',
+      categoria: 'CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::ERRO',
+      palavrasChave: '[não informadas]',
+      estado: 'interno (atendente)',
+      validade: 'válido',
+      criado: '15/04/2026 14:25 (Gabriel Queiroz Pires)',
+      alterado: '15/04/2026 14:29 (Gabriel Queiroz Pires)',
+      atualizadoEm: '15.04.2026',
+      paginaOriginal: 'https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2353;Nav=',
+      itemId: '2353'
+    }
+  }
+,
+  {
+    "id": "faq-10001123",
+    "faqNumber": "10001123",
+    "name": "Word – Erro ao Abrir Arquivos",
+    "type": "Incidente",
+    "service": "Suporte a aplicações corporativas",
+    "subject": "Configuração para corrigir erro ao abrir arquivos no Word",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Observação Importante**\n\nObservação: Nome_do_aplicativo deve ser o aplicativo do Office (Word, Excel, PowerPoint ou Visio) que apresenta o problema.\n\n📌 **Informações e Orientações**\n\n- Tela de Erro.\n- Se não for possível abrir um arquivo no Office 2013 ou Office 2010.\n- Exemplo: Se não conseguir abrir um arquivo do Word, abra um novo documento no Word 2013 ou no Word 2010 para ver a opção.\n- Tente abrir ou salvar o arquivo que foi bloqueado novamente.\n\n📌 **Procedimento de Correção**\n\n1. Clique em **Arquivo > Opções**.\n2. Clique em **Central de Confiabilidade > Configurações da Central de Confiabilidade**.\n3. Clique em **Configurações de Bloqueio de Arquivo**.\n4. Desmarque a caixa de seleção ‘Abrir’ ou ‘Salvar’ para o tipo de arquivo que você deseja abrir ou salvar.\n5. Clique em **OK duas vezes**.\n\n📌 **Acesso e Utilização**\n\n1. Abra um documento em branco para iniciar o aplicativo do Office.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1123;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Erro ao Abrir Arquivos.pdf",
+        "size": "275.3 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1123;FileID=12005"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1123;FileID=12006"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1123;FileID=12003"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1123;FileID=12004"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > ERRO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::ERRO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 17:26 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 17:28 (Jeferson dos Santos Morais)",
+      "atualizadoEm": "10.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1123;Nav=",
+      "itemId": "1123"
+    }
+  },
+  {
+    "id": "faq-10001822",
+    "faqNumber": "10001822",
+    "name": "Word – Erro de Macro",
+    "type": "Incidente",
+    "service": "Suporte a aplicações corporativas",
+    "subject": "Erro em documentos com macros",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Mensagem de erro.\n- Em Configurações de Macro Habilite as opções abaixo.\n\n📌 **Procedimento de Correção**\n\n1. Clique em **Propriedades**.\n2. Marque a opção ‘Desbloquear’.\n3. Clique em **OK**.\n4. Clique novamente em **OK**.\n\n📌 **Acesso e Utilização**\n\n1. Abra o documento.\n2. Clique em **Arquivo > Opções**.\n3. Clique em **Central de Confiabilidade**.\n4. Clique em **Configurações da Central de Confiabilidade**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1822;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Erro de Macro.pdf",
+        "size": "294.9 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11997"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11994"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11995"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11999"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11998"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1822;FileID=11996"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > ERRO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::ERRO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "11/07/2024 11:11 (Mayara Sales)",
+      "alterado": "18/09/2025 17:24 (Jeferson dos Santos Morais)",
+      "atualizadoEm": "10.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1822;Nav=",
+      "itemId": "1822"
+    }
+  },
+  {
+    "id": "faq-10002002",
+    "faqNumber": "10002002",
+    "name": "Word – Erro Impressão Colorida",
+    "type": "Incidente",
+    "service": "Suporte a aplicações corporativas",
+    "subject": "Erro de impressão colorida no Word.",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Marca d’água.\n\n📌 **Procedimento de Correção**\n\n1. Para imprimir as cores e imagens do plano de fundo no Word 365, é necessário ativar a opção de impressão em segundo plano.\n2. Clique em **Arquivo > Opções**.\n3. Clique em **Avançado Em ‘Mostrar o conteúdo do documento’**.\n4. Marque a opção ‘Mostrar cores e imagens do plano de fundo no modo de exibição de Layout de impressão’.\n5. Clique em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2002;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Erro Impressão Colorida.pdf",
+        "size": "231.4 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2002;FileID=12000"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2002;FileID=12001"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2002;FileID=12002"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > ERRO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::ERRO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "19/09/2024 11:28 (Mayara Sales)",
+      "alterado": "18/09/2025 17:28 (Jeferson dos Santos Morais)",
+      "atualizadoEm": "10.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2002;Nav=",
+      "itemId": "2002"
+    }
+  },
+  {
+    "id": "faq-10002395",
+    "faqNumber": "10002395",
+    "name": "Recuperar documento não salvo",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Solicita suporte para recuperação de arquivo não salvo",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- O Word possui uma função de recuperação automática que salva automaticamente as alterações feitas em um documento em intervalos regulares. Para recuperar um documento não salvo, siga estes passos:\n- Em seguida, cliquem em “Recuperar Documentos Não Salvos”, na parte inferior da janela.\n- Na janela apresentada, selecione o documento desejado e clique em “Abrir”.\n- Por fim, salve o documento recuperado em um local seguro.\n- Se a função de recuperação automática não funcionar, verifique a pasta de arquivos temporários.\n- Em seguida, procure pelo documento desejado.\n\n📌 **Procedimento de Instalação**\n\n1. Copie o caminho e cole no Explorador de Arquivos.\n\n📌 **Acesso e Utilização**\n\n1. Abra um documento em branco no Word e clique em “Arquivo”.\n2. Clique em **“Abrir”**.\n3. Abra um documento em branco no Word e clique em “Arquivo”.\n4. Clique em **“Opções”**.\n5. Selecione a opção “Salvar” e confirme o caminho da pasta de arquivos temporários no campo indicado.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2395;Nav=",
+    "attachments": [
+      {
+        "name": "Recuperar documento não salvo.pdf",
+        "size": "546.3 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16843"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16834"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16835"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16836"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16837"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16838"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=16839"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16840"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16841"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2395;FileID=16842"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "13/07/2026 11:43 (Leonardo Silva de Amarante)",
+      "alterado": "13/07/2026 11:44 (Leonardo Silva de Amarante)",
+      "atualizadoEm": "13.07.2026",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2395;Nav=",
+      "itemId": "2395"
+    }
+  },
+  {
+    "id": "faq-10001115",
+    "faqNumber": "10001115",
+    "name": "Word – Configurar Número de Página",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Solicitação para configurar o número de página",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Geralmente os números de páginas começam na Introdução do texto.\n- A partir disso, é necessário que o documento seja quebrado para que comecem a contar na folha desejada.\n- No final da folha da Capa.\n- Observe que as duas folhas da Capa ainda estão com a numeração visível.\n- A introdução começa com o número 3 De acordo com a regra da ABNT é que Comece com o número 3 mesmo, mas caso seja necessário começar com a número 1.\n- Em ‘Formatar Número de Página’.\n\n📌 **Procedimento de Instalação**\n\n1. Para que o documento seja quebrado.\n2. Clique com o mouse no final da folha que NÃO iniciará os números de páginas.\n3. Clique em **Layout > Quebras > Contínuo**.\n4. Clique com o mouse no final da folha Na folha que inicia a introdução do documento.\n5. Clique em **Inserir > Número de página Escolha o modelo que desejar**.\n6. Desmarque a opção ‘Vincular ao Anterior’ Apague os números das primeiras folhas.\n7. Clique em **Inserir > Número de Página**.\n8. Clique em **Formatar Número de Página**.\n9. Clique em **Iniciar em: 1**.\n10. Clique em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1115;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Configurar Número de Página.pdf",
+        "size": "550.7 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12065"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12064"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12069"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12071"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12070"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12066"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12068"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1115;FileID=12067"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 16:55 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:20 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "12.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1115;Nav=",
+      "itemId": "1115"
+    }
+  },
+  {
+    "id": "faq-10001112",
+    "faqNumber": "10001112",
+    "name": "Word – Criação de Etiquetas (Padrão 10 por página)",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Configuração de etiquetas no Office - 10 por Página",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Procedimento de Instalação**\n\n1. Clique em **Correspondências**.\n2. Clique em **Etiquetas**.\n3. Clique em **Opções**.\n4. Clique em **Nova Etiqueta**.\n5. Insira os seguintes valores.\n6. Clique em **OK**.\n7. Clique novamente em **OK**.\n8. Clique em **Novo documento**.\n9. Para exibir as linhas na página da etiqueta.\n10. Clique em **Layout**.\n11. Clique em **Exibir Linhas de Grade**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1112;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Criação de Etiquetas (Padrão 10 por página).pdf",
+        "size": "236.7 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12096"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12094"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12088"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12089"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12093"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12090"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12091"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1112;FileID=12092"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 16:46 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:25 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "12.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1112;Nav=",
+      "itemId": "1112"
+    }
+  },
+  {
+    "id": "faq-10001113",
+    "faqNumber": "10001113",
+    "name": "Word – Criação de Etiquetas (Padrão 16 por página)",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Configuração de etiquetas no Office - 16 por Página",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Procedimento de Instalação**\n\n1. Clique em **Correspondências**.\n2. Clique em **Etiquetas**.\n3. Clique em **Opções**.\n4. Clique em **Nova Etiqueta**.\n5. Insira os seguintes valores.\n6. Clique em **OK**.\n7. Clique novamente em **OK**.\n8. Clique em **Novo documento**.\n9. Para exibir as linhas na página da etiqueta.\n10. Clique em **Tabela Layout**.\n11. Clique em **Exibir Linhas de Grade**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1113;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Criação de Etiquetas (Padrão 16 por página).pdf",
+        "size": "234.9 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12083"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12084"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12085"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12086"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12082"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12081"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12080"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1113;FileID=12087"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 16:48 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:25 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "12.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1113;Nav=",
+      "itemId": "1113"
+    }
+  },
+  {
+    "id": "faq-10001114",
+    "faqNumber": "10001114",
+    "name": "Word – Criação de Etiquetas (Padrão 27 por página)",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Configuração de etiquetas no Office - 27 por Página",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Procedimento de Instalação**\n\n1. Clique em **Correspondências**.\n2. Clique em **Etiquetas**.\n3. Clique em **Opções**.\n4. Clique em **Nova Etiqueta**.\n5. Insira os seguintes valores.\n6. Clique em **OK**.\n7. Clique novamente em **OK**.\n8. Clique em **Novo documento**.\n9. Para exibir as linhas na página da etiqueta.\n10. Clique em **Tabela Layout**.\n11. Clique em **Exibir Linhas de Grade**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1114;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Criação de Etiquetas (Padrão 27 por página).pdf",
+        "size": "235.9 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12078"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12076"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12074"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12077"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12073"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12075"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12079"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1114;FileID=12072"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 16:51 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:20 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "12.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1114;Nav=",
+      "itemId": "1114"
+    }
+  }
+,
+  {
+    "id": "faq-10001116",
+    "faqNumber": "10001116",
+    "name": "Word – Criar ou Executar Macro",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Solicita a configuração para criar ou executar uma macro no Word",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Observação Importante**\n\nObservação: Use o teclado para selecionar texto enquanto você grava a macro. Macros não gravam seleções feitas com o mouse.\n\nObservação 1: Verifique se essa combinação já não está atribuída a outro item. Se estiver, tente uma combinação diferente.\n\nObservação 2: Use o teclado para selecionar texto enquanto você grava a macro. Macros não gravam seleções feitas com o mouse.\n\nObservação: Se você der à nova macro o mesmo nome de uma macro embutida no Word, as ações da nova macro substituirão a macro interna.\n\n📌 **Informações e Orientações**\n\n- Word do Microsoft 365, Word 2019, Word 2016, Word 2013, Word 2010.\n- No Word, você pode automatizar tarefas usadas com frequência criando e executando macros.\n- Uma macro é uma série de comandos e instruções que você agrupa juntos como um único comando para realizar uma tarefa automaticamente.\n- Em primeiro lugar, grave a macro. Em seguida, você poderá executá-la clicando em um botão da Barra de Ferramentas de Acesso Rápido ou pressionando uma combinação de teclas. Isso dependerá de como você a configurar.\n- GRAVAR MACRO COM BOTÃO.\n- Escolha uma imagem de botão.\n- Macro criada.\n- GRAVAR ETAPAS.\n- O Word grava seus cliques e pressionamentos de teclas.\n- O botão da sua macro aparece na Barra de Ferramentas de Acesso Rápido.\n- GRAVAR MACRO COM ATALHO DE TECLADO.\n- Agora, chegou a hora de gravar as etapas.\n- EXECUTAR MACRO.\n- DISPONIBILIZAR MACRO EM TODOS OS DOCUMENTOS.\n- Na aba ‘Estilos’.\n- ADICIONAR BOTÃO DE MACRO À FAIXA DE OPÇÕES.\n- Em Personalizar a faixa de opções.\n- ESCREVER MACRO DO ZERO NO VISUAL BASIC.\n- Na caixa Nome da macro.\n- Em ‘Macros em:’.\n- Depois de abrir o editor do Visual Basic, talvez você queira mais informações sobre como trabalhar com o Visual Basic for Applications.\n- Referência: Suporte Microsoft – Criar ou executar uma macro.\n\n📌 **Procedimento de Instalação**\n\n1. Para poupar tempo em tarefas que você costuma realizar com frequência, compacte as etapas em uma macro.\n2. Clique em **Exibir > Macros > Gravar Macro**.\n3. Digite um nome para a macro.\n4. Para usar essa macro em qualquer novo documento que você criar.\n5. Verifique no campo ‘Armazenar macro em’ exibe Todos os Documentos (Normal.dotm).\n6. Clique em **Botão**.\n7. Clique na nova macro (Normal.NewMacros.Macro1<nome da sua macro>).\n8. Clique em **Adicionar**.\n9. Clique em **Modificar**.\n10. Digite o nome desejado.\n11. Clique em **OK**.\n12. Clique novamente em **OK**.\n13. Clique nos comandos ou pressione as teclas para cada etapa na tarefa.\n14. Para parar de gravar.\n15. Clique em **Exibir > Macros > Parar Gravação**.\n16. Clique em **Exibir > Macros > Gravar Macro**.\n17. Digite um nome para a macro.\n18. Para usar essa macro em qualquer novo documento que você criar.\n19. Verifique no campo ‘Armazenar macro em’ exibe Todos os Documentos (Normal.dotm).\n20. Clique em **Teclado**.\n21. Digite uma combinação de teclas na caixa ‘Pressione a nova tecla de atalho’.\n22. Clique em **Atribuir**.\n23. Para usar esse atalho de teclado em qualquer novo documento criado.\n24. Verifique se a caixa ‘Salvar alterações em’ indica Normal.dotm.\n25. Clique em **Fechar**.\n26. Clique nos comandos ou pressione as teclas para cada etapa na tarefa. O Word grava seus cliques e pressionamentos de teclas.\n27. Para parar de gravar.\n28. Clique em **Exibir > Macros > Parar Gravação**.\n29. Para executar a macro.\n30. pressione as teclas de atalho do teclado.\n31. Para executar uma macro, clique no botão na Barra de Ferramentas de Acesso Rápido, pressione o atalho de teclado ou executar a macro a partir da lista de Macros.\n32. Clique em **Exibir > Macros > Exibir Macros**.\n33. Clique na macro a ser executada.\n34. Clique em **Executar**.\n35. Para disponibilizar uma macro de um documento em todos os novos documentos, adicione-a ao modelo Normal.dotm.\n36. Selecione o documento.\n37. Clique em **Copiar**.\n38. Clique em **Arquivo > Opções**.\n39. Clique em **Personalizar Faixa de Opções Em ‘Escolher comandos em:’**.\n40. Selecione a opção ‘Comandos Mais Usados’.\n41. Selecione a opção Macros.\n42. Clique na macro desejada.\n43. Clique em **novo grupo**.\n44. Clique em **renomear**.\n45. Clique em **Adicionar**.\n46. Clique em **Renomear Escolha uma imagem para a macro**.\n47. Digite o nome desejado.\n48. Clique em **OK duas vezes**.\n49. Clique em **‘Desenvolvedor’ No grupo ‘Código’**.\n50. Clique em **Macros**.\n51. Digite um nome para a macro.\n52. Para exibir uma lista de macros internas.\n53. Selecione a opção ‘Comandos do Word’.\n54. Clique no modelo ou documento no qual você deseja armazenar a macro.\n55. Clique em **Copiar**.\n56. Para disponibilizar sua macro em todos os documentos.\n57. Selecione a opção ‘Normal.dotm’.\n58. Clique em **Criar Será aberto o editor do Visual Basic**.\n59. Para obter mais informações, clique em ajuda do Microsoft Visual Basic no menu ajuda ou pressione F1.\n\n📌 **Acesso e Utilização**\n\n1. Abra o documento que contém a macro.\n2. Clique em **Exibir > Macros > Exibir Macros**.\n3. Clique na macro que você quer adicionar ao modelo Normal.dotm.\n4. Clique em **Biblioteca...**.\n\n📌 **Permissão de Acesso**\n\nClique na guia e no grupo personalizado onde você quer adicionar a macro.\n\nSe não tiver um grupo personalizado.\n\nDigite um nome para o seu grupo personalizado.\n\n🔗 **Procedimentos e Links Relacionados**\n\n- [**Suporte Microsoft – Criar ou executar uma macro**](https://support.microsoft.com/pt-br/office/criar-ou-executar-uma-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c)",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1116;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Criar ou Executar Macro.pdf",
+        "size": "853.6 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12063"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12039"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12044"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12047"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12040"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12033"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12052"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12041"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12056"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12043"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12059"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12032"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12060"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12048"
+      },
+      {
+        "title": "Imagem 14",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12035"
+      },
+      {
+        "title": "Imagem 15",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12037"
+      },
+      {
+        "title": "Imagem 16",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12036"
+      },
+      {
+        "title": "Imagem 17",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12051"
+      },
+      {
+        "title": "Imagem 18",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12049"
+      },
+      {
+        "title": "Imagem 19",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12055"
+      },
+      {
+        "title": "Imagem 20",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12058"
+      },
+      {
+        "title": "Imagem 21",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12038"
+      },
+      {
+        "title": "Imagem 22",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12034"
+      },
+      {
+        "title": "Imagem 23",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12042"
+      },
+      {
+        "title": "Imagem 24",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12050"
+      },
+      {
+        "title": "Imagem 25",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12057"
+      },
+      {
+        "title": "Imagem 26",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12054"
+      },
+      {
+        "title": "Imagem 27",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12046"
+      },
+      {
+        "title": "Imagem 28",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12053"
+      },
+      {
+        "title": "Imagem 29",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1116;FileID=12061"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 17:04 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:19 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "11.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1116;Nav=",
+      "itemId": "1116"
+    }
+  },
+  {
+    "id": "faq-10001120",
+    "faqNumber": "10001120",
+    "name": "Word – Habilitar Macro",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Solicita habilitar macro no Word",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Em Configurações de Macro Habilite as opções abaixo.\n\n📌 **Procedimento de Instalação**\n\n1. Clique em **Arquivo > Opções**.\n2. Clique em **Central de Confiabilidade**.\n3. Clique em **Configurações da Central de Confiabilidade**.\n4. Clique em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1120;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Habilitar Macro.pdf",
+        "size": "199.1 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1120;FileID=12024"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1120;FileID=12026"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1120;FileID=12025"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 17:15 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:18 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "11.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1120;Nav=",
+      "itemId": "1120"
+    }
+  },
+  {
+    "id": "faq-10001111",
+    "faqNumber": "10001111",
+    "name": "Word – Habilitar Tecla Insert",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Solicita a configuração para habilitar a tecla Insert no Word",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Em ‘Categorias’.\n- Em ‘Comandos’.\n- Em ‘Teclas atuais’ Será adicionada a tecla Insert.\n\n📌 **Procedimento de Instalação**\n\n1. Clique em **Arquivo > Opções**.\n2. Clique em **Personalizar Faixa de Opções**.\n3. Clique em **Personalizar**.\n4. Selecione a opção Todos os comandos.\n5. Selecione a opção Sobrescrever.\n6. Insira o cursor no campo logo abaixo.\n7. Pressione a tecla Insert.\n8. Clique em **Atribuir**.\n9. Clique em **Fechar**.\n10. Clique em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1111;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Habilitar Tecla Insert.pdf",
+        "size": "278.1 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1111;FileID=12007"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1111;FileID=12008"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1111;FileID=12009"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1111;FileID=12010"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 16:41 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:26 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "10.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1111;Nav=",
+      "itemId": "1111"
+    }
+  },
+  {
+    "id": "faq-10001121",
+    "faqNumber": "10001121",
+    "name": "Word – Impressão de Relatórios (Sistema Tramita)",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Impressão de Relatório no Word - Sistema Tramita",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Observação Importante**\n\nObservação: O tamanho da página não está no formato A4 o que prejudica as margens laterais do documento, caso seja um relatório com orientação Paisagem.\n\n📌 **Informações e Orientações**\n\n- Esse roteiro tem como objetivo auxiliar aos usuários do sistema tramita na impressão dos relatórios do Word.\n- Isso se faz necessário, pois durante o processo de geração dos relatórios para o formato Word, algumas propriedades como margem dos cabeçalhos e formato do papel são perdidas.\n- A correção da formatação é muito simples e exige poucas configurações para que a impressão saia corretamente.\n- GERAÇÃO DO RELATÓRIO DESEJADO.\n- O primeiro passo consiste na geração do relatório.\n- Ajuste o tamanho da página para A4, para que as margens laterais do documento sejam corrigidas.\n- É possível verificar que as margens laterais já estão ajustadas Porém a margem superior do cabeçalho ainda não.\n- Em Configurar Página.\n- Na aba “Layout” observe que na seção ‘Cabeçalho e Rodapé’ as margens estão zeradas Faça o ajuste dessas margens para o tamanho desejado.\n- Recomenda-se 2 cm tanto para o cabeçalho quanto para o rodapé.\n- Relatório Ajustado.\n\n📌 **Procedimento de Instalação**\n\n1. Clique na opção ‘Configurar Página’.\n2. Verifique na aba ‘Margens’ Se a orientação do papel (Retrato ou Paisagem) está configurada corretamente para o tipo de relatório que foi gerado.\n3. Clique em **OK**.\n\n📌 **Acesso ao Tramita)**\n\n1. Abra o aplicativo MS Word Verifique de que suas margens e o tamanho do papel precisam ser ajustados.\n2. Clique em **Arquivo > Imprimir**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1121;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Impressão de Relatórios (Sistema Tramita).pdf",
+        "size": "955.7 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12020"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12019"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12023"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12021"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12017"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12018"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12022"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1121;FileID=12016"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 17:19 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:17 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "11.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1121;Nav=",
+      "itemId": "1121"
+    }
+  },
+  {
+    "id": "faq-10002238",
+    "faqNumber": "10002238",
+    "name": "Word – Remover Autoria de Documento",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Remover autoria de documento",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Observação Importante**\n\nEste procedimento também funciona com o Excel e PowerPoint.\n\nObservação: Em ‘Pessoas Relacionadas’ será exibida a autoria do documento.\n\n📌 **Informações e Orientações**\n\n- Em ‘Pessoas relacionadas’ não será exibido as informações sobre o autor do documento.\n\n📌 **Procedimento de Remoção**\n\n1. Clique em **Arquivo > Informações**.\n2. Clique em **Verificar Se há Problemas**.\n3. Clique em **Inspecionar Documento**.\n4. Desmarque todas as opções, deixando somente Propriedades do Documento e Informações Pessoais.\n5. Clique em **Inspecionar**.\n6. Clique em **Remover Tudo**.\n7. Clique em **Fechar**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2238;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Remover Autoria de Documento.pdf",
+        "size": "321.3 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2238;FileID=12098"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2238;FileID=12100"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2238;FileID=12197"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2238;FileID=12196"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2238;FileID=12099"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "11/06/2025 11:04 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:15 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "17.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2238;Nav=",
+      "itemId": "2238"
+    }
+  }
+,
+  {
+    "id": "faq-10001122",
+    "faqNumber": "10001122",
+    "name": "Word – Salvamento Automático",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas.",
+    "subject": "Salvamento Automático no Word 2013",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "WORD",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Encontre o documento desejado.\n- A mensagem ‘ARQUIVO NÃO SALVO RECUPERADO’ será exibida.\n\n📌 **Procedimento de Instalação**\n\n1. Clique em **Arquivo > Opções**.\n2. Clique em **Salvar**.\n3. Marque a opção ‘Salvar informações de AutoRecuperação a cada (escolha o tempo desejado) minutos’.\n4. Clique em **OK**.\n5. Para recuperar um documento desejado.\n6. Clique em **Arquivo > Informações**.\n7. Clique em **Gerenciar Documento**.\n8. Clique em **Recuperar Documento Não Salvo**.\n9. Clique em **Abrir**.\n10. Clique em **Salvar como**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1122;Nav=",
+    "attachments": [
+      {
+        "name": "Word – Salvamento Automático.pdf",
+        "size": "337.4 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1122;FileID=12011"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1122;FileID=12015"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1122;FileID=12013"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1122;FileID=12014"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1122;FileID=12012"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OFFICE > WORD > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OFFICE::WORD::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "29/01/2024 17:22 (Leonardo Silva de Amarante)",
+      "alterado": "18/09/2025 16:16 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "10.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1122;Nav=",
+      "itemId": "1122"
+    }
+  },
+  {
+    "id": "faq-10002326",
+    "faqNumber": "10002326",
+    "name": "Configuração do Drive (U:) utilizando OneDrive",
+    "type": "Requisição de serviço",
+    "service": "Configuração de software",
+    "subject": "Configuração da Unidade U via OneDrive",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "ONEDRIVE",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Observação Importante**\n\nObservação: Caso o OneDrive já esteja configurado no perfil do usuário, basta realizar a sincronização pela versão Web. Nesse cenário, o passo de configuração inicial do OneDrive pode ser desconsiderado.\n\nObservação: Usuários que não possuem a licença do Office 365 na versão Desktop devem seguir o procedimento abaixo para abrir arquivos do Office.\n\n📌 **Informações e Orientações**\n\n- Inserir o “E-mail corporativo”.\n- Realize a “Autenticação”.\n- Acesso rápido.\n- Drive de Rede mapeado no “Windows Explorer \\ Explorador de Arquivos” através do Microsoft OneDrive.\n\n📌 **Procedimento de Instalação**\n\n1. Clique em **“Sim”**.\n2. Clique em, “Aplicativos/OneDrive”.\n3. Selecione o Drive U: do cliente Ex. Documentos - (Nome do Setor).\n4. Clique em **“Sincronizar”**.\n5. Marque a CheckBox e clique em “Abrir”.\n6. Informe o endereço de e-mail institucional do cliente.\n7. Clique em **“Entrar”**.\n8. Clique em **“Avançar”**.\n9. Clique novamente em **“Avançar”**.\n10. Clique novamente em **“Avançar”**.\n11. Clique novamente em **“Avançar”**.\n12. Clique em **“Obtenha o aplicativo móvel”**.\n13. Clique em **“Abrir a minha pasta do OneDrive”**.\n14. Clique com o botão direito do mouse em cima do arquivo desejado e.\n15. selecione a opção “OneDrive\\Exibir Online”.\n\n📌 **Acesso e Utilização**\n\n1. Acesse o site: Office.com.\n2. Clique em **“Entrar”**.\n\n📌 **Credenciais de Acesso**\n\nInserir a “Senha de Rede”.\n\n🔗 **Procedimentos e Links Relacionados**\n\n- [**Office.com**](https://www.office.com/)",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2326;Nav=",
+    "attachments": [
+      {
+        "name": "Configuração do Drive (U) utilizando OneDrive.pdf",
+        "size": "1.1 MBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16009"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15991"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16002"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15999"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15994"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15992"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16003"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16001"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15995"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15997"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15988"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15993"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16004"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16000"
+      },
+      {
+        "title": "Imagem 14",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15990"
+      },
+      {
+        "title": "Imagem 15",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15998"
+      },
+      {
+        "title": "Imagem 16",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15996"
+      },
+      {
+        "title": "Imagem 17",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=15989"
+      },
+      {
+        "title": "Imagem 18",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2326;FileID=16008"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ONEDRIVE > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ONEDRIVE::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "26/02/2026 12:11 (Gabriel Queiroz Pires)",
+      "alterado": "27/02/2026 10:31 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "26.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2326;Nav=",
+      "itemId": "2326"
+    }
+  },
+  {
+    "id": "faq-10002346",
+    "faqNumber": "10002346",
+    "name": "OneDrive – Configurar duas contas",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Aplicações Corporativas",
+    "subject": "Solicita instalação do OneDrive",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "ONEDRIVE",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- OneDrive – Serviço de armazenamento em nuvem da Microsoft. Informamos que a capacidade de armazenamento foi atualizada para 1 TB. Essa alteração se aplica a todos os usuários do Senado Federal, incluindo os parlamentares.\n- O OneDrive permite utilizar mais de uma conta simultaneamente no mesmo computador (Windows/Mac), desde que seja uma conta pessoal e uma conta corporativa/estudantil.\n- Na página da Microsoft, há informações sobre o uso de contas no OneDrive. Não é possível conectar simultaneamente duas contas pessoais diferentes no aplicativo para desktop.\n- Também não é possível \"mesclar\" duas contas existentes em uma só, apenas gerenciá-las simultaneamente.\n- Limitações e Dicas: Contas Pessoais: Para usar duas contas pessoais, será necessário alternar entre elas (desvincular uma e vincular a outra) ou usar o OneDrive na web para uma delas. Pastas Separadas: O Windows criará pastas separadas no gerenciador de arquivos: \"OneDrive - Pessoal\" e \"OneDrive - Nome da Empresa\". Celular: O aplicativo móvel do OneDrive permite adicionar múltiplas contas, incluindo mais de uma conta pessoal, tocando na foto de perfil e selecionando \"Adicionar conta\".\n- Se a conta já estiver conectada ao OneDrive, você pode adicionar ou remover outra conta diretamente nas Configurações do aplicativo.\n- CONFIGURAR CONTA.\n- Em ‘Conta’.\n- Escolha uma das opções.\n- A janela do OneDrive será aberta.\n- DESVINCULAR CONTA.\n- A conta será desvinculada.\n- O Ícone ficará inativo.\n\n📌 **Procedimento de Instalação**\n\n1. Caso não haja nenhuma conta configurada no OneDrive, prossiga com a instalação seguindo o procedimento OneDrive – Instalação.\n2. Clique com o botão direito no ícone do OneDrive.\n3. Clique em **Configurações**.\n4. Clique em **Adicionar uma conta**.\n5. Insira o endereço de e-mail (Ex: Gmail, Hotmail...).\n6. Clique em **Entrar**.\n7. Verifique o local da pasta.\n8. Clique em **Próximo**.\n9. Aguarde o carregamento.\n10. Clique em **Agora não**.\n11. Clique em **Próximo**.\n12. Clique novamente em **Próximo**.\n13. Clique novamente em **Próximo**.\n14. Clique em **Agora não**.\n15. Clique em **Abrir minha pasta OneDrive**.\n16. Será criado o ícone na barra conforme a imagem.\n17. Clique com o botão direito no ícone do OneDrive.\n18. Clique em **Configurações**.\n19. Clique em **Desvincular conta**.\n\n🔗 **Procedimentos e Links Relacionados**\n\n- [**Microsoft**](https://learn.microsoft.com/pt-br/answers/questions/5280622/onedrive-e-contas-pessoais#:~:text=Gerenciar%20v%C3%A1rias%20contas%20do%20OneDrive,junto%20com%20sua%20conta%20pessoal.)\n- [**OneDrive – Instalação**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=916;Nav=)",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2346;Nav=",
+    "attachments": [
+      {
+        "name": "OneDrive – Configurar duas contas.pdf",
+        "size": "733.1 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16534"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16218"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16219"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16220"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16221"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16222"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=16223"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16224"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16225"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16226"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16227"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16228"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16229"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16230"
+      },
+      {
+        "title": "Imagem 14",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16231"
+      },
+      {
+        "title": "Imagem 15",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16232"
+      },
+      {
+        "title": "Imagem 16",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16233"
+      },
+      {
+        "title": "Imagem 17",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2346;FileID=16234"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ONEDRIVE > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ONEDRIVE::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "onde drive configurar duas mais contas desvincular vincular conta pessoal conta corporativa",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "10/04/2026 11:44 (Mayara Sales)",
+      "alterado": "18/06/2026 09:51 (Mayara Sales)",
+      "atualizadoEm": "20.05.2026",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2346;Nav=",
+      "itemId": "2346"
+    }
+  },
+  {
+    "id": "faq-1000916",
+    "faqNumber": "1000916",
+    "name": "OneDrive – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação/atualização da aplicação",
+    "subject": "Solicita instalação do OneDrive",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "ONEDRIVE",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- OneDrive – Serviço de armazenamento em nuvem da Microsoft. Informamos que a capacidade de armazenamento foi atualizada para 1 TB. Essa alteração se aplica a todos os usuários do Senado Federal, incluindo os parlamentares.\n- Como verificar a capacidade de armazenamento do seu OneDrive.\n- Versão Desktop.\n- Barra de ferramentas > ícone Onedrive > Ajuda e Configurações.\n- Confirmando o tamanho do armazenamento.\n- Como verificar a capacidade de armazenamento do seu OneDrive.\n- Versão WEB.\n- Barra de ferramentas > ícone Ondedrive > Ver Online.\n- Confirmando o tamanho do armazenamento.\n- Capacidade de armazenamento 1TB.\n- Se desejar é possível configurar duas contas no OneDrive, prossiga com a configuração seguindo o procedimento OneDrive – Configurar duas contas.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\OneDrive (Microsoft)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Clique em **Executar**.\n7. Aguarde o processo de instalação.\n8. Será criado um ícone no Windows Explorer E um ícone na barra de menus.\n9. Clique no ícone para iniciar o aplicativo.\n10. Insira o e-mail (E-mail externo ou institucional).\n11. Clique em **Entrar**.\n12. Insira a senha.\n13. Selecione a opção desejada.\n14. Clique em **Avançar**.\n\n🔗 **Procedimentos e Links Relacionados**\n\n- [**OneDrive – Configurar duas contas**](https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2346)",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=916;Nav=",
+    "attachments": [
+      {
+        "name": "OneDrive – Instalação.pdf",
+        "size": "578.5 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=16408"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12320"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12322"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12324"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12319"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12314"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12317"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12325"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12323"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12321"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12315"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=12316"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=16405"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=16406"
+      },
+      {
+        "title": "Imagem 14",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=16407"
+      },
+      {
+        "title": "Imagem 15",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=916;FileID=16404"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ONEDRIVE > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ONEDRIVE::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "onde drive configurar conta contas desvincular vincular conta pessoal conta corporativa",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 15:30 (Leonardo Silva de Amarante)",
+      "alterado": "20/05/2026 11:52 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "20.05.2026",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=916;Nav=",
+      "itemId": "916"
+    }
+  },
+  {
+    "id": "faq-1000915",
+    "faqNumber": "1000915",
+    "name": "OpenRefine – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita a instalação do software OpenRefine",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "OPENREFINE",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações Complementares**\n\nSOFTWARE RESTRITO\n\n📌 **Informações e Orientações**\n\n- O OpenRefine é um software de código aberto para tratamento de dados (organização, correção e refinamento de dados estruturados).\n- Programa pronto para ser utilizado.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\OpenRefine (Code for Science Society Inc)**.\n2. Clique em **Sim**.\n3. Clique em **Prosseguir**.\n4. Clique em **Sim**.\n5. Insira o número do chamado.\n6. Clique em **OK**.\n7. Aguarde o processo de instalação.\n8. Clique em **OK**.\n9. Será criado um ícone na Área de Trabalho.\n\n📌 **Credenciais de Acesso**\n\nInsira login e senha.\n\n📌 **Permissão de Acesso**\n\nNecessário solicitar autorização via Central de Serviços.\n\nIntranet > Central de Serviços > Informática > Apoio a Aplicativos > Autorização de acesso a sistemas.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=915;Nav=",
+    "attachments": [
+      {
+        "name": "OpenRefine – Instalação.pdf",
+        "size": "352.2 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12475"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12331"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12336"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12334"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12330"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12332"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12476"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12327"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12329"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12335"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=915;FileID=12326"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OPENREFINE > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OPENREFINE::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 15:21 (Leonardo Silva de Amarante)",
+      "alterado": "27/06/2025 14:06 (Mayara Sales)",
+      "atualizadoEm": "26.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=915;Nav=",
+      "itemId": "915"
+    }
+  }
+,
+  {
+    "id": "faq-1000913",
+    "faqNumber": "1000913",
+    "name": "Vídeo Editor (OpenShot Studios) – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita instalação do OpenShot",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "OPENSHOT",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- OpenShot é um editor e criador de vídeos gratuito, compatível com vários formatos e de edição simples.\n- Aceite os termos.\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\Video Editor (OpenShot Studios)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Clique novamente em **OK**.\n7. Clique em **Próximo**.\n8. Clique novamente em **Próximo**.\n9. Selecione a opção desejada.\n10. Clique em **Próximo**.\n11. Clique em **Instalar**.\n12. Aguarde o processo de instalação.\n13. Clique em **Concluir**.\n14. Após realizar o primeiro acesso.\n15. Marque a opção ‘Sim, eu gostaria de melhorar o OpenShot’.\n16. Clique em **Esconder Tutorial**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=913;Nav=",
+    "attachments": [
+      {
+        "name": "Vídeo Editor (OpenShot Studios) – Instalação.pdf",
+        "size": "456.2 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12351"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12346"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12337"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12340"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12341"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12350"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12344"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12339"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12347"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12345"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12342"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12348"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12338"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=913;FileID=12343"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > OPENSHOT - VÍDEO EDITOR > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::OPENSHOT - VÍDEO EDITOR::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 15:14 (Leonardo Silva de Amarante)",
+      "alterado": "26/06/2025 11:39 (Mayara Sales)",
+      "atualizadoEm": "26.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=913;Nav=",
+      "itemId": "913"
+    }
+  },
+  {
+    "id": "faq-1000910",
+    "faqNumber": "1000910",
+    "name": "Orban Loudness Meter – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita instalação do Orban Loudness Meter",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "ORBAN LOUDNESS METER",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Software medidor de volume que aceita entradas estéreo de dois canais e exibe picos instantâneos.\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\Loudness Meter (Orban)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Clique novamente em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=910;Nav=",
+    "attachments": [
+      {
+        "name": "Orban Loudness Meter – Instalação.pdf",
+        "size": "258.1 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12367"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12364"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12368"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12365"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12366"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12369"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=910;FileID=12363"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > ORBAN LOUDNESS METER > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::ORBAN LOUDNESS METER::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 14:58 (Leonardo Silva de Amarante)",
+      "alterado": "26/06/2025 16:22 (Mayara Sales)",
+      "atualizadoEm": "26.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=910;Nav=",
+      "itemId": "910"
+    }
+  },
+  {
+    "id": "faq-10001862",
+    "faqNumber": "10001862",
+    "name": "Parchitect Designer – Erro Licença",
+    "type": "Incidente",
+    "service": "Suporte a software de Estações de Trabalho",
+    "subject": "Erro Parchitect Designer",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PARCHITECTS",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Mensagem de erro.\n- SOLUÇÃO.\n- Necessária liberação da Porta: 0 no firewall (de rede, não local) para o computador conseguir comunicação externa.\n\n📌 **Procedimento de Correção**\n\n1. Caso apresente o erro a seguir, significa que o programa não consegue comunicação externa com o servidor MySQL para validação da licença.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1862;Nav=",
+    "attachments": [
+      {
+        "name": "Parchitect Designer – Erro Licença.pdf",
+        "size": "203.4 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1862;FileID=12449"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=1862;FileID=12450"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PARCHITECTS > ERRO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PARCHITECTS::ERRO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "23/07/2024 09:41 (Mayara Sales)",
+      "alterado": "27/06/2025 11:49 (Mayara Sales)",
+      "atualizadoEm": "27.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=1862;Nav=",
+      "itemId": "1862"
+    }
+  },
+  {
+    "id": "faq-1000907",
+    "faqNumber": "1000907",
+    "name": "Parchitect Designer – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita instalação do software PARCHITECTS",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PARCHITECTS",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações Complementares**\n\nOBSERVAÇÃO:\nPROCEDIMENTO REALIZADO PELO NÍVEL 2\n\n📌 **Informações e Orientações**\n\n- Process Architect Designer é uma ferramenta baseada em linguagem gráfica e textual que possibilita, de forma rápida e correta, identificar, caracterizar e especificar os processos de negócios.\n- Pré-requisitos:\n- Necessário liberar o computador que receberá a instalação, no firewall da rede, para comunicação externa: Link para o servidor MySQL: mysql03.labp3.net Port: 3306 Informe os dados do equipamento: Endereço lógico Endereço IP Observação: Esta liberação é realizada através de acionamento ao SUAPE.\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\PArchitect (P3Tech - LabP3.net)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Clique novamente em **OK**.\n7. Clique em **Avançar**.\n8. Clique novamente em **Avançar**.\n9. Clique novamente em **Avançar**.\n10. Clique novamente em **Avançar**.\n11. Clique em **Instalar**.\n12. Aguarde o processo de instalação.\n13. Insira a chave da licença “1CGFE-AEIOF-3155G-HI2AD-1K7GN”.\n14. Clique em **OK**.\n15. Clique em **Concluir**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=907;Nav=",
+    "attachments": [
+      {
+        "name": "Parchitect Designer – Instalação.pdf",
+        "size": "473.8 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=16847"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12468"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12469"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12470"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12471"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12474"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12472"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12465"
+      },
+      {
+        "title": "Imagem 8",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12473"
+      },
+      {
+        "title": "Imagem 9",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12460"
+      },
+      {
+        "title": "Imagem 10",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12466"
+      },
+      {
+        "title": "Imagem 11",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12464"
+      },
+      {
+        "title": "Imagem 12",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12461"
+      },
+      {
+        "title": "Imagem 13",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12462"
+      },
+      {
+        "title": "Imagem 14",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=907;FileID=12463"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PARCHITECTS > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PARCHITECTS::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 14:31 (Leonardo Silva de Amarante)",
+      "alterado": "13/07/2026 14:52 (Mayara Sales)",
+      "atualizadoEm": "13.07.2026",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=907;Nav=",
+      "itemId": "907"
+    }
+  },
+  {
+    "id": "faq-1000906",
+    "faqNumber": "1000906",
+    "name": "PDF Creator – Converter e Unir Documentos",
+    "type": "Requisição de serviço",
+    "service": "Configuração de Software.",
+    "subject": "Solicita orientação para converter e unir documentos",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PDF CREATOR",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Será exibida uma janela do programa com as opções.\n\n📌 **Procedimento de Instalação**\n\n1. Para Salvar Direcione para o local desejado.\n2. Para unir.\n3. Clique em **Mesclar**.\n4. Para unir os documentos.\n5. Selecione os documentos que deseja unir.\n6. Para definir a ordem dos documentos utilize as setas na lateral esquerda.\n7. Clique em **Unir Tudo**.\n8. Clique em **Continuar**.\n9. Clique em **Salvar**.\n\n📌 **Acesso e Utilização**\n\n1. Abra o documento que deseja converter, seja ele word, excel, pdf ou página de internet.\n2. Clique em **Imprimir Direcione para a Impressora PDF-A**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=906;Nav=",
+    "attachments": [
+      {
+        "name": "PDF Creator – Converter e Unir Documentos.pdf",
+        "size": "306.6 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12484"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12481"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12483"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12480"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12482"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=906;FileID=12478"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PDF CREATOR > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PDF CREATOR::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 12:27 (Leonardo Silva de Amarante)",
+      "alterado": "17/09/2025 14:57 (Gabriel Queiroz Pires)",
+      "atualizadoEm": "27.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=906;Nav=",
+      "itemId": "906"
+    }
+  },
+  {
+    "id": "faq-1000905",
+    "faqNumber": "1000905",
+    "name": "PDF Creator – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita a instalação do PDF Creator",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PDF CREATOR",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Programa utilizado para converter documentos com o padrão PDF-A.\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\PDF Creator - Impressora PDF-A (pdfforge)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Aguarde o processo de instalação.\n7. Clique em **Opções do Aplicativo**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=905;Nav=",
+    "attachments": [
+      {
+        "name": "PDF Creator – Instalação.pdf",
+        "size": "300.8 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12489"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12486"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12491"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12488"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12492"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12485"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12487"
+      },
+      {
+        "title": "Imagem 7",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=905;FileID=12490"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PDF CREATOR > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PDF CREATOR::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 12:23 (Leonardo Silva de Amarante)",
+      "alterado": "27/06/2025 15:07 (Mayara Sales)",
+      "atualizadoEm": "27.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=905;Nav=",
+      "itemId": "905"
+    }
+  },
+  {
+    "id": "faq-10002251",
+    "faqNumber": "10002251",
+    "name": "PDFGear – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita a instalação do PDF Gear",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PDF GEAR",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- O PDFGear é um software poderoso para trabalhar com arquivos PDF.\n- Ele oferece uma ampla gama de recursos, incluindo visualização, edição, anotações, gerenciamento de páginas, conversão, OCR, assinar, combinar e dividir, converter e proteção de arquivos PDF.\n- Um atalho será criado na Área de Trabalho.\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\PDFGear (Piers Zoew)**.\n2. Aguarde o processo da instalação.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2251;Nav=",
+    "attachments": [
+      {
+        "name": "PDFGear – Instalação.pdf",
+        "size": "276.6 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2251;FileID=13947"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2251;FileID=13944"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2251;FileID=13945"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2251;FileID=13604"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=2251;FileID=13946"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PDF GEAR > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PDF GEAR::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "03/09/2025 10:09 (Leonardo Silva de Amarante)",
+      "alterado": "01/10/2025 10:47 (Mayara Sales)",
+      "atualizadoEm": "03.09.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=2251;Nav=",
+      "itemId": "2251"
+    }
+  },
+  {
+    "id": "faq-1000904",
+    "faqNumber": "1000904",
+    "name": "PDFJumbler – Instalação",
+    "type": "Requisição de serviço",
+    "service": "Instalação de software",
+    "subject": "Solicita instalação do PDF Jumbler",
+    "category": "APLICATIVOS",
+    "subCategory": "COMERCIAIS",
+    "system": "PDF JUMBLER",
+    "associatedProcedureId": "proc-config-app",
+    "procedure": "📌 **Informações e Orientações**\n\n- Programa utilizado para adicionar, remover e alterar páginas de arquivos PDF de forma simples.\n- Pré-requisito: Java (JRE) versão 8u151(x86), localizado na Central de Atendimento X:\\Java JRE (Oracle).\n- Tela inicial do programa.\n\n📌 **Procedimento de Instalação**\n\n1. Execute o arquivo localizado em **X:\\PdfJumbler (Martin Gropp)**.\n2. Clique em **Sim**.\n3. Clique novamente em **Sim**.\n4. Insira o número do chamado.\n5. Clique em **OK**.\n6. Clique novamente em **OK**.",
+    "originalLink": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=904;Nav=",
+    "attachments": [
+      {
+        "name": "PDFJumbler – Instalação.pdf",
+        "size": "252.9 KBytes",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12499"
+      }
+    ],
+    "visualRefs": [
+      {
+        "title": "Imagem 1",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12493"
+      },
+      {
+        "title": "Imagem 2",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12494"
+      },
+      {
+        "title": "Imagem 3",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12498"
+      },
+      {
+        "title": "Imagem 4",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12495"
+      },
+      {
+        "title": "Imagem 5",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12497"
+      },
+      {
+        "title": "Imagem 6",
+        "url": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;Subaction=DownloadAttachment;ItemID=904;FileID=12501"
+      }
+    ],
+    "adminInfo": {
+      "caminho": "FAQ > CENTRAL DE ATENDIMENTO > APLICATIVOS > COMERCIAIS > PDF JUMBLER > INSTALAÇÃO/CONFIGURAÇÃO",
+      "categoria": "CENTRAL DE ATENDIMENTO::APLICATIVOS::COMERCIAIS::PDF JUMBLER::INSTALAÇÃO/CONFIGURAÇÃO",
+      "palavrasChave": "[não informadas]",
+      "estado": "interno (atendente)",
+      "validade": "válido",
+      "criado": "22/01/2024 12:18 (Leonardo Silva de Amarante)",
+      "alterado": "23/10/2025 16:14 (Mayara Sales)",
+      "atualizadoEm": "27.06.2025",
+      "paginaOriginal": "https://capri.senado.leg.br/otrs/index.pl?Action=AgentFAQZoom;ItemID=904;Nav=",
+      "itemId": "904"
+    }
   }
 ];
-
-
-
-
-
