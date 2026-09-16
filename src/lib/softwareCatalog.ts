@@ -157,7 +157,12 @@ export function categorizeSystem(systemName?: string, category?: string, subject
     'audacity', 'vlc', 'avidemux', 'obs studio', 'video converter',
     'libreoffice', 'writer', 'calc', 'impress',
     'notepad++', 'vscode', 'visual studio', 'pycharm', 'anaconda', 'dbeaver', 'git',
-    'java', 'zoom', 'skype', 'anydesk', 'teamviewer'
+    'java', 'zoom', 'skype', 'anydesk', 'teamviewer',
+    'pdf viewer', 'pdf jumbler', 'pencil', 'pje',
+    'power bi', 'power log', 'presence suite',
+    'projectlibre', 'qgis', 'qlik', 'quicklook',
+    'qware', 'iramuteq', 'r foundation', 'rstudio', 'r-project', 'rawtherapee',
+    'saúdesf', 'saudesf', 'benner', 'sccm'
   ];
 
   if (desktopPatterns.some(p => sys.includes(p) || cat.includes(p))) {

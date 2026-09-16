@@ -422,7 +422,7 @@ O texto é:
                     title="Clique para alternar o Provedor de IA"
                   >
                     <Sparkles className="h-3.5 w-3.5" />
-                    {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Gemini (Google)'}
+                    {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Copilot 365 Senado'}
                   </button>
                   <button 
                     onClick={() => signOut(auth)}
@@ -456,7 +456,7 @@ O texto é:
                   title="Clique para alternar o Provedor de IA"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
-                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Gemini (Google)'}
+                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Copilot 365 Senado'}
                 </button>
               </div>
             </header>
@@ -480,7 +480,7 @@ O texto é:
                   title="Clique para alternar o Provedor de IA"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
-                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Gemini (Google)'}
+                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Copilot 365 Senado'}
                 </button>
               </div>
             </header>
@@ -508,7 +508,7 @@ O texto é:
                   title="Clique para alternar o Provedor de IA"
                 >
                   <Sparkles className="h-3.5 w-3.5" />
-                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Gemini (Google)'}
+                  {appSettings.aiProvider === 'openrouter' ? `OpenRouter (${getModelFriendlyName(appSettings.openRouterModel)})` : 'Copilot 365 Senado'}
                 </button>
                 <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full flex items-center">ONLINE ({user.displayName || user.email})</span>
                 <button 
@@ -690,7 +690,7 @@ O texto é:
                   }`}
                 >
                   <div>
-                    <div className="font-semibold text-sm">Gemini (Google)</div>
+                    <div className="font-semibold text-sm">Copilot 365 Senado</div>
                     <div className="text-xs text-slate-500 mt-0.5">Usa a API nativa do Google Gemini 2.5 Flash</div>
                   </div>
                   {appSettings.aiProvider !== 'openrouter' && (
