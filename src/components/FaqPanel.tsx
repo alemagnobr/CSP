@@ -280,6 +280,18 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
     setExpandedFaqIds(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const handleExpandAll = () => {
+    const allMap: Record<string, boolean> = {};
+    filteredFaqs.forEach(f => {
+      allMap[f.id] = true;
+    });
+    setExpandedFaqIds(allMap);
+  };
+
+  const handleCollapseAll = () => {
+    setExpandedFaqIds({});
+  };
+
   // Open Modal for New FAQ
   const handleOpenAddModal = () => {
     setEditingFaq(null);
@@ -811,9 +823,40 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
             </button>
           </div>
         ) : (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between text-xs text-slate-500 px-1">
-              <span>Exibindo <strong>{filteredFaqs.length}</strong> de <strong>{faqs.length}</strong> FAQs</span>
+          <div className="space-y-3.5">
+            {/* Header controls: Counter and Expand/Collapse All */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 px-1 pb-1">
+              <div className="flex items-center gap-2">
+                <span>Exibindo <strong>{filteredFaqs.length}</strong> de <strong>{faqs.length}</strong> FAQs</span>
+                {filteredFaqs.length !== faqs.length && (
+                  <span className="text-[11px] text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md font-medium border border-indigo-200/60">
+                    Filtro ativo
+                  </span>
+                )}
+              </div>
+
+              {filteredFaqs.length > 0 && (
+                <div className="flex items-center gap-2 self-start sm:self-auto">
+                  <button
+                    type="button"
+                    onClick={handleExpandAll}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl shadow-2xs transition-all cursor-pointer"
+                    title="Abrir o procedimento de todas as FAQs exibidas"
+                  >
+                    <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
+                    Expandir todas
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCollapseAll}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl shadow-2xs transition-all cursor-pointer"
+                    title="Minimizar todas as FAQs para navegação ágil"
+                  >
+                    <ChevronUp className="h-3.5 w-3.5 text-slate-400" />
+                    Recolher todas
+                  </button>
+                </div>
+              )}
             </div>
 
             {filteredFaqs.map((faq) => {
@@ -824,17 +867,28 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               return (
                 <div 
                   key={faq.id}
-                  className="bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                  className={`bg-white border rounded-2xl transition-all duration-200 overflow-hidden ${
+                    isExpanded 
+                      ? 'border-indigo-400 shadow-md ring-2 ring-indigo-500/10' 
+                      : 'border-slate-200 hover:border-slate-300 shadow-xs hover:shadow-sm'
+                  }`}
                 >
-                  {/* Card Header */}
-                  <div className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border-b border-slate-100">
+                  {/* Card Header (Clickable to toggle expansion) */}
+                  <div 
+                    onClick={() => toggleExpand(faq.id)}
+                    className="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white hover:bg-slate-50/70 transition-colors cursor-pointer select-none"
+                  >
                     <div className="flex-1 space-y-2">
                       <div className="flex flex-wrap items-center gap-2">
                         {/* FAQ Number Pill */}
                         <button
-                          onClick={() => handleCopy(faq.faqNumber, 'Número da FAQ', faq.id)}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleCopy(faq.faqNumber, 'Número da FAQ', faq.id);
+                          }}
                           title="Clique para copiar o número da FAQ"
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-mono text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg font-mono text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition-colors cursor-pointer"
                         >
                           <span>FAQ#: {faq.faqNumber}</span>
                           {copiedFaqId === faq.id && copiedSection === 'Número da FAQ' ? (
@@ -845,13 +899,13 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                         </button>
 
                         {/* Software System Badge */}
-                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
                           <Tag className="h-3 w-3 text-slate-400" />
                           {faq.system || 'Software'}
                         </span>
 
                         {/* Subcategory Badge */}
-                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold border ${
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold border ${
                           isInstalacao 
                             ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
                             : 'bg-amber-50 text-amber-700 border-amber-200'
@@ -862,7 +916,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
                         {/* Type Badge */}
                         {faq.type && (
-                          <span className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium ${
+                          <span className={`inline-flex items-center px-2 py-0.5 rounded-lg text-[11px] font-medium ${
                             faq.type === 'Incidente'
                               ? 'bg-purple-50 text-purple-700 border border-purple-200'
                               : 'bg-blue-50 text-blue-700 border border-blue-200'
@@ -873,7 +927,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
                         {/* Restrito / N2 Warning Badge */}
                         {isRestrito && (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
                             <ShieldAlert className="h-3 w-3" />
                             {faq.observacoes?.includes('N2') ? 'ATENDIMENTO N2' : 'RESTRITO / AUTORIZAÇÃO'}
                           </span>
@@ -903,7 +957,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                       </div>
 
                       {/* FAQ Title */}
-                      <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-snug">
                         {faq.name}
                       </h2>
 
@@ -919,10 +973,38 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                     </div>
 
                     {/* Header Action Buttons */}
-                    <div className="flex items-center gap-2 self-end md:self-center">
+                    <div 
+                      className="flex items-center gap-2 shrink-0 self-end md:self-center"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {/* Primary Toggle Button */}
                       <button
+                        type="button"
+                        onClick={() => toggleExpand(faq.id)}
+                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
+                          isExpanded 
+                            ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200' 
+                            : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs hover:shadow'
+                        }`}
+                      >
+                        {isExpanded ? (
+                          <>
+                            <ChevronUp className="h-4 w-4" />
+                            <span>Recolher</span>
+                          </>
+                        ) : (
+                          <>
+                            <ChevronDown className="h-4 w-4" />
+                            <span>Ver Procedimento</span>
+                          </>
+                        )}
+                      </button>
+
+                      {/* Fast Copy Procedure */}
+                      <button
+                        type="button"
                         onClick={() => handleCopy(faq.procedure, 'Procedimento', faq.id)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100 border border-indigo-200/80 rounded-xl transition-colors cursor-pointer"
                         title="Copiar apenas os passos do procedimento"
                       >
                         {copiedFaqId === faq.id && copiedSection === 'Procedimento' ? (
@@ -933,98 +1015,92 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                         ) : (
                           <>
                             <Copy className="h-3.5 w-3.5" />
-                            <span>Copiar Procedimento</span>
+                            <span>Copiar</span>
                           </>
                         )}
                       </button>
 
                       <button
+                        type="button"
                         onClick={() => handleCopyFullFaq(faq)}
-                        className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors"
+                        className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
                         title="Copiar FAQ completa"
                       >
                         <FileText className="h-4 w-4" />
                       </button>
 
                       <button
+                        type="button"
                         onClick={() => handleOpenEditModal(faq)}
-                        className="p-1.5 text-slate-500 hover:text-indigo-600 hover:bg-slate-100 rounded-lg transition-colors"
+                        className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
                         title="Editar FAQ"
                       >
                         <Edit2 className="h-4 w-4" />
                       </button>
 
                       <button
+                        type="button"
                         onClick={() => handleDeleteFaq(faq.id, faq.name)}
-                        className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-slate-100 rounded-lg transition-colors"
+                        className="p-2 text-slate-400 hover:text-rose-600 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
                         title="Excluir FAQ"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
-
-                      <button
-                        onClick={() => toggleExpand(faq.id)}
-                        className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors"
-                        title={isExpanded ? "Recolher detalhes" : "Expandir detalhes"}
-                      >
-                        {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-                      </button>
                     </div>
                   </div>
 
-                  {/* Highlight Banner (if restricted or N2) */}
-                  {faq.observacoes && (
-                    <div className={`px-5 py-2.5 text-xs font-semibold border-b flex items-start gap-2 ${
-                      faq.observacoes.includes('NÃO AUTORIZADO')
-                        ? 'bg-rose-50 border-rose-200 text-rose-800'
-                        : faq.observacoes.includes('N2')
-                        ? 'bg-purple-50 border-purple-200 text-purple-800'
-                        : 'bg-amber-50 border-amber-200 text-amber-900'
-                    }`}>
-                      <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Observação Importante:</strong> {faq.observacoes}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Primary Fast Procedure View (Visible always or expanded) */}
-                  <div className="p-5 space-y-4">
-                    {/* Procedimento Passo a Passo */}
-                    {faq.procedure ? (
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                            <Check className="h-4 w-4 text-emerald-600" />
-                            Procedimento de Resolução / Instalação
-                          </h4>
-                          <span className="text-[11px] text-slate-400 font-medium">Passo a passo padronizado</span>
+                  {/* Expandable Procedure & Details Content */}
+                  {isExpanded && (
+                    <div className="border-t border-slate-100 bg-slate-50/40 animate-fadeIn">
+                      {/* Highlight Banner (if restricted or N2) */}
+                      {faq.observacoes && (
+                        <div className={`px-5 py-3 text-xs font-semibold border-b flex items-start gap-2.5 ${
+                          faq.observacoes.includes('NÃO AUTORIZADO')
+                            ? 'bg-rose-50 border-rose-200 text-rose-800'
+                            : faq.observacoes.includes('N2')
+                            ? 'bg-purple-50 border-purple-200 text-purple-800'
+                            : 'bg-amber-50 border-amber-200 text-amber-900'
+                        }`}>
+                          <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
+                          <div>
+                            <strong>Observação Importante:</strong> {faq.observacoes}
+                          </div>
                         </div>
-                        <div className="bg-slate-50 border border-slate-200/90 rounded-lg p-4 font-sans text-sm text-slate-800 whitespace-pre-line leading-relaxed selection:bg-indigo-100">
-                          {faq.procedure}
-                        </div>
-                      </div>
-                    ) : null}
+                      )}
 
-                    {/* Informações e Orientações (Bullet points) */}
-                    {faq.technicalInfo && (
-                      <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5 mb-2">
-                          <Info className="h-4 w-4 text-indigo-500" />
-                          Informações e Orientações Técnicas
-                        </h4>
-                        <div className="bg-slate-50/70 border border-slate-200/70 rounded-lg p-3.5 text-xs text-slate-700 whitespace-pre-line leading-relaxed">
-                          {faq.technicalInfo}
-                        </div>
-                      </div>
-                    )}
+                      <div className="p-5 space-y-4">
+                        {/* Procedimento Passo a Passo */}
+                        {faq.procedure ? (
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                                <Check className="h-4 w-4 text-emerald-600" />
+                                Procedimento de Resolução / Instalação
+                              </h4>
+                              <span className="text-[11px] text-slate-400 font-medium">Passo a passo padronizado</span>
+                            </div>
+                            <div className="bg-white border border-slate-200/90 rounded-xl p-4 font-sans text-sm text-slate-800 whitespace-pre-line leading-relaxed selection:bg-indigo-100 shadow-2xs">
+                              {faq.procedure}
+                            </div>
+                          </div>
+                        ) : null}
 
-                    {/* Details section visible when expanded */}
-                    {isExpanded && (
-                      <div className="pt-4 border-t border-slate-100 space-y-4 animate-in fade-in duration-150">
+                        {/* Informações e Orientações (Bullet points) */}
+                        {faq.technicalInfo && (
+                          <div>
+                            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5 mb-2">
+                              <Info className="h-4 w-4 text-indigo-500" />
+                              Informações e Orientações Técnicas
+                            </h4>
+                            <div className="bg-white border border-slate-200/70 rounded-xl p-3.5 text-xs text-slate-700 whitespace-pre-line leading-relaxed shadow-2xs">
+                              {faq.technicalInfo}
+                            </div>
+                          </div>
+                        )}
+
                         {/* Permissão de Acesso / Licenciamento */}
                         {faq.permissaoAcesso && (
-                          <div className="p-3.5 bg-amber-50/80 border border-amber-200/80 rounded-lg text-xs text-amber-900 leading-relaxed">
+                          <div className="p-3.5 bg-amber-50/80 border border-amber-200/80 rounded-xl text-xs text-amber-900 leading-relaxed">
                             <strong className="block font-bold mb-1 flex items-center gap-1.5">
                               <ShieldAlert className="h-4 w-4 text-amber-700" />
                               Regras de Acesso e Licenciamento:
@@ -1035,14 +1111,14 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
                         {/* Credenciais de Acesso */}
                         {faq.credenciaisAcesso && (
-                          <div className="p-3 bg-blue-50/80 border border-blue-200/80 rounded-lg text-xs text-blue-900">
+                          <div className="p-3 bg-blue-50/80 border border-blue-200/80 rounded-xl text-xs text-blue-900">
                             <strong>Credenciais de Acesso:</strong> {faq.credenciaisAcesso}
                           </div>
                         )}
 
                         {/* Acesso e Utilização */}
                         {faq.acessoUtilizacao && (
-                          <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800">
+                          <div className="p-3.5 bg-white border border-slate-200 rounded-xl text-xs text-slate-800 shadow-2xs">
                             <strong className="block font-bold mb-1 text-slate-700">Validação / Acesso e Utilização:</strong>
                             <p className="whitespace-pre-line">{faq.acessoUtilizacao}</p>
                           </div>
@@ -1088,10 +1164,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                                     href={att.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs text-slate-800 transition-colors group"
+                                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-xs text-slate-800 transition-colors group shadow-2xs"
                                   >
                                     <span className="font-medium group-hover:text-indigo-600 truncate">{att.name}</span>
-                                    {att.size && <span className="text-[10px] text-slate-400 shrink-0 ml-2 font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200">{att.size}</span>}
+                                    {att.size && <span className="text-[10px] text-slate-400 shrink-0 ml-2 font-mono bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200">{att.size}</span>}
                                   </a>
                                 ))}
                               </div>
@@ -1112,7 +1188,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                                     href={img.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
+                                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium transition-colors shadow-2xs"
                                   >
                                     <span>{img.title}</span>
                                     <ExternalLink className="h-2.5 w-2.5 text-slate-400" />
@@ -1125,7 +1201,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
                         {/* Administrative Details Accordion Footer */}
                         {faq.adminInfo && (
-                          <div className="bg-slate-100/70 rounded-lg p-3 text-[11px] text-slate-500 space-y-1 border border-slate-200/70">
+                          <div className="bg-slate-100/70 rounded-xl p-3 text-[11px] text-slate-500 space-y-1 border border-slate-200/70">
                             {faq.adminInfo.caminho && (
                               <p><strong className="text-slate-700">Caminho:</strong> {faq.adminInfo.caminho}</p>
                             )}
@@ -1150,9 +1226,24 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                             )}
                           </div>
                         )}
+
+                        {/* Bottom Collapse Button */}
+                        <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between">
+                          <span className="text-[11px] text-slate-400">
+                            FAQ#{faq.faqNumber} • {faq.system}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => toggleExpand(faq.id)}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-xl shadow-2xs transition-colors cursor-pointer"
+                          >
+                            <ChevronUp className="h-3.5 w-3.5" />
+                            Recolher procedimento
+                          </button>
+                        </div>
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
