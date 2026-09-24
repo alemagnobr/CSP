@@ -1,10 +1,22 @@
 import { FAQ } from '@/types';
+import { newFaqsBatch } from './newFaqsBatch';
+import { faqsBatchMfaDriveU } from './faqsBatchMfaDriveU';
+import { faqsBatchPosseDigitalizacaoOutlook } from './faqsBatchPosseDigitalizacaoOutlook';
+import { faqsBatchPainelProxyRecadastro } from './faqsBatchPainelProxyRecadastro';
+import { faqsBatchResidenciasBloqueioEventos } from './faqsBatchResidenciasBloqueioEventos';
+import { faqsBatchTreinamentoOtrs } from './faqsBatchTreinamentoOtrs';
 
 /**
  * Base de FAQs oficial da aplicação.
  * Construída a partir das especificações exatas passadas pelo usuário.
  */
 export const initialFaqs: FAQ[] = [
+  ...newFaqsBatch,
+  ...faqsBatchMfaDriveU,
+  ...faqsBatchPosseDigitalizacaoOutlook,
+  ...faqsBatchPainelProxyRecadastro,
+  ...faqsBatchResidenciasBloqueioEventos,
+  ...faqsBatchTreinamentoOtrs,
   {
     id: 'faq-1000681',
     faqNumber: '1000681',

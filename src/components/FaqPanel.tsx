@@ -30,6 +30,7 @@ import { cleanFaq, stripAndFormatHtml } from '@/lib/utils';
 import { SoftwareGroupType, SOFTWARE_GROUPS, categorizeSystem } from '@/lib/softwareCatalog';
 import { SoftwareGroupSelector } from '@/components/SoftwareGroupSelector';
 import { SoftwareDirectoryModal } from '@/components/SoftwareDirectoryModal';
+import { searchFaqsIntelligently } from '@/lib/faqSearchEngine';
 
 interface FaqPanelProps {
   appSettings: AppSettings;
@@ -144,42 +145,87 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     return systemsByGroupMap[selectedSoftwareGroup] || systemsByGroupMap.TODOS;
   }, [systemsByGroupMap, selectedSoftwareGroup]);
 
+  // Helper classification functions for consistent stats & filtering
+  const isInstalacaoFaq = (faq: FAQ) => {
+    const sub = (faq.subCategory || '').toUpperCase();
+    const serv = (faq.service || '').toLowerCase();
+    const type = (faq.type || '').toLowerCase();
+    const name = (faq.name || '').toLowerCase();
+    return (
+      sub.includes('INSTAL') ||
+      type.includes('requisi') ||
+      serv.includes('instal') ||
+      serv.includes('software') ||
+      name.includes('instala') ||
+      name.includes('configura') ||
+      name.includes('acesso')
+    );
+  };
+
+  const isErroFaq = (faq: FAQ) => {
+    const sub = (faq.subCategory || '').toUpperCase();
+    const type = (faq.type || '').toLowerCase();
+    const name = (faq.name || '').toLowerCase();
+    const subject = (faq.subject || '').toLowerCase();
+    const serv = (faq.service || '').toLowerCase();
+    return (
+      sub.includes('ERRO') ||
+      type.includes('incidente') ||
+      name.includes('erro') ||
+      name.includes('falha') ||
+      name.includes('problema') ||
+      subject.includes('erro') ||
+      subject.includes('indisponibilidade') ||
+      serv.includes('incidente')
+    );
+  };
+
+  const isRestritoFaq = (faq: FAQ) => {
+    const obs = (faq.observacoes || '').toLowerCase();
+    const sub = (faq.subCategory || '').toUpperCase();
+    const cat = (faq.category || '').toUpperCase();
+    return (
+      obs.includes('restrito') ||
+      obs.includes('não autorizado') ||
+      obs.includes('somente') ||
+      sub.includes('TREINAMENTO') ||
+      sub.includes('NÍVEL 2') ||
+      sub.includes('SAEQUI') ||
+      sub.includes('SERMAN') ||
+      sub.includes('SUAPE') ||
+      cat.includes('TREINAMENTO')
+    );
+  };
+
   // Statistics
   const stats = useMemo(() => {
     const total = faqs.length;
-    const instalacaoCount = faqs.filter(f => f.subCategory?.toUpperCase().includes('INSTAL')).length;
-    const erroCount = faqs.filter(f => f.subCategory?.toUpperCase().includes('ERRO')).length;
-    const restritoCount = faqs.filter(f => f.observacoes?.toLowerCase().includes('restrito') || f.observacoes?.toLowerCase().includes('não autorizado')).length;
+    const instalacaoCount = faqs.filter(isInstalacaoFaq).length;
+    const erroCount = faqs.filter(isErroFaq).length;
+    const restritoCount = faqs.filter(isRestritoFaq).length;
     return { total, instalacaoCount, erroCount, restritoCount };
   }, [faqs]);
 
-  // Filtered FAQs
+  // Intelligent Search with Fuzzy Matching, Typo Tolerance and IT Synonyms
+  const intelligentSearchResult = useMemo(() => {
+    return searchFaqsIntelligently(faqs, searchTerm);
+  }, [faqs, searchTerm]);
+
+  // Filtered FAQs (applies group, category, type, and system filters on top of intelligent search)
   const filteredFaqs = useMemo(() => {
-    return faqs.filter(faq => {
+    return intelligentSearchResult.results.filter(faq => {
       // Group match
       if (selectedSoftwareGroup !== 'TODOS') {
         const group = categorizeSystem(faq.system, faq.category, faq.subject);
         if (group !== selectedSoftwareGroup) return false;
       }
 
-      // Search text match
-      const search = searchTerm.toLowerCase().trim();
-      const matchesSearch = !search || (
-        (faq.faqNumber || '').toLowerCase().includes(search) ||
-        (faq.name || '').toLowerCase().includes(search) ||
-        (faq.system || '').toLowerCase().includes(search) ||
-        (faq.subject || '').toLowerCase().includes(search) ||
-        (faq.service || '').toLowerCase().includes(search) ||
-        (faq.technicalInfo || '').toLowerCase().includes(search) ||
-        (faq.procedure || '').toLowerCase().includes(search) ||
-        (faq.observacoes || '').toLowerCase().includes(search) ||
-        (faq.adminInfo?.palavrasChave || '').toLowerCase().includes(search)
-      );
-
-      // SubCategory match
-      const matchesSubCategory = selectedSubCategory === 'TODOS' || 
-        (selectedSubCategory === 'INSTALACAO' && faq.subCategory?.toUpperCase().includes('INSTAL')) ||
-        (selectedSubCategory === 'ERRO' && faq.subCategory?.toUpperCase().includes('ERRO'));
+      // SubCategory / Quick filter match
+      const matchesSubCategory = 
+        selectedSubCategory === 'TODOS' || 
+        (selectedSubCategory === 'INSTALACAO' && isInstalacaoFaq(faq)) ||
+        (selectedSubCategory === 'ERRO' && isErroFaq(faq)) ||
+        (selectedSubCategory === 'RESTRITO' && isRestritoFaq(faq));
 
       // Type match
       const matchesType = selectedType === 'TODOS' || faq.type === selectedType;
@@ -187,9 +233,9 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
       // System match
       const matchesSystem = selectedSystem === 'TODOS' || faq.system === selectedSystem;
 
-      return matchesSearch && matchesSubCategory && matchesType && matchesSystem;
+      return matchesSubCategory && matchesType && matchesSystem;
     });
-  }, [faqs, searchTerm, selectedSubCategory, selectedType, selectedSystem, selectedSoftwareGroup]);
+  }, [intelligentSearchResult.results, selectedSubCategory, selectedType, selectedSystem, selectedSoftwareGroup]);
 
   // Helper to show temporary toast
   const showToast = (msg: string) => {
@@ -386,11 +432,11 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
             <button
               onClick={() => setIsDirectoryModalOpen(true)}
               title="Abrir diretório completo com todos os softwares e sistemas"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors border border-indigo-200 shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100/90 rounded-xl transition-all border border-indigo-200/80 shadow-xs cursor-pointer"
             >
               <Grid className="h-4 w-4 text-indigo-600" />
               Diretório de Softwares & Sistemas
@@ -399,9 +445,9 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               <button
                 onClick={handleRestoreDefaults}
                 title="Restaurar lista com as FAQs padrão"
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-600 bg-white hover:bg-slate-50 rounded-xl transition-all border border-slate-200 shadow-xs cursor-pointer"
               >
-                <RotateCcw className="h-4 w-4" />
+                <RotateCcw className="h-3.5 w-3.5 text-slate-500" />
                 Restaurar Padrões
               </button>
             )}
@@ -409,15 +455,15 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               <button
                 onClick={handleClearAllFaqs}
                 title="Limpar todas as FAQs da base (começar do zero)"
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors border border-rose-200 shadow-xs"
+                className="inline-flex items-center gap-1.5 px-2.5 py-2 text-xs font-medium text-slate-400 hover:text-rose-600 bg-transparent hover:bg-rose-50/60 rounded-xl transition-all border border-transparent hover:border-rose-200 cursor-pointer"
               >
-                <Trash2 className="h-4 w-4 text-rose-500" />
-                Limpar Tudo (Zerar)
+                <Trash2 className="h-3.5 w-3.5" />
+                Limpar Tudo
               </button>
             )}
             <button
               onClick={handleOpenAddModal}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm hover:shadow transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
             >
               <Plus className="h-4 w-4" />
               Nova FAQ
@@ -438,47 +484,126 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
           />
         </div>
 
-        {/* Metric summary counters */}
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
-          <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 flex items-center gap-3">
-            <div className="p-2.5 bg-blue-100/60 rounded-lg text-blue-700">
+        {/* Metric summary counters - Interactive filter cards */}
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-5">
+          {/* Card 1: Total */}
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedSubCategory('TODOS');
+              setSelectedSoftwareGroup('TODOS');
+              setSelectedType('TODOS');
+              setSelectedSystem('TODOS');
+            }}
+            title="Clique para visualizar todo o catálogo de FAQs"
+            className={`group text-left rounded-2xl p-4 flex items-center gap-3.5 transition-all duration-200 border cursor-pointer outline-none ${
+              selectedSubCategory === 'TODOS' && selectedSoftwareGroup === 'TODOS' && selectedType === 'TODOS'
+                ? 'bg-blue-50/80 border-blue-300 ring-2 ring-blue-500/25 shadow-sm'
+                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-xs'
+            }`}
+          >
+            <div className={`p-3 rounded-xl transition-colors ${
+              selectedSubCategory === 'TODOS' && selectedSoftwareGroup === 'TODOS'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'bg-blue-100/70 text-blue-700 group-hover:bg-blue-100'
+            }`}>
               <Layers className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total de FAQs</p>
-              <p className="text-xl font-extrabold text-slate-800">{stats.total}</p>
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Total de FAQs</p>
+              <div className="flex items-baseline gap-1.5 mt-0.5">
+                <span className="text-2xl font-black text-slate-800">{stats.total}</span>
+                <span className="text-[11px] text-blue-600 font-semibold">todas</span>
+              </div>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-100/60 rounded-lg text-emerald-700">
+          {/* Card 2: Instalação / Configuração */}
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedSubCategory(selectedSubCategory === 'INSTALACAO' ? 'TODOS' : 'INSTALACAO');
+            }}
+            title="Clique para filtrar apenas procedimentos de Instalação e Requisições"
+            className={`group text-left rounded-2xl p-4 flex items-center gap-3.5 transition-all duration-200 border cursor-pointer outline-none ${
+              selectedSubCategory === 'INSTALACAO'
+                ? 'bg-emerald-50/80 border-emerald-300 ring-2 ring-emerald-500/25 shadow-sm'
+                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-xs'
+            }`}
+          >
+            <div className={`p-3 rounded-xl transition-colors ${
+              selectedSubCategory === 'INSTALACAO'
+                ? 'bg-emerald-600 text-white shadow-xs'
+                : 'bg-emerald-100/70 text-emerald-700 group-hover:bg-emerald-100'
+            }`}>
               <Wrench className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Instalação / Config.</p>
-              <p className="text-xl font-extrabold text-slate-800">{stats.instalacaoCount}</p>
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Instalação & Config.</p>
+              <div className="flex items-baseline gap-1.5 mt-0.5">
+                <span className="text-2xl font-black text-slate-800">{stats.instalacaoCount}</span>
+                <span className="text-[11px] text-emerald-600 font-semibold">requisições</span>
+              </div>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 flex items-center gap-3">
-            <div className="p-2.5 bg-amber-100/60 rounded-lg text-amber-700">
+          {/* Card 3: Erros & Incidentes */}
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedSubCategory(selectedSubCategory === 'ERRO' ? 'TODOS' : 'ERRO');
+            }}
+            title="Clique para filtrar apenas Incidentes e Resolução de Erros"
+            className={`group text-left rounded-2xl p-4 flex items-center gap-3.5 transition-all duration-200 border cursor-pointer outline-none ${
+              selectedSubCategory === 'ERRO'
+                ? 'bg-amber-50/80 border-amber-300 ring-2 ring-amber-500/25 shadow-sm'
+                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-xs'
+            }`}
+          >
+            <div className={`p-3 rounded-xl transition-colors ${
+              selectedSubCategory === 'ERRO'
+                ? 'bg-amber-600 text-white shadow-xs'
+                : 'bg-amber-100/70 text-amber-700 group-hover:bg-amber-100'
+            }`}>
               <AlertTriangle className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Erros & Incidentes</p>
-              <p className="text-xl font-extrabold text-slate-800">{stats.erroCount}</p>
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Erros & Incidentes</p>
+              <div className="flex items-baseline gap-1.5 mt-0.5">
+                <span className="text-2xl font-black text-slate-800">{stats.erroCount}</span>
+                <span className="text-[11px] text-amber-600 font-semibold">chamados</span>
+              </div>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 flex items-center gap-3">
-            <div className="p-2.5 bg-purple-100/60 rounded-lg text-purple-700">
+          {/* Card 4: Treinamento / Restritos / N2 */}
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedSubCategory(selectedSubCategory === 'RESTRITO' ? 'TODOS' : 'RESTRITO');
+            }}
+            title="Clique para filtrar Manuais, Treinamento e Nível 2"
+            className={`group text-left rounded-2xl p-4 flex items-center gap-3.5 transition-all duration-200 border cursor-pointer outline-none ${
+              selectedSubCategory === 'RESTRITO'
+                ? 'bg-purple-50/80 border-purple-300 ring-2 ring-purple-500/25 shadow-sm'
+                : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-xs'
+            }`}
+          >
+            <div className={`p-3 rounded-xl transition-colors ${
+              selectedSubCategory === 'RESTRITO'
+                ? 'bg-purple-600 text-white shadow-xs'
+                : 'bg-purple-100/70 text-purple-700 group-hover:bg-purple-100'
+            }`}>
               <ShieldAlert className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Restritos / N2</p>
-              <p className="text-xl font-extrabold text-slate-800">{stats.restritoCount}</p>
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Treinamento & N2</p>
+              <div className="flex items-baseline gap-1.5 mt-0.5">
+                <span className="text-2xl font-black text-slate-800">{stats.restritoCount}</span>
+                <span className="text-[11px] text-purple-600 font-semibold">manuais/N2</span>
+              </div>
             </div>
-          </div>
+          </button>
         </div>
       </div>
 
@@ -498,7 +623,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
             {searchTerm ? (
               <button 
                 onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
               >
                 Limpar
               </button>
@@ -509,28 +634,91 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
             )}
           </div>
 
+          {/* Smart Search Assistant & Typo Correction Banner */}
+          {searchTerm.trim().length >= 2 && (
+            <div className="animate-fadeIn">
+              {intelligentSearchResult.suggestedCorrection ? (
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 text-indigo-950 px-4 py-2.5 rounded-xl shadow-xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-1 bg-indigo-600 text-white rounded-md shrink-0">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <span>
+                      Você quis dizer:{' '}
+                      <button
+                        type="button"
+                        onClick={() => setSearchTerm(intelligentSearchResult.suggestedCorrection!.suggested)}
+                        className="font-bold text-indigo-700 hover:text-indigo-900 underline decoration-indigo-400 decoration-2 cursor-pointer ml-1"
+                        title="Clique para aplicar a palavra sugerida"
+                      >
+                        "{intelligentSearchResult.suggestedCorrection.suggested}"
+                      </button>
+                      ? Mostrando resultados tolerantes a erro de digitação.
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-indigo-700 bg-white px-2 py-0.5 rounded-md border border-indigo-200/80 shadow-2xs self-start sm:self-auto">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Fuzzy Search Ativo
+                  </span>
+                </div>
+              ) : intelligentSearchResult.hasFuzzyMatch ? (
+                <div className="flex items-center justify-between text-xs bg-slate-50 border border-slate-200/90 text-slate-700 px-3.5 py-2 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
+                    <span>
+                      Busca inteligente com tolerância a digitação e sinônimos de TI do Senado Federal.
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Aproximação Ativa</span>
+                </div>
+              ) : null}
+            </div>
+          )}
+
           {/* Bottom Line: Responsive Filters and Selects */}
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex flex-wrap items-center gap-2.5">
               {/* SubCategory Filter */}
-              <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-1">
+              <div className="flex items-center rounded-xl border border-slate-200 bg-slate-100/80 p-1">
                 <button
                   onClick={() => setSelectedSubCategory('TODOS')}
-                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'TODOS' ? 'bg-white shadow-sm text-slate-800' : 'text-slate-600 hover:text-slate-900'}`}
+                  className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                    selectedSubCategory === 'TODOS' 
+                      ? 'bg-white shadow-xs text-slate-900 font-bold' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
                 >
-                  Todas Categorias
+                  Todas ({stats.total})
                 </button>
                 <button
                   onClick={() => setSelectedSubCategory('INSTALACAO')}
-                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'INSTALACAO' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                  className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                    selectedSubCategory === 'INSTALACAO' 
+                      ? 'bg-emerald-600 text-white shadow-xs font-bold' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
                 >
-                  Instalação
+                  Instalação ({stats.instalacaoCount})
                 </button>
                 <button
                   onClick={() => setSelectedSubCategory('ERRO')}
-                  className={`px-3 py-1.5 rounded-md font-semibold transition-colors ${selectedSubCategory === 'ERRO' ? 'bg-amber-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                  className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                    selectedSubCategory === 'ERRO' 
+                      ? 'bg-amber-600 text-white shadow-xs font-bold' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
                 >
-                  Erros
+                  Erros ({stats.erroCount})
+                </button>
+                <button
+                  onClick={() => setSelectedSubCategory('RESTRITO')}
+                  className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
+                    selectedSubCategory === 'RESTRITO' 
+                      ? 'bg-purple-600 text-white shadow-xs font-bold' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Treinamento / N2 ({stats.restritoCount})
                 </button>
               </div>
 
@@ -690,6 +878,28 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                             {faq.observacoes?.includes('N2') ? 'ATENDIMENTO N2' : 'RESTRITO / AUTORIZAÇÃO'}
                           </span>
                         )}
+
+                        {/* Search Match Reason Indicator */}
+                        {searchTerm.trim().length >= 2 && intelligentSearchResult.matchDetails.has(faq.id) && (() => {
+                          const detail = intelligentSearchResult.matchDetails.get(faq.id);
+                          if (detail?.matchReason === 'fuzzy') {
+                            return (
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200/90 shadow-2xs">
+                                <Sparkles className="h-3 w-3 text-indigo-500" />
+                                Termo aproximado: {detail.matchedTerms.slice(0, 1).join(', ')}
+                              </span>
+                            );
+                          }
+                          if (detail?.matchReason === 'synonym') {
+                            return (
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/90 shadow-2xs">
+                                <Sparkles className="h-3 w-3 text-emerald-500" />
+                                Sinônimo: {detail.matchedTerms.slice(0, 1).join(', ')}
+                              </span>
+                            );
+                          }
+                          return null;
+                        })()}
                       </div>
 
                       {/* FAQ Title */}
