@@ -22,7 +22,13 @@ import {
   Layers,
   BookOpen,
   Grid,
-  Filter
+  Filter,
+  Bot,
+  Loader2,
+  Zap,
+  CheckCircle2,
+  HelpCircle,
+  Send
 } from 'lucide-react';
 import { AppSettings, FAQ, FAQAttachment, FAQVisualRef } from '@/types';
 import { initialFaqs } from '@/data/defaultFaqs';
@@ -30,7 +36,11 @@ import { cleanFaq, stripAndFormatHtml } from '@/lib/utils';
 import { SoftwareGroupType, SOFTWARE_GROUPS, categorizeSystem } from '@/lib/softwareCatalog';
 import { SoftwareGroupSelector } from '@/components/SoftwareGroupSelector';
 import { SoftwareDirectoryModal } from '@/components/SoftwareDirectoryModal';
-import { searchFaqsIntelligently } from '@/lib/faqSearchEngine';
+import { 
+  searchFaqsIntelligently, 
+  diagnoseFaqContextWithGemini, 
+  GeminiContextDiagnosticResult 
+} from '@/lib/faqSearchEngine';
 
 interface FaqPanelProps {
   appSettings: AppSettings;
@@ -46,6 +56,10 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
 
   // Search and Filter States
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchMode, setSearchMode] = useState<'standard' | 'gemini'>('standard');
+  const [isGeminiLoading, setIsGeminiLoading] = useState(false);
+  const [geminiResult, setGeminiResult] = useState<GeminiContextDiagnosticResult | null>(null);
+  const [geminiError, setGeminiError] = useState<string | null>(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>('TODOS');
   const [selectedType, setSelectedType] = useState<string>('TODOS');
   const [selectedSystem, setSelectedSystem] = useState<string>('TODOS');
@@ -211,9 +225,50 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     return searchFaqsIntelligently(faqs, searchTerm);
   }, [faqs, searchTerm]);
 
-  // Filtered FAQs (applies group, category, type, and system filters on top of intelligent search)
+  // Context Diagnosis with Gemini AI
+  const handleRunGeminiDiagnosis = async (complaintText?: string) => {
+    const query = (complaintText !== undefined ? complaintText : searchTerm).trim();
+    if (!query) {
+      showToast('Digite o relato do cliente antes de buscar.');
+      return;
+    }
+
+    setIsGeminiLoading(true);
+    setGeminiError(null);
+
+    try {
+      const result = await diagnoseFaqContextWithGemini(query, faqs);
+      setGeminiResult(result);
+      if (result.recommendedFaqIds.length === 0) {
+        showToast('Nenhuma FAQ específica identificada para o relato.');
+      } else {
+        showToast(`${result.recommendedFaqIds.length} FAQ(s) identificadas pelo Gemini.`);
+      }
+    } catch (err: any) {
+      console.error('Error during Gemini diagnosis:', err);
+      setGeminiError(err.message || 'Erro ao processar diagnóstico com IA.');
+      showToast('Falha no diagnóstico com IA.');
+    } finally {
+      setIsGeminiLoading(false);
+    }
+  };
+
+  // Map of Gemini reasonings for fast lookup in cards
+  const geminiReasoningsMap = useMemo(() => {
+    const map = new Map<string, { relevanceScore: number; whyMatch: string }>();
+    if (geminiResult?.reasonings) {
+      geminiResult.reasonings.forEach(r => map.set(r.faqId, r));
+    }
+    return map;
+  }, [geminiResult]);
+
+  // Filtered FAQs (applies group, category, type, and system filters on top of search)
   const filteredFaqs = useMemo(() => {
-    return intelligentSearchResult.results.filter(faq => {
+    const sourceList = (searchMode === 'gemini' && geminiResult)
+      ? geminiResult.matchedFaqs
+      : intelligentSearchResult.results;
+
+    return sourceList.filter(faq => {
       // Group match
       if (selectedSoftwareGroup !== 'TODOS') {
         const group = categorizeSystem(faq.system, faq.category, faq.subject);
@@ -235,7 +290,15 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
 
       return matchesSubCategory && matchesType && matchesSystem;
     });
-  }, [intelligentSearchResult.results, selectedSubCategory, selectedType, selectedSystem, selectedSoftwareGroup]);
+  }, [
+    searchMode, 
+    geminiResult, 
+    intelligentSearchResult.results, 
+    selectedSubCategory, 
+    selectedType, 
+    selectedSystem, 
+    selectedSoftwareGroup
+  ]);
 
   // Helper to show temporary toast
   const showToast = (msg: string) => {
@@ -622,32 +685,179 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
       {/* Filter and Search Bar */}
       <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-slate-200 px-6 py-3.5 shadow-sm space-y-3">
         <div className="max-w-7xl mx-auto flex flex-col gap-3">
-          {/* Top Line: Full-width high-contrast search input */}
-          <div className="relative w-full">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
-            <input
-              type="text"
-              placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-11 pr-24 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
-            />
-            {searchTerm ? (
-              <button 
-                onClick={() => setSearchTerm('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
+          {/* Search Mode Toggle Tabs */}
+          <div className="flex flex-wrap items-center justify-between gap-2.5">
+            <div className="inline-flex items-center p-1 rounded-xl bg-slate-100/90 border border-slate-200 text-xs">
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchMode('standard');
+                  setGeminiResult(null);
+                }}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  searchMode === 'standard'
+                    ? 'bg-white text-indigo-700 shadow-2xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
               >
-                Limpar
+                <Search className="h-3.5 w-3.5 text-indigo-500" />
+                <span>Busca Padrão (Fuzzy)</span>
               </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchMode('gemini');
+                }}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  searchMode === 'gemini'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-2xs'
+                    : 'text-purple-700 hover:text-purple-900'
+                }`}
+              >
+                <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+                <span>Diagnóstico com IA Gemini</span>
+                <span className="text-[10px] bg-purple-500/20 text-purple-200 px-1 rounded uppercase font-mono">Anti-Alucinação</span>
+              </button>
+            </div>
+
+            {searchMode === 'gemini' ? (
+              <span className="text-[11px] text-slate-500 flex items-center gap-1">
+                <Bot className="h-3.5 w-3.5 text-purple-600" />
+                Triagem em funil inteligente sobre 600+ FAQs reais
+              </span>
             ) : (
-              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] font-medium text-slate-400 bg-slate-200/60 px-2 py-0.5 rounded">
-                Ctrl + K
+              <span className="text-[11px] text-slate-400">
+                Tolerância a erros de digitação e sinônimos ativos
               </span>
             )}
           </div>
 
-          {/* Smart Search Assistant & Typo Correction Banner */}
-          {searchTerm.trim().length >= 2 && (
+          {/* Search input line */}
+          {searchMode === 'gemini' ? (
+            <div className="relative w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <div className="relative flex-1">
+                <Bot className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-purple-600" />
+                <input
+                  type="text"
+                  placeholder="Descreva o relato do cliente (ex: 'Cliente diz que seu certificado digital não abre')..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleRunGeminiDiagnosis();
+                    }
+                  }}
+                  className="w-full pl-11 pr-20 py-2.5 text-sm bg-purple-50/40 hover:bg-purple-50/60 focus:bg-white border border-purple-200 focus:border-purple-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
+                />
+                {searchTerm && (
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      setSearchTerm('');
+                      setGeminiResult(null);
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
+                  >
+                    Limpar
+                  </button>
+                )}
+              </div>
+
+              <button
+                type="button"
+                disabled={isGeminiLoading || !searchTerm.trim()}
+                onClick={() => handleRunGeminiDiagnosis()}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
+              >
+                {isGeminiLoading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin text-white" />
+                    <span>Triando com IA...</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4 text-amber-300" />
+                    <span>Diagnosticar com Gemini</span>
+                  </>
+                )}
+              </button>
+            </div>
+          ) : (
+            <div className="relative w-full">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
+              <input
+                type="text"
+                placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-11 pr-24 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
+              />
+              {searchTerm ? (
+                <button 
+                  type="button"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
+                >
+                  Limpar
+                </button>
+              ) : (
+                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] font-medium text-slate-400 bg-slate-200/60 px-2 py-0.5 rounded">
+                  Ctrl + K
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* Gemini Active Diagnosis Banner */}
+          {searchMode === 'gemini' && geminiResult && (
+            <div className="bg-gradient-to-r from-purple-50 via-indigo-50/80 to-blue-50 border border-purple-200 rounded-2xl p-4 shadow-xs animate-fadeIn space-y-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-purple-200/80 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-lg shadow-2xs">
+                    <Bot className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-purple-950 uppercase tracking-wider flex items-center gap-1.5">
+                      Diagnóstico Contextual Gemini 3.8 Flash
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full border border-emerald-200">
+                        {geminiResult.recommendedFaqIds.length} Soluções Viáveis
+                      </span>
+                    </h4>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setGeminiResult(null);
+                      setSearchMode('standard');
+                    }}
+                    className="text-[11px] font-semibold text-slate-600 hover:text-slate-900 bg-white px-2.5 py-1 rounded-lg border border-slate-200 transition-colors cursor-pointer"
+                  >
+                    Voltar à busca padrão
+                  </button>
+                </div>
+              </div>
+
+              <div className="text-xs text-slate-800 space-y-1.5">
+                <div className="flex items-start gap-1.5">
+                  <strong className="text-purple-900 shrink-0">Resumo da Triagem:</strong>
+                  <span className="font-medium text-purple-950">{geminiResult.diagnosticSummary}</span>
+                </div>
+
+                {geminiResult.technicalAdvice && (
+                  <div className="flex items-start gap-1.5 p-2 rounded-lg bg-white/80 border border-indigo-100 text-[11px] text-indigo-900">
+                    <strong className="shrink-0 text-indigo-950">Dica Técnica de Atendimento:</strong>
+                    <span>{geminiResult.technicalAdvice}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Smart Search Assistant & Typo Correction Banner (Standard Mode) */}
+          {searchMode === 'standard' && searchTerm.trim().length >= 2 && (
             <div className="animate-fadeIn">
               {intelligentSearchResult.suggestedCorrection ? (
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 text-indigo-950 px-4 py-2.5 rounded-xl shadow-xs">
@@ -803,24 +1013,60 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
             </button>
           </div>
         ) : filteredFaqs.length === 0 ? (
-          <div className="bg-white border border-slate-200 rounded-xl p-12 text-center shadow-sm">
-            <Info className="h-12 w-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-slate-800 mb-1">Nenhuma FAQ encontrada</h3>
-            <p className="text-sm text-slate-500 max-w-md mx-auto mb-4">
-              Não encontramos resultados para os filtros ou termo de busca selecionados. Tente ajustar a pesquisa.
-            </p>
-            <button
-              onClick={() => {
-                setSearchTerm('');
-                setSelectedSubCategory('TODOS');
-                setSelectedType('TODOS');
-                setSelectedSystem('TODOS');
-                setSelectedSoftwareGroup('TODOS');
-              }}
-              className="px-4 py-2 text-sm font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors"
-            >
-              Limpar todos os filtros
-            </button>
+          <div className="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-xs">
+            {searchMode === 'gemini' && geminiResult ? (
+              <div className="space-y-3">
+                <div className="p-3 bg-purple-100 text-purple-700 rounded-2xl w-14 h-14 flex items-center justify-center mx-auto shadow-2xs">
+                  <Bot className="h-7 w-7" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800">
+                  Nenhuma FAQ específica cadastrada para este problema
+                </h3>
+                <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+                  {geminiResult.diagnosticSummary || 'O Gemini avaliou as FAQs da base de conhecimento e identificou que este problema não possui um procedimento direto cadastrado.'}
+                </p>
+                {geminiResult.technicalAdvice && (
+                  <div className="p-3.5 bg-purple-50 border border-purple-200 rounded-xl text-xs text-purple-900 max-w-md mx-auto text-left shadow-2xs">
+                    <strong className="block font-bold mb-1 flex items-center gap-1.5 text-purple-950">
+                      <Sparkles className="h-3.5 w-3.5 text-purple-600" />
+                      Orientação Técnica:
+                    </strong>
+                    <span>{geminiResult.technicalAdvice}</span>
+                  </div>
+                )}
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      setGeminiResult(null);
+                      setSearchMode('standard');
+                    }}
+                    className="px-4 py-2 text-xs font-semibold text-purple-700 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors cursor-pointer"
+                  >
+                    Voltar para a Busca Padrão
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <Info className="h-12 w-12 text-slate-300 mx-auto mb-3" />
+                <h3 className="text-lg font-bold text-slate-800 mb-1">Nenhuma FAQ encontrada</h3>
+                <p className="text-sm text-slate-500 max-w-md mx-auto mb-4">
+                  Não encontramos resultados para os filtros ou termo de busca selecionados. Tente ajustar a pesquisa.
+                </p>
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setSelectedSubCategory('TODOS');
+                    setSelectedType('TODOS');
+                    setSelectedSystem('TODOS');
+                    setSelectedSoftwareGroup('TODOS');
+                  }}
+                  className="px-4 py-2 text-sm font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors cursor-pointer"
+                >
+                  Limpar todos os filtros
+                </button>
+              </>
+            )}
           </div>
         ) : (
           <div className="space-y-3.5">
@@ -970,6 +1216,29 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                           <span><strong>Assunto:</strong> {faq.subject}</span>
                         )}
                       </div>
+
+                      {/* Gemini Diagnosis Match Reason Banner */}
+                      {searchMode === 'gemini' && geminiReasoningsMap.has(faq.id) && (() => {
+                        const r = geminiReasoningsMap.get(faq.id)!;
+                        return (
+                          <div className="mt-2 flex items-start gap-2.5 p-2.5 bg-gradient-to-r from-purple-50 to-indigo-50/80 border border-purple-200/90 rounded-xl text-xs text-purple-950 font-medium shadow-2xs">
+                            <div className="p-1 bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-md shrink-0 mt-0.5 shadow-2xs">
+                              <Bot className="h-3.5 w-3.5" />
+                            </div>
+                            <div className="space-y-0.5">
+                              <div className="flex items-center gap-2">
+                                <span className="font-bold text-purple-900">Solução recomendada pelo Gemini</span>
+                                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-200 text-purple-800 font-extrabold border border-purple-300/60">
+                                  {r.relevanceScore}% Certeza
+                                </span>
+                              </div>
+                              <p className="text-purple-900/90 text-[11px] leading-relaxed">
+                                {r.whyMatch}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
 
                     {/* Header Action Buttons */}

@@ -102,7 +102,7 @@ Tratativa/Solução: [texto da tratativa/solução]`;
       }
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.8-flash',
         contents: prompt,
       });
 
@@ -142,7 +142,7 @@ Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mai
 }`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.8-flash',
         contents: prompt,
         config: {
           responseMimeType: "application/json",
@@ -246,6 +246,118 @@ Retorne APENAS um objeto JSON no seguinte formato:
     } catch (error) {
       console.error('Error in /api/search-faq-ai:', error);
       res.status(500).json({ error: 'Failed to search FAQ with AI' });
+    }
+  });
+
+  // Dedicated API route for Contextual Diagnostic Search (Anti-hallucination candidate funnel)
+  app.post('/api/diagnose-faq-context', async (req, res) => {
+    try {
+      const { complaint, candidates } = req.body;
+
+      if (!complaint || typeof complaint !== 'string' || !complaint.trim()) {
+        return res.status(400).json({ error: 'complaint is required' });
+      }
+
+      if (!candidates || !Array.isArray(candidates) || candidates.length === 0) {
+        return res.json({
+          diagnosticSummary: 'Nenhuma FAQ candidata disponível para avaliar.',
+          technicalAdvice: '',
+          recommendedFaqIds: [],
+          reasonings: []
+        });
+      }
+
+      const prompt = `Você é um analista sênior da Central de Atendimento de TI do Senado Federal.
+Sua missão é realizar a triagem do relato do cliente e identificar quais FAQs da lista abaixo de fato solucionam ou explicam o problema relatado.
+
+RELATO DO CLIENTE:
+"${complaint.trim()}"
+
+FAQS CANDIDATAS DISPONÍVEIS (IDs reais da base):
+${JSON.stringify(candidates.map((c: any) => ({
+  id: c.id,
+  faqNumber: c.faqNumber,
+  name: c.name,
+  system: c.system,
+  subject: c.subject,
+  service: c.service,
+  observacoes: c.observacoes || '',
+  summary: (c.procedureSnippet || '').slice(0, 250)
+})))}
+
+DIRETRIZES E REGRAS ESTRITAS (GARANTIA DE ZERO ALUCINAÇÃO):
+1. Você SÓ PODE indicar IDs que constam EXATAMENTE na lista de candidatos acima. Jamais invente ou modifique IDs.
+2. Selecione APENAS as FAQs que possuem relação direta com a causa ou solução do problema. Se apenas 1 ou 2 forem pertinentes, retorne apenas elas (máximo 6).
+3. Se NENHUMA FAQ da lista resolver o problema relatado, retorne recommendedFaqIds vazio [].
+4. diagnosticSummary: Uma frase técnica clara resumindo a causa provável ou o contexto do problema relatado.
+5. technicalAdvice: Dica objetiva de atendimento ou verificação inicial (ex: "Verificar se o token de certificado está plugado", "Validar se a leitora de cartão acende luz").
+6. Para cada FAQ recomendada, informe:
+   - faqId: o ID exato da lista acima
+   - relevanceScore: número inteiro de 50 a 100 indicando o grau de certeza
+   - whyMatch: uma frase concisa justificando por que essa FAQ soluciona o caso.`;
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-3.8-flash',
+        contents: prompt,
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema: {
+            type: 'object',
+            properties: {
+              diagnosticSummary: { type: 'string' },
+              technicalAdvice: { type: 'string' },
+              recommendedFaqIds: {
+                type: 'array',
+                items: { type: 'string' }
+              },
+              reasonings: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    faqId: { type: 'string' },
+                    relevanceScore: { type: 'integer' },
+                    whyMatch: { type: 'string' }
+                  },
+                  required: ['faqId', 'relevanceScore', 'whyMatch']
+                }
+              }
+            },
+            required: ['diagnosticSummary', 'recommendedFaqIds', 'reasonings']
+          }
+        }
+      });
+
+      const responseText = response.text;
+      let parsed = {
+        diagnosticSummary: '',
+        technicalAdvice: '',
+        recommendedFaqIds: [] as string[],
+        reasonings: [] as any[]
+      };
+
+      if (responseText) {
+        try {
+          parsed = JSON.parse(responseText);
+        } catch (e) {
+          console.error('Error parsing Gemini JSON response:', e);
+        }
+      }
+
+      // Validação estrita para blindar contra qualquer alucinação de ID
+      const candidateIdSet = new Set(candidates.map((c: any) => c.id));
+      const validFaqIds = (parsed.recommendedFaqIds || []).filter(id => candidateIdSet.has(id));
+      const validReasonings = (parsed.reasonings || []).filter(r => candidateIdSet.has(r.faqId));
+
+      res.json({
+        diagnosticSummary: parsed.diagnosticSummary || 'Triagem técnica realizada.',
+        technicalAdvice: parsed.technicalAdvice || '',
+        recommendedFaqIds: validFaqIds,
+        reasonings: validReasonings
+      });
+    } catch (error) {
+      console.error('Error in /api/diagnose-faq-context:', error);
+      res.status(500).json({ error: 'Failed to diagnose FAQ with Gemini' });
     }
   });
 
