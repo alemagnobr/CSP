@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { 
   Search, 
   Plus, 
@@ -56,6 +56,8 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
 
   // Search and Filter States
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [geminiPrompt, setGeminiPrompt] = useState('');
   const [searchMode, setSearchMode] = useState<'standard' | 'gemini'>('standard');
   const [isGeminiLoading, setIsGeminiLoading] = useState(false);
   const [geminiResult, setGeminiResult] = useState<GeminiContextDiagnosticResult | null>(null);
@@ -220,14 +222,23 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     return { total, instalacaoCount, erroCount, restritoCount };
   }, [faqs]);
 
-  // Intelligent Search with Fuzzy Matching, Typo Tolerance and IT Synonyms
-  const intelligentSearchResult = useMemo(() => {
-    return searchFaqsIntelligently(faqs, searchTerm);
-  }, [faqs, searchTerm]);
+  // Debounce search input for standard mode to prevent lag while typing across 600+ FAQs
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 250);
 
-  // Context Diagnosis with Gemini AI
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  // Intelligent Search with Fuzzy Matching, Typo Tolerance and IT Synonyms (calculated only on debounced term)
+  const intelligentSearchResult = useMemo(() => {
+    return searchFaqsIntelligently(faqs, debouncedSearchTerm);
+  }, [faqs, debouncedSearchTerm]);
+
+  // Context Diagnosis with Gemini AI (uses isolated geminiPrompt for zero UI input lag)
   const handleRunGeminiDiagnosis = async (complaintText?: string) => {
-    const query = (complaintText !== undefined ? complaintText : searchTerm).trim();
+    const query = (complaintText !== undefined ? complaintText : geminiPrompt).trim();
     if (!query) {
       showToast('Digite o relato do cliente antes de buscar.');
       return;
@@ -740,8 +751,8 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 <input
                   type="text"
                   placeholder="Descreva o relato do cliente (ex: 'Cliente diz que seu certificado digital não abre')..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={geminiPrompt}
+                  onChange={(e) => setGeminiPrompt(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       handleRunGeminiDiagnosis();
@@ -749,11 +760,11 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                   }}
                   className="w-full pl-11 pr-20 py-2.5 text-sm bg-purple-50/40 hover:bg-purple-50/60 focus:bg-white border border-purple-200 focus:border-purple-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
                 />
-                {searchTerm && (
+                {geminiPrompt && (
                   <button 
                     type="button"
                     onClick={() => {
-                      setSearchTerm('');
+                      setGeminiPrompt('');
                       setGeminiResult(null);
                     }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
@@ -765,7 +776,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
 
               <button
                 type="button"
-                disabled={isGeminiLoading || !searchTerm.trim()}
+                disabled={isGeminiLoading || !geminiPrompt.trim()}
                 onClick={() => handleRunGeminiDiagnosis()}
                 className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
               >
@@ -790,12 +801,21 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    // Flush immediate search on Enter without waiting for debounce
+                    setDebouncedSearchTerm(searchTerm);
+                  }
+                }}
                 className="w-full pl-11 pr-24 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
               />
               {searchTerm ? (
                 <button 
                   type="button"
-                  onClick={() => setSearchTerm('')}
+                  onClick={() => {
+                    setSearchTerm('');
+                    setDebouncedSearchTerm('');
+                  }}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
                 >
                   Limpar
@@ -869,7 +889,11 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                       Você quis dizer:{' '}
                       <button
                         type="button"
-                        onClick={() => setSearchTerm(intelligentSearchResult.suggestedCorrection!.suggested)}
+                        onClick={() => {
+                          const suggested = intelligentSearchResult.suggestedCorrection!.suggested;
+                          setSearchTerm(suggested);
+                          setDebouncedSearchTerm(suggested);
+                        }}
                         className="font-bold text-indigo-700 hover:text-indigo-900 underline decoration-indigo-400 decoration-2 cursor-pointer ml-1"
                         title="Clique para aplicar a palavra sugerida"
                       >
