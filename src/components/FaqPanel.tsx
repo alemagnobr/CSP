@@ -56,7 +56,7 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
 
   // Search and Filter States
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
   const [geminiPrompt, setGeminiPrompt] = useState('');
   const [searchMode, setSearchMode] = useState<'standard' | 'gemini'>('standard');
   const [isGeminiLoading, setIsGeminiLoading] = useState(false);
@@ -66,6 +66,7 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
   const [selectedType, setSelectedType] = useState<string>('TODOS');
   const [selectedSystem, setSelectedSystem] = useState<string>('TODOS');
   const [selectedSoftwareGroup, setSelectedSoftwareGroup] = useState<SoftwareGroupType>('TODOS');
+  const [visibleCount, setVisibleCount] = useState<number>(30);
   const [isDirectoryModalOpen, setIsDirectoryModalOpen] = useState(false);
 
   // UI States
@@ -222,19 +223,21 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     return { total, instalacaoCount, erroCount, restritoCount };
   }, [faqs]);
 
-  // Debounce search input for standard mode to prevent lag while typing across 600+ FAQs
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 250);
+  // Manual execution of standard search (explicit on Enter or clicking the magnifying glass button)
+  const handleExecuteSearch = (explicitTerm?: string) => {
+    const term = explicitTerm !== undefined ? explicitTerm : searchTerm;
+    setAppliedSearchTerm(term.trim());
+  };
 
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setAppliedSearchTerm('');
+  };
 
-  // Intelligent Search with Fuzzy Matching, Typo Tolerance and IT Synonyms (calculated only on debounced term)
+  // Intelligent Search with Fuzzy Matching, Typo Tolerance and IT Synonyms (calculated ONLY on appliedSearchTerm, NOT on typing)
   const intelligentSearchResult = useMemo(() => {
-    return searchFaqsIntelligently(faqs, debouncedSearchTerm);
-  }, [faqs, debouncedSearchTerm]);
+    return searchFaqsIntelligently(faqs, appliedSearchTerm);
+  }, [faqs, appliedSearchTerm]);
 
   // Context Diagnosis with Gemini AI (uses isolated geminiPrompt for zero UI input lag)
   const handleRunGeminiDiagnosis = async (complaintText?: string) => {
@@ -310,6 +313,28 @@ export function FaqPanel({ appSettings, onUpdateSettings }: FaqPanelProps) {
     selectedSystem, 
     selectedSoftwareGroup
   ]);
+
+  // Reset pagination to first 30 items whenever search or filters change
+  useEffect(() => {
+    setVisibleCount(30);
+  }, [
+    appliedSearchTerm,
+    selectedSubCategory,
+    selectedType,
+    selectedSystem,
+    selectedSoftwareGroup,
+    searchMode,
+    geminiResult
+  ]);
+
+  // Sliced FAQs to prevent rendering 600+ DOM nodes at the same time
+  const visibleFaqs = useMemo(() => {
+    // If Gemini mode with recommendations, show all of them (usually 1-6 items)
+    if (searchMode === 'gemini' && geminiResult) {
+      return filteredFaqs;
+    }
+    return filteredFaqs.slice(0, visibleCount);
+  }, [filteredFaqs, visibleCount, searchMode, geminiResult]);
 
   // Helper to show temporary toast
   const showToast = (msg: string) => {
@@ -794,37 +819,42 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               </button>
             </div>
           ) : (
-            <div className="relative w-full">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
-              <input
-                type="text"
-                placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    // Flush immediate search on Enter without waiting for debounce
-                    setDebouncedSearchTerm(searchTerm);
-                  }
-                }}
-                className="w-full pl-11 pr-24 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
-              />
-              {searchTerm ? (
-                <button 
-                  type="button"
-                  onClick={() => {
-                    setSearchTerm('');
-                    setDebouncedSearchTerm('');
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full">
+              <div className="relative flex-1">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
+                <input
+                  type="text"
+                  placeholder="Buscar por número (ex: 1000681), título, software, erro ou palavra-chave..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleExecuteSearch();
+                    }
                   }}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
-                >
-                  Limpar
-                </button>
-              ) : (
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[11px] font-medium text-slate-400 bg-slate-200/60 px-2 py-0.5 rounded">
-                  Ctrl + K
-                </span>
-              )}
+                  className="w-full pl-11 pr-20 py-2.5 text-sm bg-slate-50 hover:bg-slate-100/90 focus:bg-white border border-slate-300/80 focus:border-indigo-500 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/15 transition-all text-slate-800 font-medium placeholder:text-slate-400 shadow-inner"
+                />
+                {searchTerm && (
+                  <button 
+                    type="button"
+                    onClick={handleClearSearch}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-lg px-2.5 py-1 transition-colors cursor-pointer"
+                  >
+                    Limpar
+                  </button>
+                )}
+              </div>
+
+              {/* Botão de Busca com a Lupa para disparar a pesquisa manualmente */}
+              <button
+                type="button"
+                onClick={() => handleExecuteSearch()}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl shadow-xs hover:shadow transition-all shrink-0 cursor-pointer"
+                title="Pressione Enter ou clique aqui para buscar"
+              >
+                <Search className="h-4 w-4" />
+                <span>Buscar</span>
+              </button>
             </div>
           )}
 
@@ -877,7 +907,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
           )}
 
           {/* Smart Search Assistant & Typo Correction Banner (Standard Mode) */}
-          {searchMode === 'standard' && searchTerm.trim().length >= 2 && (
+          {searchMode === 'standard' && appliedSearchTerm.trim().length >= 2 && (
             <div className="animate-fadeIn">
               {intelligentSearchResult.suggestedCorrection ? (
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 text-indigo-950 px-4 py-2.5 rounded-xl shadow-xs">
@@ -892,10 +922,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                         onClick={() => {
                           const suggested = intelligentSearchResult.suggestedCorrection!.suggested;
                           setSearchTerm(suggested);
-                          setDebouncedSearchTerm(suggested);
+                          handleExecuteSearch(suggested);
                         }}
                         className="font-bold text-indigo-700 hover:text-indigo-900 underline decoration-indigo-400 decoration-2 cursor-pointer ml-1"
-                        title="Clique para aplicar a palavra sugerida"
+                        title="Clique para aplicar a palavra sugerida e buscar"
                       >
                         "{intelligentSearchResult.suggestedCorrection.suggested}"
                       </button>
@@ -912,7 +942,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                   <div className="flex items-center gap-2">
                     <Sparkles className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
                     <span>
-                      Busca inteligente com tolerância a digitação e sinônimos de TI do Senado Federal.
+                      Busca inteligente com tolerância a digitação e sinônimos de TI do Senado Federal para "{appliedSearchTerm}".
                     </span>
                   </div>
                   <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Aproximação Ativa</span>
@@ -1079,7 +1109,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 </p>
                 <button
                   onClick={() => {
-                    setSearchTerm('');
+                    handleClearSearch();
                     setSelectedSubCategory('TODOS');
                     setSelectedType('TODOS');
                     setSelectedSystem('TODOS');
@@ -1097,7 +1127,10 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
             {/* Header controls: Counter and Expand/Collapse All */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 px-1 pb-1">
               <div className="flex items-center gap-2">
-                <span>Exibindo <strong>{filteredFaqs.length}</strong> de <strong>{faqs.length}</strong> FAQs</span>
+                <span>
+                  Exibindo <strong>{visibleFaqs.length}</strong> de <strong>{filteredFaqs.length}</strong> FAQs encontradas
+                  {filteredFaqs.length !== faqs.length && ` (${faqs.length} total na base)`}
+                </span>
                 {filteredFaqs.length !== faqs.length && (
                   <span className="text-[11px] text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md font-medium border border-indigo-200/60">
                     Filtro ativo
@@ -1105,7 +1138,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 )}
               </div>
 
-              {filteredFaqs.length > 0 && (
+              {visibleFaqs.length > 0 && (
                 <div className="flex items-center gap-2 self-start sm:self-auto">
                   <button
                     type="button"
@@ -1129,7 +1162,7 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
               )}
             </div>
 
-            {filteredFaqs.map((faq) => {
+            {visibleFaqs.map((faq) => {
               const isExpanded = expandedFaqIds[faq.id] ?? false;
               const isInstalacao = faq.subCategory?.toUpperCase().includes('INSTAL') || faq.service?.toLowerCase().includes('instalação');
               const isRestrito = faq.observacoes?.toLowerCase().includes('restrito') || faq.observacoes?.toLowerCase().includes('não autorizado') || faq.observacoes?.toLowerCase().includes('n2');
@@ -1540,6 +1573,23 @@ ${faq.originalLink ? `\nLink Original CAPRI: ${faq.originalLink}` : ''}`;
                 </div>
               );
             })}
+
+            {/* Load More Button when there are remaining FAQs */}
+            {visibleCount < filteredFaqs.length && (
+              <div className="pt-4 pb-2 flex flex-col items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount(prev => prev + 30)}
+                  className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow-2xs hover:shadow transition-all cursor-pointer"
+                >
+                  <ChevronDown className="h-4 w-4" />
+                  <span>Carregar mais 30 FAQs ({filteredFaqs.length - visibleCount} restantes)</span>
+                </button>
+                <span className="text-[11px] text-slate-400">
+                  Carregamento por demanda para manter a digitação e a rolagem 100% rápidas
+                </span>
+              </div>
+            )}
           </div>
         )}
       </div>
