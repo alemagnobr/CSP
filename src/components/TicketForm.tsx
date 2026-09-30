@@ -9,12 +9,12 @@
  * - Live countdown timer and SLA status display.
  * - Auto-saving to Firestore and integration with Gemini / OpenRouter API.
  */
-import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical } from 'lucide-react';
+import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
-import { ActiveTicket, AppSettings, Ticket } from '@/types';
+import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
 import { cn } from '@/lib/utils';
 import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError } from '@/lib/gemini';
-import { SmartSuggestions } from './SmartSuggestions';
+import { SolutionSearchModal } from './SolutionSearchModal';
 
 interface TicketFormProps {
   key?: React.Key;
@@ -46,11 +46,16 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategory, setNewCategory] = useState('');
   const [showPredefinedSolutions, setShowPredefinedSolutions] = useState(false);
+  const [predefinedSearchTerm, setPredefinedSearchTerm] = useState('');
+  const [copiedPredefinedId, setCopiedPredefinedId] = useState<string | null>(null);
+  const [showNoAiSolutionModal, setShowNoAiSolutionModal] = useState(false);
   const [isSearchingSolution, setIsSearchingSolution] = useState(false);
   const [searchedSolution, setSearchedSolution] = useState<{
     faqs: any[];
     procedures: any[];
     orientations: any[];
+    technicalDoubts: any[];
+    informations: any[];
     tickets: Ticket[];
   } | null>(null);
   const [selectedSolutionItem, setSelectedSolutionItem] = useState<{ type: string; item: any } | null>(null);
@@ -63,6 +68,12 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [isGeneratingTitle, setIsGeneratingTitle] = useState(false);
   const ticketIdInputRef = useRef<HTMLInputElement>(null);
   const closingTicketIdInputRef = useRef<HTMLInputElement>(null);
+
+  // Reciclar Resposta (Salvar em Soluções Padrão)
+  const [recycleResponse, setRecycleResponse] = useState(false);
+  const [recycleTitle, setRecycleTitle] = useState('');
+  const [recycleTitleError, setRecycleTitleError] = useState<string | null>(null);
+  const recycleTitleInputRef = useRef<HTMLInputElement>(null);
 
   // Direct Verifications and Procedures Creation/Deletion State
   const [isCreatingVerif, setIsCreatingVerif] = useState(false);
@@ -369,6 +380,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         faqs: appSettings.faqs || [],
         procedures: appSettings.procedures || [],
         orientations: appSettings.orientations || [],
+        technicalDoubts: appSettings.technicalDoubts || [],
+        informations: appSettings.informations || [],
         tickets: ticketsToSearch.map(t => ({
           id: t.id,
           description: t.description,
@@ -383,12 +396,16 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         const faqsMatched = (appSettings.faqs || []).filter(f => (resultJson.faqs || []).includes(f.id));
         const proceduresMatched = (appSettings.procedures || []).filter(p => (resultJson.procedures || []).includes(p.id));
         const orientationsMatched = (appSettings.orientations || []).filter(o => (resultJson.orientations || []).includes(o.id));
+        const technicalDoubtsMatched = (appSettings.technicalDoubts || []).filter(d => (resultJson.technicalDoubts || []).includes(d.id));
+        const informationsMatched = (appSettings.informations || []).filter(inf => (resultJson.informations || []).includes(inf.id));
         const ticketsMatched = ticketsToSearch.filter(t => (resultJson.tickets || []).includes(t.id));
         
         setSearchedSolution({
           faqs: faqsMatched,
           procedures: proceduresMatched,
           orientations: orientationsMatched,
+          technicalDoubts: technicalDoubtsMatched,
+          informations: informationsMatched,
           tickets: ticketsMatched
         });
         setIsPaused(true); // Pause timer while reviewing
@@ -417,9 +434,36 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       return;
     }
     setClosingTicketIdError(null);
+
+    // Validação se a opção "Reciclar resposta" estiver ativa
+    if (recycleResponse && !recycleTitle.trim()) {
+      setRecycleTitleError('Informe um título obrigatório para salvar como Solução Padrão.');
+      setTimeout(() => recycleTitleInputRef.current?.focus(), 100);
+      return;
+    }
+    setRecycleTitleError(null);
+
     if (aiResult) {
+      // Se marcado "Reciclar resposta", adiciona a resposta formatada às Soluções Padrão
+      if (recycleResponse && recycleTitle.trim()) {
+        const newSolution: PredefinedSolution = {
+          id: Date.now().toString(),
+          title: recycleTitle.trim(),
+          content: aiResult
+        };
+
+        const existingSolutions = appSettings.predefinedSolutions || [];
+        onUpdateSettings({
+          ...appSettings,
+          predefinedSolutions: [newSolution, ...existingSolutions]
+        });
+      }
+
       onFinish({ ...currentTicket, description: currentTicket.description, structuredResult: aiResult });
       setAiResult(null);
+      setRecycleResponse(false);
+      setRecycleTitle('');
+      setRecycleTitleError(null);
     }
   };
 
@@ -569,7 +613,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                   
                   {/* Campo de Número do Chamado diretamente na tela de fechamento */}
                   <div className={cn(
-                    "mb-4 p-3 rounded-lg border transition-all",
+                    "p-3 rounded-lg border transition-all",
                     closingTicketIdError 
                       ? "bg-rose-50/80 border-rose-300 ring-2 ring-rose-400/30" 
                       : !ticket.id || !ticket.id.trim()
@@ -611,6 +655,79 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                         {closingTicketIdError}
                       </p>
                     )}
+                  </div>
+
+                  {/* Opção Reciclar Resposta (Salvar em Soluções Padrão) - Logo abaixo de Número do Chamado */}
+                  <div className="mt-2 mb-4">
+                    <div className={cn(
+                      "p-3 rounded-lg border transition-all",
+                      recycleResponse 
+                        ? "bg-indigo-50/70 border-indigo-200 ring-1 ring-indigo-300"
+                        : "bg-white border-slate-200"
+                    )}>
+                      <label className="flex items-center gap-2 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={recycleResponse}
+                          onChange={(e) => {
+                            setRecycleResponse(e.target.checked);
+                            if (e.target.checked) {
+                              // Sugere o título atual do chamado caso exista
+                              if (!recycleTitle.trim() && ticket.title?.trim()) {
+                                setRecycleTitle(ticket.title.trim());
+                              }
+                              setRecycleTitleError(null);
+                              setTimeout(() => recycleTitleInputRef.current?.focus(), 100);
+                            } else {
+                              setRecycleTitleError(null);
+                            }
+                          }}
+                          className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                        />
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
+                          <Repeat className="h-3.5 w-3.5 text-indigo-600" />
+                          <span>Reciclar resposta</span>
+                        </div>
+                      </label>
+
+                      {recycleResponse && (
+                        <div className="mt-2.5 pt-2 border-t border-indigo-100 animate-in fade-in slide-in-from-top-1 duration-150">
+                          <label className="block text-[10px] font-bold uppercase tracking-wider text-indigo-900 mb-1 flex items-center justify-between">
+                            <span>Título da Solução Padrão <span className="text-rose-500">*</span></span>
+                            <span className="text-[9px] font-semibold text-indigo-600 bg-white px-1.5 py-0.2 rounded border border-indigo-200">
+                              Obrigatório
+                            </span>
+                          </label>
+                          <input
+                            ref={recycleTitleInputRef}
+                            type="text"
+                            value={recycleTitle}
+                            onChange={(e) => {
+                              setRecycleTitle(e.target.value);
+                              if (e.target.value.trim()) {
+                                setRecycleTitleError(null);
+                              }
+                            }}
+                            placeholder="Ex: Reset de Senha de Domínio / Correção VPN"
+                            className={cn(
+                              "w-full px-2.5 py-1.5 text-xs font-medium rounded-md border transition-all focus:outline-none focus:ring-2",
+                              recycleTitleError
+                                ? "border-rose-400 bg-white text-rose-900 focus:ring-rose-500 focus:border-rose-500 placeholder:text-rose-300"
+                                : "border-indigo-200 bg-white text-slate-800 focus:ring-indigo-500 focus:border-indigo-500 placeholder:text-slate-400"
+                            )}
+                          />
+                          {recycleTitleError ? (
+                            <p className="mt-1 text-[11px] text-rose-600 font-medium">
+                              {recycleTitleError}
+                            </p>
+                          ) : (
+                            <p className="mt-1 text-[10px] text-indigo-600/90 leading-tight">
+                              💡 O HTML da resposta será salvo nas Soluções Padrão ao gravar.
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="space-y-4">
@@ -686,10 +803,15 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                     Voltar
                   </button>
                 )}
-                <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                  <Search className="h-5 w-5 text-blue-600" />
-                  {selectedSolutionItem ? 'Detalhes da Solução' : 'Soluções Encontradas'}
-                </h3>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <Sparkles className="h-5 w-5 text-violet-600" />
+                    {selectedSolutionItem ? 'Registro da Base de Conhecimento' : 'Itens da Base Apontados pela IA'}
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    A IA apenas localizou os registros e links cadastrados no app relacionados ao contexto do chamado.
+                  </p>
+                </div>
               </div>
               <button 
                 onClick={() => { setSearchedSolution(null); setSelectedSolutionItem(null); setIsPaused(false); }}
@@ -702,6 +824,23 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             <div className="flex-1 overflow-y-auto bg-slate-50 border border-slate-200 rounded-lg p-6 mb-6 min-h-0">
               {selectedSolutionItem ? (
                 <div className="space-y-4">
+                  {/* Origin Banner */}
+                  <div className="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between gap-3 shadow-2xs">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Origem cadastrada no app:</span>
+                      <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200 uppercase">
+                        {selectedSolutionItem.type === 'faq' ? `FAQ #${selectedSolutionItem.item.faqNumber || selectedSolutionItem.item.id}` :
+                         selectedSolutionItem.type === 'orientation' ? 'Orientação Técnica' :
+                         selectedSolutionItem.type === 'doubt' ? 'Dúvida Técnica' :
+                         selectedSolutionItem.type === 'information' ? 'Informativo Técnico' :
+                         selectedSolutionItem.type === 'procedure' ? 'Procedimento' : `Chamado Anterior #${selectedSolutionItem.item.id}`}
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-slate-400">
+                      ID: {selectedSolutionItem.item.id}
+                    </span>
+                  </div>
+
                   {selectedSolutionItem.type === 'faq' && (
                     <>
                       <h4 className="font-bold text-slate-800 mb-2">{selectedSolutionItem.item.name}</h4>
@@ -734,6 +873,38 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                           <div className="text-slate-700 leading-relaxed [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-4 [&>ol]:list-decimal [&>ol]:ml-4" dangerouslySetInnerHTML={{ __html: selectedSolutionItem.item.description }} />
                         ) : (
                           <p className="whitespace-pre-wrap font-sans text-slate-700">{selectedSolutionItem.item.description}</p>
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {selectedSolutionItem.type === 'doubt' && (
+                    <>
+                      <h4 className="font-bold text-slate-800 mb-2">{selectedSolutionItem.item.title}</h4>
+                      <div className="bg-white p-4 rounded-lg border border-slate-200 text-sm">
+                        <strong className="block text-slate-600 mb-2">Problema Relatado:</strong>
+                        <p className="whitespace-pre-wrap font-sans text-slate-700 mb-4">{selectedSolutionItem.item.problemDescription}</p>
+                        {selectedSolutionItem.item.supervisorSolution && (
+                          <>
+                            <strong className="block text-emerald-700 mb-2">Solução / Orientação da Supervisão:</strong>
+                            {(selectedSolutionItem.item.supervisorSolution || '').includes('<') && (selectedSolutionItem.item.supervisorSolution || '').includes('>') ? (
+                              <div className="text-slate-700 leading-relaxed [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-4 [&>ol]:list-decimal [&>ol]:ml-4" dangerouslySetInnerHTML={{ __html: selectedSolutionItem.item.supervisorSolution }} />
+                            ) : (
+                              <p className="whitespace-pre-wrap font-sans text-slate-700 bg-emerald-50/50 p-3 rounded-lg border border-emerald-200">{selectedSolutionItem.item.supervisorSolution}</p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {selectedSolutionItem.type === 'information' && (
+                    <>
+                      <h4 className="font-bold text-slate-800 mb-2">{selectedSolutionItem.item.title}</h4>
+                      <div className="bg-white p-4 rounded-lg border border-slate-200 text-sm">
+                        <strong className="block text-slate-600 mb-2">Conteúdo Informativo:</strong>
+                        {(selectedSolutionItem.item.content || '').includes('<') && (selectedSolutionItem.item.content || '').includes('>') ? (
+                          <div className="text-slate-700 leading-relaxed [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-4 [&>ol]:list-decimal [&>ol]:ml-4" dangerouslySetInnerHTML={{ __html: selectedSolutionItem.item.content }} />
+                        ) : (
+                          <p className="whitespace-pre-wrap font-sans text-slate-700">{selectedSolutionItem.item.content}</p>
                         )}
                       </div>
                     </>
@@ -776,39 +947,42 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {(searchedSolution.faqs.length === 0 && searchedSolution.procedures.length === 0 && searchedSolution.orientations.length === 0 && searchedSolution.tickets.length === 0) ? (
-                    <p className="text-slate-500 text-center py-8">Nenhuma solução encontrada na base de conhecimento.</p>
+                  {(searchedSolution.faqs.length === 0 && searchedSolution.procedures.length === 0 && searchedSolution.orientations.length === 0 && searchedSolution.technicalDoubts.length === 0 && searchedSolution.informations.length === 0 && searchedSolution.tickets.length === 0) ? (
+                    <p className="text-slate-500 text-center py-8">Nenhuma solução encontrada na base de conhecimento com este contexto.</p>
                   ) : (
                     <>
                       {searchedSolution.faqs.length > 0 && (
                         <div>
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">FAQs Relacionadas</h4>
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">FAQs Relacionadas ({searchedSolution.faqs.length})</h4>
                           <div className="space-y-2">
                             {searchedSolution.faqs.map(faq => (
                               <button
                                 key={faq.id}
                                 onClick={() => setSelectedSolutionItem({ type: 'faq', item: faq })}
-                                className="w-full text-left p-3 bg-white border border-slate-200 rounded-lg hover:border-blue-400 hover:shadow-sm transition-all cursor-pointer"
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-purple-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
                               >
-                                <span className="font-bold text-slate-800 block">{faq.name}</span>
-                                <span className="text-sm text-slate-500 truncate block">{faq.subject} - {faq.service}</span>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      
-                      {searchedSolution.procedures.length > 0 && (
-                        <div className="mt-4">
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Procedimentos</h4>
-                          <div className="space-y-2">
-                            {searchedSolution.procedures.map(proc => (
-                              <button
-                                key={proc.id}
-                                onClick={() => setSelectedSolutionItem({ type: 'procedure', item: proc })}
-                                className="w-full text-left p-3 bg-white border border-slate-200 rounded-lg hover:border-blue-400 hover:shadow-sm transition-all cursor-pointer"
-                              >
-                                <span className="font-bold text-slate-800 block">{proc.name}</span>
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 uppercase">
+                                      FAQ #{faq.faqNumber || faq.id}
+                                    </span>
+                                    {faq.category && (
+                                      <span className="text-[10px] text-slate-400 font-medium">
+                                        {faq.category}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <span className="font-bold text-slate-800 text-sm group-hover:text-purple-700 transition-colors block">
+                                    {faq.name}
+                                  </span>
+                                  <span className="text-xs text-slate-500 truncate block mt-0.5">
+                                    {faq.subject ? `${faq.subject} • ` : ''}{faq.service || 'Base de Conhecimento'}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 text-purple-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
                               </button>
                             ))}
                           </div>
@@ -817,15 +991,144 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                       
                       {searchedSolution.orientations.length > 0 && (
                         <div className="mt-4">
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Orientações</h4>
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Orientações Técnicas ({searchedSolution.orientations.length})</h4>
                           <div className="space-y-2">
                             {searchedSolution.orientations.map(ori => (
                               <button
                                 key={ori.id}
                                 onClick={() => setSelectedSolutionItem({ type: 'orientation', item: ori })}
-                                className="w-full text-left p-3 bg-white border border-slate-200 rounded-lg hover:border-amber-400 hover:shadow-sm transition-all cursor-pointer"
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-amber-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
                               >
-                                <span className="font-bold text-slate-800 block">{ori.name}</span>
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 uppercase">
+                                      Orientação
+                                    </span>
+                                    {ori.category && (
+                                      <span className="text-[10px] text-slate-400 font-medium">
+                                        {ori.category}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <span className="font-bold text-slate-800 text-sm group-hover:text-amber-700 transition-colors block">
+                                    {ori.name}
+                                  </span>
+                                  {ori.description && (
+                                    <span className="text-xs text-slate-500 truncate block mt-0.5">
+                                      {ori.description.replace(/<[^>]+>/g, ' ')}
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 text-amber-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {searchedSolution.technicalDoubts && searchedSolution.technicalDoubts.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dúvidas Técnicas com Supervisão ({searchedSolution.technicalDoubts.length})</h4>
+                          <div className="space-y-2">
+                            {searchedSolution.technicalDoubts.map(doubt => (
+                              <button
+                                key={doubt.id}
+                                onClick={() => setSelectedSolutionItem({ type: 'doubt', item: doubt })}
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
+                              >
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase">
+                                      Dúvida Esclarecida
+                                    </span>
+                                    {doubt.category && (
+                                      <span className="text-[10px] text-slate-400 font-medium">
+                                        {doubt.category}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <span className="font-bold text-slate-800 text-sm group-hover:text-emerald-700 transition-colors block">
+                                    {doubt.title}
+                                  </span>
+                                  <span className="text-xs text-slate-500 truncate block mt-0.5">
+                                    {doubt.problemDescription}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {searchedSolution.informations && searchedSolution.informations.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Informações Técnicas ({searchedSolution.informations.length})</h4>
+                          <div className="space-y-2">
+                            {searchedSolution.informations.map(inf => (
+                              <button
+                                key={inf.id}
+                                onClick={() => setSelectedSolutionItem({ type: 'information', item: inf })}
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-cyan-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
+                              >
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 uppercase">
+                                      Informativo
+                                    </span>
+                                  </div>
+                                  <span className="font-bold text-slate-800 text-sm group-hover:text-cyan-700 transition-colors block">
+                                    {inf.title}
+                                  </span>
+                                  <span className="text-xs text-slate-500 truncate block mt-0.5">
+                                    {inf.content?.replace(/<[^>]+>/g, ' ')}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-50 text-cyan-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {searchedSolution.procedures.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Procedimentos ({searchedSolution.procedures.length})</h4>
+                          <div className="space-y-2">
+                            {searchedSolution.procedures.map(proc => (
+                              <button
+                                key={proc.id}
+                                onClick={() => setSelectedSolutionItem({ type: 'procedure', item: proc })}
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
+                              >
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 uppercase">
+                                      Procedimento
+                                    </span>
+                                    {proc.category && (
+                                      <span className="text-[10px] text-slate-400 font-medium">
+                                        {proc.category}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <span className="font-bold text-slate-800 text-sm group-hover:text-blue-700 transition-colors block">
+                                    {proc.name}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
                               </button>
                             ))}
                           </div>
@@ -834,19 +1137,33 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                       
                       {searchedSolution.tickets.length > 0 && (
                         <div className="mt-4">
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Chamados Anteriores</h4>
+                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Chamados Anteriores ({searchedSolution.tickets.length})</h4>
                           <div className="space-y-2">
                             {searchedSolution.tickets.map(t => (
                               <button
                                 key={t.id}
                                 onClick={() => setSelectedSolutionItem({ type: 'ticket', item: t })}
-                                className="w-full text-left p-3 bg-white border border-slate-200 rounded-lg hover:border-blue-400 hover:shadow-sm transition-all cursor-pointer"
+                                className="w-full text-left p-3.5 bg-white border border-slate-200 rounded-xl hover:border-indigo-400 hover:shadow-sm transition-all cursor-pointer flex items-center justify-between gap-3 group"
                               >
-                                <div className="flex items-center justify-between mb-1">
-                                  <span className="font-bold text-slate-800 text-sm">{t.category || 'Chamado'}</span>
-                                  <span className="text-xs font-bold text-slate-400">#{t.id}</span>
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 uppercase">
+                                      Chamado #{t.id}
+                                    </span>
+                                    {t.category && (
+                                      <span className="text-[10px] text-slate-400 font-medium">
+                                        {t.category}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <span className="text-xs text-slate-600 truncate block mt-0.5 group-hover:text-slate-900 transition-colors">
+                                    {t.description}
+                                  </span>
                                 </div>
-                                <span className="text-xs text-slate-500 truncate block">{t.description}</span>
+                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                  <span>Abrir</span>
+                                  <ExternalLink className="h-3.5 w-3.5" />
+                                </div>
                               </button>
                             ))}
                           </div>
@@ -866,6 +1183,34 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                     className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 transition-colors cursor-pointer"
                   >
                     Voltar para resultados
+                  </button>
+                  <button 
+                    onClick={() => {
+                      const item = selectedSolutionItem.item;
+                      const textToAppend = selectedSolutionItem.type === 'faq'
+                        ? (item.procedure || item.technicalInfo || item.name)
+                        : selectedSolutionItem.type === 'procedure'
+                        ? (item.description || item.name)
+                        : selectedSolutionItem.type === 'orientation'
+                        ? (item.description || item.name)
+                        : selectedSolutionItem.type === 'doubt'
+                        ? (item.supervisorSolution || item.problemDescription || item.title)
+                        : selectedSolutionItem.type === 'information'
+                        ? (item.content || item.title)
+                        : (item.structuredResult || item.description || '');
+                      const cleanText = textToAppend.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                      const current = ticket.description || '';
+                      const updated = current.trim() ? `${current}\n\n${cleanText}` : cleanText;
+                      handleChange('description', updated);
+                      setSearchedSolution(null);
+                      setSelectedSolutionItem(null);
+                      setIsPaused(false);
+                    }}
+                    className="flex items-center gap-1.5 px-3.5 py-2 text-white bg-slate-900 hover:bg-slate-800 rounded-lg text-xs font-bold transition-all shadow-xs cursor-pointer"
+                    title="Inserir texto da solução na descrição livre do chamado"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Mesclar no Chamado
                   </button>
                   {selectedSolutionItem.type === 'ticket' && selectedSolutionItem.item.structuredResult && (
                     <button
@@ -1215,15 +1560,23 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 checked={ticket.isFormatMicro || false} 
                 onChange={(e) => {
                   const checked = e.target.checked;
-                  handleChange('isFormatMicro', checked);
+                  const currentTicket = ticketRef.current;
+                  let updatedTicket: ActiveTicket = {
+                    ...currentTicket,
+                    isFormatMicro: checked
+                  };
+
                   if (checked) {
-                    if (!ticket.escalationDetails) {
+                    // Toda instalação padrão é escalonada: marca automaticamente o escalonamento
+                    updatedTicket.isEscalated = true;
+
+                    if (!updatedTicket.escalationDetails) {
                       const contatoParts = [];
-                      if (ticket.extension) contatoParts.push(`Ramal: ${ticket.extension}`);
-                      if (ticket.mobile) contatoParts.push(`Celular: ${ticket.mobile}`);
+                      if (updatedTicket.extension) contatoParts.push(`Ramal: ${updatedTicket.extension}`);
+                      if (updatedTicket.mobile) contatoParts.push(`Celular: ${updatedTicket.mobile}`);
                       const contato = contatoParts.join(' / ');
                       
-                      handleChange('escalationDetails', {
+                      updatedTicket.escalationDetails = {
                         setor: '',
                         edificio: '',
                         complemento: '',
@@ -1231,18 +1584,22 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                         contato: contato,
                         setorAbertoFechado: '',
                         local: 'Senado'
-                      });
+                      };
                     }
-                    if (!ticket.formatMicroDetails) {
-                      handleChange('formatMicroDetails', {
+
+                    if (!updatedTicket.formatMicroDetails) {
+                      updatedTicket.formatMicroDetails = {
                         motivo: '',
                         motivoOutros: '',
                         autorizacaoChefe: '',
                         outrosClientes: '',
                         necessitaBackup: ''
-                      });
+                      };
                     }
                   }
+
+                  ticketRef.current = updatedTicket;
+                  onUpdate(updatedTicket);
                 }} 
               />
               <div className={`relative w-11 h-6 rounded-full transition-colors ${ticket.isFormatMicro ? 'bg-indigo-600' : 'bg-slate-300'}`}>
@@ -1440,7 +1797,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         </div>
 
         <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex flex-col">
             <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">
               Descrição livre
@@ -1449,70 +1805,44 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               value={ticket.description}
               onChange={(e) => handleChange('description', e.target.value)}
               placeholder="Descreva a demanda, a solicitação e a tratativa/solução..."
-              className="w-full min-h-[160px] p-3 rounded-lg border border-amber-200 bg-amber-50/40 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-y text-sm transition-colors flex-1"
+              className="w-full min-h-[160px] p-3 rounded-lg border border-amber-200 bg-amber-50/40 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-y text-sm transition-colors"
             />
-            <div className="flex justify-end mt-2 mb-2 gap-2">
-              <div className="relative">
-                <button 
-                  onClick={() => setShowPredefinedSolutions(!showPredefinedSolutions)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 text-sm font-medium text-slate-600 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors"
-                >
-                  <Sparkles className="h-3.5 w-3.5" />
-                  Soluções Padrão
-                </button>
-                
-                {showPredefinedSolutions && (
-                  <div className="absolute right-0 top-full mt-1 w-72 bg-white border border-slate-200 rounded-lg shadow-xl z-50 py-1 max-h-64 overflow-y-auto">
-                    {(appSettings.predefinedSolutions || []).map((sol) => (
-                      <button
-                        key={sol.id}
-                        onClick={() => {
-                          setAiResult(sol.content);
-                          setShowPredefinedSolutions(false);
-                        }}
-                        className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 font-medium truncate"
-                      >
-                        {sol.title}
-                      </button>
-                    ))}
-                    {(appSettings.predefinedSolutions || []).length === 0 && (
-                      <div className="px-4 py-3 text-sm text-slate-500 italic text-center">Nenhuma solução padrão cadastrada</div>
-                    )}
-                    <div className="border-t border-slate-100 mt-1"></div>
-                    <button
-                      onClick={() => {
-                        setShowPredefinedSolutions(false);
-                        if (onNavigate) onNavigate('Configurações');
-                      }}
-                      className="w-full text-left px-4 py-2 text-sm text-blue-600 hover:bg-slate-50 font-medium flex items-center gap-1.5"
-                    >
-                      <Plus className="h-3.5 w-3.5" />
-                      Cadastrar Solução
-                    </button>
-                  </div>
-                )}
-              </div>
+            <div className="flex justify-end mt-2 mb-4 gap-2">
               <button 
+                type="button"
+                onClick={() => {
+                  setPredefinedSearchTerm('');
+                  setShowPredefinedSolutions(true);
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 border border-indigo-200 bg-indigo-50/50 text-sm font-semibold text-indigo-700 rounded-lg hover:bg-indigo-100/70 hover:text-indigo-800 transition-colors shadow-2xs cursor-pointer"
+                title="Abrir Soluções Padrão"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
+                Soluções Padrão
+              </button>
+
+              <button 
+                type="button"
+                onClick={() => setShowNoAiSolutionModal(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 border border-blue-200 bg-blue-50/60 text-sm font-semibold text-blue-700 rounded-lg hover:bg-blue-100/80 hover:text-blue-800 transition-colors shadow-2xs cursor-pointer"
+                title="Buscar soluções em FAQs, orientações e chamados sem gastar IA"
+              >
+                <Search className="h-3.5 w-3.5 text-blue-600" />
+                Buscar Solução (Sem IA)
+              </button>
+
+              <button 
+                type="button"
                 onClick={handleSearchSolution}
                 disabled={isSearchingSolution || !ticket.description.trim()}
-                className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 text-sm font-medium text-slate-600 rounded-lg hover:bg-slate-50 hover:text-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 border border-violet-200 bg-violet-50/70 text-sm font-semibold text-violet-700 rounded-lg hover:bg-violet-100/80 hover:text-violet-800 transition-colors shadow-2xs cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                title="Buscar soluções contextuais em FAQs, orientações, dúvidas técnicas e chamados usando IA"
               >
-                {isSearchingSolution ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Search className="h-3.5 w-3.5" />}
-                Buscar solução (IA)
+                {isSearchingSolution ? <Loader2 className="h-3.5 w-3.5 animate-spin text-violet-600" /> : <Sparkles className="h-3.5 w-3.5 text-violet-600" />}
+                {isSearchingSolution ? 'Buscando na Base...' : 'Buscar Solução (IA)'}
               </button>
             </div>
           </div>
-
-          <div>
-            <SmartSuggestions 
-              description={ticket.description}
-              appSettings={appSettings}
-              finishedTickets={finishedTickets}
-              ticket={ticket}
-              onUpdate={onUpdate}
-            />
-          </div>
-        </div>
 
           {/* Verificações Section */}
           <div className="mb-4 p-4 bg-slate-50 border border-slate-100 rounded-lg">
@@ -1913,6 +2243,195 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           </button>
         </div>
       </div>
+
+      {/* Modal Sobreposto de Soluções Padrão com Campo de Busca */}
+      {showPredefinedSolutions && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div 
+            className="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-3xl flex flex-col max-h-[85vh] overflow-hidden animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Cabeçalho do Modal */}
+            <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-xl bg-indigo-100 text-indigo-700">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-800 leading-tight">Soluções Padrão</h3>
+                  <p className="text-xs text-slate-500">Selecione uma resposta cadastrada para aplicar no fechamento do chamado</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowPredefinedSolutions(false)}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors cursor-pointer"
+                title="Fechar (Esc)"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Barra de Busca e Ações */}
+            <div className="p-4 border-b border-slate-100 bg-white space-y-3">
+              <div className="relative flex items-center">
+                <Search className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type="text"
+                  autoFocus
+                  value={predefinedSearchTerm}
+                  onChange={(e) => setPredefinedSearchTerm(e.target.value)}
+                  placeholder="Pesquisar por título ou conteúdo da solução padrão..."
+                  className="w-full pl-10 pr-9 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:border-indigo-500 transition-all text-slate-800 placeholder:text-slate-400"
+                />
+                {predefinedSearchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => setPredefinedSearchTerm('')}
+                    className="absolute right-3 p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200 transition-colors"
+                    title="Limpar pesquisa"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
+                )}
+              </div>
+
+              <div className="flex items-center justify-between text-xs px-1 text-slate-500">
+                <span>
+                  {(() => {
+                    const allSols = appSettings.predefinedSolutions || [];
+                    const term = predefinedSearchTerm.trim().toLowerCase();
+                    const filteredCount = term
+                      ? allSols.filter(s => (s.title || '').toLowerCase().includes(term) || (s.content || '').toLowerCase().includes(term)).length
+                      : allSols.length;
+                    return (
+                      <>Exibindo <strong className="text-slate-700 font-semibold">{filteredCount}</strong> {filteredCount === 1 ? 'solução' : 'soluções'}</>
+                    );
+                  })()}
+                </span>
+                {onNavigate && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowPredefinedSolutions(false);
+                      onNavigate('Configurações');
+                    }}
+                    className="text-indigo-600 hover:text-indigo-800 font-semibold flex items-center gap-1 hover:underline"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                    Gerenciar / Cadastrar novas soluções
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Lista de Soluções com Scroll */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50/50">
+              {(() => {
+                const allSols = appSettings.predefinedSolutions || [];
+                const term = predefinedSearchTerm.trim().toLowerCase();
+                const filtered = term
+                  ? allSols.filter(s => (s.title || '').toLowerCase().includes(term) || (s.content || '').toLowerCase().includes(term))
+                  : allSols;
+
+                if (filtered.length === 0) {
+                  return (
+                    <div className="py-12 px-4 text-center">
+                      <div className="inline-flex p-3 rounded-full bg-slate-100 text-slate-400 mb-3">
+                        <Search className="h-6 w-6" />
+                      </div>
+                      <h4 className="text-sm font-semibold text-slate-700">Nenhuma solução encontrada</h4>
+                      <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                        {term ? `Não encontramos nenhuma solução para "${predefinedSearchTerm}". Tente outros termos.` : 'Nenhuma solução padrão cadastrada ainda no sistema.'}
+                      </p>
+                    </div>
+                  );
+                }
+
+                return filtered.map((sol) => {
+                  const plainText = (sol.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                  const isCopied = copiedPredefinedId === sol.id;
+
+                  return (
+                    <div
+                      key={sol.id}
+                      className="bg-white rounded-xl border border-slate-200 p-4 hover:border-indigo-300 hover:shadow-md transition-all group flex flex-col justify-between gap-3"
+                    >
+                      <div>
+                        <div className="flex items-start justify-between gap-3">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                            {sol.title}
+                          </h4>
+                          <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
+                            Padrão
+                          </span>
+                        </div>
+                        {plainText && (
+                          <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
+                            {plainText}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText(sol.content);
+                            setCopiedPredefinedId(sol.id);
+                            setTimeout(() => setCopiedPredefinedId(null), 2000);
+                          }}
+                          className="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
+                          title="Copiar código HTML da solução"
+                        >
+                          {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                          {isCopied ? 'Copiado!' : 'Copiar'}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setAiResult(sol.content);
+                            setShowPredefinedSolutions(false);
+                          }}
+                          className="px-3.5 py-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 rounded-lg transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer"
+                        >
+                          <Sparkles className="h-3.5 w-3.5" />
+                          Aplicar Solução
+                        </button>
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+
+            {/* Rodapé do Modal */}
+            <div className="px-6 py-3 border-t border-slate-100 bg-white flex items-center justify-between">
+              <span className="text-xs text-slate-400">
+                Dica: Você também pode salvar novas respostas marcando <strong className="text-slate-600">Reciclar resposta</strong> na finalização.
+              </span>
+              <button
+                type="button"
+                onClick={() => setShowPredefinedSolutions(false)}
+                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Sobreposto para Busca de Soluções sem IA */}
+      <SolutionSearchModal
+        isOpen={showNoAiSolutionModal}
+        onClose={() => setShowNoAiSolutionModal(false)}
+        description={ticket.description}
+        appSettings={appSettings}
+        finishedTickets={finishedTickets}
+        ticket={ticket}
+        onUpdate={onUpdate}
+      />
     </div>
   );
 }

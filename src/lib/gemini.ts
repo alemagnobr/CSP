@@ -286,26 +286,83 @@ Formate a saída EXATAMENTE como o código HTML abaixo, substituindo os colchete
 };
 
 export const searchSolutions = async (apiKey: string, provider: 'gemini' | 'openrouter', data: any) => {
-  const { description, faqs, procedures, orientations, tickets } = data;
+  const { description, faqs, procedures, orientations, technicalDoubts, informations, tickets } = data;
   
-  const prompt = `Você é um assistente técnico de TI. 
-Sua tarefa é analisar o relato de um problema e buscar na base de conhecimento (FAQs, Procedimentos, Orientações e Chamados Anteriores) os itens mais relevantes que possam ajudar a resolver o problema.
+  const prompt = `Você é um mecanismo inteligente de indexação e localização da base de conhecimento de suporte técnico.
+IMPORTANTE: Você NÃO deve gerar textos, explicações, soluções ou inventar respostas. Sua ÚNICA função é apontar os links/IDs dos itens já cadastrados no aplicativo que possuem relação direta ou contextual com o problema relatado.
 
-RELATO DO PROBLEMA:
-"${description}"
+RELATO DO PROBLEMA / DEMANDA DO USUÁRIO:
+"""
+${description}
+"""
 
-BASE DE CONHECIMENTO (IDs e Textos):
-FAQs: ${JSON.stringify((faqs || []).map((f: any) => ({ id: f.id, text: f.name + ' ' + f.subject + ' ' + f.technicalInfo })))}
-Procedimentos: ${JSON.stringify((procedures || []).map((p: any) => ({ id: p.id, text: p.name + ' ' + p.description })))}
-Orientações: ${JSON.stringify((orientations || []).map((o: any) => ({ id: o.id, text: o.name + ' ' + o.description })))}
-Chamados Anteriores: ${JSON.stringify((tickets || []).map((t: any) => ({ id: t.id, text: t.description })))}
+ITENS CADASTRADOS NO APLICATIVO (BASE DE CONHECIMENTO):
 
-Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mais relevantes encontrados (máximo 3 de cada). Se não encontrar nada, retorne arrays vazios.
+1. FAQs (Perguntas Frequentes):
+${JSON.stringify((faqs || []).map((f: any) => ({
+  id: f.id,
+  numero: f.faqNumber,
+  titulo: f.name,
+  assunto: f.subject,
+  sistema: f.system,
+  categoria: f.category,
+  resumoTecnico: (f.technicalInfo || '').replace(/<[^>]+>/g, ' ').substring(0, 300),
+  procedimento: (f.procedure || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+2. Orientações Técnicas:
+${JSON.stringify((orientations || []).map((o: any) => ({
+  id: o.id,
+  titulo: o.name,
+  categoria: o.category,
+  descricao: (o.description || '').replace(/<[^>]+>/g, ' ').substring(0, 300),
+  passos: (o.steps || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+3. Dúvidas Técnicas com Supervisão:
+${JSON.stringify((technicalDoubts || []).map((d: any) => ({
+  id: d.id,
+  titulo: d.title,
+  categoria: d.category,
+  sistema: d.system,
+  problema: (d.problemDescription || '').replace(/<[^>]+>/g, ' ').substring(0, 300),
+  solucaoSupervisao: (d.supervisorSolution || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+4. Informações Técnicas Gerais:
+${JSON.stringify((informations || []).map((inf: any) => ({
+  id: inf.id,
+  titulo: inf.title,
+  conteudo: (inf.content || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+5. Procedimentos Padronizados:
+${JSON.stringify((procedures || []).map((p: any) => ({
+  id: p.id,
+  nome: p.name,
+  categoria: p.category,
+  descricao: (p.description || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+6. Chamados Anteriores Concluídos:
+${JSON.stringify((tickets || []).map((t: any) => ({
+  id: t.id,
+  categoria: t.category,
+  descricao: (t.description || '').substring(0, 300),
+  solucao: (t.structuredResult || '').replace(/<[^>]+>/g, ' ').substring(0, 300)
+})))}
+
+INSTRUÇÕES DE RESPOSTA:
+Retorne EXCLUSIVAMENTE um objeto JSON com os IDs dos itens existentes apontados como relevantes para o operador acessar no app (máximo 4 IDs por categoria). Não crie novos IDs nem escreva respostas. Se não encontrar correspondência, deixe o array vazio [].
+
+Formato JSON esperado:
 {
-  "faqs": ["id1", "id2"],
-  "procedures": ["id1"],
-  "orientations": ["id1"],
-  "tickets": ["id1"]
+  "faqs": ["id_faq1", "id_faq2"],
+  "orientations": ["id_orientacao1"],
+  "technicalDoubts": ["id_duvida1"],
+  "informations": ["id_info1"],
+  "procedures": ["id_procedimento1"],
+  "tickets": ["id_chamado1"]
 }`;
 
   if (provider === 'openrouter') {
@@ -313,7 +370,7 @@ Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mai
       apiKey,
       data.openRouterModel || 'openrouter/free',
       [{ role: 'user', content: prompt }],
-      { response_format: { type: 'json_object' }, max_tokens: 1000 }
+      { response_format: { type: 'json_object' }, max_tokens: 1200 }
     );
     const resultText = responseData.choices?.[0]?.message?.content || '{}';
     
@@ -321,12 +378,14 @@ Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mai
       const parsed = JSON.parse(resultText);
       return {
         faqs: parsed.faqs || [],
-        procedures: parsed.procedures || [],
         orientations: parsed.orientations || [],
+        technicalDoubts: parsed.technicalDoubts || [],
+        informations: parsed.informations || [],
+        procedures: parsed.procedures || [],
         tickets: parsed.tickets || []
       };
     } catch (e) {
-      return { faqs: [], procedures: [], orientations: [], tickets: [] };
+      return { faqs: [], orientations: [], technicalDoubts: [], informations: [], procedures: [], tickets: [] };
     }
   } else {
     const ai = new GoogleGenAI({ apiKey });
@@ -339,8 +398,10 @@ Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mai
           type: "object",
           properties: {
             faqs: { type: "array", items: { type: "string" } },
-            procedures: { type: "array", items: { type: "string" } },
             orientations: { type: "array", items: { type: "string" } },
+            technicalDoubts: { type: "array", items: { type: "string" } },
+            informations: { type: "array", items: { type: "string" } },
+            procedures: { type: "array", items: { type: "string" } },
             tickets: { type: "array", items: { type: "string" } }
           }
         }
@@ -348,7 +409,7 @@ Retorne APENAS um objeto JSON no seguinte formato, listando os IDs dos itens mai
     });
 
     const resultText = response.text;
-    let resultJson = { faqs: [], procedures: [], orientations: [], tickets: [] };
+    let resultJson = { faqs: [], orientations: [], technicalDoubts: [], informations: [], procedures: [], tickets: [] };
     if (resultText) {
       try {
         resultJson = JSON.parse(resultText);
