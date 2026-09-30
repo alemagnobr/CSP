@@ -1,4 +1,29 @@
-import { Eye, Edit, Trash2, Search as SearchIcon, Copy, Check } from 'lucide-react';
+import { 
+  Eye, 
+  Edit, 
+  Trash2, 
+  Search as SearchIcon, 
+  Copy, 
+  Check, 
+  Clock, 
+  User, 
+  Phone, 
+  Mail, 
+  Monitor, 
+  Printer, 
+  Tv, 
+  HardDrive, 
+  Share2, 
+  Tag, 
+  BookOpen, 
+  CheckCircle2, 
+  AlertTriangle, 
+  X, 
+  Sparkles, 
+  FileText,
+  Building,
+  Laptop
+} from 'lucide-react';
 import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
@@ -48,6 +73,8 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
   const [editMinutes, setEditMinutes] = useState('0');
   const [editSeconds, setEditSeconds] = useState('0');
   const [copiedResult, setCopiedResult] = useState(false);
+  const [copiedTicketId, setCopiedTicketId] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
   const [slaFilter, setSlaFilter] = useState<'10' | '15' | '20' | '30' | null>(null);
   const [chartTab, setChartTab] = useState<'sla' | 'distribution'>('sla');
   const [selectedMonth, setSelectedMonth] = useState<string>(format(new Date(), 'yyyy-MM'));
@@ -772,33 +799,91 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       </div>
 
       {viewingTicket && (
-        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-xl">
-            <div className="p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white z-10">
-              <div>
-                <div className="flex items-center gap-3 mb-1">
-                  <h2 className="text-xl font-bold text-slate-800">Chamado {viewingTicket.id}</h2>
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-5 animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-200">
+            
+            {/* Cabeçalho do Modal */}
+            <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+              <div className="space-y-1.5">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Chamado</span>
+                  <div className="flex items-center gap-1.5 bg-white border border-slate-200 px-2.5 py-1 rounded-lg shadow-2xs">
+                    <span className="text-base font-black text-slate-800 tracking-tight font-mono">{viewingTicket.id}</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(viewingTicket.id);
+                        setCopiedTicketId(true);
+                        setTimeout(() => setCopiedTicketId(false), 2000);
+                      }}
+                      className="text-slate-400 hover:text-blue-600 transition-colors cursor-pointer p-0.5"
+                      title="Copiar número do chamado"
+                    >
+                      {copiedTicketId ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                    </button>
+                  </div>
+                  
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    FINALIZADO
+                  </span>
+
                   {viewingTicket.isEscalated && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-[11px] font-bold flex items-center gap-1">
+                      <Share2 className="h-3 w-3" />
                       ESCALONADO
                     </span>
                   )}
+
+                  {viewingTicket.isFormatMicro && (
+                    <span className="px-2.5 py-0.5 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-[11px] font-bold flex items-center gap-1">
+                      <HardDrive className="h-3 w-3" />
+                      FORMATAÇÃO
+                    </span>
+                  )}
                 </div>
-                <p className="text-sm text-slate-500">Finalizado em {viewingTicket.finishedAt ? formatDateStr(viewingTicket.finishedAt) : '-'}</p>
+
+                <p className="text-xs text-slate-500 flex items-center gap-2">
+                  <Clock className="h-3.5 w-3.5 text-slate-400" />
+                  Finalizado em <span className="font-semibold text-slate-700">{viewingTicket.finishedAt ? formatDateStr(viewingTicket.finishedAt) : '-'}</span>
+                </p>
               </div>
-              <button 
-                onClick={() => setViewingTicket(null)}
-                className="p-2 hover:bg-slate-100 rounded-full text-slate-500 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-              </button>
+
+              <div className="flex items-center gap-2 self-end sm:self-center">
+                {onEdit && (
+                  <button 
+                    onClick={() => {
+                      const id = viewingTicket.id;
+                      setViewingTicket(null);
+                      onEdit(id);
+                    }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-100 hover:text-slate-900 rounded-lg transition-all shadow-2xs cursor-pointer"
+                  >
+                    <Edit className="h-3.5 w-3.5 text-slate-500" />
+                    Editar
+                  </button>
+                )}
+                <button 
+                  onClick={() => setViewingTicket(null)}
+                  className="p-1.5 hover:bg-slate-200/60 rounded-lg text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                  title="Fechar"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
             </div>
-            
-            <div className="p-6 space-y-8">
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col justify-center">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Duração</span>
+
+            {/* Conteúdo com Scroll */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-6 min-h-0 bg-white">
+              
+              {/* Seção 1: Indicadores e Classificação */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Duração & SLA */}
+                <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-slate-400" />
+                      Duração
+                    </span>
                     {onUpdate && !isEditingTime && (
                       <button 
                         onClick={() => {
@@ -806,20 +891,22 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                           setEditSeconds((viewingTicket.durationSeconds % 60).toString());
                           setIsEditingTime(true);
                         }}
-                        className="text-slate-400 hover:text-blue-600"
+                        className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1 cursor-pointer"
                         title="Editar duração"
                       >
-                        <Edit className="h-3.5 w-3.5" />
+                        <Edit className="h-3 w-3" />
+                        Editar
                       </button>
                     )}
                   </div>
+
                   {isEditingTime ? (
-                    <div className="flex flex-wrap items-center gap-1 mt-1">
+                    <div className="flex flex-wrap items-center gap-1.5 mt-1 bg-white p-2 rounded-lg border border-blue-200">
                       <input 
                         type="number" 
                         value={editMinutes} 
                         onChange={e => setEditMinutes(e.target.value)} 
-                        className="w-10 px-1 py-0.5 text-xs border border-slate-300 rounded focus:outline-none focus:border-blue-500" 
+                        className="w-12 px-2 py-1 text-xs border border-slate-300 rounded font-semibold focus:outline-none focus:border-blue-500" 
                         min="0"
                       />
                       <span className="text-xs text-slate-500 font-bold">m</span>
@@ -827,7 +914,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                         type="number" 
                         value={editSeconds} 
                         onChange={e => setEditSeconds(e.target.value)} 
-                        className="w-10 px-1 py-0.5 text-xs border border-slate-300 rounded focus:outline-none focus:border-blue-500" 
+                        className="w-12 px-2 py-1 text-xs border border-slate-300 rounded font-semibold focus:outline-none focus:border-blue-500" 
                         min="0" max="59"
                       />
                       <span className="text-xs text-slate-500 font-bold">s</span>
@@ -839,140 +926,305 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                           if (onUpdate) onUpdate(updated);
                           setIsEditingTime(false);
                         }}
-                        className="ml-0.5 text-emerald-600 hover:text-emerald-700 p-0.5 rounded hover:bg-emerald-50"
+                        className="p-1 rounded bg-emerald-100 text-emerald-700 hover:bg-emerald-200 cursor-pointer ml-1"
+                        title="Salvar"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        <Check className="h-3.5 w-3.5" />
                       </button>
-                      <button onClick={() => setIsEditingTime(false)} className="text-red-500 hover:text-red-600 p-0.5 rounded hover:bg-red-50">
-                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                      <button 
+                        onClick={() => setIsEditingTime(false)} 
+                        className="p-1 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer"
+                        title="Cancelar"
+                      >
+                        <X className="h-3.5 w-3.5" />
                       </button>
                     </div>
                   ) : (
-                    <span className="text-sm font-bold text-slate-800">{formatDuration(viewingTicket.durationSeconds)}</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xl font-black text-slate-800">
+                        {formatDuration(viewingTicket.durationSeconds)}
+                      </span>
+                      {viewingTicket.durationSeconds <= (appSettings?.sla?.otima || 10) * 60 ? (
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Dentro da Meta</span>
+                      ) : (
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Acima de {appSettings?.sla?.otima || 10}m</span>
+                      )}
+                    </div>
                   )}
                 </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col justify-center">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Categoria</span>
+
+                {/* Categoria */}
+                <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Tag className="h-3.5 w-3.5 text-slate-400" />
+                    Categoria
+                  </span>
                   {onUpdate ? (
-                    <SearchableCategorySelect
-                      value={viewingTicket.category || ''}
-                      onChange={(cat) => {
-                        const updated = { ...viewingTicket, category: cat };
-                        setViewingTicket(updated);
-                        onUpdate(updated);
-                      }}
-                      categories={appSettings.categories}
-                      variant="underlined"
-                    />
+                    <div className="bg-white rounded-lg border border-slate-200 px-1 py-0.5">
+                      <SearchableCategorySelect
+                        value={viewingTicket.category || ''}
+                        onChange={(cat) => {
+                          const updated = { ...viewingTicket, category: cat };
+                          setViewingTicket(updated);
+                          onUpdate(updated);
+                        }}
+                        categories={appSettings.categories}
+                        variant="underlined"
+                      />
+                    </div>
                   ) : (
-                    <span className="text-sm font-bold text-slate-800">{viewingTicket.category || '-'}</span>
-                  )}
-                </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col justify-center">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">FAQ Associada</span>
-                  {onUpdate ? (
-                    <SearchableFaqSelect
-                      value={viewingTicket.associatedFaqId || ''}
-                      onChange={(faqId) => {
-                        const updated = { ...viewingTicket, associatedFaqId: faqId };
-                        setViewingTicket(updated);
-                        onUpdate(updated);
-                      }}
-                      faqs={appSettings.faqs || []}
-                      variant="underlined"
-                    />
-                  ) : (
-                    <span className="text-sm font-bold text-slate-800 truncate" title={appSettings.faqs?.find(f => f.id === viewingTicket.associatedFaqId)?.name}>
-                      {viewingTicket.associatedFaqId ? `FAQ: ${appSettings.faqs?.find(f => f.id === viewingTicket.associatedFaqId)?.faqNumber}` : '-'}
+                    <span className="text-sm font-bold text-slate-800 truncate">
+                      {viewingTicket.category || <span className="text-slate-400 font-normal italic">Sem categoria</span>}
                     </span>
                   )}
                 </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Login/Ramal</span>
-                  <span className="text-sm font-bold text-slate-800">{viewingTicket.networkLogin || '-'} / {viewingTicket.extension || '-'}</span>
-                </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Celular</span>
-                  <span className="text-sm font-bold text-slate-800">{viewingTicket.mobile || '-'}</span>
-                </div>
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Email</span>
-                  <span className="text-sm font-bold text-slate-800">{viewingTicket.clientEmail || '-'}</span>
+
+                {/* FAQ Associada */}
+                <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                  <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <BookOpen className="h-3.5 w-3.5 text-slate-400" />
+                    FAQ Associada
+                  </span>
+                  {onUpdate ? (
+                    <div className="bg-white rounded-lg border border-slate-200 px-1 py-0.5">
+                      <SearchableFaqSelect
+                        value={viewingTicket.associatedFaqId || ''}
+                        onChange={(faqId) => {
+                          const updated = { ...viewingTicket, associatedFaqId: faqId };
+                          setViewingTicket(updated);
+                          onUpdate(updated);
+                        }}
+                        faqs={appSettings.faqs || []}
+                        variant="underlined"
+                      />
+                    </div>
+                  ) : (
+                    <span className="text-sm font-bold text-slate-800 truncate" title={appSettings.faqs?.find(f => f.id === viewingTicket.associatedFaqId)?.name}>
+                      {viewingTicket.associatedFaqId 
+                        ? `FAQ #${appSettings.faqs?.find(f => f.id === viewingTicket.associatedFaqId)?.faqNumber || viewingTicket.associatedFaqId}` 
+                        : <span className="text-slate-400 font-normal italic">Sem FAQ associada</span>
+                      }
+                    </span>
+                  )}
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">Endereços Lógicos</h3>
-                <div className="grid grid-cols-4 gap-4">
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Micro</span>
-                    <span className="text-sm font-medium text-slate-700">{viewingTicket.microLogicalAddress || '-'}</span>
+              {/* Seção 2: Dados do Solicitante / Contato */}
+              <div className="bg-slate-50/60 rounded-xl border border-slate-200 p-4 space-y-3">
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <User className="h-3.5 w-3.5 text-slate-500" />
+                  Dados do Solicitante
+                </h4>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {/* Login e Ramal */}
+                  <div className="bg-white p-3 rounded-lg border border-slate-200 flex items-start gap-2.5">
+                    <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+                      <User className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Login de Rede / Nome</span>
+                      <p className="text-xs font-bold text-slate-800 break-words leading-relaxed mt-0.5">
+                        {viewingTicket.networkLogin || <span className="text-slate-400 font-normal italic">Não informado</span>}
+                      </p>
+                      {viewingTicket.extension && (
+                        <p className="text-[11px] font-medium text-slate-600 mt-1 flex items-center gap-1">
+                          <Phone className="h-3 w-3 text-slate-400" />
+                          Ramal: <strong className="text-slate-800">{viewingTicket.extension}</strong>
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Impressora</span>
-                    <span className="text-sm font-medium text-slate-700">{viewingTicket.printerLogicalAddress || '-'}</span>
+
+                  {/* Celular / WhatsApp */}
+                  <div className="bg-white p-3 rounded-lg border border-slate-200 flex items-start gap-2.5">
+                    <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0">
+                      <Phone className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Telefone / Celular</span>
+                      <p className="text-xs font-bold text-slate-800 mt-0.5">
+                        {viewingTicket.mobile || <span className="text-slate-400 font-normal italic">-</span>}
+                      </p>
+                    </div>
                   </div>
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Monitor</span>
-                    <span className="text-sm font-medium text-slate-700">{viewingTicket.monitorLogicalAddress || '-'}</span>
-                  </div>
-                  <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <span className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Outros</span>
-                    <span className="text-sm font-medium text-slate-700">{viewingTicket.otherLogicalAddress || '-'}</span>
+
+                  {/* E-mail */}
+                  <div className="bg-white p-3 rounded-lg border border-slate-200 flex items-start gap-2.5 sm:col-span-2 lg:col-span-1">
+                    <div className="p-2 rounded-lg bg-indigo-50 text-indigo-600 shrink-0">
+                      <Mail className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">E-mail</span>
+                        {viewingTicket.clientEmail && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(viewingTicket.clientEmail || '');
+                              setCopiedEmail(true);
+                              setTimeout(() => setCopiedEmail(false), 2000);
+                            }}
+                            className="text-slate-400 hover:text-blue-600 text-[10px] flex items-center gap-1 cursor-pointer"
+                            title="Copiar e-mail"
+                          >
+                            {copiedEmail ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
+                          </button>
+                        )}
+                      </div>
+                      <p className="text-xs font-bold text-slate-800 break-all mt-0.5">
+                        {viewingTicket.clientEmail || <span className="text-slate-400 font-normal italic">-</span>}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-               {viewingTicket.structuredResult && (
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3 mb-4">
+              {/* Seção 3: Endereços Lógicos */}
+              <div className="space-y-2.5">
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <Monitor className="h-3.5 w-3.5 text-slate-500" />
+                  Endereços Lógicos dos Equipamentos
+                </h4>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {/* Micro */}
+                  <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-slate-100 text-slate-600 shrink-0">
+                      <Laptop className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase">Micro</span>
+                      <span className="text-xs font-bold text-slate-800 truncate block">
+                        {viewingTicket.microLogicalAddress || <span className="text-slate-400 font-normal">-</span>}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Impressora */}
+                  <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-slate-100 text-slate-600 shrink-0">
+                      <Printer className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase">Impressora</span>
+                      <span className="text-xs font-bold text-slate-800 truncate block">
+                        {viewingTicket.printerLogicalAddress || <span className="text-slate-400 font-normal">-</span>}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Monitor */}
+                  <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-slate-100 text-slate-600 shrink-0">
+                      <Tv className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase">Monitor</span>
+                      <span className="text-xs font-bold text-slate-800 truncate block">
+                        {viewingTicket.monitorLogicalAddress || <span className="text-slate-400 font-normal">-</span>}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Outros */}
+                  <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-slate-100 text-slate-600 shrink-0">
+                      <HardDrive className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-bold text-slate-400 uppercase">Outros</span>
+                      <span className="text-xs font-bold text-slate-800 truncate block">
+                        {viewingTicket.otherLogicalAddress || <span className="text-slate-400 font-normal">-</span>}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Seção 4: Detalhes de Escalonamento (se houver) */}
+              {viewingTicket.isEscalated && viewingTicket.escalationDetails && (
+                <div className="bg-blue-50/60 rounded-xl border border-blue-200 p-4 space-y-3">
+                  <div className="flex items-center gap-2 text-blue-900 font-bold text-xs uppercase tracking-wider">
+                    <Building className="h-4 w-4 text-blue-600" />
+                    Dados do Escalonamento
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-bold uppercase">Setor</span>
+                      <span className="font-semibold text-slate-800">{viewingTicket.escalationDetails.setor || '-'}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-bold uppercase">Edifício</span>
+                      <span className="font-semibold text-slate-800">{viewingTicket.escalationDetails.edificio || '-'}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-bold uppercase">Ponto de Referência</span>
+                      <span className="font-semibold text-slate-800">{viewingTicket.escalationDetails.pontoReferencia || '-'}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-400 block font-bold uppercase">Contato no Local</span>
+                      <span className="font-semibold text-slate-800">{viewingTicket.escalationDetails.contato || '-'}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Seção 5: Texto Estruturado (Solução da IA / Base) */}
+              {viewingTicket.structuredResult && (
+                <div className="space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
                     <div className="flex items-center gap-3">
-                      <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                        <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        Texto Estruturado (IA)
-                      </h3>
+                      <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <Sparkles className="h-4 w-4 text-purple-600" />
+                        Texto Estruturado (Solução)
+                      </h4>
                       <div className="flex gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
                         <button
+                          type="button"
                           onClick={() => setViewMode('preview')}
                           className={cn(
-                            "px-2.5 py-1 rounded-md text-[10px] font-bold transition-all cursor-pointer",
+                            "px-2.5 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer",
                             viewMode === 'preview'
-                              ? "bg-white text-slate-800 shadow-xs"
+                              ? "bg-white text-slate-800 shadow-2xs"
                               : "text-slate-500 hover:text-slate-700"
                           )}
                         >
                           Visualização Formatada
                         </button>
                         <button
+                          type="button"
                           onClick={() => setViewMode('code')}
                           className={cn(
-                            "px-2.5 py-1 rounded-md text-[10px] font-bold transition-all cursor-pointer",
+                            "px-2.5 py-1 rounded-md text-[11px] font-bold transition-all cursor-pointer",
                             viewMode === 'code'
-                              ? "bg-white text-slate-800 shadow-xs"
+                              ? "bg-white text-slate-800 shadow-2xs"
                               : "text-slate-500 hover:text-slate-700"
                           )}
                         >
-                          Código HTML (Bruto)
+                          Código HTML
                         </button>
                       </div>
                     </div>
+
                     <button
+                      type="button"
                       onClick={handleCopyResult}
-                      className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-blue-600 transition-colors bg-white border border-slate-200 px-2.5 py-1 rounded-md cursor-pointer shadow-xs self-start sm:self-auto"
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs self-start sm:self-auto"
                     >
-                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
-                      {copiedResult ? <span className="text-emerald-500">Copiado!</span> : <span>Copiar HTML</span>}
+                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
                     </button>
                   </div>
                   
-                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                     {viewMode === 'preview' ? (
                       <div 
-                        className="prose prose-slate max-w-none text-sm text-slate-700 leading-relaxed bg-white rounded-lg border border-slate-100 p-4 shadow-xs"
+                        className="text-sm text-slate-800 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-5 [&>ol]:list-decimal [&>ol]:ml-5"
                         dangerouslySetInnerHTML={{ __html: viewingTicket.structuredResult }}
                       />
                     ) : (
-                      <pre className="whitespace-pre-wrap font-mono text-xs text-slate-700 leading-relaxed bg-white rounded-lg border border-slate-100 p-4 shadow-xs">
+                      <pre className="whitespace-pre-wrap font-mono text-xs text-slate-700 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs overflow-x-auto">
                         {viewingTicket.structuredResult}
                       </pre>
                     )}
@@ -980,24 +1232,35 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                 </div>
               )}
 
-              <div>
-                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">Descrição Original</h3>
-                <div className="bg-slate-50 border border-slate-100 rounded-xl p-5">
-                  <pre className="whitespace-pre-wrap font-sans text-sm text-slate-700 leading-relaxed">
+              {/* Seção 6: Descrição Original */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <FileText className="h-3.5 w-3.5 text-slate-500" />
+                  Descrição Original Registrada
+                </h4>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <pre className="whitespace-pre-wrap font-sans text-xs text-slate-700 leading-relaxed">
                     {viewingTicket.description || <span className="italic text-slate-400">Nenhuma descrição original registrada.</span>}
                   </pre>
                 </div>
               </div>
-              
-              <div className="pt-6 flex justify-end">
-                <button 
-                  onClick={() => setViewingTicket(null)}
-                  className="px-6 py-2.5 bg-slate-100 text-slate-700 rounded-lg text-sm font-bold hover:bg-slate-200 transition-colors"
-                >
-                  Fechar
-                </button>
-              </div>
+
             </div>
+
+            {/* Rodapé do Modal */}
+            <div className="px-6 py-3.5 border-t border-slate-100 bg-slate-50/80 flex items-center justify-between shrink-0">
+              <span className="text-xs text-slate-400">
+                Registro arquivado e finalizado no sistema.
+              </span>
+              <button 
+                type="button"
+                onClick={() => setViewingTicket(null)}
+                className="px-5 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors shadow-2xs cursor-pointer"
+              >
+                Fechar
+              </button>
+            </div>
+
           </div>
         </div>
       )}

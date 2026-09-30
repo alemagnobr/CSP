@@ -43,6 +43,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const [draggedProcIndex, setDraggedProcIndex] = useState<number | null>(null);
   const [draggedVerifIndex, setDraggedVerifIndex] = useState<number | null>(null);
+  const [draggedPredefinedIndex, setDraggedPredefinedIndex] = useState<number | null>(null);
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategory, setNewCategory] = useState('');
   const [showPredefinedSolutions, setShowPredefinedSolutions] = useState(false);
@@ -274,6 +275,35 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     
     setDraggedVerifIndex(overIndex);
     onUpdateSettings({ ...appSettings, verifications: list });
+  };
+
+  const handleDragOverPredefined = (e: React.DragEvent, overIndex: number) => {
+    e.preventDefault();
+    if (draggedPredefinedIndex === null || draggedPredefinedIndex === overIndex) return;
+
+    const list = [...(appSettings.predefinedSolutions || [])];
+    const draggedItem = list[draggedPredefinedIndex];
+    if (!draggedItem) return;
+
+    list.splice(draggedPredefinedIndex, 1);
+    list.splice(overIndex, 0, draggedItem);
+
+    setDraggedPredefinedIndex(overIndex);
+    onUpdateSettings({ ...appSettings, predefinedSolutions: list });
+  };
+
+  const handleMovePredefined = (index: number, direction: 'up' | 'down') => {
+    const list = [...(appSettings.predefinedSolutions || [])];
+    if (direction === 'up' && index > 0) {
+      const temp = list[index];
+      list[index] = list[index - 1];
+      list[index - 1] = temp;
+    } else if (direction === 'down' && index < list.length - 1) {
+      const temp = list[index];
+      list[index] = list[index + 1];
+      list[index + 1] = temp;
+    }
+    onUpdateSettings({ ...appSettings, predefinedSolutions: list });
   };
 
   const handleFinalizeIA = async () => {
@@ -2297,7 +2327,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               </div>
 
               <div className="flex items-center justify-between text-xs px-1 text-slate-500">
-                <span>
+                <span className="flex items-center gap-1.5 flex-wrap">
                   {(() => {
                     const allSols = appSettings.predefinedSolutions || [];
                     const term = predefinedSearchTerm.trim().toLowerCase();
@@ -2305,7 +2335,14 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                       ? allSols.filter(s => (s.title || '').toLowerCase().includes(term) || (s.content || '').toLowerCase().includes(term)).length
                       : allSols.length;
                     return (
-                      <>Exibindo <strong className="text-slate-700 font-semibold">{filteredCount}</strong> {filteredCount === 1 ? 'solução' : 'soluções'}</>
+                      <>
+                        <span>Exibindo <strong className="text-slate-700 font-semibold">{filteredCount}</strong> {filteredCount === 1 ? 'solução' : 'soluções'}</span>
+                        {!term && allSols.length > 1 && (
+                          <span className="text-[11px] text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full font-medium">
+                            Arraste para reposicionar
+                          </span>
+                        )}
+                      </>
                     );
                   })()}
                 </span>
@@ -2348,26 +2385,77 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                   );
                 }
 
-                return filtered.map((sol) => {
+                return filtered.map((sol, index) => {
                   const plainText = (sol.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
                   const isCopied = copiedPredefinedId === sol.id;
+                  const isDragging = draggedPredefinedIndex === index;
+                  const isDraggable = !term; // Permite arrastar quando não há busca ativa
 
                   return (
                     <div
                       key={sol.id}
-                      className="bg-white rounded-xl border border-slate-200 p-4 hover:border-indigo-300 hover:shadow-md transition-all group flex flex-col justify-between gap-3"
+                      draggable={isDraggable}
+                      onDragStart={() => isDraggable && setDraggedPredefinedIndex(index)}
+                      onDragOver={(e) => isDraggable && handleDragOverPredefined(e, index)}
+                      onDragEnd={() => setDraggedPredefinedIndex(null)}
+                      className={cn(
+                        "bg-white rounded-xl border p-4 transition-all group flex flex-col justify-between gap-3 select-none",
+                        isDragging ? "opacity-40 border-indigo-400 scale-[0.99] shadow-inner" : "border-slate-200 hover:border-indigo-300 hover:shadow-md",
+                        isDraggable ? "cursor-grab active:cursor-grabbing" : ""
+                      )}
                     >
                       <div>
                         <div className="flex items-start justify-between gap-3">
-                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
-                            {sol.title}
-                          </h4>
-                          <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
-                            Padrão
-                          </span>
+                          <div className="flex items-center gap-2">
+                            {isDraggable && (
+                              <div 
+                                className="text-slate-300 group-hover:text-slate-500 hover:text-indigo-600 transition-colors p-0.5 cursor-grab active:cursor-grabbing shrink-0" 
+                                title="Arraste para reposicionar esta solução"
+                              >
+                                <GripVertical className="h-4 w-4" />
+                              </div>
+                            )}
+                            <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                              {sol.title}
+                            </h4>
+                          </div>
+
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            {isDraggable && allSols.length > 1 && (
+                              <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                  type="button"
+                                  disabled={index === 0}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleMovePredefined(index, 'up');
+                                  }}
+                                  className="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                                  title="Subir posição"
+                                >
+                                  <ChevronUp className="h-3.5 w-3.5" />
+                                </button>
+                                <button
+                                  type="button"
+                                  disabled={index === allSols.length - 1}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleMovePredefined(index, 'down');
+                                  }}
+                                  className="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                                  title="Descer posição"
+                                >
+                                  <ChevronDown className="h-3.5 w-3.5" />
+                                </button>
+                              </div>
+                            )}
+                            <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
+                              Padrão
+                            </span>
+                          </div>
                         </div>
                         {plainText && (
-                          <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
+                          <p className={cn("text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed", isDraggable ? "pl-6" : "")}>
                             {plainText}
                           </p>
                         )}
