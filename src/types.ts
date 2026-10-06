@@ -186,6 +186,7 @@ export interface AppSettings {
   orientations?: Orientation[];
   technicalDoubts?: TechnicalDoubt[];
   aiProvider?: 'gemini' | 'openrouter';
+  geminiModel?: string;
   openRouterModel?: string;
   geminiApiKey?: string;
   openRouterApiKey?: string;

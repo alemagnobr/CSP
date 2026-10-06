@@ -1,8 +1,53 @@
 import { GoogleGenAI } from '@google/genai';
 
-// WARNING: Using the Gemini API directly from the client exposes the API key to the browser.
-// This is done because the user explicitly requested a client-side only app for GitHub pages,
-// and they will be providing their own API key via the UI.
+// Modelos rápidos para geração com fallback automático em caso de lentidão ou erro
+const PRIMARY_GEMINI_MODEL = 'gemini-2.5-flash-lite';
+const FALLBACK_GEMINI_MODELS = ['gemini-2.5-flash', 'gemini-flash-latest'];
+
+/**
+ * Executa uma chamada ao GoogleGenAI com limite de tokens, temperatura otimizada
+ * e fallback automático para modelos secundários se o primeiro falhar ou sofrer timeout.
+ */
+async function generateGeminiContentWithFallback(
+  ai: GoogleGenAI,
+  prompt: string,
+  preferredModel?: string,
+  customConfig?: any
+): Promise<string> {
+  const modelsToTry = preferredModel 
+    ? [preferredModel, ...FALLBACK_GEMINI_MODELS.filter(m => m !== preferredModel)]
+    : [PRIMARY_GEMINI_MODEL, ...FALLBACK_GEMINI_MODELS];
+
+  let lastError: any = null;
+
+  for (const model of modelsToTry) {
+    try {
+      const response = await ai.models.generateContent({
+        model: model,
+        contents: prompt,
+        config: {
+          temperature: 0.2, // Respostas diretas e precisas sem lentidão
+          maxOutputTokens: 1500, // Limite seguro para acelerar a geração do HTML
+          ...customConfig
+        }
+      });
+
+      if (response && response.text) {
+        return response.text;
+      }
+    } catch (err: any) {
+      console.warn(`[Gemini] Falha ou lentidão no modelo ${model}. Tentando próximo...`, err?.message || err);
+      lastError = err;
+      // Se for erro de permissão ou chave inválida, não adianta tentar outros modelos
+      const errMsg = (err?.message || '').toLowerCase();
+      if (errMsg.includes('api key') || errMsg.includes('invalid') || errMsg.includes('permission_denied')) {
+        throw err;
+      }
+    }
+  }
+
+  throw lastError || new Error('Não foi possível obter resposta do Gemini com os modelos disponíveis.');
+}
 
 async function fetchOpenRouter(
   apiKey: string,
@@ -271,17 +316,12 @@ Formate a saída EXATAMENTE como o código HTML abaixo, substituindo os colchete
       apiKey,
       data.openRouterModel || 'openrouter/free',
       [{ role: 'user', content: prompt }],
-      { max_tokens: 4000 }
+      { max_tokens: 2000, temperature: 0.2 }
     );
     return responseData.choices?.[0]?.message?.content || '';
   } else {
     const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-    });
-
-    return response.text;
+    return await generateGeminiContentWithFallback(ai, prompt, data.geminiModel);
   }
 };
 
@@ -451,12 +491,7 @@ Requisitos para o Título:
     return content.trim().replace(/^["']|["']$/g, '').replace(/```/g, '');
   } else {
     const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-    });
-
-    const content = response.text || '';
+    const content = await generateGeminiContentWithFallback(ai, prompt, undefined, { maxOutputTokens: 100, temperature: 0.1 });
     return content.trim().replace(/^["']|["']$/g, '').replace(/```/g, '');
   }
 };
@@ -469,7 +504,7 @@ export function formatAiError(errorMsg: string, provider: 'gemini' | 'openrouter
       const status = parsed.error.status || '';
       
       if (status === 'PERMISSION_DENIED' || innerMessage.includes('permission') || innerMessage.includes('denied')) {
-        return `Acesso Negado (403): O Google Gemini recusou a chamada. Verifique se a sua Chave de API do Gemini nas Configurações é válida, está ativa e possui permissão para o modelo 'gemini-2.5-flash'.`;
+        return `Acesso Negado (403): O Google Gemini recusou a chamada. Verifique se a sua Chave de API do Gemini nas Configurações é válida e está ativa no Google AI Studio.`;
       }
       
       return `${status ? `Erro [${status}]: ` : ''}${innerMessage || errorMsg}`;

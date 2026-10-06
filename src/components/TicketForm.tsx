@@ -344,6 +344,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         aiGuidelines: appSettings.aiGuidelines,
         aiPromptStandard: appSettings.aiPromptStandard,
         aiPromptEscalated: appSettings.aiPromptEscalated,
+        geminiModel: appSettings.geminiModel,
         openRouterModel: appSettings.openRouterModel
       });
       
