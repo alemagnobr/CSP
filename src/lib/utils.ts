@@ -70,114 +70,119 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
 
-    // Remove blocos de assinatura e pesquisa de satisfação do documento analisado para nunca misturar
-    const allDivs = Array.from(doc.querySelectorAll('div'));
-    allDivs.forEach(div => {
-      const text = (div.textContent || '').toLowerCase();
-      if (text.includes('sua opinião é importante') || text.includes('atenciosamente') || text.includes('pesquisa de satisfação') || text.includes('central de atendimento')) {
-        div.remove();
-      }
-    });
-
-    const isEscalatedMode = doc.body.textContent?.includes('ENCAMINHAMENTO') || 
-                            doc.body.textContent?.includes('A tratativa') || 
-                            doc.body.textContent?.includes('A solicitação');
-
     const sections: ParsedTicketSection[] = [];
 
-    if (isEscalatedMode) {
-      // 1. A solicitação
-      const allElements = Array.from(doc.querySelectorAll('div, strong, b'));
+    // Função auxiliar para limpar assinatura e notas de pesquisa de um texto
+    const cleanSectionText = (raw: string): string => {
+      let t = stripAndFormatHtml(raw);
+      // Remove menções de pesquisa de satisfação se vazou
+      t = t.replace(/Sua opinião é importante[\s\S]*?Muito obrigado!?/gi, '');
+      // Remove assinatura institucional se vazou
+      t = t.replace(/Para melhorarmos continuamente[\s\S]*?Central de Atendimento\.?/gi, '');
+      t = t.replace(/Atenciosamente[\s\S]*?Central de Atendimento\.?/gi, '');
+      return t.trim();
+    };
+
+    // 1. Procurar Análise técnica
+    const allElements = Array.from(doc.querySelectorAll('div, b, u, strong'));
+    const analiseTitleEl = allElements.find(el => {
+      const txt = (el.textContent || '').trim().toLowerCase();
+      return txt === 'análise técnica:' || txt === 'analise tecnica:' || txt === 'análise técnica' || txt === 'analise tecnica';
+    });
+
+    if (analiseTitleEl) {
+      // Pega o card que envolve ou o irmão seguinte
+      const card = analiseTitleEl.closest('div');
+      const nextSibling = analiseTitleEl.nextElementSibling;
+      const text = nextSibling 
+        ? cleanSectionText(nextSibling.innerHTML)
+        : (card ? cleanSectionText(card.innerHTML).replace(/an[aá]lise\s+t[eé]cnica:?/i, '').trim() : '');
+      if (text) {
+        sections.push({
+          id: 'analise',
+          title: 'Análise técnica',
+          content: text,
+          htmlContent: nextSibling ? nextSibling.outerHTML : (card ? card.innerHTML : '')
+        });
+      }
+    }
+
+    // 2. Procurar Ações realizadas
+    const acoesTitleEl = allElements.find(el => {
+      const txt = (el.textContent || '').trim().toLowerCase();
+      return txt === 'ações realizadas:' || txt === 'acoes realizadas:' || txt === 'ações realizadas' || txt === 'acoes realizadas';
+    });
+
+    if (acoesTitleEl) {
+      const card = acoesTitleEl.closest('div');
+      const nextSibling = acoesTitleEl.nextElementSibling;
+      const text = nextSibling 
+        ? cleanSectionText(nextSibling.innerHTML)
+        : (card ? cleanSectionText(card.innerHTML).replace(/a[cç][oõ]es\s+realizadas:?/i, '').trim() : '');
+      if (text) {
+        sections.push({
+          id: 'acoes',
+          title: 'Ações realizadas',
+          content: text,
+          htmlContent: nextSibling ? nextSibling.outerHTML : (card ? card.innerHTML : '')
+        });
+      }
+    }
+
+    // 3. Procurar Resultado
+    const resultadoTitleEl = allElements.find(el => {
+      const txt = (el.textContent || '').trim().toLowerCase();
+      return (txt === 'resultado:' || txt === 'resultado') && !txt.includes('opinião');
+    });
+
+    if (resultadoTitleEl) {
+      const card = resultadoTitleEl.closest('div');
+      const nextSibling = resultadoTitleEl.nextElementSibling;
+      const text = nextSibling 
+        ? cleanSectionText(nextSibling.innerHTML)
+        : (card ? cleanSectionText(card.innerHTML).replace(/resultado:?/i, '').trim() : '');
+      if (text) {
+        sections.push({
+          id: 'resultado',
+          title: 'Resultado',
+          content: text,
+          htmlContent: nextSibling ? nextSibling.outerHTML : (card ? card.innerHTML : '')
+        });
+      }
+    }
+
+    // Se NÃO achou Análise técnica/Ações/Resultado, procura seções de Escalonamento (A solicitação / A tratativa)
+    if (sections.length === 0) {
       const solEl = allElements.find(el => /a\s+solicita[cç][aã]o:?/i.test(el.textContent || ''));
       if (solEl) {
-        const parentContainer = solEl.closest('div') || solEl.parentElement;
-        if (parentContainer) {
-          let text = stripAndFormatHtml(parentContainer.innerHTML);
+        const parent = solEl.closest('div') || solEl.parentElement;
+        if (parent) {
+          let text = cleanSectionText(parent.innerHTML);
           text = text.replace(/.*a\s+solicita[cç][aã]o:?/i, '').replace(/prezados,?\s*/i, '').trim();
           if (text) {
             sections.push({
               id: 'solicitacao',
               title: 'A solicitação',
               content: text,
-              htmlContent: parentContainer.innerHTML
+              htmlContent: parent.innerHTML
             });
           }
         }
       }
 
-      // 2. A tratativa
       const tratEl = allElements.find(el => /a\s+tratativa/i.test(el.textContent || ''));
       if (tratEl) {
-        const card = tratEl.closest('div') || tratEl.parentElement;
-        if (card) {
-          const sibling = tratEl.nextElementSibling || (card.children.length > 1 ? card.children[1] : null);
-          const rawText = sibling 
-            ? stripAndFormatHtml(sibling.innerHTML) 
-            : stripAndFormatHtml(card.innerHTML).replace(/a\s+tratativa/i, '').trim();
-          if (rawText) {
-            sections.push({
-              id: 'tratativa',
-              title: 'A tratativa',
-              content: rawText,
-              htmlContent: sibling ? sibling.outerHTML : card.innerHTML
-            });
-          }
-        }
-      }
-    } else {
-      // Modo Padrão (Análise técnica, Ações realizadas, Resultado)
-      const allDivsInDoc = Array.from(doc.querySelectorAll('div'));
-
-      // 1. Análise técnica
-      const analiseHeader = allDivsInDoc.find(d => {
-        const t = (d.textContent || '').trim().toLowerCase();
-        return t === 'análise técnica:' || t === 'analise tecnica:' || (t.startsWith('análise técnica') && t.length < 30);
-      });
-      if (analiseHeader) {
-        const contentEl = analiseHeader.nextElementSibling;
-        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
+        const card = tratEl.closest('div');
+        const nextSibling = tratEl.nextElementSibling;
+        const text = nextSibling
+          ? cleanSectionText(nextSibling.innerHTML)
+          : (card ? cleanSectionText(card.innerHTML).replace(/a\s+tratativa/i, '').trim() : '');
         if (text) {
           sections.push({
-            id: 'analise',
-            title: 'Análise técnica',
+            id: 'tratativa',
+            title: 'A tratativa',
             content: text,
-            htmlContent: contentEl ? contentEl.outerHTML : ''
-          });
-        }
-      }
-
-      // 2. Ações realizadas
-      const acoesHeader = allDivsInDoc.find(d => {
-        const t = (d.textContent || '').trim().toLowerCase();
-        return t === 'ações realizadas:' || t === 'acoes realizadas:' || (t.startsWith('ações realizadas') && t.length < 30);
-      });
-      if (acoesHeader) {
-        const contentEl = acoesHeader.nextElementSibling;
-        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
-        if (text) {
-          sections.push({
-            id: 'acoes',
-            title: 'Ações realizadas',
-            content: text,
-            htmlContent: contentEl ? contentEl.outerHTML : ''
-          });
-        }
-      }
-
-      // 3. Resultado
-      const resultadoHeader = allDivsInDoc.find(d => {
-        const t = (d.textContent || '').trim().toLowerCase();
-        return t === 'resultado:' || (t.startsWith('resultado') && t.length < 20);
-      });
-      if (resultadoHeader) {
-        const contentEl = resultadoHeader.nextElementSibling;
-        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
-        if (text) {
-          sections.push({
-            id: 'resultado',
-            title: 'Resultado',
-            content: text,
-            htmlContent: contentEl ? contentEl.outerHTML : ''
+            htmlContent: nextSibling ? nextSibling.outerHTML : (card ? card.innerHTML : '')
           });
         }
       }

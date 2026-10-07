@@ -650,59 +650,91 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 <div className="flex-1 min-h-0 overflow-y-auto">
                   {aiViewMode === 'preview' ? (
                     <div className="space-y-3">
-                      {/* Barra de atalhos rápidos por campo */}
                       {(() => {
                         const parsedSections = parseTicketHtmlSections(aiResult);
-                        if (parsedSections.length === 0) return null;
 
-                        return (
-                          <div className="bg-white border border-slate-200/90 rounded-xl p-2.5 shadow-2xs flex flex-wrap items-center justify-between gap-2">
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 pl-1">
-                              <Copy className="h-3.5 w-3.5 text-indigo-600" />
-                              Copiar por campo (somente texto):
-                            </span>
-                            <div className="flex flex-wrap items-center gap-1.5">
+                        // Se encontrou as seções, renderiza cada uma em seu próprio card com o botão "Copiar" no topo direito
+                        if (parsedSections.length > 0) {
+                          // Extrai o bloco de pesquisa de satisfação se existir no HTML original
+                          const researchMatch = aiResult?.match(/<!--\{cke_protected\}[\s\S]*?PESQUISA[\s\S]*?<\/div>\s*<\/div>/i) ||
+                                                aiResult?.match(/<div[^>]*background:\s*#fffbeb[\s\S]*?<\/div>\s*<\/div>/i);
+                          const researchHtml = researchMatch ? researchMatch[0] : null;
+
+                          return (
+                            <div className="space-y-3">
                               {parsedSections.map((sec) => {
                                 const isCopied = copiedSectionId === sec.id;
                                 return (
-                                  <button
+                                  <div 
                                     key={sec.id}
-                                    type="button"
-                                    onClick={() => {
-                                      navigator.clipboard.writeText(sec.content);
-                                      setCopiedSectionId(sec.id);
-                                      setTimeout(() => setCopiedSectionId(null), 2000);
-                                    }}
-                                    className={cn(
-                                      "flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg border transition-all cursor-pointer shadow-2xs",
-                                      isCopied
-                                        ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                                        : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200"
-                                    )}
-                                    title={`Copiar apenas o texto de: ${sec.title}`}
+                                    className="bg-white rounded-xl border border-slate-200/90 shadow-2xs p-4 transition-all hover:border-slate-300 relative group"
                                   >
-                                    {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 opacity-60" />}
-                                    <span>{isCopied ? `${sec.title} copiada!` : sec.title}</span>
-                                  </button>
+                                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+                                      <span className="font-bold text-sm text-slate-800">
+                                        {sec.title}:
+                                      </span>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          navigator.clipboard.writeText(sec.content);
+                                          setCopiedSectionId(sec.id);
+                                          setTimeout(() => setCopiedSectionId(null), 2000);
+                                        }}
+                                        className={cn(
+                                          "flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-md border transition-all cursor-pointer shadow-2xs",
+                                          isCopied
+                                            ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                                            : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200"
+                                        )}
+                                        title={`Copiar apenas o texto de: ${sec.title}`}
+                                      >
+                                        {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 opacity-60" />}
+                                        <span>{isCopied ? 'Copiado!' : 'Copiar'}</span>
+                                      </button>
+                                    </div>
+
+                                    {/* Conteúdo formatado com suporte a cópia de texto limpo */}
+                                    <div 
+                                      className="text-sm text-slate-700 leading-relaxed select-text"
+                                      onCopy={(e) => {
+                                        const selection = window.getSelection();
+                                        if (selection && selection.toString()) {
+                                          e.clipboardData.setData('text/plain', selection.toString());
+                                          e.preventDefault();
+                                        }
+                                      }}
+                                      dangerouslySetInnerHTML={{ __html: sec.htmlContent || sec.content }}
+                                    />
+                                  </div>
                                 );
                               })}
+
+                              {/* Pesquisa de satisfação e/ou rodapé adicional se houver */}
+                              {researchHtml && (
+                                <div 
+                                  className="text-sm text-slate-700 leading-relaxed select-text pt-1"
+                                  dangerouslySetInnerHTML={{ __html: researchHtml }}
+                                />
+                              )}
                             </div>
-                          </div>
+                          );
+                        }
+
+                        // Fallback: caso o HTML tenha formato não convencional, exibe o container clássico
+                        return (
+                          <div 
+                            className="prose prose-slate max-w-none text-sm text-slate-700 p-4 bg-white rounded-lg border border-slate-200 shadow-xs leading-relaxed select-text"
+                            onCopy={(e) => {
+                              const selection = window.getSelection();
+                              if (selection && selection.toString()) {
+                                e.clipboardData.setData('text/plain', selection.toString());
+                                e.preventDefault();
+                              }
+                            }}
+                            dangerouslySetInnerHTML={{ __html: aiResult || '' }}
+                          />
                         );
                       })()}
-
-                      <div 
-                        className="prose prose-slate max-w-none text-sm text-slate-700 p-4 bg-white rounded-lg border border-slate-200 shadow-xs leading-relaxed select-text"
-                        onCopy={(e) => {
-                          const selection = window.getSelection();
-                          if (selection && selection.toString()) {
-                            e.clipboardData.setData('text/plain', selection.toString());
-                            // Não define HTML bruto para evitar colar código tags quando o usuário só queria o texto
-                            e.preventDefault();
-                          }
-                        }}
-                        dangerouslySetInnerHTML={{ __html: aiResult || '' }}
-                      />
                     </div>
                   ) : (
                     <textarea
