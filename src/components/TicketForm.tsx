@@ -9,10 +9,10 @@
  * - Live countdown timer and SLA status display.
  * - Auto-saving to Firestore and integration with Gemini / OpenRouter API.
  */
-import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink } from 'lucide-react';
+import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
-import { cn } from '@/lib/utils';
+import { cn, stripAndFormatHtml } from '@/lib/utils';
 import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError, repairIncompleteHtml } from '@/lib/gemini';
 import { SolutionSearchModal } from './SolutionSearchModal';
 
@@ -61,6 +61,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   } | null>(null);
   const [selectedSolutionItem, setSelectedSolutionItem] = useState<{ type: string; item: any } | null>(null);
   const [copiedResult, setCopiedResult] = useState(false);
+  const [copiedTextResult, setCopiedTextResult] = useState(false);
   const [copiedSolutionHtml, setCopiedSolutionHtml] = useState(false);
   const [copiedSolutionText, setCopiedSolutionText] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
@@ -153,6 +154,15 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
       navigator.clipboard.writeText(aiResult);
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
+    }
+  };
+
+  const handleCopyTextResult = () => {
+    if (aiResult) {
+      const plainText = stripAndFormatHtml(aiResult);
+      navigator.clipboard.writeText(plainText);
+      setCopiedTextResult(true);
+      setTimeout(() => setCopiedTextResult(false), 2000);
     }
   };
 
@@ -613,18 +623,41 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                       Código HTML (Editar)
                     </button>
                   </div>
-                  <button
-                    onClick={handleCopyResult}
-                    className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-blue-600 transition-colors bg-white border border-slate-200 px-2.5 py-1 rounded-md self-start sm:self-auto cursor-pointer shadow-xs"
-                  >
-                    {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
-                    {copiedResult ? <span className="text-emerald-500">Copiado!</span> : <span>Copiar HTML</span>}
-                  </button>
+
+                  <div className="flex items-center gap-2 self-start sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={handleCopyTextResult}
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-indigo-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar texto limpo sem tags HTML (ideal para colar em chamados ou chats)"
+                    >
+                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-indigo-600" />}
+                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto</span>}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyResult}
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar código HTML original"
+                    >
+                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
+                    </button>
+                  </div>
                 </div>
                 <div className="flex-1 min-h-0 overflow-y-auto">
                   {aiViewMode === 'preview' ? (
                     <div 
-                      className="prose prose-slate max-w-none text-sm text-slate-700 p-4 bg-white rounded-lg border border-slate-200 shadow-xs leading-relaxed"
+                      className="prose prose-slate max-w-none text-sm text-slate-700 p-4 bg-white rounded-lg border border-slate-200 shadow-xs leading-relaxed select-text"
+                      onCopy={(e) => {
+                        const selection = window.getSelection();
+                        if (selection && selection.toString()) {
+                          e.clipboardData.setData('text/plain', selection.toString());
+                          // Não define HTML bruto para evitar colar código tags quando o usuário só queria o texto
+                          e.preventDefault();
+                        }
+                      }}
                       dangerouslySetInnerHTML={{ __html: aiResult || '' }}
                     />
                   ) : (

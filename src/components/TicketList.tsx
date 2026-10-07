@@ -28,7 +28,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 import { Ticket, AppSettings } from '@/types';
-import { cn } from '@/lib/utils';
+import { cn, stripAndFormatHtml } from '@/lib/utils';
 import { SearchableFaqSelect } from './SearchableFaqSelect';
 import { SearchableCategorySelect } from './SearchableCategorySelect';
 
@@ -73,6 +73,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
   const [editMinutes, setEditMinutes] = useState('0');
   const [editSeconds, setEditSeconds] = useState('0');
   const [copiedResult, setCopiedResult] = useState(false);
+  const [copiedTextResult, setCopiedTextResult] = useState(false);
   const [copiedTicketId, setCopiedTicketId] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [slaFilter, setSlaFilter] = useState<'10' | '15' | '20' | '30' | null>(null);
@@ -97,6 +98,15 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       navigator.clipboard.writeText(viewingTicket.structuredResult);
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
+    }
+  };
+
+  const handleCopyTextResult = () => {
+    if (viewingTicket?.structuredResult) {
+      const plainText = stripAndFormatHtml(viewingTicket.structuredResult);
+      navigator.clipboard.writeText(plainText);
+      setCopiedTextResult(true);
+      setTimeout(() => setCopiedTextResult(false), 2000);
     }
   };
 
@@ -1207,20 +1217,39 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                       </div>
                     </div>
 
+                  <div className="flex items-center gap-2 self-start sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={handleCopyTextResult}
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-indigo-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar texto limpo sem tags HTML (ideal para colar em chamados ou chats)"
+                    >
+                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-indigo-600" />}
+                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto</span>}
+                    </button>
+
                     <button
                       type="button"
                       onClick={handleCopyResult}
-                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs self-start sm:self-auto"
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
                     >
                       {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
                       {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
                     </button>
                   </div>
+                </div>
                   
                   <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                     {viewMode === 'preview' ? (
                       <div 
-                        className="text-sm text-slate-800 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-5 [&>ol]:list-decimal [&>ol]:ml-5"
+                        className="text-sm text-slate-800 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-5 [&>ol]:list-decimal [&>ol]:ml-5 select-text"
+                        onCopy={(e) => {
+                          const selection = window.getSelection();
+                          if (selection && selection.toString()) {
+                            e.clipboardData.setData('text/plain', selection.toString());
+                            e.preventDefault();
+                          }
+                        }}
                         dangerouslySetInnerHTML={{ __html: viewingTicket.structuredResult }}
                       />
                     ) : (
