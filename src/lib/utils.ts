@@ -66,94 +66,120 @@ export interface ParsedTicketSection {
 export function parseTicketHtmlSections(html: string | undefined | null): ParsedTicketSection[] {
   if (!html || !html.trim()) return [];
 
-  // Cria um elemento DOM em memória para fazer parsing seguro do HTML gerado
   try {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
+
+    // Remove blocos de assinatura e pesquisa de satisfação do documento analisado para nunca misturar
+    const allDivs = Array.from(doc.querySelectorAll('div'));
+    allDivs.forEach(div => {
+      const text = (div.textContent || '').toLowerCase();
+      if (text.includes('sua opinião é importante') || text.includes('atenciosamente') || text.includes('pesquisa de satisfação') || text.includes('central de atendimento')) {
+        div.remove();
+      }
+    });
+
+    const isEscalatedMode = doc.body.textContent?.includes('ENCAMINHAMENTO') || 
+                            doc.body.textContent?.includes('A tratativa') || 
+                            doc.body.textContent?.includes('A solicitação');
+
     const sections: ParsedTicketSection[] = [];
 
-    // 1. Procura por caixas com títulos específicos
-    // Procura por divs ou elementos com texto de cabeçalho
-    const allDivs = Array.from(doc.querySelectorAll('div'));
-    
-    // Procura Análise técnica
-    const analiseHeader = allDivs.find(d => /an[aá]lise\s+t[eé]cnica/i.test(d.textContent || ''));
-    if (analiseHeader) {
-      // Pega o card pai ou o conteúdo logo após o título
-      const parentCard = analiseHeader.parentElement || analiseHeader;
-      // Procura a div de conteúdo (irmão ou segundo elemento)
-      const contentEl = analiseHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
-      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/an[aá]lise\s+t[eé]cnica:?/i, '').trim();
-      if (rawText) {
-        sections.push({
-          id: 'analise',
-          title: 'Análise técnica',
-          content: rawText,
-          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
-        });
+    if (isEscalatedMode) {
+      // 1. A solicitação
+      const allElements = Array.from(doc.querySelectorAll('div, strong, b'));
+      const solEl = allElements.find(el => /a\s+solicita[cç][aã]o:?/i.test(el.textContent || ''));
+      if (solEl) {
+        const parentContainer = solEl.closest('div') || solEl.parentElement;
+        if (parentContainer) {
+          let text = stripAndFormatHtml(parentContainer.innerHTML);
+          text = text.replace(/.*a\s+solicita[cç][aã]o:?/i, '').replace(/prezados,?\s*/i, '').trim();
+          if (text) {
+            sections.push({
+              id: 'solicitacao',
+              title: 'A solicitação',
+              content: text,
+              htmlContent: parentContainer.innerHTML
+            });
+          }
+        }
       }
-    }
 
-    // Procura Ações realizadas
-    const acoesHeader = allDivs.find(d => /a[cç][oõ]es\s+realizadas/i.test(d.textContent || ''));
-    if (acoesHeader) {
-      const parentCard = acoesHeader.parentElement || acoesHeader;
-      const contentEl = acoesHeader.nextElementSibling || parentCard.querySelector('ul') || parentCard.querySelector('div:not(:first-child)');
-      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/a[cç][oõ]es\s+realizadas:?/i, '').trim();
-      if (rawText) {
-        sections.push({
-          id: 'acoes',
-          title: 'Ações realizadas',
-          content: rawText,
-          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
-        });
+      // 2. A tratativa
+      const tratEl = allElements.find(el => /a\s+tratativa/i.test(el.textContent || ''));
+      if (tratEl) {
+        const card = tratEl.closest('div') || tratEl.parentElement;
+        if (card) {
+          const sibling = tratEl.nextElementSibling || (card.children.length > 1 ? card.children[1] : null);
+          const rawText = sibling 
+            ? stripAndFormatHtml(sibling.innerHTML) 
+            : stripAndFormatHtml(card.innerHTML).replace(/a\s+tratativa/i, '').trim();
+          if (rawText) {
+            sections.push({
+              id: 'tratativa',
+              title: 'A tratativa',
+              content: rawText,
+              htmlContent: sibling ? sibling.outerHTML : card.innerHTML
+            });
+          }
+        }
       }
-    }
+    } else {
+      // Modo Padrão (Análise técnica, Ações realizadas, Resultado)
+      const allDivsInDoc = Array.from(doc.querySelectorAll('div'));
 
-    // Procura Resultado
-    const resultadoHeader = allDivs.find(d => /resultado:?/i.test(d.textContent || '') && !/sua\s+opini/i.test(d.textContent || ''));
-    if (resultadoHeader) {
-      const parentCard = resultadoHeader.parentElement || resultadoHeader;
-      const contentEl = resultadoHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
-      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/resultado:?/i, '').trim();
-      if (rawText) {
-        sections.push({
-          id: 'resultado',
-          title: 'Resultado',
-          content: rawText,
-          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
-        });
+      // 1. Análise técnica
+      const analiseHeader = allDivsInDoc.find(d => {
+        const t = (d.textContent || '').trim().toLowerCase();
+        return t === 'análise técnica:' || t === 'analise tecnica:' || (t.startsWith('análise técnica') && t.length < 30);
+      });
+      if (analiseHeader) {
+        const contentEl = analiseHeader.nextElementSibling;
+        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
+        if (text) {
+          sections.push({
+            id: 'analise',
+            title: 'Análise técnica',
+            content: text,
+            htmlContent: contentEl ? contentEl.outerHTML : ''
+          });
+        }
       }
-    }
 
-    // Caso seja chamado escalonado:
-    // Procura "A solicitação"
-    const solicitacaoHeader = allDivs.find(d => /a\s+solicita[cç][aã]o:?/i.test(d.textContent || ''));
-    if (solicitacaoHeader) {
-      const rawText = stripAndFormatHtml(solicitacaoHeader.innerHTML).replace(/.*a\s+solicita[cç][aã]o:?/i, '').trim();
-      if (rawText) {
-        sections.push({
-          id: 'solicitacao',
-          title: 'A solicitação',
-          content: rawText,
-          htmlContent: solicitacaoHeader.innerHTML
-        });
+      // 2. Ações realizadas
+      const acoesHeader = allDivsInDoc.find(d => {
+        const t = (d.textContent || '').trim().toLowerCase();
+        return t === 'ações realizadas:' || t === 'acoes realizadas:' || (t.startsWith('ações realizadas') && t.length < 30);
+      });
+      if (acoesHeader) {
+        const contentEl = acoesHeader.nextElementSibling;
+        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
+        if (text) {
+          sections.push({
+            id: 'acoes',
+            title: 'Ações realizadas',
+            content: text,
+            htmlContent: contentEl ? contentEl.outerHTML : ''
+          });
+        }
       }
-    }
 
-    // Procura "A tratativa"
-    const tratativaHeader = allDivs.find(d => /a\s+tratativa/i.test(d.textContent || ''));
-    if (tratativaHeader) {
-      const parentCard = tratativaHeader.parentElement || tratativaHeader;
-      const contentEl = tratativaHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
-      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/a\s+tratativa/i, '').trim();
-      if (rawText) {
-        sections.push({
-          id: 'tratativa',
-          title: 'A tratativa',
-          content: rawText,
-          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
-        });
+      // 3. Resultado
+      const resultadoHeader = allDivsInDoc.find(d => {
+        const t = (d.textContent || '').trim().toLowerCase();
+        return t === 'resultado:' || (t.startsWith('resultado') && t.length < 20);
+      });
+      if (resultadoHeader) {
+        const contentEl = resultadoHeader.nextElementSibling;
+        const text = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : '';
+        if (text) {
+          sections.push({
+            id: 'resultado',
+            title: 'Resultado',
+            content: text,
+            htmlContent: contentEl ? contentEl.outerHTML : ''
+          });
+        }
       }
     }
 
