@@ -55,3 +55,111 @@ export function cleanFaq<T extends Record<string, any>>(faq: T): T {
     credenciaisAcesso: stripAndFormatHtml(faq.credenciaisAcesso),
   };
 }
+
+export interface ParsedTicketSection {
+  id: string;
+  title: string;
+  content: string;
+  htmlContent: string;
+}
+
+export function parseTicketHtmlSections(html: string | undefined | null): ParsedTicketSection[] {
+  if (!html || !html.trim()) return [];
+
+  // Cria um elemento DOM em memória para fazer parsing seguro do HTML gerado
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const sections: ParsedTicketSection[] = [];
+
+    // 1. Procura por caixas com títulos específicos
+    // Procura por divs ou elementos com texto de cabeçalho
+    const allDivs = Array.from(doc.querySelectorAll('div'));
+    
+    // Procura Análise técnica
+    const analiseHeader = allDivs.find(d => /an[aá]lise\s+t[eé]cnica/i.test(d.textContent || ''));
+    if (analiseHeader) {
+      // Pega o card pai ou o conteúdo logo após o título
+      const parentCard = analiseHeader.parentElement || analiseHeader;
+      // Procura a div de conteúdo (irmão ou segundo elemento)
+      const contentEl = analiseHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
+      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/an[aá]lise\s+t[eé]cnica:?/i, '').trim();
+      if (rawText) {
+        sections.push({
+          id: 'analise',
+          title: 'Análise técnica',
+          content: rawText,
+          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
+        });
+      }
+    }
+
+    // Procura Ações realizadas
+    const acoesHeader = allDivs.find(d => /a[cç][oõ]es\s+realizadas/i.test(d.textContent || ''));
+    if (acoesHeader) {
+      const parentCard = acoesHeader.parentElement || acoesHeader;
+      const contentEl = acoesHeader.nextElementSibling || parentCard.querySelector('ul') || parentCard.querySelector('div:not(:first-child)');
+      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/a[cç][oõ]es\s+realizadas:?/i, '').trim();
+      if (rawText) {
+        sections.push({
+          id: 'acoes',
+          title: 'Ações realizadas',
+          content: rawText,
+          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
+        });
+      }
+    }
+
+    // Procura Resultado
+    const resultadoHeader = allDivs.find(d => /resultado:?/i.test(d.textContent || '') && !/sua\s+opini/i.test(d.textContent || ''));
+    if (resultadoHeader) {
+      const parentCard = resultadoHeader.parentElement || resultadoHeader;
+      const contentEl = resultadoHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
+      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/resultado:?/i, '').trim();
+      if (rawText) {
+        sections.push({
+          id: 'resultado',
+          title: 'Resultado',
+          content: rawText,
+          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
+        });
+      }
+    }
+
+    // Caso seja chamado escalonado:
+    // Procura "A solicitação"
+    const solicitacaoHeader = allDivs.find(d => /a\s+solicita[cç][aã]o:?/i.test(d.textContent || ''));
+    if (solicitacaoHeader) {
+      const rawText = stripAndFormatHtml(solicitacaoHeader.innerHTML).replace(/.*a\s+solicita[cç][aã]o:?/i, '').trim();
+      if (rawText) {
+        sections.push({
+          id: 'solicitacao',
+          title: 'A solicitação',
+          content: rawText,
+          htmlContent: solicitacaoHeader.innerHTML
+        });
+      }
+    }
+
+    // Procura "A tratativa"
+    const tratativaHeader = allDivs.find(d => /a\s+tratativa/i.test(d.textContent || ''));
+    if (tratativaHeader) {
+      const parentCard = tratativaHeader.parentElement || tratativaHeader;
+      const contentEl = tratativaHeader.nextElementSibling || parentCard.querySelector('div:not(:first-child)');
+      const rawText = contentEl ? stripAndFormatHtml(contentEl.innerHTML) : stripAndFormatHtml(parentCard.innerHTML).replace(/a\s+tratativa/i, '').trim();
+      if (rawText) {
+        sections.push({
+          id: 'tratativa',
+          title: 'A tratativa',
+          content: rawText,
+          htmlContent: contentEl ? contentEl.outerHTML : parentCard.innerHTML
+        });
+      }
+    }
+
+    return sections;
+  } catch (e) {
+    console.error('Error parsing ticket html sections:', e);
+    return [];
+  }
+}

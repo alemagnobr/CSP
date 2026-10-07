@@ -28,7 +28,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 import { Ticket, AppSettings } from '@/types';
-import { cn, stripAndFormatHtml } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections } from '@/lib/utils';
 import { SearchableFaqSelect } from './SearchableFaqSelect';
 import { SearchableCategorySelect } from './SearchableCategorySelect';
 
@@ -74,6 +74,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
   const [editSeconds, setEditSeconds] = useState('0');
   const [copiedResult, setCopiedResult] = useState(false);
   const [copiedTextResult, setCopiedTextResult] = useState(false);
+  const [copiedSectionId, setCopiedSectionId] = useState<string | null>(null);
   const [copiedTicketId, setCopiedTicketId] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [slaFilter, setSlaFilter] = useState<'10' | '15' | '20' | '30' | null>(null);
@@ -1239,7 +1240,48 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                   </div>
                 </div>
                   
-                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+                    {/* Barra de atalhos rápidos por campo */}
+                    {viewMode === 'preview' && (() => {
+                      const parsedSections = parseTicketHtmlSections(viewingTicket.structuredResult);
+                      if (parsedSections.length === 0) return null;
+
+                      return (
+                        <div className="bg-white border border-slate-200/90 rounded-xl p-2.5 shadow-2xs flex flex-wrap items-center justify-between gap-2">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 pl-1">
+                            <Copy className="h-3.5 w-3.5 text-indigo-600" />
+                            Copiar por campo (somente texto):
+                          </span>
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {parsedSections.map((sec) => {
+                              const isCopied = copiedSectionId === sec.id;
+                              return (
+                                <button
+                                  key={sec.id}
+                                  type="button"
+                                  onClick={() => {
+                                    navigator.clipboard.writeText(sec.content);
+                                    setCopiedSectionId(sec.id);
+                                    setTimeout(() => setCopiedSectionId(null), 2000);
+                                  }}
+                                  className={cn(
+                                    "flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg border transition-all cursor-pointer shadow-2xs",
+                                    isCopied
+                                      ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200"
+                                  )}
+                                  title={`Copiar apenas o texto de: ${sec.title}`}
+                                >
+                                  {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 opacity-60" />}
+                                  <span>{isCopied ? `${sec.title} copiada!` : sec.title}</span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })()}
+
                     {viewMode === 'preview' ? (
                       <div 
                         className="text-sm text-slate-800 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs [&>p]:mb-2 [&>ul]:list-disc [&>ul]:ml-5 [&>ol]:list-decimal [&>ol]:ml-5 select-text"
