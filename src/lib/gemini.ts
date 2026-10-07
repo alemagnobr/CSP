@@ -1,12 +1,44 @@
 import { GoogleGenAI } from '@google/genai';
 
-// Modelos rápidos para geração com fallback automático em caso de lentidão ou erro
-const PRIMARY_GEMINI_MODEL = 'gemini-2.5-flash-lite';
-const FALLBACK_GEMINI_MODELS = ['gemini-2.5-flash', 'gemini-flash-latest'];
+// Modelos oficiais suportados pela SDK @google/genai com alta estabilidade
+const PRIMARY_GEMINI_MODEL = 'gemini-3.8-flash';
+const FALLBACK_GEMINI_MODELS = ['gemini-3.1-flash-lite', 'gemini-flash-latest'];
 
 /**
- * Executa uma chamada ao GoogleGenAI com limite de tokens, temperatura otimizada
- * e fallback automático para modelos secundários se o primeiro falhar ou sofrer timeout.
+ * Fecha automaticamente quaisquer tags HTML abertas (<div>, <ul>, <li>, <strong>, etc.)
+ * caso a resposta da IA termine incompleta ou truncada.
+ */
+export function repairIncompleteHtml(html: string): string {
+  if (!html || !html.trim()) return html;
+  let fixed = html.trim();
+
+  // Verifica contagem de tags div abertas vs fechadas
+  const openDivs = (fixed.match(/<div(\s+[^>]*)?>/gi) || []).length;
+  const closeDivs = (fixed.match(/<\/div>/gi) || []).length;
+  
+  // Se faltam fechamentos de li ou ul
+  const openLis = (fixed.match(/<li(\s+[^>]*)?>/gi) || []).length;
+  const closeLis = (fixed.match(/<\/li>/gi) || []).length;
+  if (openLis > closeLis) {
+    fixed += '</li>'.repeat(openLis - closeLis);
+  }
+
+  const openUls = (fixed.match(/<ul(\s+[^>]*)?>/gi) || []).length;
+  const closeUls = (fixed.match(/<\/ul>/gi) || []).length;
+  if (openUls > closeUls) {
+    fixed += '</ul>'.repeat(openUls - closeUls);
+  }
+
+  if (openDivs > closeDivs) {
+    fixed += '</div>'.repeat(openDivs - closeDivs);
+  }
+
+  return fixed;
+}
+
+/**
+ * Executa uma chamada ao GoogleGenAI com limite de tokens ampliado (4096 tokens)
+ * para NUNCA cortar a resposta pela metade, e fallback automático para modelos secundários.
  */
 async function generateGeminiContentWithFallback(
   ai: GoogleGenAI,
@@ -26,19 +58,19 @@ async function generateGeminiContentWithFallback(
         model: model,
         contents: prompt,
         config: {
-          temperature: 0.2, // Respostas diretas e precisas sem lentidão
-          maxOutputTokens: 1500, // Limite seguro para acelerar a geração do HTML
+          temperature: 0.15, // Resposta direta, consistente e sem enrolação
+          maxOutputTokens: 4096, // Limite amplo de 4096 para NUNCA cortar a resposta pela metade
           ...customConfig
         }
       });
 
       if (response && response.text) {
-        return response.text;
+        return repairIncompleteHtml(response.text);
       }
     } catch (err: any) {
       console.warn(`[Gemini] Falha ou lentidão no modelo ${model}. Tentando próximo...`, err?.message || err);
       lastError = err;
-      // Se for erro de permissão ou chave inválida, não adianta tentar outros modelos
+      // Se for erro de autenticação ou chave inválida, não adianta tentar outros modelos
       const errMsg = (err?.message || '').toLowerCase();
       if (errMsg.includes('api key') || errMsg.includes('invalid') || errMsg.includes('permission_denied')) {
         throw err;
@@ -316,9 +348,10 @@ Formate a saída EXATAMENTE como o código HTML abaixo, substituindo os colchete
       apiKey,
       data.openRouterModel || 'openrouter/free',
       [{ role: 'user', content: prompt }],
-      { max_tokens: 2000, temperature: 0.2 }
+      { max_tokens: 4096, temperature: 0.2 }
     );
-    return responseData.choices?.[0]?.message?.content || '';
+    const content = responseData.choices?.[0]?.message?.content || '';
+    return repairIncompleteHtml(content);
   } else {
     const ai = new GoogleGenAI({ apiKey });
     return await generateGeminiContentWithFallback(ai, prompt, data.geminiModel);

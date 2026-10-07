@@ -13,7 +13,7 @@ import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Ed
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
 import { cn } from '@/lib/utils';
-import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError } from '@/lib/gemini';
+import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError, repairIncompleteHtml } from '@/lib/gemini';
 import { SolutionSearchModal } from './SolutionSearchModal';
 
 interface TicketFormProps {
@@ -377,7 +377,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             finalResult += '\n\n' + closingHtml;
           }
         }
-        setAiResult(finalResult);
+        setAiResult(repairIncompleteHtml(finalResult));
         // Cronômetro continua correndo durante a visualização da tela de finalização
       }
     } catch (error) {
