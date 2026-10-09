@@ -43,12 +43,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const [draggedProcIndex, setDraggedProcIndex] = useState<number | null>(null);
   const [draggedVerifIndex, setDraggedVerifIndex] = useState<number | null>(null);
-  const [draggedPredefinedIndex, setDraggedPredefinedIndex] = useState<number | null>(null);
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategory, setNewCategory] = useState('');
-  const [showPredefinedSolutions, setShowPredefinedSolutions] = useState(false);
-  const [predefinedSearchTerm, setPredefinedSearchTerm] = useState('');
-  const [copiedPredefinedId, setCopiedPredefinedId] = useState<string | null>(null);
   const [showNoAiSolutionModal, setShowNoAiSolutionModal] = useState(false);
   const [isSearchingSolution, setIsSearchingSolution] = useState(false);
   const [searchedSolution, setSearchedSolution] = useState<{
@@ -60,6 +56,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     tickets: Ticket[];
   } | null>(null);
   const [selectedSolutionItem, setSelectedSolutionItem] = useState<{ type: string; item: any } | null>(null);
+  const [copiedTitle, setCopiedTitle] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
   const [copiedTextResult, setCopiedTextResult] = useState(false);
   const [copiedSectionId, setCopiedSectionId] = useState<string | null>(null);
@@ -71,12 +68,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [isGeneratingTitle, setIsGeneratingTitle] = useState(false);
   const ticketIdInputRef = useRef<HTMLInputElement>(null);
   const closingTicketIdInputRef = useRef<HTMLInputElement>(null);
-
-  // Reciclar Resposta (Salvar em Soluções Padrão)
-  const [recycleResponse, setRecycleResponse] = useState(false);
-  const [recycleTitle, setRecycleTitle] = useState('');
-  const [recycleTitleError, setRecycleTitleError] = useState<string | null>(null);
-  const recycleTitleInputRef = useRef<HTMLInputElement>(null);
 
   // Direct Verifications and Procedures Creation/Deletion State
   const [isCreatingVerif, setIsCreatingVerif] = useState(false);
@@ -288,35 +279,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     onUpdateSettings({ ...appSettings, verifications: list });
   };
 
-  const handleDragOverPredefined = (e: React.DragEvent, overIndex: number) => {
-    e.preventDefault();
-    if (draggedPredefinedIndex === null || draggedPredefinedIndex === overIndex) return;
-
-    const list = [...(appSettings.predefinedSolutions || [])];
-    const draggedItem = list[draggedPredefinedIndex];
-    if (!draggedItem) return;
-
-    list.splice(draggedPredefinedIndex, 1);
-    list.splice(overIndex, 0, draggedItem);
-
-    setDraggedPredefinedIndex(overIndex);
-    onUpdateSettings({ ...appSettings, predefinedSolutions: list });
-  };
-
-  const handleMovePredefined = (index: number, direction: 'up' | 'down') => {
-    const list = [...(appSettings.predefinedSolutions || [])];
-    if (direction === 'up' && index > 0) {
-      const temp = list[index];
-      list[index] = list[index - 1];
-      list[index - 1] = temp;
-    } else if (direction === 'down' && index < list.length - 1) {
-      const temp = list[index];
-      list[index] = list[index + 1];
-      list[index + 1] = temp;
-    }
-    onUpdateSettings({ ...appSettings, predefinedSolutions: list });
-  };
-
   const handleFinalizeIA = async () => {
     const currentTicket = ticketRef.current;
     if (!currentTicket.description.trim()) return;
@@ -347,49 +309,17 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         verifications: selectedVerifs.map(v => ({ name: v.name, description: v.description })),
         problemSolved: currentTicket.problemSolved,
         clientValidated: currentTicket.clientValidated,
-        isEscalated: currentTicket.isEscalated,
-        isFormatMicro: currentTicket.isFormatMicro,
-        formatMicroDetails: currentTicket.formatMicroDetails,
-        escalationDetails: currentTicket.escalationDetails,
-        closingText: appSettings.closingTextEnabled ? appSettings.closingText : '',
         aiGuidelines: appSettings.aiGuidelines,
         aiPromptStandard: appSettings.aiPromptStandard,
-        aiPromptEscalated: appSettings.aiPromptEscalated,
         geminiModel: appSettings.geminiModel,
         openRouterModel: appSettings.openRouterModel
       });
       
       if (resultText) {
         let finalResult = resultText.trim();
-        
         // Remove markdown formatting if present
-        finalResult = finalResult.replace(/^```html\s*/i, '').replace(/```$/i, '').trim();
-
-        // Ensure it starts at the first <div (strips out any prepended hallucinations)
-        if (!currentTicket.isEscalated) {
-          const firstDivIndex = finalResult.indexOf('<div');
-          if (firstDivIndex > 0) {
-            finalResult = finalResult.substring(firstDivIndex);
-          }
-        } else {
-           // For escalation, find the first <!-- ENCAMINHAMENTO ou <div
-           const firstDivIndex = finalResult.indexOf('<');
-           if (firstDivIndex > 0) {
-             finalResult = finalResult.substring(firstDivIndex);
-           }
-        }
-        
-        if (!currentTicket.isEscalated && appSettings.closingTextEnabled && appSettings.closingText.trim()) {
-          const closingHtml = `\n<!--{cke_protected}{C}%3C!%2D%2D%20ASSINATURA%20%2D%2D%3E-->\n<div style="margin-top:8px; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">\n<div>${appSettings.closingText.trim().replace(/\n/g, '<br>')}</div>\n</div>`;
-          if (finalResult.trim().endsWith('</div>')) {
-            const lastDivIndex = finalResult.lastIndexOf('</div>');
-            finalResult = finalResult.substring(0, lastDivIndex) + closingHtml + '\n</div>';
-          } else {
-            finalResult += '\n\n' + closingHtml;
-          }
-        }
-        setAiResult(repairIncompleteHtml(finalResult));
-        // Cronômetro continua correndo durante a visualização da tela de finalização
+        finalResult = finalResult.replace(/^```[a-z]*\s*/i, '').replace(/```$/i, '').trim();
+        setAiResult(finalResult);
       }
     } catch (error) {
       console.error('Failed to structure ticket:', error);
@@ -477,35 +407,9 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     }
     setClosingTicketIdError(null);
 
-    // Validação se a opção "Reciclar resposta" estiver ativa
-    if (recycleResponse && !recycleTitle.trim()) {
-      setRecycleTitleError('Informe um título obrigatório para salvar como Solução Padrão.');
-      setTimeout(() => recycleTitleInputRef.current?.focus(), 100);
-      return;
-    }
-    setRecycleTitleError(null);
-
     if (aiResult) {
-      // Se marcado "Reciclar resposta", adiciona a resposta formatada às Soluções Padrão
-      if (recycleResponse && recycleTitle.trim()) {
-        const newSolution: PredefinedSolution = {
-          id: Date.now().toString(),
-          title: recycleTitle.trim(),
-          content: aiResult
-        };
-
-        const existingSolutions = appSettings.predefinedSolutions || [];
-        onUpdateSettings({
-          ...appSettings,
-          predefinedSolutions: [newSolution, ...existingSolutions]
-        });
-      }
-
       onFinish({ ...currentTicket, description: currentTicket.description, structuredResult: aiResult });
       setAiResult(null);
-      setRecycleResponse(false);
-      setRecycleTitle('');
-      setRecycleTitleError(null);
     }
   };
 
@@ -596,6 +500,35 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 </button>
               </div>
             )}
+
+            {/* Título do Chamado com botão de copiar */}
+            <div className="mb-4 bg-slate-50 border border-slate-200/90 rounded-xl p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-2xs">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 shrink-0">Título:</span>
+                <span className="text-sm font-bold text-slate-800 truncate" title={ticket.title || 'Sem título'}>
+                  {ticket.title || '(Sem título informado)'}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(ticket.title || '');
+                  setCopiedTitle(true);
+                  setTimeout(() => setCopiedTitle(false), 2000);
+                }}
+                disabled={!ticket.title}
+                className={cn(
+                  "flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all cursor-pointer shrink-0 shadow-2xs self-start sm:self-auto",
+                  copiedTitle
+                    ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                    : "bg-white text-slate-700 border-slate-200 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                )}
+                title="Copiar apenas o título do chamado"
+              >
+                {copiedTitle ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-500" />}
+                <span>{copiedTitle ? 'Título Copiado!' : 'Copiar Título'}</span>
+              </button>
+            </div>
             
             <div className="flex-1 flex flex-col md:flex-row gap-4 mb-6 min-h-0">
               <div className="flex-1 overflow-y-auto bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col">
@@ -621,7 +554,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                           : "text-slate-500 hover:text-slate-700"
                       )}
                     >
-                      Código HTML (Editar)
+                      Texto Completo (Editar)
                     </button>
                   </div>
 
@@ -629,21 +562,11 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                     <button
                       type="button"
                       onClick={handleCopyTextResult}
-                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-indigo-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
-                      title="Copiar texto limpo sem tags HTML (ideal para colar em chamados ou chats)"
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar texto completo (ideal para colar no chamado)"
                     >
-                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-indigo-600" />}
-                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto</span>}
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleCopyResult}
-                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
-                      title="Copiar código HTML original"
-                    >
-                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
-                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
+                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-blue-600" />}
+                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto Completo</span>}
                     </button>
                   </div>
                 </div>
@@ -797,80 +720,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                     )}
                   </div>
 
-                  {/* Opção Reciclar Resposta (Salvar em Soluções Padrão) - Logo abaixo de Número do Chamado */}
-                  <div className="mt-2 mb-4">
-                    <div className={cn(
-                      "p-3 rounded-lg border transition-all",
-                      recycleResponse 
-                        ? "bg-indigo-50/70 border-indigo-200 ring-1 ring-indigo-300"
-                        : "bg-white border-slate-200"
-                    )}>
-                      <label className="flex items-center gap-2 cursor-pointer select-none">
-                        <input
-                          type="checkbox"
-                          checked={recycleResponse}
-                          onChange={(e) => {
-                            setRecycleResponse(e.target.checked);
-                            if (e.target.checked) {
-                              // Sugere o título atual do chamado caso exista
-                              if (!recycleTitle.trim() && ticket.title?.trim()) {
-                                setRecycleTitle(ticket.title.trim());
-                              }
-                              setRecycleTitleError(null);
-                              setTimeout(() => recycleTitleInputRef.current?.focus(), 100);
-                            } else {
-                              setRecycleTitleError(null);
-                            }
-                          }}
-                          className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
-                        />
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
-                          <Repeat className="h-3.5 w-3.5 text-indigo-600" />
-                          <span>Reciclar resposta</span>
-                        </div>
-                      </label>
-
-                      {recycleResponse && (
-                        <div className="mt-2.5 pt-2 border-t border-indigo-100 animate-in fade-in slide-in-from-top-1 duration-150">
-                          <label className="block text-[10px] font-bold uppercase tracking-wider text-indigo-900 mb-1 flex items-center justify-between">
-                            <span>Título da Solução Padrão <span className="text-rose-500">*</span></span>
-                            <span className="text-[9px] font-semibold text-indigo-600 bg-white px-1.5 py-0.2 rounded border border-indigo-200">
-                              Obrigatório
-                            </span>
-                          </label>
-                          <input
-                            ref={recycleTitleInputRef}
-                            type="text"
-                            value={recycleTitle}
-                            onChange={(e) => {
-                              setRecycleTitle(e.target.value);
-                              if (e.target.value.trim()) {
-                                setRecycleTitleError(null);
-                              }
-                            }}
-                            placeholder="Ex: Reset de Senha de Domínio / Correção VPN"
-                            className={cn(
-                              "w-full px-2.5 py-1.5 text-xs font-medium rounded-md border transition-all focus:outline-none focus:ring-2",
-                              recycleTitleError
-                                ? "border-rose-400 bg-white text-rose-900 focus:ring-rose-500 focus:border-rose-500 placeholder:text-rose-300"
-                                : "border-indigo-200 bg-white text-slate-800 focus:ring-indigo-500 focus:border-indigo-500 placeholder:text-slate-400"
-                            )}
-                          />
-                          {recycleTitleError ? (
-                            <p className="mt-1 text-[11px] text-rose-600 font-medium">
-                              {recycleTitleError}
-                            </p>
-                          ) : (
-                            <p className="mt-1 text-[10px] text-indigo-600/90 leading-tight">
-                              💡 O HTML da resposta será salvo nas Soluções Padrão ao gravar.
-                            </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
+                  <div className="space-y-4 mt-4">
                     <div>
                       <span className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Login de Rede</span>
                       <span className="text-sm font-medium text-slate-800">{ticket.networkLogin || <span className="text-slate-400 italic">Não informado</span>}</span>
@@ -1659,283 +1509,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           </div>
         </div>
 
-        <div className="mb-6 bg-slate-50 border border-slate-100 rounded-lg p-4">
-          <div className="flex flex-col sm:flex-row gap-6 mb-2">
-            <label className="flex items-center cursor-pointer relative">
-              <input 
-                type="checkbox" 
-                className="sr-only" 
-                checked={ticket.isEscalated || false} 
-                onChange={(e) => {
-                  const checked = e.target.checked;
-                  handleChange('isEscalated', checked);
-                  if (checked && !ticket.escalationDetails) {
-                    const contatoParts = [];
-                    if (ticket.extension) contatoParts.push(`Ramal: ${ticket.extension}`);
-                    if (ticket.mobile) contatoParts.push(`Celular: ${ticket.mobile}`);
-                    const contato = contatoParts.join(' / ');
-                    
-                    handleChange('escalationDetails', {
-                      setor: '',
-                      edificio: '',
-                      complemento: '',
-                      pontoReferencia: '',
-                      contato: contato,
-                      setorAbertoFechado: '',
-                      local: 'Senado'
-                    });
-                  }
-                }} 
-              />
-              <div className={`relative w-11 h-6 rounded-full transition-colors ${ticket.isEscalated ? 'bg-indigo-600' : 'bg-slate-300'}`}>
-                <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${ticket.isEscalated ? 'translate-x-5' : ''}`}></div>
-              </div>
-              <span className="ml-3 text-sm font-bold text-slate-700">Escalonamento</span>
-            </label>
-
-            <label className="flex items-center cursor-pointer relative">
-              <input 
-                type="checkbox" 
-                className="sr-only" 
-                checked={ticket.isFormatMicro || false} 
-                onChange={(e) => {
-                  const checked = e.target.checked;
-                  const currentTicket = ticketRef.current;
-                  let updatedTicket: ActiveTicket = {
-                    ...currentTicket,
-                    isFormatMicro: checked
-                  };
-
-                  if (checked) {
-                    // Toda instalação padrão é escalonada: marca automaticamente o escalonamento
-                    updatedTicket.isEscalated = true;
-
-                    if (!updatedTicket.escalationDetails) {
-                      const contatoParts = [];
-                      if (updatedTicket.extension) contatoParts.push(`Ramal: ${updatedTicket.extension}`);
-                      if (updatedTicket.mobile) contatoParts.push(`Celular: ${updatedTicket.mobile}`);
-                      const contato = contatoParts.join(' / ');
-                      
-                      updatedTicket.escalationDetails = {
-                        setor: '',
-                        edificio: '',
-                        complemento: '',
-                        pontoReferencia: '',
-                        contato: contato,
-                        setorAbertoFechado: '',
-                        local: 'Senado'
-                      };
-                    }
-
-                    if (!updatedTicket.formatMicroDetails) {
-                      updatedTicket.formatMicroDetails = {
-                        motivo: '',
-                        motivoOutros: '',
-                        autorizacaoChefe: '',
-                        outrosClientes: '',
-                        necessitaBackup: ''
-                      };
-                    }
-                  }
-
-                  ticketRef.current = updatedTicket;
-                  onUpdate(updatedTicket);
-                }} 
-              />
-              <div className={`relative w-11 h-6 rounded-full transition-colors ${ticket.isFormatMicro ? 'bg-indigo-600' : 'bg-slate-300'}`}>
-                <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${ticket.isFormatMicro ? 'translate-x-5' : ''}`}></div>
-              </div>
-              <span className="ml-3 text-sm font-bold text-slate-700">Instalação padrão (Formatar Micro)</span>
-            </label>
-          </div>
-          
-          {(ticket.isEscalated || ticket.isFormatMicro) && ticket.escalationDetails && (
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg border border-indigo-100">
-               <div className="col-span-1 md:col-span-2">
-                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dados do Escalonamento</h4>
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.setor || ''}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, setor: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Edifício</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.edificio}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, edificio: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Complemento</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.complemento}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, complemento: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div className="md:col-span-2">
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Ponto de referência</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.pontoReferencia}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, pontoReferencia: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Contato</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.contato}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Aberto'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Aberto' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Aberto</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Fechado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Fechado' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Fechado</span>
-                    </label>
-                  </div>
-               </div>
-               
-               <div className="md:col-span-2">
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Local</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Teletrabalho'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Teletrabalho' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Teletrabalho</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Senado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Senado' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Senado</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Externo'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Externo' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Externo</span>
-                    </label>
-                  </div>
-               </div>
-            </div>
-          )}
-
-          {ticket.isFormatMicro && ticket.formatMicroDetails && (
-            <div className="mt-4 bg-white p-4 rounded-lg border border-indigo-100 space-y-4">
-              <div>
-                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Instalação padrão (Formatar Micro)</h4>
-              </div>
-
-              {/* Motivo da solicitação */}
-              <div>
-                <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Motivo da solicitação:</label>
-                <div className="flex flex-col sm:flex-row gap-4 p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input 
-                      type="radio" 
-                      name={`motivo-${ticket.id}`} 
-                      checked={ticket.formatMicroDetails.motivo === 'Lentidão'} 
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivo: 'Lentidão' })} 
-                      className="text-indigo-600 focus:ring-indigo-500" 
-                    />
-                    <span className="text-sm text-slate-700">Lentidão</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input 
-                      type="radio" 
-                      name={`motivo-${ticket.id}`} 
-                      checked={ticket.formatMicroDetails.motivo === 'Troca de micro'} 
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivo: 'Troca de micro' })} 
-                      className="text-indigo-600 focus:ring-indigo-500" 
-                    />
-                    <span className="text-sm text-slate-700">Troca de micro</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input 
-                      type="radio" 
-                      name={`motivo-${ticket.id}`} 
-                      checked={ticket.formatMicroDetails.motivo === 'Outros'} 
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivo: 'Outros' })} 
-                      className="text-indigo-600 focus:ring-indigo-500" 
-                    />
-                    <span className="text-sm text-slate-700">Outros:</span>
-                  </label>
-                </div>
-                {ticket.formatMicroDetails.motivo === 'Outros' && (
-                  <input
-                    type="text"
-                    value={ticket.formatMicroDetails.motivoOutros || ''}
-                    onChange={(e) => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivoOutros: e.target.value })}
-                    placeholder="Especifique o motivo..."
-                    className="mt-2 w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  />
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Autorização do chefe do setor */}
-                <div>
-                  <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Autorização do chefe do setor:</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`chefe-${ticket.id}`} checked={ticket.formatMicroDetails.autorizacaoChefe === 'Sim'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Sim' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Sim</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`chefe-${ticket.id}`} checked={ticket.formatMicroDetails.autorizacaoChefe === 'Não'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Não' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Não</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Outros clientes utilizam o micro */}
-                <div>
-                  <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Outros clientes utilizam o micro:</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`outros-${ticket.id}`} checked={ticket.formatMicroDetails.outrosClientes === 'Sim'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Sim' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Sim</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`outros-${ticket.id}`} checked={ticket.formatMicroDetails.outrosClientes === 'Não'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Não' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Não</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Necessita de backup */}
-                <div>
-                  <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Necessita de backup:</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`backup-${ticket.id}`} checked={ticket.formatMicroDetails.necessitaBackup === 'Sim'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Sim' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Sim</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`backup-${ticket.id}`} checked={ticket.formatMicroDetails.necessitaBackup === 'Não'} onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Não' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Não</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
         <div>
           <div className="flex flex-col">
             <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">
@@ -1948,19 +1521,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               className="w-full min-h-[160px] p-3 rounded-lg border border-amber-200 bg-amber-50/40 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-y text-sm transition-colors"
             />
             <div className="flex justify-end mt-2 mb-4 gap-2">
-              <button 
-                type="button"
-                onClick={() => {
-                  setPredefinedSearchTerm('');
-                  setShowPredefinedSolutions(true);
-                }}
-                className="flex items-center gap-1.5 px-3 py-1.5 border border-indigo-200 bg-indigo-50/50 text-sm font-semibold text-indigo-700 rounded-lg hover:bg-indigo-100/70 hover:text-indigo-800 transition-colors shadow-2xs cursor-pointer"
-                title="Abrir Soluções Padrão"
-              >
-                <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
-                Soluções Padrão
-              </button>
-
               <button 
                 type="button"
                 onClick={() => setShowNoAiSolutionModal(true)}
@@ -2297,34 +1857,32 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             )}
           </div>
 
-          {!ticket.isEscalated && (
-            <div className="mb-6 p-4 bg-slate-50 border border-slate-100 rounded-lg flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <input 
-                  type="checkbox" 
-                  id="problemSolved"
-                  checked={ticket.problemSolved || false}
-                  onChange={(e) => handleChange('problemSolved', e.target.checked)}
-                  className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
-                />
-                <label htmlFor="problemSolved" className="text-sm text-slate-700 font-medium cursor-pointer">
-                  Após os procedimentos, o problema foi solucionado?
-                </label>
-              </div>
-              <div className="flex items-center gap-2">
-                <input 
-                  type="checkbox" 
-                  id="clientValidated"
-                  checked={ticket.clientValidated || false}
-                  onChange={(e) => handleChange('clientValidated', e.target.checked)}
-                  className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
-                />
-                <label htmlFor="clientValidated" className="text-sm text-slate-700 font-medium cursor-pointer">
-                  Cliente validou o chamado?
-                </label>
-              </div>
+          <div className="mb-6 p-4 bg-slate-50 border border-slate-100 rounded-lg flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <input 
+                type="checkbox" 
+                id="problemSolved"
+                checked={ticket.problemSolved || false}
+                onChange={(e) => handleChange('problemSolved', e.target.checked)}
+                className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
+              />
+              <label htmlFor="problemSolved" className="text-sm text-slate-700 font-medium cursor-pointer">
+                Após os procedimentos, o problema foi solucionado?
+              </label>
             </div>
-          )}
+            <div className="flex items-center gap-2">
+              <input 
+                type="checkbox" 
+                id="clientValidated"
+                checked={ticket.clientValidated || false}
+                onChange={(e) => handleChange('clientValidated', e.target.checked)}
+                className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
+              />
+              <label htmlFor="clientValidated" className="text-sm text-slate-700 font-medium cursor-pointer">
+                Cliente validou o chamado?
+              </label>
+            </div>
+          </div>
         </div>
 
         {aiError && (
@@ -2383,242 +1941,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           </button>
         </div>
       </div>
-
-      {/* Modal Sobreposto de Soluções Padrão com Campo de Busca */}
-      {showPredefinedSolutions && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div 
-            className="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-3xl flex flex-col max-h-[85vh] overflow-hidden animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Cabeçalho do Modal */}
-            <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-indigo-100 text-indigo-700">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-slate-800 leading-tight">Soluções Padrão</h3>
-                  <p className="text-xs text-slate-500">Selecione uma resposta cadastrada para aplicar no fechamento do chamado</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowPredefinedSolutions(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors cursor-pointer"
-                title="Fechar (Esc)"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Barra de Busca e Ações */}
-            <div className="p-4 border-b border-slate-100 bg-white space-y-3">
-              <div className="relative flex items-center">
-                <Search className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
-                <input
-                  type="text"
-                  autoFocus
-                  value={predefinedSearchTerm}
-                  onChange={(e) => setPredefinedSearchTerm(e.target.value)}
-                  placeholder="Pesquisar por título ou conteúdo da solução padrão..."
-                  className="w-full pl-10 pr-9 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:border-indigo-500 transition-all text-slate-800 placeholder:text-slate-400"
-                />
-                {predefinedSearchTerm && (
-                  <button
-                    type="button"
-                    onClick={() => setPredefinedSearchTerm('')}
-                    className="absolute right-3 p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-200 transition-colors"
-                    title="Limpar pesquisa"
-                  >
-                    <X className="h-3.5 w-3.5" />
-                  </button>
-                )}
-              </div>
-
-              <div className="flex items-center justify-between text-xs px-1 text-slate-500">
-                <span className="flex items-center gap-1.5 flex-wrap">
-                  {(() => {
-                    const allSols = appSettings.predefinedSolutions || [];
-                    const term = predefinedSearchTerm.trim().toLowerCase();
-                    const filteredCount = term
-                      ? allSols.filter(s => (s.title || '').toLowerCase().includes(term) || (s.content || '').toLowerCase().includes(term)).length
-                      : allSols.length;
-                    return (
-                      <>
-                        <span>Exibindo <strong className="text-slate-700 font-semibold">{filteredCount}</strong> {filteredCount === 1 ? 'solução' : 'soluções'}</span>
-                        {!term && allSols.length > 1 && (
-                          <span className="text-[11px] text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full font-medium">
-                            Arraste para reposicionar
-                          </span>
-                        )}
-                      </>
-                    );
-                  })()}
-                </span>
-                {onNavigate && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setShowPredefinedSolutions(false);
-                      onNavigate('Configurações');
-                    }}
-                    className="text-indigo-600 hover:text-indigo-800 font-semibold flex items-center gap-1 hover:underline"
-                  >
-                    <Plus className="h-3.5 w-3.5" />
-                    Gerenciar / Cadastrar novas soluções
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Lista de Soluções com Scroll */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50/50">
-              {(() => {
-                const allSols = appSettings.predefinedSolutions || [];
-                const term = predefinedSearchTerm.trim().toLowerCase();
-                const filtered = term
-                  ? allSols.filter(s => (s.title || '').toLowerCase().includes(term) || (s.content || '').toLowerCase().includes(term))
-                  : allSols;
-
-                if (filtered.length === 0) {
-                  return (
-                    <div className="py-12 px-4 text-center">
-                      <div className="inline-flex p-3 rounded-full bg-slate-100 text-slate-400 mb-3">
-                        <Search className="h-6 w-6" />
-                      </div>
-                      <h4 className="text-sm font-semibold text-slate-700">Nenhuma solução encontrada</h4>
-                      <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
-                        {term ? `Não encontramos nenhuma solução para "${predefinedSearchTerm}". Tente outros termos.` : 'Nenhuma solução padrão cadastrada ainda no sistema.'}
-                      </p>
-                    </div>
-                  );
-                }
-
-                return filtered.map((sol, index) => {
-                  const plainText = (sol.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-                  const isCopied = copiedPredefinedId === sol.id;
-                  const isDragging = draggedPredefinedIndex === index;
-                  const isDraggable = !term; // Permite arrastar quando não há busca ativa
-
-                  return (
-                    <div
-                      key={sol.id}
-                      draggable={isDraggable}
-                      onDragStart={() => isDraggable && setDraggedPredefinedIndex(index)}
-                      onDragOver={(e) => isDraggable && handleDragOverPredefined(e, index)}
-                      onDragEnd={() => setDraggedPredefinedIndex(null)}
-                      className={cn(
-                        "bg-white rounded-xl border p-4 transition-all group flex flex-col justify-between gap-3 select-none",
-                        isDragging ? "opacity-40 border-indigo-400 scale-[0.99] shadow-inner" : "border-slate-200 hover:border-indigo-300 hover:shadow-md",
-                        isDraggable ? "cursor-grab active:cursor-grabbing" : ""
-                      )}
-                    >
-                      <div>
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="flex items-center gap-2">
-                            {isDraggable && (
-                              <div 
-                                className="text-slate-300 group-hover:text-slate-500 hover:text-indigo-600 transition-colors p-0.5 cursor-grab active:cursor-grabbing shrink-0" 
-                                title="Arraste para reposicionar esta solução"
-                              >
-                                <GripVertical className="h-4 w-4" />
-                              </div>
-                            )}
-                            <h4 className="text-sm font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
-                              {sol.title}
-                            </h4>
-                          </div>
-
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            {isDraggable && allSols.length > 1 && (
-                              <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <button
-                                  type="button"
-                                  disabled={index === 0}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleMovePredefined(index, 'up');
-                                  }}
-                                  className="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
-                                  title="Subir posição"
-                                >
-                                  <ChevronUp className="h-3.5 w-3.5" />
-                                </button>
-                                <button
-                                  type="button"
-                                  disabled={index === allSols.length - 1}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleMovePredefined(index, 'down');
-                                  }}
-                                  className="p-1 text-slate-400 hover:text-slate-700 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
-                                  title="Descer posição"
-                                >
-                                  <ChevronDown className="h-3.5 w-3.5" />
-                                </button>
-                              </div>
-                            )}
-                            <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
-                              Padrão
-                            </span>
-                          </div>
-                        </div>
-                        {plainText && (
-                          <p className={cn("text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed", isDraggable ? "pl-6" : "")}>
-                            {plainText}
-                          </p>
-                        )}
-                      </div>
-
-                      <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            navigator.clipboard.writeText(sol.content);
-                            setCopiedPredefinedId(sol.id);
-                            setTimeout(() => setCopiedPredefinedId(null), 2000);
-                          }}
-                          className="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer"
-                          title="Copiar código HTML da solução"
-                        >
-                          {isCopied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
-                          {isCopied ? 'Copiado!' : 'Copiar'}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setAiResult(sol.content);
-                            setShowPredefinedSolutions(false);
-                          }}
-                          className="px-3.5 py-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 rounded-lg transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer"
-                        >
-                          <Sparkles className="h-3.5 w-3.5" />
-                          Aplicar Solução
-                        </button>
-                      </div>
-                    </div>
-                  );
-                });
-              })()}
-            </div>
-
-            {/* Rodapé do Modal */}
-            <div className="px-6 py-3 border-t border-slate-100 bg-white flex items-center justify-between">
-              <span className="text-xs text-slate-400">
-                Dica: Você também pode salvar novas respostas marcando <strong className="text-slate-600">Reciclar resposta</strong> na finalização.
-              </span>
-              <button
-                type="button"
-                onClick={() => setShowPredefinedSolutions(false)}
-                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Modal Sobreposto para Busca de Soluções sem IA */}
       <SolutionSearchModal

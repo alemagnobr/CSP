@@ -476,20 +476,28 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
 
           {appSettings.aiProvider === 'openrouter' && (
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Modelo OpenRouter (Grátis)</label>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Modelo OpenRouter (Modelos Gratuitos)</label>
               <select
                 value={localOpenRouterModel}
                 onChange={(e) => setLocalOpenRouterModel(e.target.value)}
                 className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="openrouter/free">OpenRouter Auto (Recomendado)</option>
-                <option value="google/gemma-4-31b-it:free">Gemma 4 31B (Google)</option>
-                <option value="nvidia/nemotron-3-super-120b-a12b:free">Nemotron 3 120B (NVIDIA)</option>
-                <option value="inclusionai/ling-3.0-flash:free">Ling 3.0 Flash</option>
-                <option value="poolside/laguna-s-2.1:free">Laguna S 2.1 (Poolside)</option>
+                <option value="openrouter/free">⚡ OpenRouter Auto Free (Recomendado - Roteia no melhor gratuito disponível)</option>
+                <option value="meta-llama/llama-3.3-70b-instruct:free">Meta: Llama 3.3 70B Instruct (Grátis)</option>
+                <option value="meta-llama/llama-3.1-8b-instruct:free">Meta: Llama 3.1 8B Instruct (Grátis)</option>
+                <option value="meta-llama/llama-3.2-3b-instruct:free">Meta: Llama 3.2 3B Instruct (Grátis)</option>
+                <option value="meta-llama/llama-3.2-1b-instruct:free">Meta: Llama 3.2 1B Instruct (Grátis)</option>
+                <option value="google/gemma-2-9b-it:free">Google: Gemma 2 9B (Grátis)</option>
+                <option value="qwen/qwen-2.5-72b-instruct:free">Qwen: Qwen 2.5 72B Instruct (Grátis)</option>
+                <option value="qwen/qwen-2.5-coder-32b-instruct:free">Qwen: Qwen 2.5 Coder 32B (Grátis)</option>
+                <option value="deepseek/deepseek-r1:free">DeepSeek: DeepSeek R1 (Grátis)</option>
+                <option value="deepseek/deepseek-chat:free">DeepSeek: DeepSeek V3 / Chat (Grátis)</option>
+                <option value="mistralai/mistral-7b-instruct:free">Mistral: Mistral 7B Instruct (Grátis)</option>
+                <option value="microsoft/phi-3-medium-128k-instruct:free">Microsoft: Phi-3 Medium 128k (Grátis)</option>
+                <option value="microsoft/phi-3-mini-128k-instruct:free">Microsoft: Phi-3 Mini 128k (Grátis)</option>
               </select>
               <p className="text-[11px] text-slate-400 mt-1">
-                Como esses modelos são gratuitos no OpenRouter, se um deles estiver lento ou congestionado, basta selecionar outro aqui mesmo para continuar usando sem interrupções!
+                Todos esses modelos são 100% gratuitos no OpenRouter. Se algum modelo estiver com fila ou lento, selecione outro da lista acima para continuar gerando sem interrupções!
               </p>
             </div>
           )}

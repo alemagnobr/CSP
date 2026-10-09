@@ -162,199 +162,77 @@ export const generateTicketStructure = async (
   provider: 'gemini' | 'openrouter',
   data: any
 ) => {
-  const { description, procedures, verifications, problemSolved, clientValidated, isEscalated, isFormatMicro, formatMicroDetails, aiGuidelines, aiPromptStandard, aiPromptEscalated, escalationDetails, closingText } = data;
+  const { description, procedures, verifications, problemSolved, clientValidated, aiGuidelines, aiPromptStandard } = data;
 
-  let prompt = '';
-  
   let guidelinesContext = '';
   if (aiGuidelines && aiGuidelines.length > 0) {
     const guidelinesList = aiGuidelines.map((g: string) => `- ${g}`).join('\n');
-    guidelinesContext = `\n\nIMPORTANTE: Siga rigorosamente as seguintes diretrizes ao estruturar a sua resposta:\n${guidelinesList}`;
+    guidelinesContext = `\n\nDiretrizes a seguir:\n${guidelinesList}`;
   }
 
-  if (isEscalated) {
-    let proceduresContext = '';
-    if (procedures && procedures.length > 0) {
-      const proceduresList = procedures.map((p: any) => `- ${p.name}: ${p.description}`).join('\n');
-      proceduresContext += `\nAlém disso, os seguintes procedimentos foram executados, mas o incidente persiste:\n${proceduresList}\nInclua menção a esses procedimentos executados na sua tratativa.`;
-    }
-    if (verifications && verifications.length > 0) {
-      const verificationsList = verifications.map((v: any) => `- ${v.name}: ${v.description}`).join('\n');
-      proceduresContext += `\nTambém foram realizadas as seguintes verificações:\n${verificationsList}\nInclua menção a essas verificações na sua tratativa.`;
-    }
-
-    let basePrompt = aiPromptEscalated || `Você é um assistente técnico de TI. 
-Eu vou te enviar um texto relatando um problema ou atendimento de suporte que está sendo ESCALONADO para outro setor.
-Sua tarefa é extrair o resumo da solicitação e descrever a tratativa realizada de forma profissional e técnica.
-Corrija erros ortográficos.
-NÃO invente procedimentos não mencionados.{proceduresContext}{guidelinesContext}
-
-O texto original é:
-"{description}"`;
-
-    let formatMicroHtml = '';
-    if (isFormatMicro && formatMicroDetails) {
-      const fm = formatMicroDetails;
-      formatMicroHtml = `
-<!-- INSTALAÇÃO PADRÃO (FORMATAR MICRO) -->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-top:8px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px"><u>Instalação padrão (Formatar Micro)</u></div>
-<div>Motivo da solicitação:</div>
-<div>${fm.motivo === 'Lentidão' ? '(X) Lentidão &nbsp;&nbsp;&nbsp;&nbsp; ( ) Troca de micro &nbsp;&nbsp;&nbsp;&nbsp; ( ) Outros' : fm.motivo === 'Troca de micro' ? '( ) Lentidão &nbsp;&nbsp;&nbsp;&nbsp; (X) Troca de micro &nbsp;&nbsp;&nbsp;&nbsp; ( ) Outros' : fm.motivo === 'Outros' ? `( ) Lentidão &nbsp;&nbsp;&nbsp;&nbsp; ( ) Troca de micro &nbsp;&nbsp;&nbsp;&nbsp; (X) Outros: ${fm.motivoOutros || ''}` : '( ) Lentidão &nbsp;&nbsp;&nbsp;&nbsp; ( ) Troca de micro &nbsp;&nbsp;&nbsp;&nbsp; ( ) Outros'}</div>
-<br>
-<div>Autorização do chefe do setor:</div>
-<div>${fm.autorizacaoChefe === 'Sim' ? '(X) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não' : fm.autorizacaoChefe === 'Não' ? '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; (X) Não' : '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não'}</div>
-<br>
-<div>Outros clientes utilizam o micro:</div>
-<div>${fm.outrosClientes === 'Sim' ? '(X) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não' : fm.outrosClientes === 'Não' ? '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; (X) Não' : '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não'}</div>
-<br>
-<div>Necessita de backup:</div>
-<div>${fm.necessitaBackup === 'Sim' ? '(X) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não' : fm.necessitaBackup === 'Não' ? '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; (X) Não' : '( ) Sim &nbsp;&nbsp;&nbsp;&nbsp; ( ) Não'}</div>
-</div>`;
-    }
-
-    let htmlFormattingContext = `
-
-Sua resposta DEVE CONTER ÚNICA E EXCLUSIVAMENTE o código HTML. 
-NÃO ESCREVA "Demanda: ...", "Tratativa: ..." ou qualquer outro texto antes ou depois da estrutura HTML.
-NÃO USE blocos de código markdown (como \`\`\`html). Devolva apenas as tags HTML.
-
-Formate a saída EXATAMENTE como o código HTML abaixo, substituindo os colchetes com os dados do atendimento:
-
-<!-- ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO – MODELO PARA ATENDENTE -->
-<div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; color:#111827"><!-- TEXTO INICIAL -->
-<div style="font-size:12px; color:#000000; margin-bottom:8px"><strong>Prezados,</strong><br />
-<br />
-<strong>A solicitação</strong>:&nbsp;[Resumo da solicitação/demanda em uma frase concisa]</div>
-<!-- CAIXA BASE -->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 14px; background:#fafafa; margin-top:10px; margin-right:0; margin-bottom:10px; margin-left:0"><!-- ATENDIMENTO ESPECIALIZADO -->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px"><u>A tratativa</u></div>
-<div>[Relato do que foi feito e procedimentos realizados, formando um parágrafo claro. Termine obrigatoriamente com a frase: Após tratativas realizadas pelo analista de Nível 1, verificou-se a necessidade de atendimento especializado para solução do chamado.]</div>
-</div>
-<!-- LOCALIZAÇÃO -->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px"><u>Localização</u></div>
-<div>${(escalationDetails ? `Setor: ${escalationDetails.setor || ''}
-Edifício: ${escalationDetails.edificio || ''}
-Complemento: ${escalationDetails.complemento || ''}
-Ponto de referência: ${escalationDetails.pontoReferencia || ''}
-Contato: ${escalationDetails.contato || ''}
-Setor: ${escalationDetails.setorAbertoFechado === 'Aberto' ? '(X) Aberto    ( ) Fechado' : escalationDetails.setorAbertoFechado === 'Fechado' ? '( ) Aberto    (X) Fechado' : '( ) Aberto    ( ) Fechado'}
-Local: ${escalationDetails.local === 'Teletrabalho' ? '(X) Teletrabalho    ( ) Senado    ( ) Externo' : escalationDetails.local === 'Senado' ? '( ) Teletrabalho    (X) Senado    ( ) Externo' : escalationDetails.local === 'Externo' ? '( ) Teletrabalho    ( ) Senado    (X) Externo' : '( ) Teletrabalho    ( ) Senado    ( ) Externo'}` : 'Setor:\nEdifício:\nComplemento:\nPonto de referência:\nContato:\nSetor:  ( ) Aberto    ( ) Fechado\nLocal:  ( ) Teletrabalho    ( ) Senado    ( ) Externo').replace(/\n/g, '</div>\n<div>')}</div>
-</div>
-${formatMicroHtml}
-</div>
-<!-- /CAIXA BASE -->`;
-
-    if (closingText) {
-      htmlFormattingContext += `\n<!--{cke_protected}{C}%3C!%2D%2D%20ASSINATURA%20%2D%2D%3E-->\n<div style="margin-top:8px; border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">\n<div>${closingText.trim().replace(/\n/g, '<br>')}</div>\n</div>`;
-    }
-
-    htmlFormattingContext += `\n</div>`;
-
-    if (aiPromptEscalated && !aiPromptEscalated.includes('{description}')) {
-       basePrompt += `\n\nO texto é:\n"{description}"\n\n{proceduresContext}{guidelinesContext}`;
-    }
-
-    prompt = (basePrompt + htmlFormattingContext)
-      .replace('{description}', description)
-      .replace('{proceduresContext}', proceduresContext)
-      .replace('{guidelinesContext}', guidelinesContext);
-
-  } else {
-    let proceduresContext = '';
-    if (procedures && procedures.length > 0) {
-      const proceduresList = procedures.map((p: any) => `- ${p.name}: ${p.description}`).join('\n');
-      proceduresContext += `\nAlém disso, considere que os seguintes procedimentos TÉCNICOS também foram executados com sucesso:\n${proceduresList}\nInclua menção direta a esses procedimentos na seção "Ações realizadas", de forma técnica.`;
-    }
-    if (verifications && verifications.length > 0) {
-      const verificationsList = verifications.map((v: any) => `- ${v.name}: ${v.description}`).join('\n');
-      proceduresContext += `\nTambém foram realizadas as seguintes verificações com sucesso:\n${verificationsList}\nInclua menção a essas verificações na seção "Ações realizadas", de forma técnica.`;
-    }
-
-    let validationContext = '';
-    if (!isEscalated) {
-      let sentences = [];
-      if (problemSolved) {
-        sentences.push('Após os procedimentos, o problema foi solucionado!');
-      }
-      
-      if (clientValidated !== undefined) {
-        sentences.push(clientValidated ? 'Cliente validou o chamado!' : 'Cliente não validou o chamado.');
-      }
-      
-      if (sentences.length > 0) {
-        validationContext = `\n\nATENÇÃO: Adicione OBRIGATORIAMENTE as seguintes frases APENAS dentro da div de "Resultado" (junto ao resultado final). NÃO as adicione no final da resposta e NÃO as adicione na div da pesquisa de satisfação:\n${sentences.join('\n')}`;
-      }
-    }
-
-    let basePrompt = aiPromptStandard || `Você é um assistente técnico de TI. 
-Eu vou te enviar um texto relatando um problema ou atendimento de suporte.
-Sua tarefa é reestruturar esse texto nos tópicos: "Análise técnica", "Ações realizadas" e "Resultado", formatados em HTML.
-Corrija erros ortográficos e use linguagem profissional e técnica.
-NÃO invente procedimentos ou informações que não estão no texto original nem na lista de procedimentos executados.
-NÃO "encha linguiça" ou adicione detalhes não mencionados.{proceduresContext}{validationContext}{guidelinesContext}
-
-O texto é:
-"{description}"`;
-
-    let htmlFormattingContext = `
-
-Sua resposta DEVE CONTER ÚNICA E EXCLUSIVAMENTE o código HTML. 
-NÃO ESCREVA "Demanda: ...", "Tratativa: ..." ou qualquer outro texto antes ou depois da estrutura HTML.
-NÃO USE blocos de código markdown (como \`\`\`html). Devolva apenas as tags HTML.
-
-Formate a saída EXATAMENTE como o código HTML abaixo, substituindo os colchetes com os dados do atendimento:
-
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 14px; background:#fafafa; margin-top:10px; margin-right:0; margin-bottom:10px; margin-left:0">
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px">Análise técnica:</div>
-<div>[Análise técnica do que o cliente informou]</div>
-</div>
-<!--{cke_protected}{C}%3C!%2D%2D%20A%C3%87%C3%95ES%20REALIZADAS%20%2D%2D%3E-->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px">Ações realizadas:</div>
-<ul>
-<li>[ação 1]</li>
-<li>[ação 2]</li>
-</ul>
-</div>
-<!--{cke_protected}{C}%3C!%2D%2D%20RESULTADO%20%2D%2D%3E-->
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px">Resultado:</div>
-<div>[Resultado final após as ações. ATENÇÃO: As frases de validação (se houver) devem ficar AQUI!]</div>
-</div>
-<!--{cke_protected}{C}%3C!%2D%2D%20NOTA%20SOBRE%20PESQUISA%20DE%20SATISFA%C3%87%C3%83O%20%2D%2D%3E-->
-<div style="border:1px solid #f59e0b; border-radius:10px; padding:10px 12px; background:#fffbeb; color:#92400e">
-<div style="font-weight:bold; margin-bottom:4px">Sua opinião é importante!</div>
-<div>Após o fechamento deste chamado, <em><u>você receberá um novo e-mail com um link para a pesquisa de satisfação</u></em>. Sua participação é muito importante para melhorarmos continuamente nosso atendimento.<br><br>Muito obrigado!</div>
-</div>
-</div>`;
-
-    if (aiPromptStandard && !aiPromptStandard.includes('{description}')) {
-       basePrompt += `\n\nO texto é:\n"{description}"\n\n{proceduresContext}{validationContext}{guidelinesContext}`;
-    }
-
-    prompt = (basePrompt + htmlFormattingContext)
-      .replace('{description}', description)
-      .replace('{proceduresContext}', proceduresContext)
-      .replace('{guidelinesContext}', guidelinesContext)
-      .replace('{validationContext}', validationContext);
+  let proceduresContext = '';
+  if (procedures && procedures.length > 0) {
+    const proceduresList = procedures.map((p: any) => `- ${p.name}: ${p.description}`).join('\n');
+    proceduresContext += `\nAlém disso, os seguintes procedimentos técnicos foram executados com sucesso:\n${proceduresList}\nInclua menção direta a esses procedimentos nas "Ações realizadas".`;
   }
+  if (verifications && verifications.length > 0) {
+    const verificationsList = verifications.map((v: any) => `- ${v.name}: ${v.description}`).join('\n');
+    proceduresContext += `\nTambém foram realizadas as seguintes verificações com sucesso:\n${verificationsList}\nInclua menção a essas verificações nas "Ações realizadas".`;
+  }
+
+  const validationSentences: string[] = [];
+  if (problemSolved) {
+    validationSentences.push('Problema solucionado.');
+  }
+  if (clientValidated) {
+    validationSentences.push('Cliente validou o atendimento.');
+  }
+  const validationText = validationSentences.join(' ');
+
+  const prompt = `Você é um assistente técnico de TI e analista de suporte.
+Sua tarefa é reestruturar o relato do chamado técnico EXATAMENTE na estrutura de TEXTO PURO abaixo.
+NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, <br>, etc.).
+NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
+Use estritamente texto puro e limpo.
+
+ESTRUTURA OBRIGATÓRIA DA RESPOSTA:
+Análise técnica:
+[Relato claro, objetivo e profissional do problema informado pelo usuário]
+
+Ações realizadas:
+• [Primeira ação ou procedimento executado de forma concisa]
+• [Segunda ação ou procedimento executado]
+• [Demais ações executadas em tópicos bem organizados]
+
+Resultado:
+[Breve resumo da conclusão das tratativas]${validationText ? `\n\n${validationText}` : ''}
+
+REGRAS:
+- Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem formatação markdown.
+- Nas "Ações realizadas", coloque as bolinhas em tópicos bem organizados ("• ") para cada procedimento/ação.
+- Corrija erros gramaticais e mantenha tom técnico e direto.
+- Não invente procedimentos que não foram informados nem no relato nem na lista de procedimentos.
+- Não adicione saudações, introduções ou assinaturas ("Atenciosamente", "Obrigado", etc.).
+${validationText ? `- Ao final da seção "Resultado:", inclua exatamente a frase: "${validationText}"` : ''}
+
+RELATO DO ATENDIMENTO:
+"${description}"
+${proceduresContext}${guidelinesContext}
+`;
 
   if (provider === 'openrouter') {
     const responseData = await fetchOpenRouter(
       apiKey,
       data.openRouterModel || 'openrouter/free',
       [{ role: 'user', content: prompt }],
-      { max_tokens: 4096, temperature: 0.2 }
+      { max_tokens: 2048, temperature: 0.15 }
     );
     const content = responseData.choices?.[0]?.message?.content || '';
-    return repairIncompleteHtml(content);
+    return content.trim().replace(/^```[a-z]*\s*/i, '').replace(/```$/i, '').trim();
   } else {
     const ai = new GoogleGenAI({ apiKey });
-    return await generateGeminiContentWithFallback(ai, prompt, data.geminiModel);
+    const text = await generateGeminiContentWithFallback(ai, prompt, data.geminiModel, { maxOutputTokens: 2048, temperature: 0.15 });
+    return text.trim().replace(/^```[a-z]*\s*/i, '').replace(/```$/i, '').trim();
   }
 };
 
