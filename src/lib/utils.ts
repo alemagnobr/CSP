@@ -81,17 +81,20 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
 
   // 1. Tentar extração direta por texto puro / marcações simples
   const analiseRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*An[aá]lise\s+t[eé]cnica\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*A[cç][oõ]es\s+realizadas\s*:?|$)/i;
-  const acoesRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A[cç][oõ]es\s+realizadas\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*Resultado\s*:?|$)/i;
+  const acoesRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A[cç][oõ]es\s+realizadas\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*(?:Dados\s+da\s+instala[cç][aã]o\s+padr[aã]o|Resultado)\s*:?|$)/i;
+  const instalacaoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*Dados\s+da\s+instala[cç][aã]o\s+padr[aã]o\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*Resultado\s*:?|$)/i;
   const resultadoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*Resultado\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)$/i;
 
   const analiseMatch = rawTrimmed.match(analiseRegex);
   const acoesMatch = rawTrimmed.match(acoesRegex);
+  const instalacaoMatch = rawTrimmed.match(instalacaoRegex);
   const resultadoMatch = rawTrimmed.match(resultadoRegex);
 
   if (analiseMatch && acoesMatch) {
     const textSections: ParsedTicketSection[] = [];
     const analiseContent = cleanSectionText(analiseMatch[1]);
     const acoesContent = cleanSectionText(acoesMatch[1]);
+    const instalacaoContent = instalacaoMatch ? cleanSectionText(instalacaoMatch[1]) : '';
     const resultadoContent = resultadoMatch ? cleanSectionText(resultadoMatch[1]) : '';
 
     if (analiseContent) {
@@ -112,12 +115,68 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
       });
     }
 
+    if (instalacaoContent) {
+      textSections.push({
+        id: 'instalacao',
+        title: 'Dados da instalação padrão',
+        content: instalacaoContent,
+        htmlContent: instalacaoContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
+      });
+    }
+
     if (resultadoContent) {
       textSections.push({
         id: 'resultado',
         title: 'Resultado',
         content: resultadoContent,
         htmlContent: resultadoContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
+      });
+    }
+
+    if (textSections.length > 0) {
+      return textSections;
+    }
+  }
+
+  // Tentar extração para chamados de Escalonamento (A solicitação / A tratativa / Dados do escalonamento)
+  const solicitacaoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+solicita[cç][aã]o\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+tratativa\s*:?|$)/i;
+  const tratativaRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+tratativa\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*Dados\s+do\s+escalonamento\s*:?|$)/i;
+  const escalonamentoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*Dados\s+do\s+escalonamento\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)$/i;
+
+  const solMatch = rawTrimmed.match(solicitacaoRegex);
+  const tratMatch = rawTrimmed.match(tratativaRegex);
+  const escMatch = rawTrimmed.match(escalonamentoRegex);
+
+  if (solMatch && tratMatch) {
+    const textSections: ParsedTicketSection[] = [];
+    const solContent = cleanSectionText(solMatch[1]);
+    const tratContent = cleanSectionText(tratMatch[1]);
+    const escContent = escMatch ? cleanSectionText(escMatch[1]) : '';
+
+    if (solContent) {
+      textSections.push({
+        id: 'solicitacao',
+        title: 'A solicitação',
+        content: solContent,
+        htmlContent: solContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
+      });
+    }
+
+    if (tratContent) {
+      textSections.push({
+        id: 'tratativa',
+        title: 'A tratativa',
+        content: tratContent,
+        htmlContent: tratContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
+      });
+    }
+
+    if (escContent) {
+      textSections.push({
+        id: 'escalonamento',
+        title: 'Dados do escalonamento',
+        content: escContent,
+        htmlContent: escContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
       });
     }
 

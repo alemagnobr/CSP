@@ -162,7 +162,7 @@ export const generateTicketStructure = async (
   provider: 'gemini' | 'openrouter',
   data: any
 ) => {
-  const { description, procedures, verifications, problemSolved, clientValidated, aiGuidelines, aiPromptStandard } = data;
+  const { description, procedures, verifications, problemSolved, clientValidated, isEscalated, escalationDetails, isFormatMicro, formatMicroDetails, aiGuidelines, aiPromptStandard } = data;
 
   let guidelinesContext = '';
   if (aiGuidelines && aiGuidelines.length > 0) {
@@ -173,11 +173,11 @@ export const generateTicketStructure = async (
   let proceduresContext = '';
   if (procedures && procedures.length > 0) {
     const proceduresList = procedures.map((p: any) => `- ${p.name}: ${p.description}`).join('\n');
-    proceduresContext += `\nAlém disso, os seguintes procedimentos técnicos foram executados com sucesso:\n${proceduresList}\nInclua menção direta a esses procedimentos nas "Ações realizadas".`;
+    proceduresContext += `\nAlém disso, os seguintes procedimentos técnicos foram executados com sucesso:\n${proceduresList}\nInclua menção direta a esses procedimentos nas ${isEscalated ? '"A tratativa"' : '"Ações realizadas"'}.`;
   }
   if (verifications && verifications.length > 0) {
     const verificationsList = verifications.map((v: any) => `- ${v.name}: ${v.description}`).join('\n');
-    proceduresContext += `\nTambém foram realizadas as seguintes verificações com sucesso:\n${verificationsList}\nInclua menção a essas verificações nas "Ações realizadas".`;
+    proceduresContext += `\nTambém foram realizadas as seguintes verificações com sucesso:\n${verificationsList}\nInclua menção a essas verificações nas ${isEscalated ? '"A tratativa"' : '"Ações realizadas"'}.`;
   }
 
   const validationSentences: string[] = [];
@@ -189,7 +189,82 @@ export const generateTicketStructure = async (
   }
   const validationText = validationSentences.join(' ');
 
-  const prompt = `Você é um assistente técnico de TI e analista de suporte.
+  let prompt = '';
+  if (isEscalated) {
+    prompt = `Você é um assistente técnico de TI e analista de suporte.
+Sua tarefa é reestruturar o chamado técnico para ESCALONAMENTO em TEXTO PURO.
+NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, etc.).
+NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
+Use estritamente texto puro e limpo.
+
+ESTRUTURA OBRIGATÓRIA DA RESPOSTA:
+A solicitação:
+[Relato claro e profissional da solicitação e problema relatado pelo usuário]
+
+A tratativa:
+• [Testes e procedimentos executados pelo atendimento inicial]
+• [Motivo do encaminhamento para a equipe de campo/N2]
+
+Dados do escalonamento:
+• Setor: ${escalationDetails?.setor || 'Não informado'}
+• Edifício: ${escalationDetails?.edificio || 'Não informado'}
+• Complemento: ${escalationDetails?.complemento || 'Não informado'}
+• Ponto de referência: ${escalationDetails?.pontoReferencia || 'Não informado'}
+• Contato: ${escalationDetails?.contato || 'Não informado'}
+• Tipo de setor: ${escalationDetails?.setorAbertoFechado || 'Não informado'}
+• Local: ${escalationDetails?.local || 'Senado'}
+
+REGRAS:
+- Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
+- Na tratativa, coloque as ações com marcadores de bolinhas ("• ").
+- Corrija erros gramaticais e mantenha tom técnico e direto.
+- Não invente procedimentos que não foram informados.
+
+RELATO DO ATENDIMENTO:
+"${description}"
+${proceduresContext}${guidelinesContext}
+`;
+  } else if (isFormatMicro) {
+    const motivoTexto = formatMicroDetails?.motivo === 'Outros' 
+      ? (formatMicroDetails?.motivoOutros || 'Outros') 
+      : (formatMicroDetails?.motivo || 'Não informado');
+
+    prompt = `Você é um assistente técnico de TI e analista de suporte.
+Sua tarefa é reestruturar o chamado técnico para INSTALAÇÃO PADRÃO (FORMATAR MICRO) em TEXTO PURO.
+NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, etc.).
+NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
+Use estritamente texto puro e limpo.
+
+ESTRUTURA OBRIGATÓRIA DA RESPOSTA:
+Análise técnica:
+[Relato técnico, formal e objetivo da necessidade de instalação padrão / formatação da máquina]
+
+Ações realizadas:
+• [Verificações preliminares e testes executados]
+• [Confirmação do procedimento de formatação / instalação padrão]
+
+Dados da instalação padrão:
+• Motivo: ${motivoTexto}
+• Autorização da chefia: ${formatMicroDetails?.autorizacaoChefe || 'Não informado'}
+• Outros clientes utilizam este micro: ${formatMicroDetails?.outrosClientes || 'Não informado'}
+• Necessita de backup dos dados: ${formatMicroDetails?.necessitaBackup || 'Não informado'}
+
+Resultado:
+Encaminhado para procedimento de instalação padrão e formatação.${validationText ? `\n\n${validationText}` : ''}
+
+REGRAS:
+- Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
+- Nas Ações realizadas, coloque as ações com tópicos organizados ("• ").
+- Corrija erros gramaticais e mantenha tom técnico e direto.
+- Não invente procedimentos que não foram informados.
+${validationText ? `- Ao final da seção Resultado:, inclua exatamente a frase: "${validationText}"` : ''}
+
+RELATO DO ATENDIMENTO:
+"${description}"
+${proceduresContext}${guidelinesContext}
+`;
+  } else {
+    prompt = `Você é um assistente técnico de TI e analista de suporte.
 Sua tarefa é reestruturar o relato do chamado técnico EXATAMENTE na estrutura de TEXTO PURO abaixo.
 NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, <br>, etc.).
 NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
@@ -219,6 +294,7 @@ RELATO DO ATENDIMENTO:
 "${description}"
 ${proceduresContext}${guidelinesContext}
 `;
+  }
 
   if (provider === 'openrouter') {
     const responseData = await fetchOpenRouter(

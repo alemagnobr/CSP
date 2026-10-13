@@ -9,7 +9,7 @@
  * - Live countdown timer and SLA status display.
  * - Auto-saving to Firestore and integration with Gemini / OpenRouter API.
  */
-import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText } from 'lucide-react';
+import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText, BookOpen } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
 import { cn, stripAndFormatHtml, parseTicketHtmlSections } from '@/lib/utils';
@@ -46,6 +46,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategory, setNewCategory] = useState('');
   const [showNoAiSolutionModal, setShowNoAiSolutionModal] = useState(false);
+  const [showPredefinedSolutions, setShowPredefinedSolutions] = useState(false);
+  const [predefinedSearchTerm, setPredefinedSearchTerm] = useState('');
   const [isSearchingSolution, setIsSearchingSolution] = useState(false);
   const [searchedSolution, setSearchedSolution] = useState<{
     faqs: any[];
@@ -62,12 +64,10 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [copiedSectionId, setCopiedSectionId] = useState<string | null>(null);
   const [copiedSolutionHtml, setCopiedSolutionHtml] = useState(false);
   const [copiedSolutionText, setCopiedSolutionText] = useState(false);
+  const [copiedPredefinedId, setCopiedPredefinedId] = useState<string | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
-  const [closingTicketIdError, setClosingTicketIdError] = useState<string | null>(null);
   const [isGeneratingTitle, setIsGeneratingTitle] = useState(false);
-  const ticketIdInputRef = useRef<HTMLInputElement>(null);
-  const closingTicketIdInputRef = useRef<HTMLInputElement>(null);
 
   // Direct Verifications and Procedures Creation/Deletion State
   const [isCreatingVerif, setIsCreatingVerif] = useState(false);
@@ -143,7 +143,30 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyResult = () => {
     if (aiResult) {
-      navigator.clipboard.writeText(aiResult);
+      let htmlToCopy = aiResult;
+      const isHtml = /<[a-z][\s\S]*>/i.test(aiResult);
+      if (!isHtml) {
+        // Converte as seções de texto puro para HTML estruturado profissional
+        const sections = parseTicketHtmlSections(aiResult);
+        if (sections.length > 0) {
+          const parts = sections.map(sec => {
+            const lines = sec.content.split('\n').filter(Boolean);
+            const body = lines.map(l => {
+              if (l.trim().startsWith('•')) {
+                return `<li style="margin-bottom: 4px;">${l.replace(/^•\s*/, '').trim()}</li>`;
+              }
+              return `<p style="margin: 0 0 6px 0;">${l.trim()}</p>`;
+            }).join('');
+            const hasList = body.includes('<li');
+            const innerContent = hasList ? `<ul style="margin: 4px 0 8px 18px; padding: 0;">${body}</ul>` : body;
+            return `<div style="margin-bottom: 14px;">\n  <div style="font-weight: bold; margin-bottom: 4px; color: #1e293b;">${sec.title}:</div>\n  <div style="color: #334155; line-height: 1.5;">${innerContent}</div>\n</div>`;
+          });
+          htmlToCopy = `<div style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #334155;">\n${parts.join('\n')}\n</div>`;
+        } else {
+          htmlToCopy = `<div style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #334155;">\n${aiResult.split('\n').map(l => `<p style="margin: 0 0 6px 0;">${l}</p>`).join('\n')}\n</div>`;
+        }
+      }
+      navigator.clipboard.writeText(htmlToCopy);
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
     }
@@ -309,6 +332,10 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         verifications: selectedVerifs.map(v => ({ name: v.name, description: v.description })),
         problemSolved: currentTicket.problemSolved,
         clientValidated: currentTicket.clientValidated,
+        isEscalated: currentTicket.isEscalated,
+        escalationDetails: currentTicket.escalationDetails,
+        isFormatMicro: currentTicket.isFormatMicro,
+        formatMicroDetails: currentTicket.formatMicroDetails,
         aiGuidelines: appSettings.aiGuidelines,
         aiPromptStandard: appSettings.aiPromptStandard,
         geminiModel: appSettings.geminiModel,
@@ -400,28 +427,24 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleSaveResult = () => {
     const currentTicket = ticketRef.current;
-    if (!currentTicket.id || !currentTicket.id.trim()) {
-      setClosingTicketIdError('Por favor, informe o número do chamado antes de finalizar.');
-      setTimeout(() => closingTicketIdInputRef.current?.focus(), 100);
-      return;
-    }
-    setClosingTicketIdError(null);
+    const finalTicket = {
+      ...currentTicket,
+      id: currentTicket.id?.trim() || Date.now().toString(),
+      description: currentTicket.description,
+      structuredResult: aiResult || currentTicket.structuredResult
+    };
 
-    if (aiResult) {
-      onFinish({ ...currentTicket, description: currentTicket.description, structuredResult: aiResult });
-      setAiResult(null);
-    }
+    onFinish(finalTicket);
+    setAiResult(null);
   };
 
   const handleSaveWithValidation = () => {
     const currentTicket = ticketRef.current;
-    if (!currentTicket.id || !currentTicket.id.trim()) {
-      setValidationError('É necessário colocar o número do chamado antes de salvar.');
-      ticketIdInputRef.current?.focus();
-      return;
-    }
-    setValidationError(null);
-    onFinish(currentTicket);
+    const finalTicket = {
+      ...currentTicket,
+      id: currentTicket.id?.trim() || Date.now().toString()
+    };
+    onFinish(finalTicket);
   };
 
   const handleGenerateTitle = async () => {
@@ -486,20 +509,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               </button>
             </div>
             
-            {closingTicketIdError && (
-              <div className="mb-4 p-3 bg-amber-50 border border-amber-300 rounded-xl flex items-center gap-3 text-amber-900 text-sm animate-in fade-in slide-in-from-top-2">
-                <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0" />
-                <div className="flex-1 font-medium">
-                  {closingTicketIdError} Digite o número abaixo no painel lateral ou no campo destacado para gravar.
-                </div>
-                <button 
-                  onClick={() => setClosingTicketIdError(null)}
-                  className="p-1 hover:bg-amber-100 rounded-lg text-amber-700 transition-colors"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-            )}
+
 
             {/* Título do Chamado com botão de copiar */}
             <div className="mb-4 bg-slate-50 border border-slate-200/90 rounded-xl p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-2xs">
@@ -562,11 +572,21 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                     <button
                       type="button"
                       onClick={handleCopyTextResult}
-                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
-                      title="Copiar texto completo (ideal para colar no chamado)"
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-indigo-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar texto limpo (ideal para chamados ou chats)"
                     >
-                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-blue-600" />}
-                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto Completo</span>}
+                      {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <FileText className="h-3.5 w-3.5 text-indigo-600" />}
+                      {copiedTextResult ? <span className="text-emerald-600">Texto Copiado!</span> : <span>Copiar Texto</span>}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyResult}
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar código HTML formatado"
+                    >
+                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
                     </button>
                   </div>
                 </div>
@@ -674,51 +694,16 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 <div>
                   <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Dados do Chamado</h4>
                   
-                  {/* Campo de Número do Chamado diretamente na tela de fechamento */}
-                  <div className={cn(
-                    "p-3 rounded-lg border transition-all",
-                    closingTicketIdError 
-                      ? "bg-rose-50/80 border-rose-300 ring-2 ring-rose-400/30" 
-                      : !ticket.id || !ticket.id.trim()
-                        ? "bg-amber-50/60 border-amber-300"
-                        : "bg-white border-slate-200 shadow-2xs"
-                  )}>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider mb-1 flex items-center justify-between">
-                      <span className={cn(
-                        closingTicketIdError ? "text-rose-700" : "text-slate-600"
-                      )}>
-                        Número do Chamado <span className="text-rose-500">*</span>
+                  {ticket.id && ticket.id.trim() && (
+                    <div className="p-2.5 rounded-lg border border-slate-200 bg-white shadow-2xs mb-3">
+                      <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
+                        Chamado
                       </span>
-                      {(!ticket.id || !ticket.id.trim()) && (
-                        <span className="text-[10px] font-semibold text-amber-700 bg-amber-100/80 px-1.5 py-0.5 rounded">
-                          Obrigatório
-                        </span>
-                      )}
-                    </label>
-                    <input
-                      ref={closingTicketIdInputRef}
-                      type="text"
-                      value={ticket.id || ''}
-                      onChange={(e) => {
-                        handleChange('id', e.target.value);
-                        if (e.target.value.trim()) {
-                          setClosingTicketIdError(null);
-                        }
-                      }}
-                      placeholder="Ex: 2026123456"
-                      className={cn(
-                        "w-full px-2.5 py-1.5 text-sm font-semibold rounded-md border transition-all focus:outline-none focus:ring-2",
-                        closingTicketIdError
-                          ? "border-rose-400 bg-white text-rose-900 focus:ring-rose-500 focus:border-rose-500 placeholder:text-rose-300"
-                          : "border-slate-300 bg-white text-slate-800 focus:ring-blue-500 focus:border-blue-500"
-                      )}
-                    />
-                    {closingTicketIdError && (
-                      <p className="mt-1 text-xs text-rose-600 font-medium">
-                        {closingTicketIdError}
-                      </p>
-                    )}
-                  </div>
+                      <span className="text-sm font-semibold text-slate-800">
+                        {ticket.id}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="space-y-4 mt-4">
                     <div>
@@ -1340,7 +1325,6 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           <div className="relative">
             <input 
               id="ticket-id-field"
-              ref={ticketIdInputRef}
               type="text" 
               value={ticket.id || ''}
               onChange={(e) => {
@@ -1349,13 +1333,8 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                   setValidationError(null);
                 }
               }}
-              placeholder="Digite o nº do chamado..."
-              className={cn(
-                "w-full sm:w-80 p-2.5 rounded-lg border text-sm font-bold text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-2xs transition-all placeholder:font-normal placeholder:text-slate-400",
-                validationError && !ticket.id?.trim() 
-                  ? "border-red-500 ring-2 ring-red-200 bg-red-50/50" 
-                  : "border-slate-200 hover:border-slate-300"
-              )}
+              placeholder="Digite o nº do chamado (opcional)..."
+              className="w-full sm:w-80 p-2.5 rounded-lg border border-slate-200 hover:border-slate-300 text-sm font-bold text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-2xs transition-all placeholder:font-normal placeholder:text-slate-400"
             />
           </div>
         </div>
@@ -1509,6 +1488,257 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           </div>
         </div>
 
+        <div className="mb-6 bg-slate-50 border border-slate-100 rounded-lg p-4">
+          <div className="flex flex-col sm:flex-row gap-6 mb-2">
+            <label className="flex items-center cursor-pointer relative">
+              <input 
+                type="checkbox" 
+                className="sr-only" 
+                checked={ticket.isEscalated || false} 
+                onChange={(e) => {
+                  const checked = e.target.checked;
+                  handleChange('isEscalated', checked);
+                  if (checked && !ticket.escalationDetails) {
+                    const contatoParts = [];
+                    if (ticket.extension) contatoParts.push(`Ramal: ${ticket.extension}`);
+                    if (ticket.mobile) contatoParts.push(`Celular: ${ticket.mobile}`);
+                    const contato = contatoParts.join(' / ');
+                    
+                    handleChange('escalationDetails', {
+                      setor: '',
+                      edificio: '',
+                      complemento: '',
+                      pontoReferencia: '',
+                      contato: contato,
+                      setorAbertoFechado: '',
+                      local: 'Senado'
+                    });
+                  }
+                }} 
+              />
+              <div className={`relative w-11 h-6 rounded-full transition-colors ${ticket.isEscalated ? 'bg-indigo-600' : 'bg-slate-300'}`}>
+                <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${ticket.isEscalated ? 'translate-x-5' : ''}`}></div>
+              </div>
+              <span className="ml-3 text-sm font-bold text-slate-700">Escalonamento</span>
+            </label>
+
+            <label className="flex items-center cursor-pointer relative">
+              <input 
+                type="checkbox" 
+                className="sr-only" 
+                checked={ticket.isFormatMicro || false} 
+                onChange={(e) => {
+                  const checked = e.target.checked;
+                  handleChange('isFormatMicro', checked);
+                  if (checked && !ticket.formatMicroDetails) {
+                    handleChange('formatMicroDetails', {
+                      motivo: '',
+                      motivoOutros: '',
+                      autorizacaoChefe: '',
+                      outrosClientes: '',
+                      necessitaBackup: ''
+                    });
+                  }
+                }} 
+              />
+              <div className={`relative w-11 h-6 rounded-full transition-colors ${ticket.isFormatMicro ? 'bg-indigo-600' : 'bg-slate-300'}`}>
+                <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${ticket.isFormatMicro ? 'translate-x-5' : ''}`}></div>
+              </div>
+              <span className="ml-3 text-sm font-bold text-slate-700">Instalação padrão (Formatar Micro)</span>
+            </label>
+          </div>
+          
+          {ticket.isEscalated && ticket.escalationDetails && (
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg border border-indigo-100">
+               <div className="col-span-1 md:col-span-2">
+                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dados do Escalonamento</h4>
+               </div>
+               <div>
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                  <input
+                    type="text"
+                    value={ticket.escalationDetails.setor || ''}
+                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, setor: e.target.value })}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+               </div>
+               <div>
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Edifício</label>
+                  <input
+                    type="text"
+                    value={ticket.escalationDetails.edificio}
+                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, edificio: e.target.value })}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+               </div>
+               <div>
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Complemento</label>
+                  <input
+                    type="text"
+                    value={ticket.escalationDetails.complemento}
+                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, complemento: e.target.value })}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+               </div>
+               <div className="md:col-span-2">
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Ponto de referência</label>
+                  <input
+                    type="text"
+                    value={ticket.escalationDetails.pontoReferencia}
+                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, pontoReferencia: e.target.value })}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+               </div>
+               <div>
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Contato</label>
+                  <input
+                    type="text"
+                    value={ticket.escalationDetails.contato}
+                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  />
+               </div>
+               
+               <div>
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Aberto'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Aberto' })} className="text-indigo-600 focus:ring-indigo-500" />
+                      <span className="text-sm text-slate-700">Aberto</span>
+                    </label>
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Fechado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Fechado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                      <span className="text-sm text-slate-700">Fechado</span>
+                    </label>
+                  </div>
+               </div>
+               
+               <div className="md:col-span-2">
+                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Local</label>
+                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Teletrabalho'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Teletrabalho' })} className="text-indigo-600 focus:ring-indigo-500" />
+                      <span className="text-sm text-slate-700">Teletrabalho</span>
+                    </label>
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Senado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Senado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                      <span className="text-sm text-slate-700">Senado</span>
+                    </label>
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Externo'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Externo' })} className="text-indigo-600 focus:ring-indigo-500" />
+                      <span className="text-sm text-slate-700">Externo</span>
+                    </label>
+                  </div>
+               </div>
+             </div>
+          )}
+
+          {ticket.isFormatMicro && ticket.formatMicroDetails && (
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg border border-indigo-100 animate-in fade-in duration-200">
+              <div className="col-span-1 md:col-span-2">
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dados da Instalação Padrão (Formatar Micro)</h4>
+              </div>
+              <div>
+                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Motivo</label>
+                <select
+                  value={ticket.formatMicroDetails.motivo || ''}
+                  onChange={(e) => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivo: e.target.value as any })}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                >
+                  <option value="">Selecione o motivo...</option>
+                  <option value="Lentidão">Lentidão</option>
+                  <option value="Troca de micro">Troca de micro</option>
+                  <option value="Outros">Outros</option>
+                </select>
+                {ticket.formatMicroDetails.motivo === 'Outros' && (
+                  <input
+                    type="text"
+                    value={ticket.formatMicroDetails.motivoOutros || ''}
+                    onChange={(e) => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivoOutros: e.target.value })}
+                    placeholder="Especifique o outro motivo..."
+                    className="w-full mt-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  />
+                )}
+              </div>
+              <div>
+                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Autorização da Chefia</label>
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`autorizacao-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.autorizacaoChefe === 'Sim'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Sim' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Sim
+                  </label>
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`autorizacao-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.autorizacaoChefe === 'Não'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Não' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Outros clientes utilizam este micro?</label>
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`outrosClientes-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.outrosClientes === 'Sim'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Sim' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Sim
+                  </label>
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`outrosClientes-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.outrosClientes === 'Não'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Não' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Necessita de Backup dos dados?</label>
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`backup-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.necessitaBackup === 'Sim'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Sim' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Sim
+                  </label>
+                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                    <input
+                      type="radio"
+                      name={`backup-${ticket.id}`}
+                      checked={ticket.formatMicroDetails.necessitaBackup === 'Não'}
+                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Não' })}
+                      className="text-indigo-600 focus:ring-indigo-500"
+                    />
+                    Não
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         <div>
           <div className="flex flex-col">
             <label className="block text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">
@@ -1521,6 +1751,19 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
               className="w-full min-h-[160px] p-3 rounded-lg border border-amber-200 bg-amber-50/40 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-y text-sm transition-colors"
             />
             <div className="flex justify-end mt-2 mb-4 gap-2">
+              <button 
+                type="button"
+                onClick={() => {
+                  setPredefinedSearchTerm('');
+                  setShowPredefinedSolutions(true);
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 border border-emerald-200 bg-emerald-50/70 text-sm font-semibold text-emerald-700 rounded-lg hover:bg-emerald-100/80 hover:text-emerald-800 transition-colors shadow-2xs cursor-pointer"
+                title="Ver e aplicar soluções padrão cadastradas"
+              >
+                <BookOpen className="h-3.5 w-3.5 text-emerald-600" />
+                Soluções Padrão
+              </button>
+
               <button 
                 type="button"
                 onClick={() => setShowNoAiSolutionModal(true)}
@@ -1857,32 +2100,34 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             )}
           </div>
 
-          <div className="mb-6 p-4 bg-slate-50 border border-slate-100 rounded-lg flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <input 
-                type="checkbox" 
-                id="problemSolved"
-                checked={ticket.problemSolved || false}
-                onChange={(e) => handleChange('problemSolved', e.target.checked)}
-                className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
-              />
-              <label htmlFor="problemSolved" className="text-sm text-slate-700 font-medium cursor-pointer">
-                Após os procedimentos, o problema foi solucionado?
-              </label>
+          {!ticket.isEscalated && (
+            <div className="mb-6 p-4 bg-slate-50 border border-slate-100 rounded-lg flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <input 
+                  type="checkbox" 
+                  id="problemSolved"
+                  checked={ticket.problemSolved || false}
+                  onChange={(e) => handleChange('problemSolved', e.target.checked)}
+                  className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
+                />
+                <label htmlFor="problemSolved" className="text-sm text-slate-700 font-medium cursor-pointer">
+                  Após os procedimentos, o problema foi solucionado?
+                </label>
+              </div>
+              <div className="flex items-center gap-2">
+                <input 
+                  type="checkbox" 
+                  id="clientValidated"
+                  checked={ticket.clientValidated || false}
+                  onChange={(e) => handleChange('clientValidated', e.target.checked)}
+                  className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
+                />
+                <label htmlFor="clientValidated" className="text-sm text-slate-700 font-medium cursor-pointer">
+                  Cliente validou o chamado?
+                </label>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <input 
-                type="checkbox" 
-                id="clientValidated"
-                checked={ticket.clientValidated || false}
-                onChange={(e) => handleChange('clientValidated', e.target.checked)}
-                className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
-              />
-              <label htmlFor="clientValidated" className="text-sm text-slate-700 font-medium cursor-pointer">
-                Cliente validou o chamado?
-              </label>
-            </div>
-          </div>
+          )}
         </div>
 
         {aiError && (
@@ -1952,6 +2197,124 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
         ticket={ticket}
         onUpdate={onUpdate}
       />
+
+      {/* Modal de Soluções Padrão */}
+      {showPredefinedSolutions && (
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden">
+            <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 bg-emerald-100 text-emerald-700 rounded-lg">
+                  <BookOpen className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-800 text-base">Soluções Padrão</h3>
+                  <p className="text-xs text-slate-500">Selecione uma resposta padrão para inserir no chamado</p>
+                </div>
+              </div>
+              <button 
+                type="button"
+                onClick={() => setShowPredefinedSolutions(false)}
+                className="p-1.5 hover:bg-slate-200/60 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                title="Fechar"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="p-4 border-b border-slate-100 bg-white">
+              <div className="relative">
+                <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  value={predefinedSearchTerm}
+                  onChange={(e) => setPredefinedSearchTerm(e.target.value)}
+                  placeholder="Buscar soluções cadastradas por título ou conteúdo..."
+                  className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  autoFocus
+                />
+              </div>
+            </div>
+
+            <div className="p-4 overflow-y-auto flex-1 space-y-3">
+              {(() => {
+                const solutions = (appSettings.predefinedSolutions || []).filter(s => 
+                  !predefinedSearchTerm.trim() || 
+                  s.title.toLowerCase().includes(predefinedSearchTerm.toLowerCase()) ||
+                  s.content.toLowerCase().includes(predefinedSearchTerm.toLowerCase())
+                );
+
+                if (solutions.length === 0) {
+                  return (
+                    <div className="py-12 text-center text-slate-400">
+                      <BookOpen className="h-10 w-10 mx-auto mb-2 opacity-30 text-emerald-600" />
+                      <p className="text-sm font-medium">Nenhuma solução padrão encontrada.</p>
+                      <p className="text-xs mt-1 text-slate-400">Você pode cadastrar novas soluções no menu lateral em <strong>Configurações &gt; Soluções Padrão</strong>.</p>
+                    </div>
+                  );
+                }
+
+                return solutions.map((sol) => {
+                  const isCopied = copiedPredefinedId === sol.id;
+                  return (
+                    <div key={sol.id} className="p-3.5 bg-slate-50 hover:bg-slate-100/80 rounded-xl border border-slate-200 transition-all flex flex-col gap-2 group">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-bold text-sm text-slate-800">{sol.title}</h4>
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(sol.content);
+                              setCopiedPredefinedId(sol.id);
+                              setTimeout(() => setCopiedPredefinedId(null), 2000);
+                            }}
+                            className={cn(
+                              "px-2.5 py-1 text-xs font-semibold rounded-md border transition-all cursor-pointer flex items-center gap-1 shadow-2xs",
+                              isCopied 
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                                : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
+                            )}
+                            title="Copiar texto para área de transferência"
+                          >
+                            {isCopied ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
+                            {isCopied ? 'Copiado!' : 'Copiar'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newDesc = ticket.description ? `${ticket.description}\n\n${sol.content}` : sol.content;
+                              handleChange('description', newDesc);
+                              setShowPredefinedSolutions(false);
+                            }}
+                            className="px-2.5 py-1 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-md transition-colors shadow-2xs cursor-pointer flex items-center gap-1"
+                            title="Inserir na descrição do chamado"
+                          >
+                            <Check className="h-3 w-3" />
+                            Aplicar no chamado
+                          </button>
+                        </div>
+                      </div>
+                      <p className="text-xs text-slate-600 line-clamp-3 whitespace-pre-line leading-relaxed bg-white/60 p-2 rounded-md border border-slate-200/50">
+                        {sol.content}
+                      </p>
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+
+            <div className="p-3 bg-slate-50 border-t border-slate-100 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setShowPredefinedSolutions(false)}
+                className="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-sm font-semibold rounded-lg transition-colors cursor-pointer"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
