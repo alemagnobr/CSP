@@ -12,7 +12,7 @@
 import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText, BookOpen } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
-import { cn, stripAndFormatHtml, parseTicketHtmlSections } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, copyHtmlToClipboard } from '@/lib/utils';
 import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError, repairIncompleteHtml } from '@/lib/gemini';
 import { SolutionSearchModal } from './SolutionSearchModal';
 
@@ -141,32 +141,10 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     }
   };
 
-  const handleCopyResult = () => {
+  const handleCopyResult = async () => {
     if (aiResult) {
-      let htmlToCopy = aiResult;
-      const isHtml = /<[a-z][\s\S]*>/i.test(aiResult);
-      if (!isHtml) {
-        // Converte as seções de texto puro para HTML estruturado profissional
-        const sections = parseTicketHtmlSections(aiResult);
-        if (sections.length > 0) {
-          const parts = sections.map(sec => {
-            const lines = sec.content.split('\n').filter(Boolean);
-            const body = lines.map(l => {
-              if (l.trim().startsWith('•')) {
-                return `<li style="margin-bottom: 4px;">${l.replace(/^•\s*/, '').trim()}</li>`;
-              }
-              return `<p style="margin: 0 0 6px 0;">${l.trim()}</p>`;
-            }).join('');
-            const hasList = body.includes('<li');
-            const innerContent = hasList ? `<ul style="margin: 4px 0 8px 18px; padding: 0;">${body}</ul>` : body;
-            return `<div style="margin-bottom: 14px;">\n  <div style="font-weight: bold; margin-bottom: 4px; color: #1e293b;">${sec.title}:</div>\n  <div style="color: #334155; line-height: 1.5;">${innerContent}</div>\n</div>`;
-          });
-          htmlToCopy = `<div style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #334155;">\n${parts.join('\n')}\n</div>`;
-        } else {
-          htmlToCopy = `<div style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #334155;">\n${aiResult.split('\n').map(l => `<p style="margin: 0 0 6px 0;">${l}</p>`).join('\n')}\n</div>`;
-        }
-      }
-      navigator.clipboard.writeText(htmlToCopy);
+      const htmlToCopy = buildStandardTicketHtml(aiResult);
+      await copyHtmlToClipboard(htmlToCopy, stripAndFormatHtml(aiResult));
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
     }
@@ -652,12 +630,21 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                                 );
                               })}
 
-                              {/* Pesquisa de satisfação e/ou rodapé adicional se houver */}
-                              {researchHtml && (
+                              {/* Pesquisa de satisfação */}
+                              {researchHtml ? (
                                 <div 
                                   className="text-sm text-slate-700 leading-relaxed select-text pt-1"
                                   dangerouslySetInnerHTML={{ __html: researchHtml }}
                                 />
+                              ) : (
+                                <div className="rounded-xl border border-amber-300 bg-amber-50 p-3.5 text-amber-900 text-xs shadow-2xs">
+                                  <div className="font-bold text-amber-950 mb-1">Sua opinião é importante!</div>
+                                  <div className="leading-relaxed">
+                                    Após o fechamento deste chamado, <em><u>você receberá um novo e-mail com um link para a pesquisa de satisfação</u></em>. Sua participação é muito importante para melhorarmos continuamente nosso atendimento.<br />
+                                    <br />
+                                    Muito obrigado!
+                                  </div>
+                                </div>
                               )}
                             </div>
                           );

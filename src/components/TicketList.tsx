@@ -28,7 +28,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 import { Ticket, AppSettings } from '@/types';
-import { cn, stripAndFormatHtml, parseTicketHtmlSections } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, copyHtmlToClipboard } from '@/lib/utils';
 import { SearchableFaqSelect } from './SearchableFaqSelect';
 import { SearchableCategorySelect } from './SearchableCategorySelect';
 
@@ -94,9 +94,10 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
     }
   }, [appSettings.defaultSlaTimeFilter]);
 
-  const handleCopyResult = () => {
+  const handleCopyResult = async () => {
     if (viewingTicket?.structuredResult) {
-      navigator.clipboard.writeText(viewingTicket.structuredResult);
+      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult);
+      await copyHtmlToClipboard(htmlToCopy, stripAndFormatHtml(viewingTicket.structuredResult));
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
     }
@@ -1297,11 +1298,21 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                               );
                             })}
 
-                            {researchHtml && (
+                            {/* Pesquisa de satisfação */}
+                            {researchHtml ? (
                               <div 
                                 className="text-sm text-slate-700 leading-relaxed select-text pt-1"
                                 dangerouslySetInnerHTML={{ __html: researchHtml }}
                               />
+                            ) : (
+                              <div className="rounded-xl border border-amber-300 bg-amber-50 p-3.5 text-amber-900 text-xs shadow-2xs">
+                                <div className="font-bold text-amber-950 mb-1">Sua opinião é importante!</div>
+                                <div className="leading-relaxed">
+                                  Após o fechamento deste chamado, <em><u>você receberá um novo e-mail com um link para a pesquisa de satisfação</u></em>. Sua participação é muito importante para melhorarmos continuamente nosso atendimento.<br />
+                                  <br />
+                                  Muito obrigado!
+                                </div>
+                              </div>
                             )}
                           </div>
                         );
