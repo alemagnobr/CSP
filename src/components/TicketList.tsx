@@ -19,10 +19,11 @@ import {
   CheckCircle2, 
   AlertTriangle, 
   X, 
-  Sparkles, 
   FileText,
   Building,
-  Laptop
+  Laptop,
+  Code,
+  Sparkles
 } from 'lucide-react';
 import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
@@ -73,6 +74,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
   const [editMinutes, setEditMinutes] = useState('0');
   const [editSeconds, setEditSeconds] = useState('0');
   const [copiedResult, setCopiedResult] = useState(false);
+  const [copiedRawHtml, setCopiedRawHtml] = useState(false);
   const [copiedTextResult, setCopiedTextResult] = useState(false);
   const [copiedSectionId, setCopiedSectionId] = useState<string | null>(null);
   const [copiedTicketId, setCopiedTicketId] = useState(false);
@@ -100,6 +102,19 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       await copyHtmlToClipboard(htmlToCopy, stripAndFormatHtml(viewingTicket.structuredResult));
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
+    }
+  };
+
+  const handleCopyRawHtml = async () => {
+    if (viewingTicket?.structuredResult) {
+      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(htmlToCopy);
+      } else {
+        await copyHtmlToClipboard(htmlToCopy, htmlToCopy);
+      }
+      setCopiedRawHtml(true);
+      setTimeout(() => setCopiedRawHtml(false), 2000);
     }
   };
 
@@ -1233,10 +1248,21 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                     <button
                       type="button"
                       onClick={handleCopyResult}
-                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar com formatação visual rica (para colar diretamente na caixa do chamado)"
                     >
-                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
-                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML</span>}
+                      {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-blue-600" />}
+                      {copiedResult ? <span className="text-emerald-600">HTML Copiado!</span> : <span>Copiar HTML (Formatado)</span>}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyRawHtml}
+                      className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-purple-600 transition-colors bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg cursor-pointer shadow-2xs"
+                      title="Copiar código-fonte HTML puro (para colar na aba de código-fonte/HTML do chamado)"
+                    >
+                      {copiedRawHtml ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Code className="h-3.5 w-3.5 text-purple-600" />}
+                      {copiedRawHtml ? <span className="text-emerald-600">Código Copiado!</span> : <span>Copiar Código HTML</span>}
                     </button>
                   </div>
                 </div>

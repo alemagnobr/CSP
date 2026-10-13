@@ -405,10 +405,11 @@ ${satisfactionNote}
  * e também com editores de código e áreas de texto puro.
  */
 export async function copyHtmlToClipboard(htmlContent: string, plainTextFallback?: string): Promise<boolean> {
-  const plainText = plainTextFallback !== undefined ? plainTextFallback : htmlContent;
-  
-  try {
-    if (typeof ClipboardItem !== 'undefined' && navigator.clipboard && navigator.clipboard.write) {
+  const plainText = plainTextFallback !== undefined ? plainTextFallback : stripAndFormatHtml(htmlContent);
+
+  // Método 1: Clipboard API com ClipboardItem (moderno, suportado pela maioria dos browsers)
+  if (typeof ClipboardItem !== 'undefined' && navigator.clipboard && navigator.clipboard.write) {
+    try {
       const htmlBlob = new Blob([htmlContent], { type: 'text/html' });
       const textBlob = new Blob([plainText], { type: 'text/plain' });
       await navigator.clipboard.write([
@@ -418,17 +419,79 @@ export async function copyHtmlToClipboard(htmlContent: string, plainTextFallback
         })
       ]);
       return true;
+    } catch (err) {
+      console.warn('ClipboardItem write failed, trying fallback methods:', err);
     }
-  } catch (err) {
-    console.warn('ClipboardItem write failed, fallback to writeText:', err);
   }
 
+  // Método 2: Evento 'copy' sintético com DataTransfer (excelente para navegadores que bloqueiam ClipboardItem text/html em iframes)
   try {
-    await navigator.clipboard.writeText(htmlContent);
-    return true;
-  } catch (e) {
-    console.error('Failed to copy to clipboard:', e);
-    return false;
+    let success = false;
+    const listener = (e: ClipboardEvent) => {
+      e.preventDefault();
+      if (e.clipboardData) {
+        e.clipboardData.setData('text/html', htmlContent);
+        e.clipboardData.setData('text/plain', plainText);
+        success = true;
+      }
+    };
+
+    document.addEventListener('copy', listener);
+    try {
+      document.execCommand('copy');
+    } finally {
+      document.removeEventListener('copy', listener);
+    }
+
+    if (success) {
+      return true;
+    }
+  } catch (err) {
+    console.warn('Synthetic copy event failed:', err);
   }
+
+  // Método 3: Criar um container temporário no DOM, selecionar o conteúdo HTML renderizado e executar execCommand
+  try {
+    const container = document.createElement('div');
+    container.setAttribute('contenteditable', 'true');
+    container.style.position = 'fixed';
+    container.style.pointerEvents = 'none';
+    container.style.opacity = '0';
+    container.style.left = '-9999px';
+    container.style.top = '0';
+    container.innerHTML = htmlContent;
+    document.body.appendChild(container);
+
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(container);
+
+    if (selection) {
+      selection.removeAllRanges();
+      selection.addRange(range);
+      const copied = document.execCommand('copy');
+      selection.removeAllRanges();
+      document.body.removeChild(container);
+      if (copied) {
+        return true;
+      }
+    } else {
+      document.body.removeChild(container);
+    }
+  } catch (err) {
+    console.warn('DOM selection copy fallback failed:', err);
+  }
+
+  // Método 4: Fallback final para texto puro / código HTML
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(htmlContent);
+      return true;
+    }
+  } catch (e) {
+    console.error('Final fallback copy failed:', e);
+  }
+
+  return false;
 }
 
