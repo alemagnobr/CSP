@@ -476,7 +476,185 @@ Ramal: ${analystRamal}</em></p>
 }
 
 /**
+ * Constrói o texto do chamado de Instalação Padrão (Formatar Micro) exatamente
+ * no modelo padronizado em texto puro (sem HTML):
+ * 
+ * Prezados,
+ * 
+ * A solicitação: ...
+ * A tratativa: ...
+ * 
+ * Motivo da solicitação:
+ * (x) Lentidão
+ * ( ) Troca de micro
+ * (x) Outros: ...
+ * 
+ * Autorização do chefe do setor:
+ * (x) Sim
+ * ( ) Não
+ * 
+ * Outros clientes utilizam o micro:
+ * ( ) Sim
+ * (x) Não
+ * 
+ * Necessita de backup:
+ * (x) Sim
+ * ( ) Não
+ * 
+ * Localização
+ * ***********
+ * Setor: ...
+ * Edifício: ...
+ * Complemento: ...
+ * Ponto de referência: ...
+ * Contato: ...
+ * Setor aberto (x) ou fechado ( ) 
+ * Em teletrabalho ( ) ou no Senado (x)
+ */
+export function buildFormatMicroTicketText(
+  input: string | undefined | null,
+  options?: {
+    formatMicroDetails?: {
+      motivo?: 'Lentidão' | 'Troca de micro' | 'Outros' | '';
+      motivoLentidao?: boolean;
+      motivoTrocaMicro?: boolean;
+      motivoOutrosCheck?: boolean;
+      motivoOutros?: string;
+      autorizacaoChefe?: 'Sim' | 'Não' | '';
+      outrosClientes?: 'Sim' | 'Não' | '';
+      necessitaBackup?: 'Sim' | 'Não' | '';
+    };
+    escalationDetails?: {
+      setor?: string;
+      edificio?: string;
+      complemento?: string;
+      pontoReferencia?: string;
+      contato?: string;
+      setorAbertoFechado?: 'Aberto' | 'Fechado' | '';
+      local?: 'Teletrabalho' | 'Senado' | 'Externo' | '';
+    };
+    ticket?: Partial<Ticket>;
+  }
+): string {
+  const raw = (input || '').trim();
+  const details = options?.formatMicroDetails || options?.ticket?.formatMicroDetails;
+  const escDetails = options?.escalationDetails || options?.ticket?.escalationDetails;
+
+  // Se já contiver as marcações clássicas do template de instalação padrão
+  if (
+    raw.includes('Prezados,') &&
+    raw.includes('A solicitação:') &&
+    raw.includes('Motivo da solicitação:') &&
+    raw.includes('Localização')
+  ) {
+    return raw;
+  }
+
+  // 1. Extrair Solicitação
+  let solicitacao = '';
+  const solMatch = raw.match(/A\s+solicita[cç][aã]o\s*:?\s*([^\n]+)/i);
+  if (solMatch && solMatch[1]?.trim()) {
+    solicitacao = solMatch[1].trim();
+  } else if (options?.ticket?.title?.trim()) {
+    solicitacao = options.ticket.title.trim();
+  } else if (options?.ticket?.description?.trim()) {
+    solicitacao = options.ticket.description.trim().split('\n')[0].trim();
+  } else {
+    solicitacao = 'Usuário solicita instalação padrão do equipamento. Sistema com erros graves';
+  }
+
+  // 2. Extrair Tratativa
+  let tratativa = '';
+  const tratMatch = raw.match(/A\s+tratativa\s*:?\s*([^\n]+(?:\n[^\n]+)?)/i);
+  if (tratMatch && tratMatch[1]?.trim()) {
+    tratativa = tratMatch[1].trim();
+  } else {
+    tratativa = 'Foi realizado o checklist de informações.';
+  }
+
+  // 3. Motivos
+  const isLentidao = !!details?.motivoLentidao || details?.motivo === 'Lentidão' || /\(\s*[xX]\s*\)\s*Lentid[aã]o/i.test(raw);
+  const isTrocaMicro = !!details?.motivoTrocaMicro || details?.motivo === 'Troca de micro' || /\(\s*[xX]\s*\)\s*Troca\s+de\s+micro/i.test(raw);
+  const isOutros = !!details?.motivoOutrosCheck || details?.motivo === 'Outros' || !!details?.motivoOutros || /\(\s*[xX]\s*\)\s*Outros/i.test(raw);
+
+  let motivoOutrosTexto = details?.motivoOutros || '';
+  if (!motivoOutrosTexto) {
+    const outrosMatch = raw.match(/\(\s*[xX]\s*\)\s*Outros\s*:\s*([^\n]+)/i);
+    if (outrosMatch && outrosMatch[1]) {
+      motivoOutrosTexto = outrosMatch[1].trim();
+    }
+  }
+
+  // 4. Checklist Chefia, Outros clientes, Backup
+  const isChefeSim = details?.autorizacaoChefe === 'Sim' || /Autoriza[cç][aã]o[\s\S]*?\(\s*[xX]\s*\)\s*Sim/i.test(raw);
+  const isChefeNao = details?.autorizacaoChefe === 'Não' || /Autoriza[cç][aã]o[\s\S]*?\(\s*[xX]\s*\)\s*N[aã]o/i.test(raw);
+
+  const isOutrosClientesSim = details?.outrosClientes === 'Sim' || /Outros\s+clientes[\s\S]*?\(\s*[xX]\s*\)\s*Sim/i.test(raw);
+  const isOutrosClientesNao = details?.outrosClientes === 'Não' || /Outros\s+clientes[\s\S]*?\(\s*[xX]\s*\)\s*N[aã]o/i.test(raw) || (!isOutrosClientesSim && !!details?.outrosClientes);
+
+  const isBackupSim = details?.necessitaBackup === 'Sim' || /backup[\s\S]*?\(\s*[xX]\s*\)\s*Sim/i.test(raw);
+  const isBackupNao = details?.necessitaBackup === 'Não' || /backup[\s\S]*?\(\s*[xX]\s*\)\s*N[aã]o/i.test(raw);
+
+  // 5. Localização
+  const extractLocField = (fieldPattern: string): string => {
+    const regex = new RegExp(`(?:•\\s*)?${fieldPattern}\\s*:\\s*(?:&nbsp;)?\\s*([^\\n<]+)`, 'i');
+    const m = raw.match(regex);
+    return m ? m[1].replace(/&nbsp;/g, ' ').trim() : '';
+  };
+
+  const setor = escDetails?.setor || extractLocField('Setor') || '';
+  const edificio = escDetails?.edificio || extractLocField('Edif[íi]cio|Edificio') || '';
+  const complemento = escDetails?.complemento || extractLocField('Complemento') || '';
+  const pontoReferencia = escDetails?.pontoReferencia || extractLocField('Ponto\\s+de\\s+refer[êe]ncia|Ponto\\s+de\\s+referencia') || '';
+  const contato = escDetails?.contato || extractLocField('Contato') || '';
+
+  const isSetorAberto = escDetails?.setorAbertoFechado === 'Aberto' || /Setor\s+aberto\s*\(\s*[xX]\s*\)/i.test(raw);
+  const isSetorFechado = escDetails?.setorAbertoFechado === 'Fechado' || /fechado\s*\(\s*[xX]\s*\)/i.test(raw);
+
+  const isTele = escDetails?.local === 'Teletrabalho' || /teletrabalho\s*\(\s*[xX]\s*\)/i.test(raw);
+  const isSenado = escDetails?.local === 'Senado' || /no\s+Senado\s*\(\s*[xX]\s*\)/i.test(raw);
+  const isExterno = escDetails?.local === 'Externo' || /Externo\s*\(\s*[xX]\s*\)/i.test(raw);
+
+  const localLinha = isExterno
+    ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
+    : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
+
+  return `Prezados,
+
+A solicitação: ${solicitacao}
+A tratativa: ${tratativa}
+
+Motivo da solicitação:
+(${isLentidao ? 'x' : ' '}) Lentidão
+(${isTrocaMicro ? 'x' : ' '}) Troca de micro
+(${isOutros ? 'x' : ' '}) Outros${motivoOutrosTexto ? `: ${motivoOutrosTexto}` : ''}
+
+Autorização do chefe do setor:
+(${isChefeSim ? 'x' : ' '}) Sim
+(${isChefeNao ? 'x' : ' '}) Não
+
+Outros clientes utilizam o micro:
+(${isOutrosClientesSim ? 'x' : ' '}) Sim
+(${isOutrosClientesNao ? 'x' : ' '}) Não
+
+Necessita de backup:
+(${isBackupSim ? 'x' : ' '}) Sim
+(${isBackupNao ? 'x' : ' '}) Não
+
+Localização
+***********
+Setor: ${setor}
+Edifício: ${edificio}
+Complemento: ${complemento}
+Ponto de referência: ${pontoReferencia}
+Contato: ${contato}
+Setor aberto (${isSetorAberto ? 'x' : ' '}) ou fechado (${isSetorFechado ? 'x' : ' '}) 
+${localLinha}`.trim();
+}
+
+/**
  * Constrói o HTML exatamente conforme o modelo padronizado exigido:
+ * - Se for instalação padrão (formatar micro), gera exatamente o modelo em texto puro sem HTML.
  * - Se for chamado de escalonamento, gera exatamente o modelo de Encaminhamento para Atendimento Especializado.
  * - Se for chamado padrão/resolução, gera o contêiner cinza com caixas brancas e nota de pesquisa de satisfação.
  */
@@ -485,6 +663,8 @@ export function buildStandardTicketHtml(
   options?: {
     includeSatisfaction?: boolean;
     isEscalated?: boolean;
+    isFormatMicro?: boolean;
+    formatMicroDetails?: any;
     escalationDetails?: {
       setor?: string;
       edificio?: string;
@@ -500,6 +680,15 @@ export function buildStandardTicketHtml(
   }
 ): string {
   if (!input || !input.trim()) return '';
+
+  const isFormatMicro = options?.isFormatMicro ||
+    options?.ticket?.isFormatMicro ||
+    /Motivo da solicita[cç][aã]o:[\s\S]*?Localiza[cç][aã]o/i.test(input) ||
+    (input.includes('Prezados,') && input.includes('Necessita de backup:'));
+
+  if (isFormatMicro) {
+    return buildFormatMicroTicketText(input, options);
+  }
 
   const isEscalation = options?.isEscalated ||
     options?.ticket?.isEscalated ||

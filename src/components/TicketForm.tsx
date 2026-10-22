@@ -12,7 +12,7 @@
 import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText, BookOpen } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
-import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, copyHtmlToClipboard } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, buildFormatMicroTicketText, copyHtmlToClipboard } from '@/lib/utils';
 import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError, repairIncompleteHtml } from '@/lib/gemini';
 import { SolutionSearchModal } from './SolutionSearchModal';
 
@@ -144,8 +144,21 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyResult = async () => {
     if (aiResult) {
+      if (ticket.isFormatMicro) {
+        const textToCopy = buildFormatMicroTicketText(aiResult, {
+          formatMicroDetails: ticket.formatMicroDetails,
+          escalationDetails: ticket.escalationDetails,
+          ticket: ticket
+        });
+        await navigator.clipboard.writeText(textToCopy);
+        setCopiedResult(true);
+        setTimeout(() => setCopiedResult(false), 2000);
+        return;
+      }
       const htmlToCopy = buildStandardTicketHtml(aiResult, {
         isEscalated: ticket.isEscalated,
+        isFormatMicro: ticket.isFormatMicro,
+        formatMicroDetails: ticket.formatMicroDetails,
         escalationDetails: ticket.escalationDetails,
         ticket: ticket,
         includeSatisfaction: !ticket.isEscalated
@@ -158,8 +171,21 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyRawHtml = async () => {
     if (aiResult) {
+      if (ticket.isFormatMicro) {
+        const textToCopy = buildFormatMicroTicketText(aiResult, {
+          formatMicroDetails: ticket.formatMicroDetails,
+          escalationDetails: ticket.escalationDetails,
+          ticket: ticket
+        });
+        await navigator.clipboard.writeText(textToCopy);
+        setCopiedRawHtml(true);
+        setTimeout(() => setCopiedRawHtml(false), 2000);
+        return;
+      }
       const htmlToCopy = buildStandardTicketHtml(aiResult, {
         isEscalated: ticket.isEscalated,
+        isFormatMicro: ticket.isFormatMicro,
+        formatMicroDetails: ticket.formatMicroDetails,
         escalationDetails: ticket.escalationDetails,
         ticket: ticket,
         includeSatisfaction: !ticket.isEscalated
@@ -176,7 +202,13 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyTextResult = () => {
     if (aiResult) {
-      const plainText = stripAndFormatHtml(aiResult);
+      const plainText = ticket.isFormatMicro
+        ? buildFormatMicroTicketText(aiResult, {
+            formatMicroDetails: ticket.formatMicroDetails,
+            escalationDetails: ticket.escalationDetails,
+            ticket: ticket
+          })
+        : stripAndFormatHtml(aiResult);
       navigator.clipboard.writeText(plainText);
       setCopiedTextResult(true);
       setTimeout(() => setCopiedTextResult(false), 2000);
@@ -596,6 +628,39 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                   {aiViewMode === 'preview' ? (
                     <div className="space-y-3">
                       {(() => {
+                        if (ticket.isFormatMicro) {
+                          const formattedText = buildFormatMicroTicketText(aiResult, {
+                            formatMicroDetails: ticket.formatMicroDetails,
+                            escalationDetails: ticket.escalationDetails,
+                            ticket: ticket
+                          });
+                          return (
+                            <div className="bg-white rounded-xl border border-indigo-200/90 shadow-2xs p-5 relative">
+                              <div className="flex items-center justify-between pb-3 mb-3 border-b border-indigo-50">
+                                <span className="font-bold text-sm text-indigo-900 flex items-center gap-2">
+                                  <FileText className="h-4 w-4 text-indigo-600" />
+                                  Instalação Padrão (Modelo em Texto Puro)
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    navigator.clipboard.writeText(formattedText);
+                                    setCopiedTextResult(true);
+                                    setTimeout(() => setCopiedTextResult(false), 2000);
+                                  }}
+                                  className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all cursor-pointer shadow-2xs"
+                                >
+                                  {copiedTextResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                                  <span>{copiedTextResult ? 'Copiado!' : 'Copiar Texto'}</span>
+                                </button>
+                              </div>
+                              <pre className="whitespace-pre-wrap font-mono text-xs text-slate-800 leading-relaxed select-text bg-slate-50 p-4 rounded-lg border border-slate-200 overflow-x-auto">
+                                {formattedText}
+                              </pre>
+                            </div>
+                          );
+                        }
+
                         const parsedSections = parseTicketHtmlSections(aiResult);
 
                         // Se encontrou as seções, renderiza cada uma em seu próprio card com o botão "Copiar" no topo direito
@@ -1551,14 +1616,30 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                 onChange={(e) => {
                   const checked = e.target.checked;
                   handleChange('isFormatMicro', checked);
-                  if (checked && !ticket.formatMicroDetails) {
-                    handleChange('formatMicroDetails', {
-                      motivo: '',
-                      motivoOutros: '',
-                      autorizacaoChefe: '',
-                      outrosClientes: '',
-                      necessitaBackup: ''
-                    });
+                  if (checked) {
+                    if (!ticket.formatMicroDetails) {
+                      handleChange('formatMicroDetails', {
+                        motivo: '',
+                        motivoLentidao: false,
+                        motivoTrocaMicro: false,
+                        motivoOutrosCheck: false,
+                        motivoOutros: '',
+                        autorizacaoChefe: '',
+                        outrosClientes: '',
+                        necessitaBackup: ''
+                      });
+                    }
+                    if (!ticket.escalationDetails) {
+                      handleChange('escalationDetails', {
+                        setor: '',
+                        edificio: '',
+                        complemento: '',
+                        pontoReferencia: '',
+                        contato: '',
+                        setorAbertoFechado: '',
+                        local: ''
+                      });
+                    }
                   }
                 }} 
               />
@@ -1655,107 +1736,250 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
           )}
 
           {ticket.isFormatMicro && ticket.formatMicroDetails && (
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg border border-indigo-100 animate-in fade-in duration-200">
-              <div className="col-span-1 md:col-span-2">
-                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dados da Instalação Padrão (Formatar Micro)</h4>
+            <div className="mt-4 bg-white p-4 rounded-lg border border-indigo-200 animate-in fade-in duration-200 space-y-4">
+              <div className="border-b border-indigo-100 pb-2">
+                <h4 className="text-xs font-bold text-indigo-900 uppercase tracking-wider">
+                  Checklist da Instalação Padrão (Formatar Micro)
+                </h4>
+                <p className="text-[11px] text-slate-500 mt-0.5">
+                  Preencha os itens abaixo. O chamado será gerado em texto puro exatamente no modelo padronizado.
+                </p>
               </div>
+
+              {/* Motivo da solicitação com checkboxes */}
               <div>
-                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Motivo</label>
-                <select
-                  value={ticket.formatMicroDetails.motivo || ''}
-                  onChange={(e) => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivo: e.target.value as any })}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                >
-                  <option value="">Selecione o motivo...</option>
-                  <option value="Lentidão">Lentidão</option>
-                  <option value="Troca de micro">Troca de micro</option>
-                  <option value="Outros">Outros</option>
-                </select>
-                {ticket.formatMicroDetails.motivo === 'Outros' && (
+                <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-2">
+                  Motivo da solicitação:
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <label className="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:bg-indigo-50/50">
+                    <input
+                      type="checkbox"
+                      checked={!!ticket.formatMicroDetails.motivoLentidao || ticket.formatMicroDetails.motivo === 'Lentidão'}
+                      onChange={(e) => handleChange('formatMicroDetails', {
+                        ...ticket.formatMicroDetails!,
+                        motivoLentidao: e.target.checked
+                      })}
+                      className="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4"
+                    />
+                    <span>Lentidão</span>
+                  </label>
+
+                  <label className="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:bg-indigo-50/50">
+                    <input
+                      type="checkbox"
+                      checked={!!ticket.formatMicroDetails.motivoTrocaMicro || ticket.formatMicroDetails.motivo === 'Troca de micro'}
+                      onChange={(e) => handleChange('formatMicroDetails', {
+                        ...ticket.formatMicroDetails!,
+                        motivoTrocaMicro: e.target.checked
+                      })}
+                      className="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4"
+                    />
+                    <span>Troca de micro</span>
+                  </label>
+
+                  <label className="flex items-center gap-2 text-xs text-slate-700 font-medium cursor-pointer bg-slate-50 p-2.5 rounded-lg border border-slate-200 hover:bg-indigo-50/50">
+                    <input
+                      type="checkbox"
+                      checked={!!ticket.formatMicroDetails.motivoOutrosCheck || ticket.formatMicroDetails.motivo === 'Outros' || !!ticket.formatMicroDetails.motivoOutros}
+                      onChange={(e) => handleChange('formatMicroDetails', {
+                        ...ticket.formatMicroDetails!,
+                        motivoOutrosCheck: e.target.checked
+                      })}
+                      className="rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4"
+                    />
+                    <span>Outros</span>
+                  </label>
+                </div>
+
+                {(ticket.formatMicroDetails.motivoOutrosCheck || ticket.formatMicroDetails.motivo === 'Outros' || !!ticket.formatMicroDetails.motivoOutros) && (
                   <input
                     type="text"
                     value={ticket.formatMicroDetails.motivoOutros || ''}
                     onChange={(e) => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, motivoOutros: e.target.value })}
-                    placeholder="Especifique o outro motivo..."
-                    className="w-full mt-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    placeholder="Especifique o outro motivo (ex: Apresentando erros no sistema Windows 10)..."
+                    className="w-full mt-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   />
                 )}
               </div>
-              <div>
-                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Autorização da Chefia</label>
-                <div className="flex gap-4 mt-2">
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`autorizacao-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.autorizacaoChefe === 'Sim'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Sim' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Sim
+
+              {/* Perguntas de Validação */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
+                <div>
+                  <label className="block text-slate-600 text-[11px] font-bold uppercase tracking-wider mb-1.5">
+                    Autorização do chefe do setor:
                   </label>
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`autorizacao-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.autorizacaoChefe === 'Não'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Não' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Não
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`autorizacao-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.autorizacaoChefe === 'Sim'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Sim' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Sim
+                    </label>
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`autorizacao-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.autorizacaoChefe === 'Não'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, autorizacaoChefe: 'Não' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Não
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-slate-600 text-[11px] font-bold uppercase tracking-wider mb-1.5">
+                    Outros clientes utilizam o micro:
                   </label>
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`outrosClientes-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.outrosClientes === 'Sim'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Sim' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Sim
+                    </label>
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`outrosClientes-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.outrosClientes === 'Não'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Não' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Não
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-slate-600 text-[11px] font-bold uppercase tracking-wider mb-1.5">
+                    Necessita de backup:
+                  </label>
+                  <div className="flex gap-4">
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`backup-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.necessitaBackup === 'Sim'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Sim' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Sim
+                    </label>
+                    <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
+                      <input
+                        type="radio"
+                        name={`backup-${ticket.id}`}
+                        checked={ticket.formatMicroDetails.necessitaBackup === 'Não'}
+                        onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Não' })}
+                        className="text-indigo-600 focus:ring-indigo-500"
+                      />
+                      Não
+                    </label>
+                  </div>
                 </div>
               </div>
-              <div>
-                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Outros clientes utilizam este micro?</label>
-                <div className="flex gap-4 mt-2">
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`outrosClientes-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.outrosClientes === 'Sim'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Sim' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Sim
-                  </label>
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`outrosClientes-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.outrosClientes === 'Não'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, outrosClientes: 'Não' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Não
-                  </label>
+
+              {/* Localização do Equipamento (se Escalonamento não estiver ativo) */}
+              {!ticket.isEscalated && ticket.escalationDetails && (
+                <div className="pt-3 border-t border-slate-100">
+                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">
+                    Localização do Equipamento:
+                  </h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.setor || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, setor: e.target.value })}
+                        placeholder="Ex: Projetos ENGEMIL"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Edifício</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.edificio || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, edificio: e.target.value })}
+                        placeholder="Ex: PRODASEN - Ala E"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Complemento</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.complemento || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, complemento: e.target.value })}
+                        placeholder="Ex: Sala do ENGEMIL"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Ponto de referência</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.pontoReferencia || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, pontoReferencia: e.target.value })}
+                        placeholder="Ex: Ao lado do refeitorio"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Contato</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.contato || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
+                        placeholder="Ex: 3030"
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                      <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`format-setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Aberto'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Aberto' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Aberto</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`format-setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Fechado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Fechado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Fechado</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Local</label>
+                      <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`format-local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Teletrabalho'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Teletrabalho' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Teletrabalho</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`format-local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Senado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Senado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Senado</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`format-local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Externo'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Externo' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Externo</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Necessita de Backup dos dados?</label>
-                <div className="flex gap-4 mt-2">
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`backup-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.necessitaBackup === 'Sim'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Sim' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Sim
-                  </label>
-                  <label className="flex items-center gap-1.5 text-xs text-slate-700 cursor-pointer font-medium">
-                    <input
-                      type="radio"
-                      name={`backup-${ticket.id}`}
-                      checked={ticket.formatMicroDetails.necessitaBackup === 'Não'}
-                      onChange={() => handleChange('formatMicroDetails', { ...ticket.formatMicroDetails!, necessitaBackup: 'Não' })}
-                      className="text-indigo-600 focus:ring-indigo-500"
-                    />
-                    Não
-                  </label>
-                </div>
-              </div>
+              )}
             </div>
           )}
         </div>

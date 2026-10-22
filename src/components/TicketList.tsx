@@ -29,7 +29,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { isToday, isThisWeek, isThisMonth, isThisYear, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 import { Ticket, AppSettings } from '@/types';
-import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, copyHtmlToClipboard } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, buildFormatMicroTicketText, copyHtmlToClipboard } from '@/lib/utils';
 import { SearchableFaqSelect } from './SearchableFaqSelect';
 import { SearchableCategorySelect } from './SearchableCategorySelect';
 
@@ -98,8 +98,21 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
 
   const handleCopyResult = async () => {
     if (viewingTicket?.structuredResult) {
+      if (viewingTicket.isFormatMicro) {
+        const textToCopy = buildFormatMicroTicketText(viewingTicket.structuredResult, {
+          formatMicroDetails: viewingTicket.formatMicroDetails,
+          escalationDetails: viewingTicket.escalationDetails,
+          ticket: viewingTicket
+        });
+        await navigator.clipboard.writeText(textToCopy);
+        setCopiedResult(true);
+        setTimeout(() => setCopiedResult(false), 2000);
+        return;
+      }
       const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult, {
         isEscalated: viewingTicket.isEscalated,
+        isFormatMicro: viewingTicket.isFormatMicro,
+        formatMicroDetails: viewingTicket.formatMicroDetails,
         escalationDetails: viewingTicket.escalationDetails,
         ticket: viewingTicket,
         includeSatisfaction: !viewingTicket.isEscalated
@@ -112,8 +125,21 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
 
   const handleCopyRawHtml = async () => {
     if (viewingTicket?.structuredResult) {
+      if (viewingTicket.isFormatMicro) {
+        const textToCopy = buildFormatMicroTicketText(viewingTicket.structuredResult, {
+          formatMicroDetails: viewingTicket.formatMicroDetails,
+          escalationDetails: viewingTicket.escalationDetails,
+          ticket: viewingTicket
+        });
+        await navigator.clipboard.writeText(textToCopy);
+        setCopiedRawHtml(true);
+        setTimeout(() => setCopiedRawHtml(false), 2000);
+        return;
+      }
       const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult, {
         isEscalated: viewingTicket.isEscalated,
+        isFormatMicro: viewingTicket.isFormatMicro,
+        formatMicroDetails: viewingTicket.formatMicroDetails,
         escalationDetails: viewingTicket.escalationDetails,
         ticket: viewingTicket,
         includeSatisfaction: !viewingTicket.isEscalated
@@ -1269,6 +1295,39 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                   
                   <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
                     {viewMode === 'preview' ? (() => {
+                      if (viewingTicket.isFormatMicro) {
+                        const formattedText = buildFormatMicroTicketText(viewingTicket.structuredResult, {
+                          formatMicroDetails: viewingTicket.formatMicroDetails,
+                          escalationDetails: viewingTicket.escalationDetails,
+                          ticket: viewingTicket
+                        });
+                        return (
+                          <div className="bg-white rounded-xl border border-indigo-200/90 shadow-2xs p-5 relative">
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-indigo-50">
+                              <span className="font-bold text-sm text-indigo-900 flex items-center gap-2">
+                                <HardDrive className="h-4 w-4 text-indigo-600" />
+                                Instalação Padrão (Modelo em Texto Puro)
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  navigator.clipboard.writeText(formattedText);
+                                  setCopiedResult(true);
+                                  setTimeout(() => setCopiedResult(false), 2000);
+                                }}
+                                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-all cursor-pointer shadow-2xs"
+                              >
+                                {copiedResult ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                                <span>{copiedResult ? 'Copiado!' : 'Copiar Texto'}</span>
+                              </button>
+                            </div>
+                            <pre className="whitespace-pre-wrap font-mono text-xs text-slate-800 leading-relaxed select-text bg-slate-50 p-4 rounded-lg border border-slate-200 overflow-x-auto">
+                              {formattedText}
+                            </pre>
+                          </div>
+                        );
+                      }
+
                       const parsedSections = parseTicketHtmlSections(viewingTicket.structuredResult);
 
                       if (parsedSections.length > 0) {

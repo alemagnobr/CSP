@@ -27,11 +27,14 @@ export interface Ticket {
   isEscalated?: boolean;
   isFormatMicro?: boolean;
   formatMicroDetails?: {
-    motivo: 'Lentidão' | 'Troca de micro' | 'Outros' | '';
-    motivoOutros: string;
-    autorizacaoChefe: 'Sim' | 'Não' | '';
-    outrosClientes: 'Sim' | 'Não' | '';
-    necessitaBackup: 'Sim' | 'Não' | '';
+    motivo?: 'Lentidão' | 'Troca de micro' | 'Outros' | '';
+    motivoLentidao?: boolean;
+    motivoTrocaMicro?: boolean;
+    motivoOutrosCheck?: boolean;
+    motivoOutros?: string;
+    autorizacaoChefe?: 'Sim' | 'Não' | '';
+    outrosClientes?: 'Sim' | 'Não' | '';
+    necessitaBackup?: 'Sim' | 'Não' | '';
   };
   escalationDetails?: {
     setor: string;

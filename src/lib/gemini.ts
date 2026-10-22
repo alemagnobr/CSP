@@ -240,39 +240,77 @@ RELATO DO ATENDIMENTO:
 ${proceduresContext}${guidelinesContext}
 `;
   } else if (isFormatMicro) {
-    const motivoTexto = formatMicroDetails?.motivo === 'Outros' 
-      ? (formatMicroDetails?.motivoOutros || 'Outros') 
-      : (formatMicroDetails?.motivo || 'Não informado');
+    const isLentidao = !!formatMicroDetails?.motivoLentidao || formatMicroDetails?.motivo === 'Lentidão';
+    const isTrocaMicro = !!formatMicroDetails?.motivoTrocaMicro || formatMicroDetails?.motivo === 'Troca de micro';
+    const isOutros = !!formatMicroDetails?.motivoOutrosCheck || formatMicroDetails?.motivo === 'Outros' || !!formatMicroDetails?.motivoOutros;
+    const outrosComplemento = formatMicroDetails?.motivoOutros?.trim() ? `: ${formatMicroDetails.motivoOutros.trim()}` : '';
 
-    prompt = `Você é um assistente técnico de TI e analista de suporte.
-Sua tarefa é reestruturar o chamado técnico para INSTALAÇÃO PADRÃO (FORMATAR MICRO) em TEXTO PURO.
-NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, etc.).
+    const isChefeSim = formatMicroDetails?.autorizacaoChefe === 'Sim';
+    const isChefeNao = formatMicroDetails?.autorizacaoChefe === 'Não';
+
+    const isOutrosClientesSim = formatMicroDetails?.outrosClientes === 'Sim';
+    const isOutrosClientesNao = formatMicroDetails?.outrosClientes === 'Não' || (!isOutrosClientesSim && formatMicroDetails?.outrosClientes);
+
+    const isBackupSim = formatMicroDetails?.necessitaBackup === 'Sim';
+    const isBackupNao = formatMicroDetails?.necessitaBackup === 'Não';
+
+    const isAberto = escalationDetails?.setorAbertoFechado === 'Aberto';
+    const isFechado = escalationDetails?.setorAbertoFechado === 'Fechado';
+
+    const isTele = escalationDetails?.local === 'Teletrabalho';
+    const isSenado = escalationDetails?.local === 'Senado';
+    const isExterno = escalationDetails?.local === 'Externo';
+
+    const setorAbertoStr = `Setor aberto (${isAberto ? 'x' : ' '}) ou fechado (${isFechado ? 'x' : ' '}) `;
+    const localStr = isExterno
+      ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
+      : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
+
+    prompt = `Você é um assistente técnico de TI e analista de suporte da Central de Atendimento do Senado Federal.
+Sua tarefa é reestruturar o chamado técnico para INSTALAÇÃO PADRÃO (FORMATAR MICRO) EXATAMENTE NO MODELO DE TEXTO PURO ABAIXO.
+NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, <br>, etc.).
 NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
-Use estritamente texto puro e limpo.
+Retorne EXCLUSIVAMENTE TEXTO PURO.
 
-ESTRUTURA OBRIGATÓRIA DA RESPOSTA:
-Análise técnica:
-[Relato técnico, formal e objetivo da necessidade de instalação padrão / formatação da máquina]
+ESTRUTURA OBRIGATÓRIA DA RESPOSTA (SEJA FIEL AOS ESPAÇOS E PONTUAÇÃO):
+Prezados,
 
-Ações realizadas:
-• [Verificações preliminares e testes executados]
-• [Confirmação do procedimento de formatação / instalação padrão]
+A solicitação: [Resumo claro da solicitação, exemplo: Usuário solicita instalação padrão do equipamento. Sistema com erros graves]
+A tratativa: Foi realizado o checklist de informações.
 
-Dados da instalação padrão:
-• Motivo: ${motivoTexto}
-• Autorização da chefia: ${formatMicroDetails?.autorizacaoChefe || 'Não informado'}
-• Outros clientes utilizam este micro: ${formatMicroDetails?.outrosClientes || 'Não informado'}
-• Necessita de backup dos dados: ${formatMicroDetails?.necessitaBackup || 'Não informado'}
+Motivo da solicitação:
+(${isLentidao ? 'x' : ' '}) Lentidão
+(${isTrocaMicro ? 'x' : ' '}) Troca de micro
+(${isOutros ? 'x' : ' '}) Outros${outrosComplemento}
 
-Resultado:
-Encaminhado para procedimento de instalação padrão e formatação.${validationText ? `\n\n${validationText}` : ''}
+Autorização do chefe do setor:
+(${isChefeSim ? 'x' : ' '}) Sim
+(${isChefeNao ? 'x' : ' '}) Não
+
+Outros clientes utilizam o micro:
+(${isOutrosClientesSim ? 'x' : ' '}) Sim
+(${isOutrosClientesNao ? 'x' : ' '}) Não
+
+Necessita de backup:
+(${isBackupSim ? 'x' : ' '}) Sim
+(${isBackupNao ? 'x' : ' '}) Não
+
+Localização
+***********
+Setor: ${escalationDetails?.setor || ''}
+Edifício: ${escalationDetails?.edificio || ''}
+Complemento: ${escalationDetails?.complemento || ''}
+Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
+Contato: ${escalationDetails?.contato || ''}
+${setorAbertoStr}
+${localStr}
 
 REGRAS:
 - Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
-- Nas Ações realizadas, coloque as ações com tópicos organizados ("• ").
-- Corrija erros gramaticais e mantenha tom técnico e direto.
-- Não invente procedimentos que não foram informados.
-${validationText ? `- Ao final da seção Resultado:, inclua exatamente a frase: "${validationText}"` : ''}
+- Em "A solicitação:", resuma a solicitação técnica de instalação padrão/formatação com base no relato.
+- Em "A tratativa:", informe "Foi realizado o checklist de informações." e acrescente sucintamente testes prévios se tiverem sido executados.
+- Preserve exatamente a estrutura do checklist com (x) ou ( ) conforme definido acima.
+- Preserve exatamente a seção Localização e a linha com asteriscos ***********.
 
 RELATO DO ATENDIMENTO:
 "${description}"
