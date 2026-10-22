@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import type { Ticket } from "@/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -143,10 +144,10 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
     }
   }
 
-  // Tentar extração para chamados de Escalonamento (A solicitação / A tratativa / Dados do escalonamento)
-  const solicitacaoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+solicita[cç][aã]o\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+tratativa\s*:?|$)/i;
-  const tratativaRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+tratativa\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>)?\s*Dados\s+do\s+escalonamento\s*:?|$)/i;
-  const escalonamentoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*Dados\s+do\s+escalonamento\s*:?\s*(?:<\/b>|<\/strong>)?\s*\n*([\s\S]*?)$/i;
+  // Tentar extração para chamados de Escalonamento (A solicitação / A tratativa / Localização ou Dados do escalonamento)
+  const solicitacaoRegex = /(?:^|\n)\s*(?:<b>|<strong>)?\s*A\s+solicita[cç][aã]o\s*:?\s*(?:<\/b>|<\/strong>)?\s*(?:&nbsp;)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>|<u>)?\s*A\s+tratativa\s*:?|$)/i;
+  const tratativaRegex = /(?:^|\n)\s*(?:<b>|<strong>|<u>)?\s*A\s+tratativa\s*:?\s*(?:<\/b>|<\/strong>|<\/u>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:<b>|<strong>|<u>)?\s*(?:Localiza[cç][aã]o|Dados\s+do\s+escalonamento)\s*:?|$)/i;
+  const escalonamentoRegex = /(?:^|\n)\s*(?:<b>|<strong>|<u>)?\s*(?:Localiza[cç][aã]o|Dados\s+do\s+escalonamento)\s*:?\s*(?:<\/b>|<\/strong>|<\/u>)?\s*\n*([\s\S]*?)(?=(?:^|\n)\s*(?:Atenciosamente|--|<p>Atenciosamente|$))/i;
 
   const solMatch = rawTrimmed.match(solicitacaoRegex);
   const tratMatch = rawTrimmed.match(tratativaRegex);
@@ -177,14 +178,16 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
         id: 'tratativa',
         title: 'A tratativa',
         content: tratContent,
-        htmlContent: `<ul class="list-disc pl-4 space-y-1">${listItems}</ul>`
+        htmlContent: tratContent.includes('•') || tratContent.includes('-')
+          ? `<ul class="list-disc pl-4 space-y-1">${listItems}</ul>`
+          : tratContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
       });
     }
 
     if (escContent) {
       textSections.push({
-        id: 'escalonamento',
-        title: 'Dados do escalonamento',
+        id: 'localizacao',
+        title: 'Localização',
         content: escContent,
         htmlContent: escContent.split('\n').filter(Boolean).map(l => `<p class="mb-1">${l}</p>`).join('')
       });
@@ -269,9 +272,9 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
       }
     }
 
-    // Se NÃO achou Análise técnica/Ações/Resultado, procura seções de Escalonamento (A solicitação / A tratativa)
+    // Se NÃO achou Análise técnica/Ações/Resultado, procura seções de Escalonamento (A solicitação / A tratativa / Localização)
     if (sections.length === 0) {
-      const solEl = allElements.find(el => /a\s+solicita[cç][aã]o:?/i.test(el.textContent || ''));
+      const solEl = allElements.find(el => /a\s+solicita[cç][aã]o/i.test(el.textContent || ''));
       if (solEl) {
         const parent = solEl.closest('div') || solEl.parentElement;
         if (parent) {
@@ -282,7 +285,7 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
               id: 'solicitacao',
               title: 'A solicitação',
               content: text,
-              htmlContent: parent.innerHTML
+              htmlContent: `<p class="mb-1">${text}</p>`
             });
           }
         }
@@ -300,8 +303,32 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
             id: 'tratativa',
             title: 'A tratativa',
             content: text,
-            htmlContent: nextSibling ? nextSibling.outerHTML : (card ? card.innerHTML : '')
+            htmlContent: nextSibling ? nextSibling.outerHTML : `<p class="mb-1">${text}</p>`
           });
+        }
+      }
+
+      const locEl = allElements.find(el => {
+        const txt = (el.textContent || '').trim().toLowerCase();
+        return txt === 'localização' || txt === 'localizacao' || txt === 'dados do escalonamento';
+      });
+      if (locEl) {
+        const card = locEl.closest('div');
+        if (card) {
+          const clone = card.cloneNode(true) as HTMLElement;
+          const titleInClone = clone.querySelector('div, u, b, strong');
+          if (titleInClone && /localiza[cç][aã]o|dados\s+do\s+escalonamento/i.test(titleInClone.textContent || '')) {
+            titleInClone.remove();
+          }
+          const text = cleanSectionText(clone.innerHTML);
+          if (text) {
+            sections.push({
+              id: 'localizacao',
+              title: 'Localização',
+              content: text,
+              htmlContent: clone.innerHTML
+            });
+          }
         }
       }
     }
@@ -314,16 +341,175 @@ export function parseTicketHtmlSections(html: string | undefined | null): Parsed
 }
 
 /**
- * Constrói o HTML exatamente conforme o modelo padronizado exigido:
- * - Contêiner externo cinza (#fafafa) com borda arredondada e fonte Arial 12px
- * - Cada bloco em cartão branco (#ffffff) com borda arredondada de 10px
- * - Análise técnica com quebras de linha (<br />)
- * - Ações realizadas com lista não-ordenada <ul><li>...</li></ul>
- * - Resultado com validações
- * - Cartão âmbar com nota sobre pesquisa de satisfação
+ * Constrói o HTML de Escalonamento exatamente conforme o modelo padronizado:
+ * - Cabeçalho: <!-- ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO – MODELO PARA ATENDENTE -->
+ * - Saudação e A solicitação
+ * - CAIXA BASE com A tratativa e Localização (com campos e marcação de caixas de seleção)
+ * - Assinatura do atendente do Nível 1
  */
-export function buildStandardTicketHtml(input: string | undefined | null, options?: { includeSatisfaction?: boolean }): string {
+export function buildEscalationTicketHtml(
+  input: string | undefined | null,
+  options?: {
+    escalationDetails?: {
+      setor?: string;
+      edificio?: string;
+      complemento?: string;
+      pontoReferencia?: string;
+      contato?: string;
+      setorAbertoFechado?: 'Aberto' | 'Fechado' | '';
+      local?: 'Teletrabalho' | 'Senado' | 'Externo' | '';
+    };
+    ticket?: Partial<Ticket>;
+    analystName?: string;
+    analystRamal?: string;
+  }
+): string {
+  const raw = input || '';
+  const sections = parseTicketHtmlSections(raw);
+
+  // 1. Extrair "A solicitação"
+  let solicitacao = '';
+  const solSec = sections.find(s => s.id === 'solicitacao' || /solicita/i.test(s.title));
+  if (solSec && solSec.content.trim()) {
+    solicitacao = solSec.content.trim();
+  } else {
+    const solMatch = raw.match(/<strong>\s*A\s+solicita[cç][aã]o\s*<\/strong>\s*:?\s*(?:&nbsp;)?\s*([^\n<]+)/i) ||
+                     raw.match(/A\s+solicita[cç][aã]o\s*:?\s*([^\n<]+)/i);
+    if (solMatch && solMatch[1]?.trim()) {
+      solicitacao = solMatch[1].trim();
+    } else if (options?.ticket?.title?.trim()) {
+      solicitacao = options.ticket.title.trim();
+    } else if (options?.ticket?.description?.trim()) {
+      solicitacao = options.ticket.description.trim().split('\n')[0].trim();
+    } else {
+      solicitacao = 'Micro não liga';
+    }
+  }
+
+  // 2. Extrair "A tratativa"
+  let tratativa = '';
+  const tratSec = sections.find(s => s.id === 'tratativa' || /tratativa/i.test(s.title));
+  if (tratSec && tratSec.content.trim()) {
+    const lines = tratSec.content.split('\n').map(l => l.trim()).filter(Boolean);
+    tratativa = lines.join('<br />\n');
+  } else {
+    const tratMatch = raw.match(/<u>\s*A\s+tratativa\s*<\/u>[\s\S]*?<div>([\s\S]*?)<\/div>/i) ||
+                      raw.match(/A\s+tratativa\s*:?\s*([\s\S]*?)(?=(?:Localiza[cç][aã]o|Dados\s+do\s+escalonamento|<div style="border:1px solid #e5e7eb|<!-- LOCALIZAÇÃO|$))/i);
+    if (tratMatch && tratMatch[1]?.trim()) {
+      tratativa = stripAndFormatHtml(tratMatch[1]).split('\n').map(l => l.trim()).filter(Boolean).join('<br />\n');
+    } else {
+      tratativa = 'Após tratativas realizadas pelo analista de Nível 1, verificou-se a necessidade de atendimento especializado para solução do chamado.';
+    }
+  }
+
+  // 3. Extrair dados de Localização
+  const extractLocField = (fieldPattern: string): string => {
+    const regex = new RegExp(`(?:<div>)?\\s*(?:•\\s*)?${fieldPattern}\\s*:\\s*(?:&nbsp;)?\\s*([^\\n<]+)`, 'i');
+    const m = raw.match(regex);
+    return m ? m[1].replace(/&nbsp;/g, ' ').trim() : '';
+  };
+
+  const escDetails = options?.escalationDetails || options?.ticket?.escalationDetails;
+
+  const setor = escDetails?.setor ?? extractLocField('Setor') ?? '';
+  const edificio = escDetails?.edificio ?? extractLocField('Edif[íi]cio|Edificio') ?? '';
+  const complemento = escDetails?.complemento ?? extractLocField('Complemento') ?? '';
+  const pontoReferencia = escDetails?.pontoReferencia ?? extractLocField('Ponto\\s+de\\s+refer[êe]ncia|Ponto\\s+de\\s+referencia') ?? '';
+  const contato = escDetails?.contato ?? extractLocField('Contato') ?? '';
+
+  // Checkboxes Setor
+  const isAberto = escDetails?.setorAbertoFechado === 'Aberto' || /\(\s*[xX]\s*\)\s*Aberto/i.test(raw);
+  const isFechado = escDetails?.setorAbertoFechado === 'Fechado' || /\(\s*[xX]\s*\)\s*Fechado/i.test(raw);
+
+  // Checkboxes Local
+  const isTele = escDetails?.local === 'Teletrabalho' || /\(\s*[xX]\s*\)\s*Teletrabalho/i.test(raw);
+  const isSenado = escDetails?.local === 'Senado' || /\(\s*[xX]\s*\)\s*Senado/i.test(raw);
+  const isExterno = escDetails?.local === 'Externo' || /\(\s*[xX]\s*\)\s*Externo/i.test(raw);
+
+  // Atendente
+  const analystName = options?.analystName || options?.ticket?.user?.name || 'Alexandre Magno dos Santos Linhares';
+  const analystRamal = options?.analystRamal || '(61) 3303- 2000';
+
+  return `<!-- ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO – MODELO PARA ATENDENTE -->
+<div style="font-family:Arial,Helvetica,sans-serif; font-size:12px; color:#111827"><!-- TEXTO INICIAL -->
+<div style="font-size:12px; color:#000000; margin-bottom:8px"><strong>Prezados,</strong><br />
+<br />
+<strong>A solicitação</strong>:&nbsp;${solicitacao}</div>
+<!-- CAIXA BASE -->
+
+<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 14px; background:#fafafa; margin-top:10px; margin-right:0; margin-bottom:10px; margin-left:0"><!-- ATENDIMENTO ESPECIALIZADO -->
+<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">
+<div style="font-weight:bold; margin-bottom:4px"><u>A tratativa</u></div>
+
+<div>${tratativa}</div>
+</div>
+<!-- LOCALIZAÇÃO -->
+
+<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">
+<div style="font-weight:bold; margin-bottom:4px"><u>Localização</u></div>
+
+<div>Setor:&nbsp;${setor}</div>
+
+<div>Edifício:&nbsp;${edificio}</div>
+
+<div>Complemento:&nbsp;${complemento}</div>
+
+<div>Ponto de referência:&nbsp;${pontoReferencia}</div>
+
+<div>Contato:&nbsp;${contato}</div>
+
+<div style="margin-top:6px">Setor:&nbsp; (${isAberto ? 'X' : ' '}) Aberto &nbsp;&nbsp; (${isFechado ? 'X' : ' '}) Fechado</div>
+
+<div style="margin-top:4px">Local:&nbsp; (${isTele ? 'X' : ' '}) Teletrabalho &nbsp;&nbsp; (${isSenado ? 'X' : ' '}) Senado &nbsp;&nbsp; (${isExterno ? 'X' : ' '}) Externo</div>
+</div>
+</div>
+<!-- /CAIXA BASE -->
+
+<p>Atenciosamente,</p>
+
+<p>--<br />
+<strong><em>${analystName}</em></strong><br />
+<em>Analista de Suporte Junior<br />
+Senado Federal | PRODASEN | COATEN | SEARP<br />
+Ramal: ${analystRamal}</em></p>
+</div>`.trim();
+}
+
+/**
+ * Constrói o HTML exatamente conforme o modelo padronizado exigido:
+ * - Se for chamado de escalonamento, gera exatamente o modelo de Encaminhamento para Atendimento Especializado.
+ * - Se for chamado padrão/resolução, gera o contêiner cinza com caixas brancas e nota de pesquisa de satisfação.
+ */
+export function buildStandardTicketHtml(
+  input: string | undefined | null,
+  options?: {
+    includeSatisfaction?: boolean;
+    isEscalated?: boolean;
+    escalationDetails?: {
+      setor?: string;
+      edificio?: string;
+      complemento?: string;
+      pontoReferencia?: string;
+      contato?: string;
+      setorAbertoFechado?: 'Aberto' | 'Fechado' | '';
+      local?: 'Teletrabalho' | 'Senado' | 'Externo' | '';
+    };
+    ticket?: Partial<Ticket>;
+    analystName?: string;
+    analystRamal?: string;
+  }
+): string {
   if (!input || !input.trim()) return '';
+
+  const isEscalation = options?.isEscalated ||
+    options?.ticket?.isEscalated ||
+    /<!--\s*ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO/i.test(input) ||
+    /ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO/i.test(input) ||
+    (/(?:a\s+solicita[cç][aã]o)/i.test(input) && /(?:a\s+tratativa)/i.test(input));
+
+  if (isEscalation) {
+    return buildEscalationTicketHtml(input, options);
+  }
 
   const includeSatisfaction = options?.includeSatisfaction ?? true;
   const sections = parseTicketHtmlSections(input);
@@ -375,10 +561,10 @@ export function buildStandardTicketHtml(input: string | undefined | null, option
         return `<!-- A TRATATIVA -->\n<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">\n<div style="font-weight:bold; margin-bottom:4px">${sec.title}:</div>\n\n${inner}\n</div>`;
       }
 
-      if (lowerId === 'escalonamento' || lowerTitle.includes('escalonamento')) {
+      if (lowerId === 'localizacao' || lowerId === 'escalonamento' || lowerTitle.includes('localização') || lowerTitle.includes('escalonamento')) {
         const hasBullets = sec.content.includes('•') || sec.content.includes('-');
         const inner = hasBullets ? formatListItems(sec.content) : formatParagraphs(sec.content);
-        return `<!-- DADOS DO ESCALONAMENTO -->\n<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">\n<div style="font-weight:bold; margin-bottom:4px">${sec.title}:</div>\n\n${inner}\n</div>`;
+        return `<!-- LOCALIZAÇÃO -->\n<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">\n<div style="font-weight:bold; margin-bottom:4px">${sec.title}:</div>\n\n${inner}\n</div>`;
       }
 
       return `<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; margin-bottom:8px; background:#ffffff">\n<div style="font-weight:bold; margin-bottom:4px">${sec.title}:</div>\n\n${formatParagraphs(sec.content)}\n</div>`;

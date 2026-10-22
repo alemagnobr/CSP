@@ -98,7 +98,12 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
 
   const handleCopyResult = async () => {
     if (viewingTicket?.structuredResult) {
-      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult);
+      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult, {
+        isEscalated: viewingTicket.isEscalated,
+        escalationDetails: viewingTicket.escalationDetails,
+        ticket: viewingTicket,
+        includeSatisfaction: !viewingTicket.isEscalated
+      });
       await copyHtmlToClipboard(htmlToCopy, stripAndFormatHtml(viewingTicket.structuredResult));
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
@@ -107,7 +112,12 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
 
   const handleCopyRawHtml = async () => {
     if (viewingTicket?.structuredResult) {
-      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult);
+      const htmlToCopy = buildStandardTicketHtml(viewingTicket.structuredResult, {
+        isEscalated: viewingTicket.isEscalated,
+        escalationDetails: viewingTicket.escalationDetails,
+        ticket: viewingTicket,
+        includeSatisfaction: !viewingTicket.isEscalated
+      });
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(htmlToCopy);
       } else {
@@ -1314,8 +1324,18 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                               );
                             })}
 
-                            {/* Pesquisa de satisfação */}
-                            {researchHtml ? (
+                            {/* Pesquisa de satisfação ou Assinatura de Escalonamento */}
+                            {viewingTicket.isEscalated ? (
+                              <div className="rounded-xl border border-slate-200 bg-white p-3.5 text-slate-700 text-xs shadow-2xs">
+                                <p className="font-semibold text-slate-800 mb-1">Atenciosamente,</p>
+                                <p className="text-slate-600">--<br />
+                                  <strong><em>{viewingTicket.user?.name || 'Alexandre Magno dos Santos Linhares'}</em></strong><br />
+                                  <em>Analista de Suporte Junior<br />
+                                  Senado Federal | PRODASEN | COATEN | SEARP<br />
+                                  Ramal: (61) 3303- 2000</em>
+                                </p>
+                              </div>
+                            ) : researchHtml ? (
                               <div 
                                 className="text-sm text-slate-700 leading-relaxed select-text pt-1"
                                 dangerouslySetInnerHTML={{ __html: researchHtml }}
@@ -1349,7 +1369,12 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
                       );
                     })() : (
                       <pre className="whitespace-pre-wrap font-mono text-xs text-slate-700 leading-relaxed bg-white rounded-lg border border-slate-200 p-4 shadow-2xs overflow-x-auto">
-                        {viewingTicket.structuredResult}
+                        {buildStandardTicketHtml(viewingTicket.structuredResult, {
+                          isEscalated: viewingTicket.isEscalated,
+                          escalationDetails: viewingTicket.escalationDetails,
+                          ticket: viewingTicket,
+                          includeSatisfaction: !viewingTicket.isEscalated
+                        })}
                       </pre>
                     )}
                   </div>

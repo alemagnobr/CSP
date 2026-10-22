@@ -106,6 +106,7 @@ O texto é:
     aiPromptStandard: defaultAiPromptStandard,
     aiPromptEscalated: defaultAiPromptEscalated,
     aiProvider: 'gemini',
+    geminiModel: 'gemini-3.1-flash-lite',
     defaultSlaTimeFilter: 'month',
     faqs: initialFaqs
   });

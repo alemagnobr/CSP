@@ -1,8 +1,8 @@
 import { GoogleGenAI } from '@google/genai';
 
-// Modelos oficiais suportados pela SDK @google/genai com alta estabilidade
-const PRIMARY_GEMINI_MODEL = 'gemini-3.8-flash';
-const FALLBACK_GEMINI_MODELS = ['gemini-3.1-flash-lite', 'gemini-flash-latest'];
+// Modelos oficiais suportados pela SDK @google/genai com alta estabilidade e resposta ultra-rápida
+const PRIMARY_GEMINI_MODEL = 'gemini-3.1-flash-lite';
+const FALLBACK_GEMINI_MODELS = ['gemini-3.8-flash', 'gemini-flash-latest'];
 
 /**
  * Fecha automaticamente quaisquer tags HTML abertas (<div>, <ul>, <li>, <strong>, etc.)
@@ -37,8 +37,8 @@ export function repairIncompleteHtml(html: string): string {
 }
 
 /**
- * Executa uma chamada ao GoogleGenAI com limite de tokens ampliado (4096 tokens)
- * para NUNCA cortar a resposta pela metade, e fallback automático para modelos secundários.
+ * Executa uma chamada ao GoogleGenAI com limite de tokens calibrado (1024 tokens)
+ * para máxima velocidade sem cortes, timeout de 8s e fallback automático.
  */
 async function generateGeminiContentWithFallback(
   ai: GoogleGenAI,
@@ -54,15 +54,22 @@ async function generateGeminiContentWithFallback(
 
   for (const model of modelsToTry) {
     try {
-      const response = await ai.models.generateContent({
+      const generatePromise = ai.models.generateContent({
         model: model,
         contents: prompt,
         config: {
           temperature: 0.15, // Resposta direta, consistente e sem enrolação
-          maxOutputTokens: 4096, // Limite amplo de 4096 para NUNCA cortar a resposta pela metade
+          maxOutputTokens: 1024, // Limite calibrado para 1024 tokens: resposta rápida sem truncamento
           ...customConfig
         }
       });
+
+      // Timeout de 8 segundos por tentativa para não travar a UI caso o Google oscile
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error(`Timeout de resposta no modelo ${model} (8s excedidos)`)), 8000);
+      });
+
+      const response: any = await Promise.race([generatePromise, timeoutPromise]);
 
       if (response && response.text) {
         return repairIncompleteHtml(response.text);
@@ -191,34 +198,42 @@ export const generateTicketStructure = async (
 
   let prompt = '';
   if (isEscalated) {
-    prompt = `Você é um assistente técnico de TI e analista de suporte.
-Sua tarefa é reestruturar o chamado técnico para ESCALONAMENTO em TEXTO PURO.
+    const isAberto = escalationDetails?.setorAbertoFechado === 'Aberto';
+    const isFechado = escalationDetails?.setorAbertoFechado === 'Fechado';
+    const isTele = escalationDetails?.local === 'Teletrabalho';
+    const isSenado = escalationDetails?.local === 'Senado';
+    const isExterno = escalationDetails?.local === 'Externo';
+
+    const setorAbertoStr = `(${isAberto ? 'X' : ' '}) Aberto     (${isFechado ? 'X' : ' '}) Fechado`;
+    const localStr = `(${isTele ? 'X' : ' '}) Teletrabalho     (${isSenado ? 'X' : ' '}) Senado     (${isExterno ? 'X' : ' '}) Externo`;
+
+    prompt = `Você é um assistente técnico de TI e analista de suporte da Central de Atendimento do Senado Federal.
+Sua tarefa é reestruturar o chamado técnico para ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO em TEXTO PURO.
 NÃO use nenhuma tag HTML (NÃO use <div>, <ul>, <li>, <p>, etc.).
 NÃO use blocos markdown (não use \`\`\` nem asteriscos de negrito **).
 Use estritamente texto puro e limpo.
 
 ESTRUTURA OBRIGATÓRIA DA RESPOSTA:
 A solicitação:
-[Relato claro e profissional da solicitação e problema relatado pelo usuário]
+[Descrição concisa e objetiva da solicitação/problema, exemplo: Micro não liga]
 
 A tratativa:
-• [Testes e procedimentos executados pelo atendimento inicial]
-• [Motivo do encaminhamento para a equipe de campo/N2]
+Após tratativas realizadas pelo analista de Nível 1, verificou-se a necessidade de atendimento especializado para solução do chamado.
 
-Dados do escalonamento:
-• Setor: ${escalationDetails?.setor || 'Não informado'}
-• Edifício: ${escalationDetails?.edificio || 'Não informado'}
-• Complemento: ${escalationDetails?.complemento || 'Não informado'}
-• Ponto de referência: ${escalationDetails?.pontoReferencia || 'Não informado'}
-• Contato: ${escalationDetails?.contato || 'Não informado'}
-• Tipo de setor: ${escalationDetails?.setorAbertoFechado || 'Não informado'}
-• Local: ${escalationDetails?.local || 'Senado'}
+Localização:
+Setor: ${escalationDetails?.setor || ''}
+Edifício: ${escalationDetails?.edificio || ''}
+Complemento: ${escalationDetails?.complemento || ''}
+Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
+Contato: ${escalationDetails?.contato || ''}
+Setor: ${setorAbertoStr}
+Local: ${localStr}
 
 REGRAS:
 - Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
-- Na tratativa, coloque as ações com marcadores de bolinhas ("• ").
+- Em "A solicitação:", coloque apenas a descrição clara e concisa do problema.
+- Em "A tratativa:", informe as tratativas de Nível 1 e o encaminhamento especializado. Se houver procedimentos informados, adicione-os sucintamente mantendo tom formal.
 - Corrija erros gramaticais e mantenha tom técnico e direto.
-- Não invente procedimentos que não foram informados.
 
 RELATO DO ATENDIMENTO:
 "${description}"
@@ -307,7 +322,7 @@ ${proceduresContext}${guidelinesContext}
     return content.trim().replace(/^```[a-z]*\s*/i, '').replace(/```$/i, '').trim();
   } else {
     const ai = new GoogleGenAI({ apiKey });
-    const text = await generateGeminiContentWithFallback(ai, prompt, data.geminiModel, { maxOutputTokens: 2048, temperature: 0.15 });
+    const text = await generateGeminiContentWithFallback(ai, prompt, data.geminiModel, { maxOutputTokens: 1024, temperature: 0.15 });
     return text.trim().replace(/^```[a-z]*\s*/i, '').replace(/```$/i, '').trim();
   }
 };
@@ -417,7 +432,7 @@ Formato JSON esperado:
   } else {
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.1-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: "application/json",

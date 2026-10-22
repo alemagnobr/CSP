@@ -72,7 +72,7 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
   const [localAiPromptStandard, setLocalAiPromptStandard] = useState(appSettings.aiPromptStandard || '');
   const [localAiPromptEscalated, setLocalAiPromptEscalated] = useState(appSettings.aiPromptEscalated || '');
   const [localGeminiApiKey, setLocalGeminiApiKey] = useState(appSettings.geminiApiKey || '');
-  const [localGeminiModel, setLocalGeminiModel] = useState(appSettings.geminiModel || 'gemini-3.8-flash');
+  const [localGeminiModel, setLocalGeminiModel] = useState(appSettings.geminiModel || 'gemini-3.1-flash-lite');
   const [localOpenRouterApiKey, setLocalOpenRouterApiKey] = useState(appSettings.openRouterApiKey || '');
   const [localOpenRouterModel, setLocalOpenRouterModel] = useState(appSettings.openRouterModel || 'openrouter/free');
   
@@ -87,7 +87,7 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
     setLocalAiPromptStandard(appSettings.aiPromptStandard || '');
     setLocalAiPromptEscalated(appSettings.aiPromptEscalated || '');
     setLocalGeminiApiKey(appSettings.geminiApiKey || '');
-    setLocalGeminiModel(appSettings.geminiModel || 'gemini-3.8-flash');
+    setLocalGeminiModel(appSettings.geminiModel || 'gemini-3.1-flash-lite');
     setLocalOpenRouterApiKey(appSettings.openRouterApiKey || '');
     setLocalOpenRouterModel(appSettings.openRouterModel || 'openrouter/free');
   }, [appSettings.closingText, appSettings.aiPromptStandard, appSettings.aiPromptEscalated, appSettings.geminiApiKey, appSettings.geminiModel, appSettings.openRouterApiKey, appSettings.openRouterModel]);
@@ -451,12 +451,12 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
                 onChange={(e) => setLocalGeminiModel(e.target.value)}
                 className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="gemini-3.8-flash">Gemini 3.8 Flash (Estável e Completo) - Recomendado</option>
-                <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash Lite (Ultra-Rápido)</option>
+                <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash Lite (Ultra-Rápido) - Recomendado</option>
+                <option value="gemini-3.8-flash">Gemini 3.8 Flash (Estável e Completo)</option>
                 <option value="gemini-flash-latest">Gemini Flash Latest</option>
               </select>
               <p className="text-[11px] text-slate-400 mt-1">
-                ⚡ O modelo Gemini 3.8 Flash gera a resposta completa (Análise, Ações e Resultado) sem cortes e com alta velocidade.
+                ⚡ O modelo Gemini 3.1 Flash Lite responde quase instantaneamente com baixa latência e alta estabilidade para seus chamados.
               </p>
             </div>
           )}
@@ -507,7 +507,7 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
               onClick={handleSaveApiKeys}
               disabled={
                 localGeminiApiKey === (appSettings.geminiApiKey || '') && 
-                localGeminiModel === (appSettings.geminiModel || 'gemini-3.8-flash') &&
+                localGeminiModel === (appSettings.geminiModel || 'gemini-3.1-flash-lite') &&
                 localOpenRouterApiKey === (appSettings.openRouterApiKey || '') &&
                 localOpenRouterModel === (appSettings.openRouterModel || 'openrouter/free')
               }

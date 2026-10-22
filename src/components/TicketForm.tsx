@@ -144,7 +144,12 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyResult = async () => {
     if (aiResult) {
-      const htmlToCopy = buildStandardTicketHtml(aiResult);
+      const htmlToCopy = buildStandardTicketHtml(aiResult, {
+        isEscalated: ticket.isEscalated,
+        escalationDetails: ticket.escalationDetails,
+        ticket: ticket,
+        includeSatisfaction: !ticket.isEscalated
+      });
       await copyHtmlToClipboard(htmlToCopy, stripAndFormatHtml(aiResult));
       setCopiedResult(true);
       setTimeout(() => setCopiedResult(false), 2000);
@@ -153,7 +158,12 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
 
   const handleCopyRawHtml = async () => {
     if (aiResult) {
-      const htmlToCopy = buildStandardTicketHtml(aiResult);
+      const htmlToCopy = buildStandardTicketHtml(aiResult, {
+        isEscalated: ticket.isEscalated,
+        escalationDetails: ticket.escalationDetails,
+        ticket: ticket,
+        includeSatisfaction: !ticket.isEscalated
+      });
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(htmlToCopy);
       } else {
@@ -644,8 +654,18 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
                                 );
                               })}
 
-                              {/* Pesquisa de satisfação */}
-                              {researchHtml ? (
+                              {/* Pesquisa de satisfação ou Assinatura de Escalonamento */}
+                              {ticket.isEscalated ? (
+                                <div className="rounded-xl border border-slate-200 bg-white p-3.5 text-slate-700 text-xs shadow-2xs">
+                                  <p className="font-semibold text-slate-800 mb-1">Atenciosamente,</p>
+                                  <p className="text-slate-600">--<br />
+                                    <strong><em>{ticket.user?.name || 'Alexandre Magno dos Santos Linhares'}</em></strong><br />
+                                    <em>Analista de Suporte Junior<br />
+                                    Senado Federal | PRODASEN | COATEN | SEARP<br />
+                                    Ramal: (61) 3303- 2000</em>
+                                  </p>
+                                </div>
+                              ) : researchHtml ? (
                                 <div 
                                   className="text-sm text-slate-700 leading-relaxed select-text pt-1"
                                   dangerouslySetInnerHTML={{ __html: researchHtml }}
