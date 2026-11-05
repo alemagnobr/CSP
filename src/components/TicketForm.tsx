@@ -12,7 +12,7 @@
 import { Play, Pause, Copy, Code, Trash2, Sparkles, Search, Save, Loader2, X, Edit3, Info, Plus, Check, AlertTriangle, ArrowLeft, ChevronDown, ChevronUp, GripVertical, Repeat, BookmarkPlus, ExternalLink, FileText, BookOpen } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { ActiveTicket, AppSettings, Ticket, PredefinedSolution } from '@/types';
-import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, buildFormatMicroTicketText, copyHtmlToClipboard } from '@/lib/utils';
+import { cn, stripAndFormatHtml, parseTicketHtmlSections, buildStandardTicketHtml, buildEscalationTicketHtml, buildFormatMicroTicketText, copyHtmlToClipboard } from '@/lib/utils';
 import { generateTicketStructure, searchSolutions, generateProfessionalTitle, formatAiError, repairIncompleteHtml } from '@/lib/gemini';
 import { SolutionSearchModal } from './SolutionSearchModal';
 
@@ -388,6 +388,46 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
     } finally {
       setIsAiLoading(false);
     }
+  };
+
+  const handleInstantFallbackStructure = () => {
+    const currentTicket = ticketRef.current;
+    let text = '';
+    if (currentTicket.isFormatMicro) {
+      text = buildFormatMicroTicketText('', {
+        formatMicroDetails: currentTicket.formatMicroDetails,
+        escalationDetails: currentTicket.escalationDetails,
+        ticket: currentTicket
+      });
+    } else if (currentTicket.isEscalated) {
+      text = buildEscalationTicketHtml(currentTicket.description, {
+        escalationDetails: currentTicket.escalationDetails,
+        ticket: currentTicket
+      });
+    } else {
+      const selectedProcs = (currentTicket.selectedProcedures || [])
+        .map(id => appSettings.procedures?.find(p => p.id === id))
+        .filter(Boolean);
+
+      const procsList = selectedProcs.length > 0
+        ? selectedProcs.map(p => `• ${p?.name}: ${p?.description}`).join('\n')
+        : '• Verificações preliminares e testes técnicos executados conforme padrão.';
+
+      const resultSentence = currentTicket.problemSolved ? 'Problema solucionado. ' : '';
+      const validSentence = currentTicket.clientValidated ? 'Cliente validou o atendimento.' : '';
+
+      text = `Análise técnica:
+${currentTicket.description.trim() || 'Atendimento técnico prestado ao usuário.'}
+
+Ações realizadas:
+${procsList}
+
+Resultado:
+${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.trim();
+    }
+
+    setAiError(null);
+    setAiResult(text);
   };
 
   const handleSearchSolution = async () => {
@@ -1654,86 +1694,124 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-4 rounded-lg border border-indigo-100">
                <div className="col-span-1 md:col-span-2">
                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Dados do Escalonamento</h4>
+                 
+                 {/* Opção Aposentado */}
+                 <div className="flex items-center gap-2 mb-3 bg-indigo-50/70 border border-indigo-200/70 p-2.5 rounded-lg">
+                   <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-indigo-950 select-none">
+                     <input
+                       type="checkbox"
+                       checked={!!ticket.escalationDetails.isAposentado}
+                       onChange={(e) => handleChange('escalationDetails', {
+                         ...ticket.escalationDetails!,
+                         isAposentado: e.target.checked
+                       })}
+                       className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-indigo-300 cursor-pointer"
+                     />
+                     <span>Cliente Aposentado</span>
+                   </label>
+                   <span className="text-[11px] text-indigo-700 font-normal">
+                     (se marcado, exibe e registra apenas o campo de contato)
+                   </span>
+                 </div>
                </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.setor || ''}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, setor: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Edifício</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.edificio}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, edificio: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Complemento</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.complemento}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, complemento: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div className="md:col-span-2">
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Ponto de referência</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.pontoReferencia}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, pontoReferencia: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Contato</label>
-                  <input
-                    type="text"
-                    value={ticket.escalationDetails.contato}
-                    onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  />
-               </div>
-               
-               <div>
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Aberto'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Aberto' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Aberto</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Fechado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Fechado' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Fechado</span>
-                    </label>
-                  </div>
-               </div>
-               
-               <div className="md:col-span-2">
-                  <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Local</label>
-                  <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Teletrabalho'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Teletrabalho' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Teletrabalho</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Senado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Senado' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Senado</span>
-                    </label>
-                    <label className="flex items-center gap-1.5 cursor-pointer">
-                      <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Externo'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Externo' })} className="text-indigo-600 focus:ring-indigo-500" />
-                      <span className="text-sm text-slate-700">Externo</span>
-                    </label>
-                  </div>
-               </div>
+
+               {ticket.escalationDetails.isAposentado ? (
+                 <div className="col-span-1 md:col-span-2">
+                   <label className="block text-slate-600 text-xs font-bold uppercase tracking-wider mb-1">
+                     Contato (Telefone / Celular / E-mail)
+                   </label>
+                   <input
+                     type="text"
+                     value={ticket.escalationDetails.contato}
+                     onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
+                     placeholder="Informe telefone, ramal ou e-mail de contato do aposentado..."
+                     className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-2xs"
+                     autoFocus
+                   />
+                 </div>
+               ) : (
+                 <>
+                   <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.setor || ''}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, setor: e.target.value })}
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                   </div>
+                   <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Edifício</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.edificio}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, edificio: e.target.value })}
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                   </div>
+                   <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Complemento</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.complemento}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, complemento: e.target.value })}
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                   </div>
+                   <div className="md:col-span-2">
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Ponto de referência</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.pontoReferencia}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, pontoReferencia: e.target.value })}
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                   </div>
+                   <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Contato</label>
+                      <input
+                        type="text"
+                        value={ticket.escalationDetails.contato}
+                        onChange={(e) => handleChange('escalationDetails', { ...ticket.escalationDetails!, contato: e.target.value })}
+                        className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                   </div>
+                   
+                   <div>
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Setor</label>
+                      <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Aberto'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Aberto' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Aberto</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`setor-${ticket.id}`} checked={ticket.escalationDetails.setorAbertoFechado === 'Fechado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, setorAbertoFechado: 'Fechado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Fechado</span>
+                        </label>
+                      </div>
+                   </div>
+                   
+                   <div className="md:col-span-2">
+                      <label className="block text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-1">Local</label>
+                      <div className="flex items-center gap-4 h-[38px] px-3 bg-slate-50 border border-slate-200 rounded-lg">
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Teletrabalho'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Teletrabalho' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Teletrabalho</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Senado'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Senado' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Senado</span>
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer">
+                          <input type="radio" name={`local-${ticket.id}`} checked={ticket.escalationDetails.local === 'Externo'} onChange={() => handleChange('escalationDetails', { ...ticket.escalationDetails!, local: 'Externo' })} className="text-indigo-600 focus:ring-indigo-500" />
+                          <span className="text-sm text-slate-700">Externo</span>
+                        </label>
+                      </div>
+                   </div>
+                 </>
+               )}
              </div>
-          )}
+           )}
 
           {ticket.isFormatMicro && ticket.formatMicroDetails && (
             <div className="mt-4 bg-white p-4 rounded-lg border border-indigo-200 animate-in fade-in duration-200 space-y-4">
@@ -2381,9 +2459,27 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
             <div className="flex-1 text-sm">
               <strong className="font-bold block mb-0.5">Erro no processamento da IA:</strong>
               <p className="leading-relaxed whitespace-pre-line">{aiError}</p>
-              {aiError.toLowerCase().includes('unavailable') && (
+              
+              <div className="mt-3 flex items-center gap-2 flex-wrap">
+                <button
+                  type="button"
+                  onClick={handleInstantFallbackStructure}
+                  className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors shadow-2xs flex items-center gap-1.5 cursor-pointer"
+                  title="Gera a estrutura do chamado diretamente com os dados preenchidos, sem depender de servidores externos"
+                >
+                  <FileText className="h-3.5 w-3.5" />
+                  Preencher Estrutura Padrão (Sem IA)
+                </button>
+              </div>
+
+              {appSettings.aiProvider === 'openrouter' && aiError.toLowerCase().includes('unavailable') && (
                 <div className="mt-2 text-xs text-red-700 font-medium bg-red-100/50 p-2 rounded border border-red-200/50">
                   💡 O modelo gratuito selecionado no OpenRouter está congestionado ou indisponível no momento. Tente selecionar outro modelo gratuito (como <strong className="font-bold">DeepSeek R1 Free</strong> ou <strong className="font-bold">Llama 3.3 70B Free</strong>) na barra superior ou nas Configurações!
+                </div>
+              )}
+              {appSettings.aiProvider !== 'openrouter' && (aiError.toLowerCase().includes('unavailable') || aiError.toLowerCase().includes('high demand') || aiError.includes('503')) && (
+                <div className="mt-2 text-xs text-red-700 font-medium bg-red-100/50 p-2 rounded border border-red-200/50">
+                  💡 Os servidores do Google Gemini registraram pico temporário de demanda. O sistema tentou modelos reservas automaticamente. Você pode usar o botão acima <strong>Preencher Estrutura Padrão (Sem IA)</strong> para finalizar imediatamente ou tentar novamente em instantes.
                 </div>
               )}
               {aiError.includes('PERMISSION_DENIED') && (

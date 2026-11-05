@@ -10,6 +10,7 @@ import { InformationPanel } from '@/components/InformationPanel';
 import { ToolsPanel } from '@/components/ToolsPanel';
 import { SLADashboard } from '@/components/SLADashboard';
 import { TechnicalDoubtsPanel } from '@/components/TechnicalDoubtsPanel';
+import { InstitutionalPanel } from '@/components/InstitutionalPanel';
 import { Ticket, ActiveTicket, AppSettings, FAQ } from '@/types';
 import { initialFaqs } from '@/data/defaultFaqs';
 import { cn, cleanFaq } from '@/lib/utils';
@@ -106,7 +107,7 @@ O texto é:
     aiPromptStandard: defaultAiPromptStandard,
     aiPromptEscalated: defaultAiPromptEscalated,
     aiProvider: 'gemini',
-    geminiModel: 'gemini-3.1-flash-lite',
+    geminiModel: 'gemini-3.8-flash',
     defaultSlaTimeFilter: 'month',
     faqs: initialFaqs
   });
@@ -638,6 +639,8 @@ O texto é:
               <FaqPanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} tickets={tickets} />
             ) : activeSidebarItem === 'Orientações' ? (
               <ProcedurePanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} />
+            ) : activeSidebarItem === 'Institucional' ? (
+              <InstitutionalPanel />
             ) : activeSidebarItem === 'Dúvidas Técnicas' ? (
               <TechnicalDoubtsPanel appSettings={appSettings} onUpdateSettings={handleUpdateSettings} currentUser={user} />
             ) : activeSidebarItem === 'Informações' ? (

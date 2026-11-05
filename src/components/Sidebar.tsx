@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Headset, HelpCircle, ListChecks, BookOpen, Info, Settings, Plus, ExternalLink, X, Trash2, Activity, Download } from 'lucide-react';
+import { Headset, HelpCircle, ListChecks, Building2, Info, Settings, Plus, ExternalLink, X, Trash2, Activity, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AppSettings, Shortcut } from '@/types';
 
@@ -21,7 +21,7 @@ export function Sidebar({ activeItem = 'Atendimento', onNavigate, appSettings, o
     { name: 'SLA', icon: Activity },
     { name: 'FAQs', icon: HelpCircle },
     { name: 'Orientações', icon: ListChecks },
-    { name: 'Dúvidas Técnicas', icon: BookOpen },
+    { name: 'Institucional', icon: Building2 },
     { name: 'Informações', icon: Info },
   ];
 

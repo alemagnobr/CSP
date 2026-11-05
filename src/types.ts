@@ -37,6 +37,7 @@ export interface Ticket {
     necessitaBackup?: 'Sim' | 'Não' | '';
   };
   escalationDetails?: {
+    isAposentado?: boolean;
     setor: string;
     edificio: string;
     complemento: string;

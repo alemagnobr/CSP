@@ -351,6 +351,7 @@ export function buildEscalationTicketHtml(
   input: string | undefined | null,
   options?: {
     escalationDetails?: {
+      isAposentado?: boolean;
       setor?: string;
       edificio?: string;
       complemento?: string;
@@ -426,6 +427,43 @@ export function buildEscalationTicketHtml(
   const isSenado = escDetails?.local === 'Senado' || /\(\s*[xX]\s*\)\s*Senado/i.test(raw);
   const isExterno = escDetails?.local === 'Externo' || /\(\s*[xX]\s*\)\s*Externo/i.test(raw);
 
+  // Aposentado
+  const isAposentado = !!(
+    escDetails?.isAposentado ||
+    options?.ticket?.escalationDetails?.isAposentado ||
+    /Aposentado\s*:\s*Sim/i.test(raw) ||
+    /Perfil\s*:\s*Aposentado/i.test(raw) ||
+    /Cliente\s*:\s*Aposentado/i.test(raw)
+  );
+
+  const localizacaoCardHtml = isAposentado
+    ? `<!-- LOCALIZAÇÃO (APOSENTADO) -->
+<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">
+<div style="font-weight:bold; margin-bottom:4px"><u>Localização</u></div>
+
+<div><strong>Cliente</strong>:&nbsp;Aposentado</div>
+
+<div>Contato:&nbsp;${contato}</div>
+</div>`
+    : `<!-- LOCALIZAÇÃO -->
+<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">
+<div style="font-weight:bold; margin-bottom:4px"><u>Localização</u></div>
+
+<div>Setor:&nbsp;${setor}</div>
+
+<div>Edifício:&nbsp;${edificio}</div>
+
+<div>Complemento:&nbsp;${complemento}</div>
+
+<div>Ponto de referência:&nbsp;${pontoReferencia}</div>
+
+<div>Contato:&nbsp;${contato}</div>
+
+<div style="margin-top:6px">Setor:&nbsp; (${isAberto ? 'X' : ' '}) Aberto &nbsp;&nbsp; (${isFechado ? 'X' : ' '}) Fechado</div>
+
+<div style="margin-top:4px">Local:&nbsp; (${isTele ? 'X' : ' '}) Teletrabalho &nbsp;&nbsp; (${isSenado ? 'X' : ' '}) Senado &nbsp;&nbsp; (${isExterno ? 'X' : ' '}) Externo</div>
+</div>`;
+
   // Atendente
   const analystName = options?.analystName || options?.ticket?.user?.name || 'Alexandre Magno dos Santos Linhares';
   const analystRamal = options?.analystRamal || '(61) 3303- 2000';
@@ -443,25 +481,7 @@ export function buildEscalationTicketHtml(
 
 <div>${tratativa}</div>
 </div>
-<!-- LOCALIZAÇÃO -->
-
-<div style="border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; background:#ffffff">
-<div style="font-weight:bold; margin-bottom:4px"><u>Localização</u></div>
-
-<div>Setor:&nbsp;${setor}</div>
-
-<div>Edifício:&nbsp;${edificio}</div>
-
-<div>Complemento:&nbsp;${complemento}</div>
-
-<div>Ponto de referência:&nbsp;${pontoReferencia}</div>
-
-<div>Contato:&nbsp;${contato}</div>
-
-<div style="margin-top:6px">Setor:&nbsp; (${isAberto ? 'X' : ' '}) Aberto &nbsp;&nbsp; (${isFechado ? 'X' : ' '}) Fechado</div>
-
-<div style="margin-top:4px">Local:&nbsp; (${isTele ? 'X' : ' '}) Teletrabalho &nbsp;&nbsp; (${isSenado ? 'X' : ' '}) Senado &nbsp;&nbsp; (${isExterno ? 'X' : ' '}) Externo</div>
-</div>
+${localizacaoCardHtml}
 </div>
 <!-- /CAIXA BASE -->
 
@@ -525,6 +545,7 @@ export function buildFormatMicroTicketText(
       necessitaBackup?: 'Sim' | 'Não' | '';
     };
     escalationDetails?: {
+      isAposentado?: boolean;
       setor?: string;
       edificio?: string;
       complemento?: string;
@@ -619,6 +640,28 @@ export function buildFormatMicroTicketText(
     ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
     : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
 
+  const isAposentado = !!(
+    escDetails?.isAposentado ||
+    options?.ticket?.escalationDetails?.isAposentado ||
+    /Aposentado\s*:\s*Sim/i.test(raw) ||
+    /Cliente\s*:\s*Aposentado/i.test(raw)
+  );
+
+  const localizacaoTexto = isAposentado
+    ? `Localização
+***********
+Cliente: Aposentado
+Contato: ${contato}`
+    : `Localização
+***********
+Setor: ${setor}
+Edifício: ${edificio}
+Complemento: ${complemento}
+Ponto de referência: ${pontoReferencia}
+Contato: ${contato}
+Setor aberto (${isSetorAberto ? 'x' : ' '}) ou fechado (${isSetorFechado ? 'x' : ' '}) 
+${localLinha}`;
+
   return `Prezados,
 
 A solicitação: ${solicitacao}
@@ -641,15 +684,7 @@ Necessita de backup:
 (${isBackupSim ? 'x' : ' '}) Sim
 (${isBackupNao ? 'x' : ' '}) Não
 
-Localização
-***********
-Setor: ${setor}
-Edifício: ${edificio}
-Complemento: ${complemento}
-Ponto de referência: ${pontoReferencia}
-Contato: ${contato}
-Setor aberto (${isSetorAberto ? 'x' : ' '}) ou fechado (${isSetorFechado ? 'x' : ' '}) 
-${localLinha}`.trim();
+${localizacaoTexto}`.trim();
 }
 
 /**
@@ -666,6 +701,7 @@ export function buildStandardTicketHtml(
     isFormatMicro?: boolean;
     formatMicroDetails?: any;
     escalationDetails?: {
+      isAposentado?: boolean;
       setor?: string;
       edificio?: string;
       complemento?: string;

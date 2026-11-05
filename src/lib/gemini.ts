@@ -1,8 +1,8 @@
 import { GoogleGenAI } from '@google/genai';
 
-// Modelos oficiais suportados pela SDK @google/genai com alta estabilidade e resposta ultra-rápida
-const PRIMARY_GEMINI_MODEL = 'gemini-3.1-flash-lite';
-const FALLBACK_GEMINI_MODELS = ['gemini-3.8-flash', 'gemini-flash-latest'];
+// Modelos oficiais suportados pela SDK @google/genai com alta estabilidade e capacidade de cota
+const PRIMARY_GEMINI_MODEL = 'gemini-3.8-flash';
+const FALLBACK_GEMINI_MODELS = ['gemini-flash-latest', 'gemini-3.1-flash-lite'];
 
 /**
  * Fecha automaticamente quaisquer tags HTML abertas (<div>, <ul>, <li>, <strong>, etc.)
@@ -38,7 +38,7 @@ export function repairIncompleteHtml(html: string): string {
 
 /**
  * Executa uma chamada ao GoogleGenAI com limite de tokens calibrado (1024 tokens)
- * para máxima velocidade sem cortes, timeout de 8s e fallback automático.
+ * para máxima velocidade sem cortes, timeout de 8s e fallback automático entre múltiplos modelos.
  */
 async function generateGeminiContentWithFallback(
   ai: GoogleGenAI,
@@ -75,13 +75,17 @@ async function generateGeminiContentWithFallback(
         return repairIncompleteHtml(response.text);
       }
     } catch (err: any) {
-      console.warn(`[Gemini] Falha ou lentidão no modelo ${model}. Tentando próximo...`, err?.message || err);
+      console.warn(`[Gemini] Falha ou sobrecarga no modelo ${model}. Tentando próximo...`, err?.message || err);
       lastError = err;
-      // Se for erro de autenticação ou chave inválida, não adianta tentar outros modelos
+      // Só interrompe a cadeia de modelos se for comprovadamente falha de autenticação (chave inválida ou 403)
       const errMsg = (err?.message || '').toLowerCase();
-      if (errMsg.includes('api key') || errMsg.includes('invalid') || errMsg.includes('permission_denied')) {
+      const isAuthError = (errMsg.includes('api key') && (errMsg.includes('invalid') || errMsg.includes('not found') || errMsg.includes('expired'))) ||
+                          errMsg.includes('permission_denied') ||
+                          errMsg.includes('caller does not have permission');
+      if (isAuthError) {
         throw err;
       }
+      // Para qualquer outro erro (UNAVAILABLE, 503, high demand, 429, timeout), continua no próximo modelo da fila!
     }
   }
 
@@ -198,6 +202,7 @@ export const generateTicketStructure = async (
 
   let prompt = '';
   if (isEscalated) {
+    const isAposentado = !!escalationDetails?.isAposentado;
     const isAberto = escalationDetails?.setorAbertoFechado === 'Aberto';
     const isFechado = escalationDetails?.setorAbertoFechado === 'Fechado';
     const isTele = escalationDetails?.local === 'Teletrabalho';
@@ -206,6 +211,19 @@ export const generateTicketStructure = async (
 
     const setorAbertoStr = `(${isAberto ? 'X' : ' '}) Aberto     (${isFechado ? 'X' : ' '}) Fechado`;
     const localStr = `(${isTele ? 'X' : ' '}) Teletrabalho     (${isSenado ? 'X' : ' '}) Senado     (${isExterno ? 'X' : ' '}) Externo`;
+
+    const localizacaoPrompt = isAposentado
+      ? `Localização:
+Cliente: Aposentado
+Contato: ${escalationDetails?.contato || ''}`
+      : `Localização:
+Setor: ${escalationDetails?.setor || ''}
+Edifício: ${escalationDetails?.edificio || ''}
+Complemento: ${escalationDetails?.complemento || ''}
+Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
+Contato: ${escalationDetails?.contato || ''}
+Setor: ${setorAbertoStr}
+Local: ${localStr}`;
 
     prompt = `Você é um assistente técnico de TI e analista de suporte da Central de Atendimento do Senado Federal.
 Sua tarefa é reestruturar o chamado técnico para ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO em TEXTO PURO.
@@ -220,14 +238,7 @@ A solicitação:
 A tratativa:
 Após tratativas realizadas pelo analista de Nível 1, verificou-se a necessidade de atendimento especializado para solução do chamado.
 
-Localização:
-Setor: ${escalationDetails?.setor || ''}
-Edifício: ${escalationDetails?.edificio || ''}
-Complemento: ${escalationDetails?.complemento || ''}
-Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
-Contato: ${escalationDetails?.contato || ''}
-Setor: ${setorAbertoStr}
-Local: ${localStr}
+${localizacaoPrompt}
 
 REGRAS:
 - Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
@@ -254,6 +265,7 @@ ${proceduresContext}${guidelinesContext}
     const isBackupSim = formatMicroDetails?.necessitaBackup === 'Sim';
     const isBackupNao = formatMicroDetails?.necessitaBackup === 'Não';
 
+    const isAposentado = !!escalationDetails?.isAposentado;
     const isAberto = escalationDetails?.setorAbertoFechado === 'Aberto';
     const isFechado = escalationDetails?.setorAbertoFechado === 'Fechado';
 
@@ -265,6 +277,21 @@ ${proceduresContext}${guidelinesContext}
     const localStr = isExterno
       ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
       : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
+
+    const localizacaoMicroPrompt = isAposentado
+      ? `Localização
+***********
+Cliente: Aposentado
+Contato: ${escalationDetails?.contato || ''}`
+      : `Localização
+***********
+Setor: ${escalationDetails?.setor || ''}
+Edifício: ${escalationDetails?.edificio || ''}
+Complemento: ${escalationDetails?.complemento || ''}
+Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
+Contato: ${escalationDetails?.contato || ''}
+${setorAbertoStr}
+${localStr}`;
 
     prompt = `Você é um assistente técnico de TI e analista de suporte da Central de Atendimento do Senado Federal.
 Sua tarefa é reestruturar o chamado técnico para INSTALAÇÃO PADRÃO (FORMATAR MICRO) EXATAMENTE NO MODELO DE TEXTO PURO ABAIXO.
@@ -295,15 +322,7 @@ Necessita de backup:
 (${isBackupSim ? 'x' : ' '}) Sim
 (${isBackupNao ? 'x' : ' '}) Não
 
-Localização
-***********
-Setor: ${escalationDetails?.setor || ''}
-Edifício: ${escalationDetails?.edificio || ''}
-Complemento: ${escalationDetails?.complemento || ''}
-Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
-Contato: ${escalationDetails?.contato || ''}
-${setorAbertoStr}
-${localStr}
+${localizacaoMicroPrompt}
 
 REGRAS:
 - Retorne EXCLUSIVAMENTE TEXTO PURO. Sem HTML e sem markdown.
@@ -563,12 +582,20 @@ export function formatAiError(errorMsg: string, provider: 'gemini' | 'openrouter
     return `Chave de API inválida: A chave fornecida para o provedor ${provider === 'gemini' ? 'Gemini' : 'OpenRouter'} não é válida. Verifique se copiou a chave inteira corretamente nas Configurações.`;
   }
 
-  if (lowerMsg.includes('unavailable') && lowerMsg.includes('free')) {
-    return `Modelo Gratuito Indisponível: O modelo gratuito selecionado no OpenRouter está temporariamente indisponível ou com limite excedido. Tente selecionar outro modelo gratuito (como DeepSeek R1 Free, Llama 3.3 Free ou Qwen 2.5 Free) no menu de IA na barra superior ou nas Configurações, ou use o Google Gemini diretamente!`;
+  if (provider === 'gemini') {
+    if (lowerMsg.includes('high demand') || lowerMsg.includes('unavailable') || lowerMsg.includes('503') || lowerMsg.includes('resource_exhausted') || lowerMsg.includes('429')) {
+      return `Servidores do Google com Alta Demanda Temporária (UNAVAILABLE/429): Os servidores do Gemini estão com picos temporários de tráfego. Você pode clicar no botão "Preencher Estrutura Padrão (Sem IA)" para concluir imediatamente sem depender de IA, ou aguardar alguns instantes.`;
+    }
   }
-  
-  if (lowerMsg.includes('credit') || lowerMsg.includes('insufficient_funds') || lowerMsg.includes('balance') || lowerMsg.includes('insufficient credits')) {
-    return `Crédito Insuficiente: Sua conta no OpenRouter não possui saldo/crédito para realizar essa chamada com o modelo pago recomendado de fallback. Por favor, adicione saldo ao OpenRouter ou use o Google Gemini diretamente.`;
+
+  if (provider === 'openrouter') {
+    if (lowerMsg.includes('unavailable') || lowerMsg.includes('free')) {
+      return `Modelo Gratuito Indisponível no OpenRouter: O modelo gratuito selecionado está temporariamente indisponível ou com fila. Tente selecionar outro modelo gratuito (como DeepSeek R1 Free, Llama 3.3 Free ou Qwen 2.5 Free) no menu de IA na barra superior ou nas Configurações, ou use o Google Gemini diretamente!`;
+    }
+    
+    if (lowerMsg.includes('credit') || lowerMsg.includes('insufficient_funds') || lowerMsg.includes('balance') || lowerMsg.includes('insufficient credits')) {
+      return `Crédito Insuficiente: Sua conta no OpenRouter não possui saldo/crédito para realizar essa chamada com o modelo pago recomendado de fallback. Por favor, adicione saldo ao OpenRouter ou use o Google Gemini diretamente.`;
+    }
   }
 
   return errorMsg;
