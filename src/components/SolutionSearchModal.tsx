@@ -16,7 +16,7 @@ import {
   Pin
 } from 'lucide-react';
 import { ActiveTicket, AppSettings, Ticket } from '@/types';
-import { cn } from '@/lib/utils';
+import { cn, stripAndFormatHtml } from '@/lib/utils';
 import { SafeErrorBoundary } from './SafeErrorBoundary';
 
 interface SolutionSearchModalProps {
@@ -336,7 +336,7 @@ export function SolutionSearchModal({
   };
 
   const handleAppendToDescription = (content: string) => {
-    const plainText = (content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const plainText = stripAndFormatHtml(content || '');
     const current = ticket?.description || '';
     const updated = current.trim() ? `${current}\n\n${plainText}` : plainText;
     onUpdate({ ...ticket, description: updated });

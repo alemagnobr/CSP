@@ -175,6 +175,12 @@ export interface AppSettings {
     ruim: number;
     critica: number;
   };
+  slaTargets?: {
+    min10: number;
+    min15: number;
+    min20: number;
+    min30: number;
+  };
   closingTextEnabled: boolean;
   closingText: string;
   categories: string[];

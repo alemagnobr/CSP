@@ -128,6 +128,19 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
     }
   };
 
+  const handleSlaTargetChange = (field: 'min10' | 'min15' | 'min20' | 'min30', value: string) => {
+    const parsed = parseInt(value, 10);
+    const num = isNaN(parsed) ? 0 : Math.max(0, Math.min(100, parsed));
+    const currentTargets = appSettings.slaTargets || { min10: 50, min15: 70, min20: 90, min30: 99 };
+    onUpdateSettings({
+      ...appSettings,
+      slaTargets: {
+        ...currentTargets,
+        [field]: num
+      }
+    });
+  };
+
   const handleToggleClosingText = () => {
     onUpdateSettings({ ...appSettings, closingTextEnabled: !appSettings.closingTextEnabled });
   };
@@ -638,6 +651,89 @@ export function SettingsPanel({ appSettings, onUpdateSettings }: SettingsPanelPr
                 className="w-20 p-2 text-center rounded-lg border border-slate-200 bg-slate-100 text-sm font-medium cursor-not-allowed"
               />
               <span className="text-sm text-slate-500">min</span>
+            </div>
+          </div>
+
+          <div className="pt-6 mt-6 border-t border-slate-200">
+            <h3 className="text-base font-bold text-slate-800 mb-1">
+              Metas Percentuais de SLA por Faixa de Tempo
+            </h3>
+            <p className="text-xs text-slate-500 mb-4">
+              Defina a meta percentual (%) esperada para cada intervalo de atendimento. Estes valores atualizam o gráfico comparativo e os cartões na Visão Geral.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-lg">
+                <div>
+                  <span className="font-bold text-slate-700 block">0 a 10 min</span>
+                  <span className="text-xs text-slate-500">Meta de chamados encerrados</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={appSettings.slaTargets?.min10 ?? 50}
+                    onChange={(e) => handleSlaTargetChange('min10', e.target.value)}
+                    className="w-20 p-2 text-center rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-slate-800"
+                  />
+                  <span className="text-sm font-semibold text-slate-500">%</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-lg">
+                <div>
+                  <span className="font-bold text-slate-700 block">0 a 15 min</span>
+                  <span className="text-xs text-slate-500">Meta de chamados encerrados</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={appSettings.slaTargets?.min15 ?? 70}
+                    onChange={(e) => handleSlaTargetChange('min15', e.target.value)}
+                    className="w-20 p-2 text-center rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-slate-800"
+                  />
+                  <span className="text-sm font-semibold text-slate-500">%</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-lg">
+                <div>
+                  <span className="font-bold text-slate-700 block">0 a 20 min</span>
+                  <span className="text-xs text-slate-500">Meta de chamados encerrados</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={appSettings.slaTargets?.min20 ?? 90}
+                    onChange={(e) => handleSlaTargetChange('min20', e.target.value)}
+                    className="w-20 p-2 text-center rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-slate-800"
+                  />
+                  <span className="text-sm font-semibold text-slate-500">%</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-lg">
+                <div>
+                  <span className="font-bold text-slate-700 block">0 a 30 min</span>
+                  <span className="text-xs text-slate-500">Meta crítica de chamados encerrados</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    value={appSettings.slaTargets?.min30 ?? 99}
+                    onChange={(e) => handleSlaTargetChange('min30', e.target.value)}
+                    className="w-20 p-2 text-center rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-bold text-slate-800"
+                  />
+                  <span className="text-sm font-semibold text-slate-500">%</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

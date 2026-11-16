@@ -96,6 +96,7 @@ O texto é:
   const [appSettings, setAppSettings] = useState<AppSettings>({
     profileManagerPath: 'D:\\Users\\02826800124\\Documents\\Gerenciador de Perfil.bat',
     sla: { otima: 5, boa: 9, atencao: 15, ruim: 20, critica: 30 },
+    slaTargets: { min10: 50, min15: 70, min20: 90, min30: 99 },
     closingTextEnabled: true,
     closingText: defaultClosingText,
     categories: defaultCategories,
@@ -146,6 +147,13 @@ O texto é:
         setAppSettings(prev => ({
           ...prev,
           ...data,
+          slaTargets: {
+            min10: 50,
+            min15: 70,
+            min20: 90,
+            min30: 99,
+            ...(data.slaTargets || {})
+          },
           userFaqs: storedUserFaqs,
           faqs: allFaqs,
           profileManagerPath: data.profileManagerPath ?? prev.profileManagerPath,

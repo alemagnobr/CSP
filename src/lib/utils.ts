@@ -419,13 +419,18 @@ export function buildEscalationTicketHtml(
   const contato = escDetails?.contato ?? extractLocField('Contato') ?? '';
 
   // Checkboxes Setor
-  const isAberto = escDetails?.setorAbertoFechado === 'Aberto' || /\(\s*[xX]\s*\)\s*Aberto/i.test(raw);
-  const isFechado = escDetails?.setorAbertoFechado === 'Fechado' || /\(\s*[xX]\s*\)\s*Fechado/i.test(raw);
+  const isAberto = escDetails?.setorAbertoFechado === 'Aberto' || /\(\s*[xX]\s*\)\s*Aberto/i.test(raw) || /Setor\s+aberto\s*\(\s*[xX]\s*\)/i.test(raw);
+  const isFechado = escDetails?.setorAbertoFechado === 'Fechado' || /\(\s*[xX]\s*\)\s*Fechado/i.test(raw) || /fechado\s*\(\s*[xX]\s*\)/i.test(raw);
 
   // Checkboxes Local
-  const isTele = escDetails?.local === 'Teletrabalho' || /\(\s*[xX]\s*\)\s*Teletrabalho/i.test(raw);
-  const isSenado = escDetails?.local === 'Senado' || /\(\s*[xX]\s*\)\s*Senado/i.test(raw);
+  const isTele = escDetails?.local === 'Teletrabalho' || /\(\s*[xX]\s*\)\s*Teletrabalho/i.test(raw) || /teletrabalho\s*\(\s*[xX]\s*\)/i.test(raw);
+  const isSenado = escDetails?.local === 'Senado' || /\(\s*[xX]\s*\)\s*Senado/i.test(raw) || /no\s+Senado\s*\(\s*[xX]\s*\)/i.test(raw);
   const isExterno = escDetails?.local === 'Externo' || /\(\s*[xX]\s*\)\s*Externo/i.test(raw);
+
+  const setorAbertoLinha = `Setor aberto (${isAberto ? 'x' : ' '}) ou fechado (${isFechado ? 'x' : ' '})`;
+  const localLinha = isExterno
+    ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
+    : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
 
   // Aposentado
   const isAposentado = !!(
@@ -459,9 +464,9 @@ export function buildEscalationTicketHtml(
 
 <div>Contato:&nbsp;${contato}</div>
 
-<div style="margin-top:6px">Setor:&nbsp; (${isAberto ? 'X' : ' '}) Aberto &nbsp;&nbsp; (${isFechado ? 'X' : ' '}) Fechado</div>
+<div>${setorAbertoLinha}</div>
 
-<div style="margin-top:4px">Local:&nbsp; (${isTele ? 'X' : ' '}) Teletrabalho &nbsp;&nbsp; (${isSenado ? 'X' : ' '}) Senado &nbsp;&nbsp; (${isExterno ? 'X' : ' '}) Externo</div>
+<div>${localLinha}</div>
 </div>`;
 
   // Atendente

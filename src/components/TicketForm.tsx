@@ -2605,7 +2605,7 @@ ${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.tri
                           <button
                             type="button"
                             onClick={() => {
-                              navigator.clipboard.writeText(sol.content);
+                              navigator.clipboard.writeText(stripAndFormatHtml(sol.content));
                               setCopiedPredefinedId(sol.id);
                               setTimeout(() => setCopiedPredefinedId(null), 2000);
                             }}
@@ -2623,7 +2623,9 @@ ${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.tri
                           <button
                             type="button"
                             onClick={() => {
-                              const newDesc = ticket.description ? `${ticket.description}\n\n${sol.content}` : sol.content;
+                              const formattedContent = stripAndFormatHtml(sol.content);
+                              const currentDesc = ticket.description?.trim();
+                              const newDesc = currentDesc ? `${currentDesc}\n\n${formattedContent}` : formattedContent;
                               handleChange('description', newDesc);
                               setShowPredefinedSolutions(false);
                             }}
@@ -2636,7 +2638,7 @@ ${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.tri
                         </div>
                       </div>
                       <p className="text-xs text-slate-600 line-clamp-3 whitespace-pre-line leading-relaxed bg-white/60 p-2 rounded-md border border-slate-200/50">
-                        {sol.content}
+                        {stripAndFormatHtml(sol.content)}
                       </p>
                     </div>
                   );

@@ -209,8 +209,10 @@ export const generateTicketStructure = async (
     const isSenado = escalationDetails?.local === 'Senado';
     const isExterno = escalationDetails?.local === 'Externo';
 
-    const setorAbertoStr = `(${isAberto ? 'X' : ' '}) Aberto     (${isFechado ? 'X' : ' '}) Fechado`;
-    const localStr = `(${isTele ? 'X' : ' '}) Teletrabalho     (${isSenado ? 'X' : ' '}) Senado     (${isExterno ? 'X' : ' '}) Externo`;
+    const setorAbertoStr = `Setor aberto (${isAberto ? 'x' : ' '}) ou fechado (${isFechado ? 'x' : ' '})`;
+    const localStr = isExterno
+      ? `Em teletrabalho ( ) ou no Senado ( ) ou Externo (x)`
+      : `Em teletrabalho (${isTele ? 'x' : ' '}) ou no Senado (${isSenado ? 'x' : ' '})`;
 
     const localizacaoPrompt = isAposentado
       ? `Localização:
@@ -222,8 +224,8 @@ Edifício: ${escalationDetails?.edificio || ''}
 Complemento: ${escalationDetails?.complemento || ''}
 Ponto de referência: ${escalationDetails?.pontoReferencia || ''}
 Contato: ${escalationDetails?.contato || ''}
-Setor: ${setorAbertoStr}
-Local: ${localStr}`;
+${setorAbertoStr}
+${localStr}`;
 
     prompt = `Você é um assistente técnico de TI e analista de suporte da Central de Atendimento do Senado Federal.
 Sua tarefa é reestruturar o chamado técnico para ENCAMINHAMENTO PARA ATENDIMENTO ESPECIALIZADO em TEXTO PURO.

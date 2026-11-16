@@ -154,9 +154,9 @@ export function SLADashboard({ tickets, appSettings }: SLADashboardProps) {
   }, [finishedTickets, selectedCategory, timelineFilter]);
 
   const maxTimelineVal = useMemo(() => {
-    if (timelineData.length === 0) return 20;
-    const max = Math.max(...timelineData.map(d => d.avgMinutes), 18);
-    return Math.max(20, Math.ceil(max / 5) * 5);
+    if (timelineData.length === 0) return 30;
+    const max = Math.max(...timelineData.map(d => d.avgMinutes), 28);
+    return Math.max(30, Math.ceil(max / 5) * 5);
   }, [timelineData]);
 
   const monthlyComparativeData = useMemo(() => {
@@ -436,10 +436,10 @@ export function SLADashboard({ tickets, appSettings }: SLADashboardProps) {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={timelineData} margin={{ top: 10, right: 30, left: -20, bottom: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                  <ReferenceArea {...({ y1: 0, y2: 7, fill: '#10b981', fillOpacity: 0.12 } as any)} />
-                  <ReferenceArea {...({ y1: 7, y2: 9, fill: '#3b82f6', fillOpacity: 0.12 } as any)} />
-                  <ReferenceArea {...({ y1: 9, y2: 15, fill: '#f97316', fillOpacity: 0.12 } as any)} />
-                  <ReferenceArea {...({ y1: 15, y2: maxTimelineVal, fill: '#ef4444', fillOpacity: 0.12 } as any)} />
+                  <ReferenceArea {...({ y1: 0, y2: 10, fill: '#10b981', fillOpacity: 0.12 } as any)} />
+                  <ReferenceArea {...({ y1: 10, y2: 15, fill: '#3b82f6', fillOpacity: 0.12 } as any)} />
+                  <ReferenceArea {...({ y1: 15, y2: 20, fill: '#f97316', fillOpacity: 0.12 } as any)} />
+                  <ReferenceArea {...({ y1: 20, y2: maxTimelineVal, fill: '#ef4444', fillOpacity: 0.12 } as any)} />
                   <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#64748b' }} dy={10} />
                   <YAxis domain={[0, maxTimelineVal]} axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#64748b' }} />
                   <Tooltip 
@@ -471,9 +471,9 @@ export function SLADashboard({ tickets, appSettings }: SLADashboardProps) {
                       if (cx === undefined || cy === undefined || !payload) return null;
                       const val = payload.avgMinutes;
                       let color = '#10b981';
-                      if (val >= 15) color = '#ef4444';
-                      else if (val >= 9) color = '#f97316';
-                      else if (val >= 7) color = '#3b82f6';
+                      if (val > 20) color = '#ef4444';
+                      else if (val > 15) color = '#f97316';
+                      else if (val > 10) color = '#3b82f6';
                       return <circle key={`dot-${cx}-${cy}`} cx={cx} cy={cy} r={4} fill={color} stroke="#ffffff" strokeWidth={2} />;
                     }} 
                     activeDot={{ r: 6 }} 

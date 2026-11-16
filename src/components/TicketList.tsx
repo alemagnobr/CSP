@@ -261,6 +261,10 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
 
   const slaChartData = useMemo(() => {
     const total = finishedFilteredTickets.length;
+    const target10 = appSettings.slaTargets?.min10 ?? 50;
+    const target15 = appSettings.slaTargets?.min15 ?? 70;
+    const target20 = appSettings.slaTargets?.min20 ?? 90;
+    const target30 = appSettings.slaTargets?.min30 ?? 99;
     
     const count10 = finishedFilteredTickets.filter(t => t.durationSeconds <= 10 * 60).length;
     const count15 = finishedFilteredTickets.filter(t => t.durationSeconds <= 15 * 60).length;
@@ -276,7 +280,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       {
         name: '0 a 10 min',
         key: '10' as const,
-        'Meta SLA': 70,
+        'Meta SLA': target10,
         'Realizado': pct10,
         count: count10,
         total: total,
@@ -286,7 +290,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       {
         name: '0 a 15 min',
         key: '15' as const,
-        'Meta SLA': 85,
+        'Meta SLA': target15,
         'Realizado': pct15,
         count: count15,
         total: total,
@@ -296,7 +300,7 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       {
         name: '0 a 20 min',
         key: '20' as const,
-        'Meta SLA': 95,
+        'Meta SLA': target20,
         'Realizado': pct20,
         count: count20,
         total: total,
@@ -306,15 +310,15 @@ export function TicketList({ tickets, appSettings, onArchive, onRestore, onDelet
       {
         name: '0 a 30 min',
         key: '30' as const,
-        'Meta SLA': 99,
+        'Meta SLA': target30,
         'Realizado': pct30,
         count: count30,
         total: total,
-        intervalText: `${pct30}% fechados em 0 a 30 min (Meta: 99%)`,
+        intervalText: `${pct30}% fechados em 0 a 30 min (Meta: ${target30}%)`,
         isCritical: true,
       }
     ];
-  }, [finishedFilteredTickets]);
+  }, [finishedFilteredTickets, appSettings.slaTargets]);
 
   let slaStatus = 'Sem dados';
   let slaColor = 'bg-slate-200';
