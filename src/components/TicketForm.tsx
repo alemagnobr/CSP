@@ -66,6 +66,7 @@ export function TicketForm({ ticket, onUpdate, onFinish, onDuplicate, onUpdateSe
   const [copiedSolutionHtml, setCopiedSolutionHtml] = useState(false);
   const [copiedSolutionText, setCopiedSolutionText] = useState(false);
   const [copiedPredefinedId, setCopiedPredefinedId] = useState<string | null>(null);
+  const [copiedPredefinedHtmlId, setCopiedPredefinedHtmlId] = useState<string | null>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
   const [isGeneratingTitle, setIsGeneratingTitle] = useState(false);
@@ -2597,11 +2598,12 @@ ${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.tri
 
                 return solutions.map((sol) => {
                   const isCopied = copiedPredefinedId === sol.id;
+                  const isHtmlCopied = copiedPredefinedHtmlId === sol.id;
                   return (
                     <div key={sol.id} className="p-3.5 bg-slate-50 hover:bg-slate-100/80 rounded-xl border border-slate-200 transition-all flex flex-col gap-2 group">
-                      <div className="flex items-center justify-between">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
                         <h4 className="font-bold text-sm text-slate-800">{sol.title}</h4>
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <button
                             type="button"
                             onClick={() => {
@@ -2615,10 +2617,32 @@ ${resultSentence}${validSentence || 'Procedimento concluído com sucesso.'}`.tri
                                 ? "bg-emerald-50 text-emerald-700 border-emerald-300"
                                 : "bg-white border-slate-200 hover:bg-slate-50 text-slate-600"
                             )}
-                            title="Copiar texto para área de transferência"
+                            title="Copiar texto formatado para área de transferência"
                           >
                             {isCopied ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3" />}
                             {isCopied ? 'Copiado!' : 'Copiar'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const hasHtmlTags = /<[a-z][\s\S]*>/i.test(sol.content || '');
+                              const htmlToCopy = hasHtmlTags
+                                ? sol.content
+                                : buildStandardTicketHtml(sol.content, { ticket });
+                              navigator.clipboard.writeText(htmlToCopy);
+                              setCopiedPredefinedHtmlId(sol.id);
+                              setTimeout(() => setCopiedPredefinedHtmlId(null), 2000);
+                            }}
+                            className={cn(
+                              "px-2.5 py-1 text-xs font-semibold rounded-md border transition-all cursor-pointer flex items-center gap-1 shadow-2xs",
+                              isHtmlCopied 
+                                ? "bg-purple-50 text-purple-700 border-purple-300"
+                                : "bg-white border-purple-200 hover:bg-purple-50 text-purple-700"
+                            )}
+                            title="Copiar código HTML da solução padrão"
+                          >
+                            {isHtmlCopied ? <Check className="h-3 w-3 text-purple-600" /> : <Code className="h-3 w-3" />}
+                            {isHtmlCopied ? 'HTML Copiado!' : 'Copiar HTML'}
                           </button>
                           <button
                             type="button"
